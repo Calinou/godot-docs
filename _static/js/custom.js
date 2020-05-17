@@ -6,7 +6,7 @@
 // more room to the navigation on the left. This means adjusting the height
 // available to the navigation on the fly. There is also a banner below the navigation
 // that must be dealt with simultaneously.
-const registerOnScrollEvent = (function(){
+const registerOnScrollEvent = (function () {
   // Configuration.
 
   // The number of pixels the user must scroll by before the logo is completely hidden.
@@ -21,7 +21,7 @@ const registerOnScrollEvent = (function(){
   const menuHeightOffset_diff = (menuHeightOffset_default - menuHeightOffset_fixed);
 
   // Media query handler.
-  return function(mediaQuery) {
+  return function (mediaQuery) {
     // We only apply this logic to the "desktop" resolution (defined by a media query at the bottom).
     // This handler is executed when the result of the query evaluation changes, which means that
     // the page has moved between "desktop" and "mobile" states.
@@ -55,8 +55,7 @@ const registerOnScrollEvent = (function(){
           $search.css('margin-top', `-${scrollTopPixels}px`);
           $menu.css('margin-top', `${menuTopMargin}px`);
           $menu.css('max-height', `calc(100% - ${menuHeightOffset_fixed}px)`);
-        }
-        else {
+        } else {
           // Between the top of the page and the threshold we calculate intermediate values
           // to guarantee a smooth transition.
           $search.css('margin-top', `-${currentScroll}px`);
@@ -105,17 +104,17 @@ const registerOnScrollEvent = (function(){
       if (ethicalOffsetBottom) {
         $menuPadding.css('height', `${ethicalOffsetBottom}px`);
       } else {
-        $menuPadding.css('height', `0px`);
+        $menuPadding.css('height', '0px');
       }
 
-      $window.scroll(function() {
+      $window.scroll(() => {
         handleMainScroll(window.scrollY);
         handleSidebarScroll();
       });
 
-      $menu.scroll(function() {
+      $menu.scroll(() => {
         handleSidebarScroll();
-      })
+      });
 
       handleMainScroll(window.scrollY);
       handleSidebarScroll();
@@ -128,20 +127,20 @@ const registerOnScrollEvent = (function(){
       $search.removeClass('fixed');
       $ethical.removeClass('fixed');
 
-      $search.css('margin-top', `0px`);
-      $menu.css('margin-top', `0px`);
+      $search.css('margin-top', '0px');
+      $menu.css('margin-top', '0px');
       $menu.css('max-height', 'initial');
-      $menuPadding.css('height', `0px`);
+      $menuPadding.css('height', '0px');
       $ethical.css('margin-top', '0px');
       $ethical.css('display', 'block');
     }
   };
-})();
+}());
 
 // Subscribe to DOM changes in the sidebar container, because there is a
 // banner that gets added at a later point, that we might not catch otherwise.
-const registerSidebarObserver = (function(){
-  return function(callback) {
+const registerSidebarObserver = (function () {
+  return function (callback) {
     const sidebarContainer = document.querySelector('.wy-side-scroll');
 
     let sidebarEthical = null;
@@ -160,7 +159,7 @@ const registerSidebarObserver = (function(){
       // This observer watches over the ethical block in sidebar, and all of its subtree.
       const ethicalObserverConfig = { childList: true, subtree: true };
       const ethicalObserverCallback = (mutationsList, observer) => {
-        for (let mutation of mutationsList) {
+        for (const mutation of mutationsList) {
           if (mutation.type !== 'childList') {
             continue;
           }
@@ -177,7 +176,7 @@ const registerSidebarObserver = (function(){
     // This observer watches over direct children of the main sidebar container.
     const observerConfig = { childList: true };
     const observerCallback = (mutationsList, observer) => {
-      for (let mutation of mutationsList) {
+      for (const mutation of mutationsList) {
         if (mutation.type !== 'childList') {
           continue;
         }
@@ -190,7 +189,7 @@ const registerSidebarObserver = (function(){
     const observer = new MutationObserver(observerCallback);
     observer.observe(sidebarContainer, observerConfig);
   };
-})();
+}());
 
 $(document).ready(() => {
   const mediaQuery = window.matchMedia('only screen and (min-width: 769px)');

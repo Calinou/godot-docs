@@ -36,3 +36,6 @@ ehthumbs_vista.db
 $RECYCLE.BIN/
 logo.h
 *.autosave
+
+# CSS/JavaScript linting packages
+node_modules/
