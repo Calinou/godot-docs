@@ -310,3 +310,5 @@ You usually tweak your animations this way, when the movement doesn't
 
 .. |Play from beginning| image:: img/animation_play_from_beginning.png
 .. |Add Animation| image:: img/animation_add.png
+
+.. questions-answers:: animation
