@@ -159,6 +159,7 @@ html_css_files = [
 ]
 
 html_js_files = [
+    "js/barba-2.9.7.umd.min.js",
     "js/custom.js",
 ]
 
