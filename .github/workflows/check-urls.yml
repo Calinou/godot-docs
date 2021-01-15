@@ -1,0 +1,28 @@
+name: 🌐 Check URLs
+on:
+  push:
+  pull_request:
+  schedule:
+    # Every day at midnight (UTC).
+    # URLs can decay over time. Setting up a schedule makes it possible to be warned
+    # about dead links as soon as possible.
+    - cron: "0 0 * * *"
+
+jobs:
+  check-urls:
+    name: Check URLs
+    runs-on: ubuntu-20.04
+    steps:
+
+      - uses: actions/checkout@v2
+
+      - name: Check link validity
+        uses: lycheeverse/lychee-action@v1
+        with:
+          # Don't match github.com URLs (due to rate limiting), Godot file
+          # paths, example file paths, TCP/WebSocket URLs and @GDScript class
+          # name in a literal code block.
+          args: --verbose "**/*.rst" --exclude-all-private --exclude "github.com|res://.+|user://.+|ws://.+|tcp://.+|path://.+|(`|/)@.+"
+
+      - name: Fail if there were link errors
+        run: exit ${{ steps.lc.outputs.exit_code }}
