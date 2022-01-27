@@ -1,0 +1,37 @@
+name: Close pull requests that modify automatically generated files
+on:
+  pull_request:
+    types:
+      - opened
+
+jobs:
+  autoclose:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Autoclose
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PULL_REQUEST_FILES: ${{ github.event.pull_request.files }}
+        run: |
+          echo "PULL_REQUEST_FILES:"
+          echo "$PULL_REQUEST_FILES"
+          echo ""
+          echo "${{ github.event.pull_request.files }}"
+
+          pull_request_valid=0
+
+          if [[ $pull_request_valid == 1 ]]; then
+            echo "Success: The pull request does not modify class reference files."
+          else
+            echo "ERROR: The pull request modifies automatically generated class reference files in the _classes/ folder. It will be automatically closed."
+            if [ ${{ github.event.action }} = opened ]; then
+              issue_close_body=$'Thanks for opening a pull request\!\n\n'
+              issue_close_body+="Contributions to the class reference should be sent on the main Godot repository, not here. This is because the class reference in this repository is generated automatically based on the XML files in the main repository. See [Contribute to the class reference](https://docs.godotengine.org/en/latest/community/contributing/updating_the_class_reference.html) in the documentation for instructions :slightly_smiling_face:"
+
+              gh issue comment ${{ github.event.pull_request.number }} -b "$issue_close_body"
+              gh issue close ${{ github.event.pull_request.number }}
+              gh issue edit ${{ github.event.pull_request.number }} --add-label "archived"
+            fi
+          fi
