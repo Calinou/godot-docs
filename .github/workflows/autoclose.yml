@@ -1,4 +1,4 @@
-name: Close pull requests that modify automatically generated files
+name: xxxx
 on:
   pull_request:
     types:
