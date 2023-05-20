@@ -62,6 +62,8 @@ Methods
    +----------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`Rect2i<class_Rect2i>`                                    | :ref:`get_display_safe_area<class_DisplayServer_method_get_display_safe_area>` **(** **)** |const|                                                                                                                                                                                                                                                                                                                                                                              |
    +----------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`int<class_int>`                                          | :ref:`get_keyboard_focus_screen<class_DisplayServer_method_get_keyboard_focus_screen>` **(** **)** |const|                                                                                                                                                                                                                                                                                                                                                                      |
+   +----------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`String<class_String>`                                    | :ref:`get_name<class_DisplayServer_method_get_name>` **(** **)** |const|                                                                                                                                                                                                                                                                                                                                                                                                        |
    +----------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`                                          | :ref:`get_primary_screen<class_DisplayServer_method_get_primary_screen>` **(** **)** |const|                                                                                                                                                                                                                                                                                                                                                                                    |
@@ -200,9 +202,13 @@ Methods
    +----------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`                                          | :ref:`screen_get_dpi<class_DisplayServer_method_screen_get_dpi>` **(** :ref:`int<class_int>` screen=-1 **)** |const|                                                                                                                                                                                                                                                                                                                                                            |
    +----------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Image<class_Image>`                                      | :ref:`screen_get_image<class_DisplayServer_method_screen_get_image>` **(** :ref:`int<class_int>` screen=-1 **)** |const|                                                                                                                                                                                                                                                                                                                                                        |
+   +----------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`float<class_float>`                                      | :ref:`screen_get_max_scale<class_DisplayServer_method_screen_get_max_scale>` **(** **)** |const|                                                                                                                                                                                                                                                                                                                                                                                |
    +----------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`ScreenOrientation<enum_DisplayServer_ScreenOrientation>` | :ref:`screen_get_orientation<class_DisplayServer_method_screen_get_orientation>` **(** :ref:`int<class_int>` screen=-1 **)** |const|                                                                                                                                                                                                                                                                                                                                            |
+   +----------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Color<class_Color>`                                      | :ref:`screen_get_pixel<class_DisplayServer_method_screen_get_pixel>` **(** :ref:`Vector2i<class_Vector2i>` position **)** |const|                                                                                                                                                                                                                                                                                                                                               |
    +----------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`Vector2i<class_Vector2i>`                                | :ref:`screen_get_position<class_DisplayServer_method_screen_get_position>` **(** :ref:`int<class_int>` screen=-1 **)** |const|                                                                                                                                                                                                                                                                                                                                                  |
    +----------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -518,6 +524,14 @@ Display server supports text-to-speech. See ``tts_*`` methods. **Windows, macOS,
 
 Display server supports expanding window content to the title. See :ref:`WINDOW_FLAG_EXTEND_TO_TITLE<class_DisplayServer_constant_WINDOW_FLAG_EXTEND_TO_TITLE>`. **macOS**
 
+.. _class_DisplayServer_constant_FEATURE_SCREEN_CAPTURE:
+
+.. rst-class:: classref-enumeration-constant
+
+:ref:`Feature<enum_DisplayServer_Feature>` **FEATURE_SCREEN_CAPTURE** = ``21``
+
+Display server supports reading screen pixels. See :ref:`screen_get_pixel<class_DisplayServer_method_screen_get_pixel>`.
+
 .. rst-class:: classref-item-separator
 
 ----
@@ -594,7 +608,7 @@ Default landscape orientation.
 
 :ref:`ScreenOrientation<enum_DisplayServer_ScreenOrientation>` **SCREEN_PORTRAIT** = ``1``
 
-Default portrait orienstation.
+Default portrait orientation.
 
 .. _class_DisplayServer_constant_SCREEN_REVERSE_LANDSCAPE:
 
@@ -946,7 +960,7 @@ enum **WindowFlags**:
 
 :ref:`WindowFlags<enum_DisplayServer_WindowFlags>` **WINDOW_FLAG_RESIZE_DISABLED** = ``0``
 
-The window can't be resizing by dragging its resize grip. It's still possible to resize the window using :ref:`window_set_size<class_DisplayServer_method_window_set_size>`. This flag is ignored for full screen windows.
+The window can't be resized by dragging its resize grip. It's still possible to resize the window using :ref:`window_set_size<class_DisplayServer_method_window_set_size>`. This flag is ignored for full screen windows.
 
 .. _class_DisplayServer_constant_WINDOW_FLAG_BORDERLESS:
 
@@ -990,7 +1004,7 @@ The window can't be focused. No-focus window will ignore all input, except mouse
 
 :ref:`WindowFlags<enum_DisplayServer_WindowFlags>` **WINDOW_FLAG_POPUP** = ``5``
 
-Window is part of menu or :ref:`OptionButton<class_OptionButton>` dropdown. This flag can't be changed when the window is visible. An active popup window will exclusively receive all input, without stealing focus from its parent. Popup windows are automatically closed when uses click outside it, or when an application is switched. Popup window must have ``transient parent`` set (see :ref:`window_set_transient<class_DisplayServer_method_window_set_transient>`).
+Window is part of menu or :ref:`OptionButton<class_OptionButton>` dropdown. This flag can't be changed when the window is visible. An active popup window will exclusively receive all input, without stealing focus from its parent. Popup windows are automatically closed when uses click outside it, or when an application is switched. Popup window must have transient parent set (see :ref:`window_set_transient<class_DisplayServer_method_window_set_transient>`).
 
 .. _class_DisplayServer_constant_WINDOW_FLAG_EXTEND_TO_TITLE:
 
@@ -1212,7 +1226,7 @@ OpenGL context (only with the GL Compatibility renderer):
 
 - Linux: ``GLXContext*`` for the window.
 
-- MacOS: ``NSOpenGLContext*`` for the window.
+- macOS: ``NSOpenGLContext*`` for the window.
 
 - Android: ``EGLContext`` for the window.
 
@@ -1266,6 +1280,22 @@ Utterance reached a word or sentence boundary.
 
 Constants
 ---------
+
+.. _class_DisplayServer_constant_SCREEN_WITH_MOUSE_FOCUS:
+
+.. rst-class:: classref-constant
+
+**SCREEN_WITH_MOUSE_FOCUS** = ``-4``
+
+Represents the screen containing the mouse pointer.
+
+.. _class_DisplayServer_constant_SCREEN_WITH_KEYBOARD_FOCUS:
+
+.. rst-class:: classref-constant
+
+**SCREEN_WITH_KEYBOARD_FOCUS** = ``-3``
+
+Represents the screen containing the window with the keyboard focus.
 
 .. _class_DisplayServer_constant_SCREEN_PRIMARY:
 
@@ -1504,6 +1534,18 @@ Returns the unobscured area of the display where interactive controls should be 
 
 ----
 
+.. _class_DisplayServer_method_get_keyboard_focus_screen:
+
+.. rst-class:: classref-method
+
+:ref:`int<class_int>` **get_keyboard_focus_screen** **(** **)** |const|
+
+Returns the index of the screen containing the window with the keyboard focus, or the primary screen if there's no focused window.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_DisplayServer_method_get_name:
 
 .. rst-class:: classref-method
@@ -1613,7 +1655,7 @@ Adds a new checkable item with text ``label`` to the global menu with ID ``menu_
 
 Returns index of the inserted item, it's not guaranteed to be the same as ``index`` value.
 
-An ``accelerator`` can optionally be defined, which is a keyboard shortcut that can be pressed to trigger the menu button even if it's not currently open. The ``accelerator`` is generally a combination of :ref:`KeyModifierMask<enum_@GlobalScope_KeyModifierMask>`\ s and :ref:`Key<enum_@GlobalScope_Key>`\ s using boolean OR such as ``KEY_MASK_CTRL | KEY_A`` (:kbd:`Ctrl + A`).
+An ``accelerator`` can optionally be defined, which is a keyboard shortcut that can be pressed to trigger the menu button even if it's not currently open. The ``accelerator`` is generally a combination of :ref:`KeyModifierMask<enum_@GlobalScope_KeyModifierMask>`\ s and :ref:`Key<enum_@GlobalScope_Key>`\ s using bitwise OR such as ``KEY_MASK_CTRL | KEY_A`` (:kbd:`Ctrl + A`).
 
 \ **Note:** The ``callback`` and ``key_callback`` Callables need to accept exactly one Variant parameter, the parameter passed to the Callables will be the value passed to ``tag``.
 
@@ -1640,7 +1682,7 @@ Adds a new checkable item with text ``label`` and icon ``icon`` to the global me
 
 Returns index of the inserted item, it's not guaranteed to be the same as ``index`` value.
 
-An ``accelerator`` can optionally be defined, which is a keyboard shortcut that can be pressed to trigger the menu button even if it's not currently open. The ``accelerator`` is generally a combination of :ref:`KeyModifierMask<enum_@GlobalScope_KeyModifierMask>`\ s and :ref:`Key<enum_@GlobalScope_Key>`\ s using boolean OR such as ``KEY_MASK_CTRL | KEY_A`` (:kbd:`Ctrl + A`).
+An ``accelerator`` can optionally be defined, which is a keyboard shortcut that can be pressed to trigger the menu button even if it's not currently open. The ``accelerator`` is generally a combination of :ref:`KeyModifierMask<enum_@GlobalScope_KeyModifierMask>`\ s and :ref:`Key<enum_@GlobalScope_Key>`\ s using bitwise OR such as ``KEY_MASK_CTRL | KEY_A`` (:kbd:`Ctrl + A`).
 
 \ **Note:** The ``callback`` and ``key_callback`` Callables need to accept exactly one Variant parameter, the parameter passed to the Callables will be the value passed to ``tag``.
 
@@ -1667,7 +1709,7 @@ Adds a new item with text ``label`` and icon ``icon`` to the global menu with ID
 
 Returns index of the inserted item, it's not guaranteed to be the same as ``index`` value.
 
-An ``accelerator`` can optionally be defined, which is a keyboard shortcut that can be pressed to trigger the menu button even if it's not currently open. The ``accelerator`` is generally a combination of :ref:`KeyModifierMask<enum_@GlobalScope_KeyModifierMask>`\ s and :ref:`Key<enum_@GlobalScope_Key>`\ s using boolean OR such as ``KEY_MASK_CTRL | KEY_A`` (:kbd:`Ctrl + A`).
+An ``accelerator`` can optionally be defined, which is a keyboard shortcut that can be pressed to trigger the menu button even if it's not currently open. The ``accelerator`` is generally a combination of :ref:`KeyModifierMask<enum_@GlobalScope_KeyModifierMask>`\ s and :ref:`Key<enum_@GlobalScope_Key>`\ s using bitwise OR such as ``KEY_MASK_CTRL | KEY_A`` (:kbd:`Ctrl + A`).
 
 \ **Note:** The ``callback`` and ``key_callback`` Callables need to accept exactly one Variant parameter, the parameter passed to the Callables will be the value passed to ``tag``.
 
@@ -1694,7 +1736,7 @@ Adds a new radio-checkable item with text ``label`` and icon ``icon`` to the glo
 
 Returns index of the inserted item, it's not guaranteed to be the same as ``index`` value.
 
-An ``accelerator`` can optionally be defined, which is a keyboard shortcut that can be pressed to trigger the menu button even if it's not currently open. The ``accelerator`` is generally a combination of :ref:`KeyModifierMask<enum_@GlobalScope_KeyModifierMask>`\ s and :ref:`Key<enum_@GlobalScope_Key>`\ s using boolean OR such as ``KEY_MASK_CTRL | KEY_A`` (:kbd:`Ctrl + A`).
+An ``accelerator`` can optionally be defined, which is a keyboard shortcut that can be pressed to trigger the menu button even if it's not currently open. The ``accelerator`` is generally a combination of :ref:`KeyModifierMask<enum_@GlobalScope_KeyModifierMask>`\ s and :ref:`Key<enum_@GlobalScope_Key>`\ s using bitwise OR such as ``KEY_MASK_CTRL | KEY_A`` (:kbd:`Ctrl + A`).
 
 \ **Note:** Radio-checkable items just display a checkmark, but don't have any built-in checking behavior and must be checked/unchecked manually. See :ref:`global_menu_set_item_checked<class_DisplayServer_method_global_menu_set_item_checked>` for more info on how to control it.
 
@@ -1723,7 +1765,7 @@ Adds a new item with text ``label`` to the global menu with ID ``menu_root``.
 
 Returns index of the inserted item, it's not guaranteed to be the same as ``index`` value.
 
-An ``accelerator`` can optionally be defined, which is a keyboard shortcut that can be pressed to trigger the menu button even if it's not currently open. The ``accelerator`` is generally a combination of :ref:`KeyModifierMask<enum_@GlobalScope_KeyModifierMask>`\ s and :ref:`Key<enum_@GlobalScope_Key>`\ s using boolean OR such as ``KEY_MASK_CTRL | KEY_A`` (:kbd:`Ctrl + A`).
+An ``accelerator`` can optionally be defined, which is a keyboard shortcut that can be pressed to trigger the menu button even if it's not currently open. The ``accelerator`` is generally a combination of :ref:`KeyModifierMask<enum_@GlobalScope_KeyModifierMask>`\ s and :ref:`Key<enum_@GlobalScope_Key>`\ s using bitwise OR such as ``KEY_MASK_CTRL | KEY_A`` (:kbd:`Ctrl + A`).
 
 \ **Note:** The ``callback`` and ``key_callback`` Callables need to accept exactly one Variant parameter, the parameter passed to the Callables will be the value passed to ``tag``.
 
@@ -1752,7 +1794,7 @@ Contrarily to normal binary items, multistate items can have more than two state
 
 Returns index of the inserted item, it's not guaranteed to be the same as ``index`` value.
 
-An ``accelerator`` can optionally be defined, which is a keyboard shortcut that can be pressed to trigger the menu button even if it's not currently open. The ``accelerator`` is generally a combination of :ref:`KeyModifierMask<enum_@GlobalScope_KeyModifierMask>`\ s and :ref:`Key<enum_@GlobalScope_Key>`\ s using boolean OR such as ``KEY_MASK_CTRL | KEY_A`` (:kbd:`Ctrl + A`).
+An ``accelerator`` can optionally be defined, which is a keyboard shortcut that can be pressed to trigger the menu button even if it's not currently open. The ``accelerator`` is generally a combination of :ref:`KeyModifierMask<enum_@GlobalScope_KeyModifierMask>`\ s and :ref:`Key<enum_@GlobalScope_Key>`\ s using bitwise OR such as ``KEY_MASK_CTRL | KEY_A`` (:kbd:`Ctrl + A`).
 
 \ **Note:** By default, there's no indication of the current item state, it should be changed manually.
 
@@ -1781,7 +1823,7 @@ Adds a new radio-checkable item with text ``label`` to the global menu with ID `
 
 Returns index of the inserted item, it's not guaranteed to be the same as ``index`` value.
 
-An ``accelerator`` can optionally be defined, which is a keyboard shortcut that can be pressed to trigger the menu button even if it's not currently open. The ``accelerator`` is generally a combination of :ref:`KeyModifierMask<enum_@GlobalScope_KeyModifierMask>`\ s and :ref:`Key<enum_@GlobalScope_Key>`\ s using boolean OR such as ``KEY_MASK_CTRL | KEY_A`` (:kbd:`Ctrl + A`).
+An ``accelerator`` can optionally be defined, which is a keyboard shortcut that can be pressed to trigger the menu button even if it's not currently open. The ``accelerator`` is generally a combination of :ref:`KeyModifierMask<enum_@GlobalScope_KeyModifierMask>`\ s and :ref:`Key<enum_@GlobalScope_Key>`\ s using bitwise OR such as ``KEY_MASK_CTRL | KEY_A`` (:kbd:`Ctrl + A`).
 
 \ **Note:** Radio-checkable items just display a checkmark, but don't have any built-in checking behavior and must be checked/unchecked manually. See :ref:`global_menu_set_item_checked<class_DisplayServer_method_global_menu_set_item_checked>` for more info on how to control it.
 
@@ -1985,7 +2027,7 @@ Returns the callback of the item accelerator at index ``idx``.
 
 :ref:`int<class_int>` **global_menu_get_item_max_states** **(** :ref:`String<class_String>` menu_root, :ref:`int<class_int>` idx **)** |const|
 
-Returns number of states of an multistate item. See :ref:`global_menu_add_multistate_item<class_DisplayServer_method_global_menu_add_multistate_item>` for details.
+Returns number of states of a multistate item. See :ref:`global_menu_add_multistate_item<class_DisplayServer_method_global_menu_add_multistate_item>` for details.
 
 \ **Note:** This method is implemented on macOS.
 
@@ -1999,7 +2041,7 @@ Returns number of states of an multistate item. See :ref:`global_menu_add_multis
 
 :ref:`int<class_int>` **global_menu_get_item_state** **(** :ref:`String<class_String>` menu_root, :ref:`int<class_int>` idx **)** |const|
 
-Returns the state of an multistate item. See :ref:`global_menu_add_multistate_item<class_DisplayServer_method_global_menu_add_multistate_item>` for details.
+Returns the state of a multistate item. See :ref:`global_menu_add_multistate_item<class_DisplayServer_method_global_menu_add_multistate_item>` for details.
 
 \ **Note:** This method is implemented on macOS.
 
@@ -2055,7 +2097,7 @@ Returns the text of the item at index ``idx``.
 
 :ref:`String<class_String>` **global_menu_get_item_tooltip** **(** :ref:`String<class_String>` menu_root, :ref:`int<class_int>` idx **)** |const|
 
-Returns the tooltip associated with the specified index index ``idx``.
+Returns the tooltip associated with the specified index ``idx``.
 
 \ **Note:** This method is implemented on macOS.
 
@@ -2145,7 +2187,7 @@ Removes the item at index ``idx`` from the global menu ``menu_root``.
 
 void **global_menu_set_item_accelerator** **(** :ref:`String<class_String>` menu_root, :ref:`int<class_int>` idx, :ref:`Key<enum_@GlobalScope_Key>` keycode **)**
 
-Sets the accelerator of the item at index ``idx``. ``keycode`` can be a single :ref:`Key<enum_@GlobalScope_Key>`, or a combination of :ref:`KeyModifierMask<enum_@GlobalScope_KeyModifierMask>`\ s and :ref:`Key<enum_@GlobalScope_Key>`\ s using boolean OR such as ``KEY_MASK_CTRL | KEY_A`` (:kbd:`Ctrl + A`).
+Sets the accelerator of the item at index ``idx``. ``keycode`` can be a single :ref:`Key<enum_@GlobalScope_Key>`, or a combination of :ref:`KeyModifierMask<enum_@GlobalScope_KeyModifierMask>`\ s and :ref:`Key<enum_@GlobalScope_Key>`\ s using bitwise OR such as ``KEY_MASK_CTRL | KEY_A`` (:kbd:`Ctrl + A`).
 
 \ **Note:** This method is implemented on macOS.
 
@@ -2161,7 +2203,7 @@ void **global_menu_set_item_callback** **(** :ref:`String<class_String>` menu_ro
 
 Sets the callback of the item at index ``idx``. Callback is emitted when an item is pressed.
 
-\ **Note:** The ``callback`` Callable needs to accept exactly one Variant parameter, the parameter passed to the Callable will be the value passed to the tag parameter when the menu item was created.
+\ **Note:** The ``callback`` Callable needs to accept exactly one Variant parameter, the parameter passed to the Callable will be the value passed to the ``tag`` parameter when the menu item was created.
 
 \ **Note:** This method is implemented on macOS.
 
@@ -2249,7 +2291,7 @@ void **global_menu_set_item_key_callback** **(** :ref:`String<class_String>` men
 
 Sets the callback of the item at index ``idx``. Callback is emitted when its accelerator is activated.
 
-\ **Note:** The ``key_callback`` Callable needs to accept exactly one Variant parameter, the parameter passed to the Callable will be the value passed to the tag parameter when the menu item was created.
+\ **Note:** The ``key_callback`` Callable needs to accept exactly one Variant parameter, the parameter passed to the Callable will be the value passed to the ``tag`` parameter when the menu item was created.
 
 \ **Note:** This method is implemented on macOS.
 
@@ -2263,7 +2305,7 @@ Sets the callback of the item at index ``idx``. Callback is emitted when its acc
 
 void **global_menu_set_item_max_states** **(** :ref:`String<class_String>` menu_root, :ref:`int<class_int>` idx, :ref:`int<class_int>` max_states **)**
 
-Sets number of state of an multistate item. See :ref:`global_menu_add_multistate_item<class_DisplayServer_method_global_menu_add_multistate_item>` for details.
+Sets number of state of a multistate item. See :ref:`global_menu_add_multistate_item<class_DisplayServer_method_global_menu_add_multistate_item>` for details.
 
 \ **Note:** This method is implemented on macOS.
 
@@ -2293,7 +2335,7 @@ Sets the type of the item at the specified index ``idx`` to radio button. If ``f
 
 void **global_menu_set_item_state** **(** :ref:`String<class_String>` menu_root, :ref:`int<class_int>` idx, :ref:`int<class_int>` state **)**
 
-Sets the state of an multistate item. See :ref:`global_menu_add_multistate_item<class_DisplayServer_method_global_menu_add_multistate_item>` for details.
+Sets the state of a multistate item. See :ref:`global_menu_add_multistate_item<class_DisplayServer_method_global_menu_add_multistate_item>` for details.
 
 \ **Note:** This method is implemented on macOS.
 
@@ -2551,7 +2593,7 @@ Returns the current mouse mode. See also :ref:`mouse_set_mode<class_DisplayServe
 
 :ref:`Vector2i<class_Vector2i>` **mouse_get_position** **(** **)** |const|
 
-Returns the mouse cursor's current position.
+Returns the mouse cursor's current position in screen coordinates.
 
 .. rst-class:: classref-item-separator
 
@@ -2608,6 +2650,22 @@ Returns the dots per inch density of the specified screen. If ``screen`` is :ref
 
 ----
 
+.. _class_DisplayServer_method_screen_get_image:
+
+.. rst-class:: classref-method
+
+:ref:`Image<class_Image>` **screen_get_image** **(** :ref:`int<class_int>` screen=-1 **)** |const|
+
+Returns screenshot of the ``screen``.
+
+\ **Note:** This method is implemented on Linux (X11), macOS, and Windows.
+
+\ **Note:** On macOS, this method requires "Screen Recording" permission, if permission is not granted it will return desktop wallpaper color.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_DisplayServer_method_screen_get_max_scale:
 
 .. rst-class:: classref-method
@@ -2633,6 +2691,22 @@ Returns the greatest scale factor of all screens.
 Returns the ``screen``'s current orientation. See also :ref:`screen_set_orientation<class_DisplayServer_method_screen_set_orientation>`.
 
 \ **Note:** This method is implemented on Android and iOS.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_DisplayServer_method_screen_get_pixel:
+
+.. rst-class:: classref-method
+
+:ref:`Color<class_Color>` **screen_get_pixel** **(** :ref:`Vector2i<class_Vector2i>` position **)** |const|
+
+Returns color of the display pixel at the ``position``.
+
+\ **Note:** This method is implemented on Linux (X11), macOS, and Windows.
+
+\ **Note:** On macOS, this method requires "Screen Recording" permission, if permission is not granted it will return desktop wallpaper color.
 
 .. rst-class:: classref-item-separator
 
@@ -2765,7 +2839,7 @@ Sets the ``screen``'s ``orientation``. See also :ref:`screen_get_orientation<cla
 
 void **set_icon** **(** :ref:`Image<class_Image>` image **)**
 
-Sets the window icon (usually displayed in the top-left corner) in the operating system's *native* format. To use icons in the operating system's native format, use :ref:`set_native_icon<class_DisplayServer_method_set_native_icon>` instead.
+Sets the window icon (usually displayed in the top-left corner) with an :ref:`Image<class_Image>`. To use icons in the operating system's native format, use :ref:`set_native_icon<class_DisplayServer_method_set_native_icon>` instead.
 
 .. rst-class:: classref-item-separator
 
@@ -2855,9 +2929,11 @@ Each :ref:`Dictionary<class_Dictionary>` contains two :ref:`String<class_String>
 
 - ``language`` is language code in ``lang_Variant`` format. ``lang`` part is a 2 or 3-letter code based on the ISO-639 standard, in lowercase. And ``Variant`` part is an engine dependent string describing country, region or/and dialect.
 
-Note that Godot depends on system libraries for text-to-speech functionality. These libraries are installed by default on Windows and MacOS, but not on all Linux distributions. If they are not present, this method will return an empty list. This applies to both Godot users on Linux, as well as end-users on Linux running Godot games that use text-to-speech.
+Note that Godot depends on system libraries for text-to-speech functionality. These libraries are installed by default on Windows and macOS, but not on all Linux distributions. If they are not present, this method will return an empty list. This applies to both Godot users on Linux, as well as end-users on Linux running Godot games that use text-to-speech.
 
 \ **Note:** This method is implemented on Android, iOS, Web, Linux (X11), macOS, and Windows.
+
+\ **Note:** :ref:`ProjectSettings.audio/general/text_to_speech<class_ProjectSettings_property_audio/general/text_to_speech>` should be ``true`` to use text-to-speech.
 
 .. rst-class:: classref-item-separator
 
@@ -2873,6 +2949,8 @@ Returns an :ref:`PackedStringArray<class_PackedStringArray>` of voice identifier
 
 \ **Note:** This method is implemented on Android, iOS, Web, Linux (X11), macOS, and Windows.
 
+\ **Note:** :ref:`ProjectSettings.audio/general/text_to_speech<class_ProjectSettings_property_audio/general/text_to_speech>` should be ``true`` to use text-to-speech.
+
 .. rst-class:: classref-item-separator
 
 ----
@@ -2886,6 +2964,8 @@ Returns an :ref:`PackedStringArray<class_PackedStringArray>` of voice identifier
 Returns ``true`` if the synthesizer is in a paused state.
 
 \ **Note:** This method is implemented on Android, iOS, Web, Linux (X11), macOS, and Windows.
+
+\ **Note:** :ref:`ProjectSettings.audio/general/text_to_speech<class_ProjectSettings_property_audio/general/text_to_speech>` should be ``true`` to use text-to-speech.
 
 .. rst-class:: classref-item-separator
 
@@ -2901,6 +2981,8 @@ Returns ``true`` if the synthesizer is generating speech, or have utterance wait
 
 \ **Note:** This method is implemented on Android, iOS, Web, Linux (X11), macOS, and Windows.
 
+\ **Note:** :ref:`ProjectSettings.audio/general/text_to_speech<class_ProjectSettings_property_audio/general/text_to_speech>` should be ``true`` to use text-to-speech.
+
 .. rst-class:: classref-item-separator
 
 ----
@@ -2914,6 +2996,8 @@ void **tts_pause** **(** **)**
 Puts the synthesizer into a paused state.
 
 \ **Note:** This method is implemented on Android, iOS, Web, Linux (X11), macOS, and Windows.
+
+\ **Note:** :ref:`ProjectSettings.audio/general/text_to_speech<class_ProjectSettings_property_audio/general/text_to_speech>` should be ``true`` to use text-to-speech.
 
 .. rst-class:: classref-item-separator
 
@@ -2929,6 +3013,8 @@ Resumes the synthesizer if it was paused.
 
 \ **Note:** This method is implemented on Android, iOS, Web, Linux (X11), macOS, and Windows.
 
+\ **Note:** :ref:`ProjectSettings.audio/general/text_to_speech<class_ProjectSettings_property_audio/general/text_to_speech>` should be ``true`` to use text-to-speech.
+
 .. rst-class:: classref-item-separator
 
 ----
@@ -2941,13 +3027,15 @@ void **tts_set_utterance_callback** **(** :ref:`TTSUtteranceEvent<enum_DisplaySe
 
 Adds a callback, which is called when the utterance has started, finished, canceled or reached a text boundary.
 
-- :ref:`TTS_UTTERANCE_STARTED<class_DisplayServer_constant_TTS_UTTERANCE_STARTED>`, :ref:`TTS_UTTERANCE_ENDED<class_DisplayServer_constant_TTS_UTTERANCE_ENDED>`, and :ref:`TTS_UTTERANCE_CANCELED<class_DisplayServer_constant_TTS_UTTERANCE_CANCELED>` callable's method should take one :ref:`int<class_int>` parameter, the utterance id.
+- :ref:`TTS_UTTERANCE_STARTED<class_DisplayServer_constant_TTS_UTTERANCE_STARTED>`, :ref:`TTS_UTTERANCE_ENDED<class_DisplayServer_constant_TTS_UTTERANCE_ENDED>`, and :ref:`TTS_UTTERANCE_CANCELED<class_DisplayServer_constant_TTS_UTTERANCE_CANCELED>` callable's method should take one :ref:`int<class_int>` parameter, the utterance ID.
 
-- :ref:`TTS_UTTERANCE_BOUNDARY<class_DisplayServer_constant_TTS_UTTERANCE_BOUNDARY>` callable's method should take two :ref:`int<class_int>` parameters, the index of the character and the utterance id.
+- :ref:`TTS_UTTERANCE_BOUNDARY<class_DisplayServer_constant_TTS_UTTERANCE_BOUNDARY>` callable's method should take two :ref:`int<class_int>` parameters, the index of the character and the utterance ID.
 
 \ **Note:** The granularity of the boundary callbacks is engine dependent.
 
 \ **Note:** This method is implemented on Android, iOS, Web, Linux (X11), macOS, and Windows.
+
+\ **Note:** :ref:`ProjectSettings.audio/general/text_to_speech<class_ProjectSettings_property_audio/general/text_to_speech>` should be ``true`` to use text-to-speech.
 
 .. rst-class:: classref-item-separator
 
@@ -2977,6 +3065,8 @@ Adds an utterance to the queue. If ``interrupt`` is ``true``, the queue is clear
 
 \ **Note:** This method is implemented on Android, iOS, Web, Linux (X11), macOS, and Windows.
 
+\ **Note:** :ref:`ProjectSettings.audio/general/text_to_speech<class_ProjectSettings_property_audio/general/text_to_speech>` should be ``true`` to use text-to-speech.
+
 .. rst-class:: classref-item-separator
 
 ----
@@ -2990,6 +3080,8 @@ void **tts_stop** **(** **)**
 Stops synthesis in progress and removes all utterances from the queue.
 
 \ **Note:** This method is implemented on Android, iOS, Web, Linux (X11), macOS, and Windows.
+
+\ **Note:** :ref:`ProjectSettings.audio/general/text_to_speech<class_ProjectSettings_property_audio/general/text_to_speech>` should be ``true`` to use text-to-speech.
 
 .. rst-class:: classref-item-separator
 
