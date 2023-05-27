@@ -25,6 +25,8 @@ See also :ref:`BaseButton<class_BaseButton>` which contains common properties an
 
 \ **Note:** Properties :ref:`Button.text<class_Button_property_text>` and :ref:`Button.icon<class_Button_property_icon>` are automatically set based on the selected item. They shouldn't be changed manually.
 
+\ **Note:** The ID values used for items are limited to 32 bits, not full 64 bits of :ref:`int<class_int>`. This has a range of ``-2^32`` to ``2^32 - 1``, i.e. ``-2147483648`` to ``2147483647``.
+
 .. rst-class:: classref-reftable-group
 
 Properties
@@ -37,6 +39,8 @@ Properties
    | :ref:`ActionMode<enum_BaseButton_ActionMode>`                     | action_mode                                                                 | ``0`` (overrides :ref:`BaseButton<class_BaseButton_property_action_mode>`)    |
    +-------------------------------------------------------------------+-----------------------------------------------------------------------------+-------------------------------------------------------------------------------+
    | :ref:`HorizontalAlignment<enum_@GlobalScope_HorizontalAlignment>` | alignment                                                                   | ``0`` (overrides :ref:`Button<class_Button_property_alignment>`)              |
+   +-------------------------------------------------------------------+-----------------------------------------------------------------------------+-------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                                           | :ref:`allow_reselect<class_OptionButton_property_allow_reselect>`           | ``false``                                                                     |
    +-------------------------------------------------------------------+-----------------------------------------------------------------------------+-------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                                           | :ref:`fit_to_longest_item<class_OptionButton_property_fit_to_longest_item>` | ``true``                                                                      |
    +-------------------------------------------------------------------+-----------------------------------------------------------------------------+-------------------------------------------------------------------------------+
@@ -194,6 +198,8 @@ Emitted when the user navigates to an item using the :ref:`ProjectSettings.input
 
 Emitted when the current item has been changed by the user. The index of the item selected is passed as argument.
 
+\ :ref:`allow_reselect<class_OptionButton_property_allow_reselect>` must be enabled to reselect an item.
+
 .. rst-class:: classref-section-separator
 
 ----
@@ -202,6 +208,23 @@ Emitted when the current item has been changed by the user. The index of the ite
 
 Property Descriptions
 ---------------------
+
+.. _class_OptionButton_property_allow_reselect:
+
+.. rst-class:: classref-property
+
+:ref:`bool<class_bool>` **allow_reselect** = ``false``
+
+.. rst-class:: classref-property-setget
+
+- void **set_allow_reselect** **(** :ref:`bool<class_bool>` value **)**
+- :ref:`bool<class_bool>` **get_allow_reselect** **(** **)**
+
+If ``true``, the currently selected item can be selected again.
+
+.. rst-class:: classref-item-separator
+
+----
 
 .. _class_OptionButton_property_fit_to_longest_item:
 
