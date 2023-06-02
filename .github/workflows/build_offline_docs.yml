@@ -1,5 +1,6 @@
 name: Build documentation for offline usage
 on:
+  push:  # TODO: Remove before opening PR ###################################
   workflow_dispatch:
   schedule:
     # Every week on Monday at midnight (UTC).
@@ -37,9 +38,9 @@ jobs:
           # This makes it more likely to have at least one successful build available at all times.
           retention-days: 15
 
-      - name: Sphinx - Build ePub
+      - name: Preprocess source files for PDF/ePub build
         run: |
-          # Convert WebP images to PNG and replace references, so that ePub readers can display those images.
+          # Convert WebP images to PNG and replace references, so that PDF and ePub readers can display those images.
           # The ePub 3.0 specification has WebP support, but it's not widely supported by apps and e-readers yet.
           shopt -s globstar nullglob
           parallel --will-cite convert {} {.}.png ::: {about,community,contributing,getting_started,img,tutorials}/**/*.webp
@@ -49,6 +50,23 @@ jobs:
           sed -i 's/"godot_is_latest": True/"godot_is_latest": False/' conf.py
           sed -i 's/"godot_show_article_status": True/"godot_show_article_status": False/' conf.py
 
+      - name: Sphinx - Build PDF
+        run: |
+          make SPHINXOPTS='--color' latexpdf
+          ls _build
+          ls _build/latexpdf
+          ls _build/pdf
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: godot-docs-pdf-${{ matrix.branch }}
+          path: _build/latexpdf/*.pdf
+          # Keep the current build and the previous build (in case a scheduled build failed).
+          # This makes it more likely to have at least one successful build available at all times.
+          retention-days: 15
+
+      - name: Sphinx - Build ePub
+        run: |
           make SPHINXOPTS='--color' epub
 
       - uses: actions/upload-artifact@v3
