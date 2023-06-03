@@ -10,7 +10,7 @@
 NodePath
 ========
 
-Pre-parsed scene tree path.
+A pre-parsed scene tree path.
 
 .. rst-class:: classref-introduction-group
 
@@ -41,6 +41,8 @@ Some examples of NodePaths include the following:
 See also :ref:`StringName<class_StringName>`, which is a similar concept for general-purpose string interning.
 
 \ **Note:** In the editor, **NodePath** properties are automatically updated when moving, renaming or deleting a node in the scene tree, but they are never updated at runtime.
+
+\ **Note:** In a boolean context, a **NodePath** will evaluate to ``false`` if it is empty (``NodePath("")``). Otherwise, a **NodePath** will always evaluate to ``true``.
 
 .. rst-class:: classref-introduction-group
 
@@ -297,7 +299,7 @@ For example, ``"Path2D/PathFollow2D/Sprite2D"`` has 3 names.
 
 :ref:`StringName<class_StringName>` **get_subname** **(** :ref:`int<class_int>` idx **)** |const|
 
-Gets the resource or property name indicated by ``idx`` (0 to :ref:`get_subname_count<class_NodePath_method_get_subname_count>`).
+Gets the resource or property name indicated by ``idx`` (0 to :ref:`get_subname_count<class_NodePath_method_get_subname_count>` - 1).
 
 
 .. tabs::

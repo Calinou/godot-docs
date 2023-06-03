@@ -12,16 +12,16 @@ CodeEdit
 
 **Inherits:** :ref:`TextEdit<class_TextEdit>` **<** :ref:`Control<class_Control>` **<** :ref:`CanvasItem<class_CanvasItem>` **<** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
 
-Multiline text control intended for editing code.
+A multiline text editor designed for editing code.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-CodeEdit is a specialized :ref:`TextEdit<class_TextEdit>` designed for editing plain text code files. It contains a bunch of features commonly found in code editors such as line numbers, line folding, code completion, indent management and string / comment management.
+CodeEdit is a specialized :ref:`TextEdit<class_TextEdit>` designed for editing plain text code files. It has many features commonly found in code editors such as line numbers, line folding, code completion, indent management, and string/comment management.
 
-\ **Note:** By default **CodeEdit** always use left-to-right text direction to correctly display source code.
+\ **Note:** Regardless of locale, **CodeEdit** will by default always use left-to-right text direction to correctly display source code.
 
 .. rst-class:: classref-reftable-group
 
@@ -115,6 +115,8 @@ Methods
    | void                                            | :ref:`clear_string_delimiters<class_CodeEdit_method_clear_string_delimiters>` **(** **)**                                                                                                                                                                                                                                                                                                     |
    +-------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | void                                            | :ref:`confirm_code_completion<class_CodeEdit_method_confirm_code_completion>` **(** :ref:`bool<class_bool>` replace=false **)**                                                                                                                                                                                                                                                               |
+   +-------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | void                                            | :ref:`convert_indent<class_CodeEdit_method_convert_indent>` **(** :ref:`int<class_int>` from_line=-1, :ref:`int<class_int>` to_line=-1 **)**                                                                                                                                                                                                                                                  |
    +-------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | void                                            | :ref:`do_indent<class_CodeEdit_method_do_indent>` **(** **)**                                                                                                                                                                                                                                                                                                                                 |
    +-------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -417,7 +419,7 @@ Marks the option as a member.
 
 :ref:`CodeCompletionKind<enum_CodeEdit_CodeCompletionKind>` **KIND_ENUM** = ``5``
 
-Marks the option as a enum entry.
+Marks the option as an enum entry.
 
 .. _class_CodeEdit_constant_KIND_CONSTANT:
 
@@ -994,6 +996,20 @@ Removes all string delimiters.
 void **confirm_code_completion** **(** :ref:`bool<class_bool>` replace=false **)**
 
 Inserts the selected entry into the text. If ``replace`` is true, any existing text is replaced rather then merged.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_CodeEdit_method_convert_indent:
+
+.. rst-class:: classref-method
+
+void **convert_indent** **(** :ref:`int<class_int>` from_line=-1, :ref:`int<class_int>` to_line=-1 **)**
+
+Converts the indents of lines between ``from_line`` and ``to_line`` to tabs or spaces as set by :ref:`indent_use_spaces<class_CodeEdit_property_indent_use_spaces>`.
+
+Values of ``-1`` convert the entire text.
 
 .. rst-class:: classref-item-separator
 

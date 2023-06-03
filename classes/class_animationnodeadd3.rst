@@ -19,22 +19,24 @@ Blends two of three animations additively inside of an :ref:`AnimationNodeBlendT
 Description
 -----------
 
-A resource to add to an :ref:`AnimationNodeBlendTree<class_AnimationNodeBlendTree>`. Blends two animations together additively out of three based on a value in the ``[-1.0, 1.0]`` range.
+A resource to add to an :ref:`AnimationNodeBlendTree<class_AnimationNodeBlendTree>`. Blends two animations out of three additively out of three based on the amounmt value.
 
-This node has three inputs:
+This animation node has three inputs:
 
 - The base animation to add to
 
-- A -add animation to blend with when the blend amount is in the ``[-1.0, 0.0]`` range.
+- A "-add" animation to blend with when the blend amount is negative
 
-- A +add animation to blend with when the blend amount is in the ``[0.0, 1.0]`` range
+- A "+add" animation to blend with when the blend amount is positive
+
+If the absolute value of the amount is greater than ``1.0``, the animation connected to "in" port is blended with the amplified animation connected to "-add"/"+add" port.
 
 .. rst-class:: classref-introduction-group
 
 Tutorials
 ---------
 
-- :doc:`AnimationTree <../tutorials/animation/animation_tree>`
+- :doc:`Using AnimationTree <../tutorials/animation/animation_tree>`
 
 - `Third Person Shooter Demo <https://godotengine.org/asset-library/asset/678>`__
 

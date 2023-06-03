@@ -12,25 +12,23 @@ TabContainer
 
 **Inherits:** :ref:`Container<class_Container>` **<** :ref:`Control<class_Control>` **<** :ref:`CanvasItem<class_CanvasItem>` **<** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
 
-Tabbed container.
+A container that creates a tab for each child control, displaying only the active tab's control.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-Arranges :ref:`Control<class_Control>` children into a tabbed view, creating a tab for each one. The active tab's corresponding :ref:`Control<class_Control>` has its ``visible`` property set to ``true``, and all other children's to ``false``.
+Arranges child controls into a tabbed view, creating a tab for each one. The active tab's corresponding control is made visible, while all other child controls are hidden. Ignores non-control children.
 
-Ignores non-:ref:`Control<class_Control>` children.
-
-\ **Note:** The drawing of the clickable tabs themselves is handled by this node. Adding :ref:`TabBar<class_TabBar>`\ s as children is not needed.
+\ **Note:** The drawing of the clickable tabs is handled by this node; :ref:`TabBar<class_TabBar>` is not needed.
 
 .. rst-class:: classref-introduction-group
 
 Tutorials
 ---------
 
-- :doc:`GUI containers <../tutorials/ui/gui_containers>`
+- :doc:`Using Containers <../tutorials/ui/gui_containers>`
 
 .. rst-class:: classref-reftable-group
 
@@ -85,6 +83,8 @@ Methods
    +-----------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`             | :ref:`get_tab_idx_from_control<class_TabContainer_method_get_tab_idx_from_control>` **(** :ref:`Control<class_Control>` control **)** |const|               |
    +-----------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Variant<class_Variant>`     | :ref:`get_tab_metadata<class_TabContainer_method_get_tab_metadata>` **(** :ref:`int<class_int>` tab_idx **)** |const|                                       |
+   +-----------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`String<class_String>`       | :ref:`get_tab_title<class_TabContainer_method_get_tab_title>` **(** :ref:`int<class_int>` tab_idx **)** |const|                                             |
    +-----------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`           | :ref:`is_tab_disabled<class_TabContainer_method_is_tab_disabled>` **(** :ref:`int<class_int>` tab_idx **)** |const|                                         |
@@ -100,6 +100,8 @@ Methods
    | void                              | :ref:`set_tab_hidden<class_TabContainer_method_set_tab_hidden>` **(** :ref:`int<class_int>` tab_idx, :ref:`bool<class_bool>` hidden **)**                   |
    +-----------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | void                              | :ref:`set_tab_icon<class_TabContainer_method_set_tab_icon>` **(** :ref:`int<class_int>` tab_idx, :ref:`Texture2D<class_Texture2D>` icon **)**               |
+   +-----------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | void                              | :ref:`set_tab_metadata<class_TabContainer_method_set_tab_metadata>` **(** :ref:`int<class_int>` tab_idx, :ref:`Variant<class_Variant>` metadata **)**       |
    +-----------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | void                              | :ref:`set_tab_title<class_TabContainer_method_set_tab_title>` **(** :ref:`int<class_int>` tab_idx, :ref:`String<class_String>` title **)**                  |
    +-----------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -117,11 +119,15 @@ Theme Properties
    +-----------------------------------+------------------------------------------------------------------------------------+-------------------------------------+
    | :ref:`Color<class_Color>`         | :ref:`font_disabled_color<class_TabContainer_theme_color_font_disabled_color>`     | ``Color(0.875, 0.875, 0.875, 0.5)`` |
    +-----------------------------------+------------------------------------------------------------------------------------+-------------------------------------+
+   | :ref:`Color<class_Color>`         | :ref:`font_hovered_color<class_TabContainer_theme_color_font_hovered_color>`       | ``Color(0.95, 0.95, 0.95, 1)``      |
+   +-----------------------------------+------------------------------------------------------------------------------------+-------------------------------------+
    | :ref:`Color<class_Color>`         | :ref:`font_outline_color<class_TabContainer_theme_color_font_outline_color>`       | ``Color(1, 1, 1, 1)``               |
    +-----------------------------------+------------------------------------------------------------------------------------+-------------------------------------+
    | :ref:`Color<class_Color>`         | :ref:`font_selected_color<class_TabContainer_theme_color_font_selected_color>`     | ``Color(0.95, 0.95, 0.95, 1)``      |
    +-----------------------------------+------------------------------------------------------------------------------------+-------------------------------------+
    | :ref:`Color<class_Color>`         | :ref:`font_unselected_color<class_TabContainer_theme_color_font_unselected_color>` | ``Color(0.7, 0.7, 0.7, 1)``         |
+   +-----------------------------------+------------------------------------------------------------------------------------+-------------------------------------+
+   | :ref:`int<class_int>`             | :ref:`icon_max_width<class_TabContainer_theme_constant_icon_max_width>`            | ``0``                               |
    +-----------------------------------+------------------------------------------------------------------------------------+-------------------------------------+
    | :ref:`int<class_int>`             | :ref:`icon_separation<class_TabContainer_theme_constant_icon_separation>`          | ``4``                               |
    +-----------------------------------+------------------------------------------------------------------------------------+-------------------------------------+
@@ -151,6 +157,8 @@ Theme Properties
    +-----------------------------------+------------------------------------------------------------------------------------+-------------------------------------+
    | :ref:`StyleBox<class_StyleBox>`   | :ref:`tab_disabled<class_TabContainer_theme_style_tab_disabled>`                   |                                     |
    +-----------------------------------+------------------------------------------------------------------------------------+-------------------------------------+
+   | :ref:`StyleBox<class_StyleBox>`   | :ref:`tab_hovered<class_TabContainer_theme_style_tab_hovered>`                     |                                     |
+   +-----------------------------------+------------------------------------------------------------------------------------+-------------------------------------+
    | :ref:`StyleBox<class_StyleBox>`   | :ref:`tab_selected<class_TabContainer_theme_style_tab_selected>`                   |                                     |
    +-----------------------------------+------------------------------------------------------------------------------------+-------------------------------------+
    | :ref:`StyleBox<class_StyleBox>`   | :ref:`tab_unselected<class_TabContainer_theme_style_tab_unselected>`               |                                     |
@@ -166,6 +174,18 @@ Theme Properties
 
 Signals
 -------
+
+.. _class_TabContainer_signal_active_tab_rearranged:
+
+.. rst-class:: classref-signal
+
+**active_tab_rearranged** **(** :ref:`int<class_int>` idx_to **)**
+
+Emitted when the active tab is rearranged via mouse drag. See :ref:`drag_to_rearrange_enabled<class_TabContainer_property_drag_to_rearrange_enabled>`.
+
+.. rst-class:: classref-item-separator
+
+----
 
 .. _class_TabContainer_signal_pre_popup_pressed:
 
@@ -198,6 +218,30 @@ Emitted when the user clicks on the button icon on this tab.
 **tab_changed** **(** :ref:`int<class_int>` tab **)**
 
 Emitted when switching to another tab.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_TabContainer_signal_tab_clicked:
+
+.. rst-class:: classref-signal
+
+**tab_clicked** **(** :ref:`int<class_int>` tab **)**
+
+Emitted when a tab is clicked, even if it is the current tab.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_TabContainer_signal_tab_hovered:
+
+.. rst-class:: classref-signal
+
+**tab_hovered** **(** :ref:`int<class_int>` tab **)**
+
+Emitted when a tab is hovered by the mouse.
 
 .. rst-class:: classref-item-separator
 
@@ -473,6 +517,18 @@ Returns the index of the tab tied to the given ``control``. The control must be 
 
 ----
 
+.. _class_TabContainer_method_get_tab_metadata:
+
+.. rst-class:: classref-method
+
+:ref:`Variant<class_Variant>` **get_tab_metadata** **(** :ref:`int<class_int>` tab_idx **)** |const|
+
+Returns the metadata value set to the tab at index ``tab_idx`` using :ref:`set_tab_metadata<class_TabContainer_method_set_tab_metadata>`. If no metadata was previously set, returns ``null`` by default.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_TabContainer_method_get_tab_title:
 
 .. rst-class:: classref-method
@@ -569,6 +625,18 @@ Sets an icon for the tab at index ``tab_idx``.
 
 ----
 
+.. _class_TabContainer_method_set_tab_metadata:
+
+.. rst-class:: classref-method
+
+void **set_tab_metadata** **(** :ref:`int<class_int>` tab_idx, :ref:`Variant<class_Variant>` metadata **)**
+
+Sets the metadata value for the tab at index ``tab_idx``, which can be retrieved later using :ref:`get_tab_metadata<class_TabContainer_method_get_tab_metadata>`.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_TabContainer_method_set_tab_title:
 
 .. rst-class:: classref-method
@@ -610,6 +678,18 @@ Font color of disabled tabs.
 
 ----
 
+.. _class_TabContainer_theme_color_font_hovered_color:
+
+.. rst-class:: classref-themeproperty
+
+:ref:`Color<class_Color>` **font_hovered_color** = ``Color(0.95, 0.95, 0.95, 1)``
+
+Font color of the currently hovered tab.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_TabContainer_theme_color_font_outline_color:
 
 .. rst-class:: classref-themeproperty
@@ -641,6 +721,18 @@ Font color of the currently selected tab.
 :ref:`Color<class_Color>` **font_unselected_color** = ``Color(0.7, 0.7, 0.7, 1)``
 
 Font color of the other, unselected tabs.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_TabContainer_theme_constant_icon_max_width:
+
+.. rst-class:: classref-themeproperty
+
+:ref:`int<class_int>` **icon_max_width** = ``0``
+
+The maximum allowed width of the tab's icon. This limit is applied on top of the default size of the icon, but before the value set with :ref:`TabBar.set_tab_icon_max_width<class_TabBar_method_set_tab_icon_max_width>`. The height is adjusted according to the icon's ratio.
 
 .. rst-class:: classref-item-separator
 
@@ -813,6 +905,18 @@ The style for the background fill.
 :ref:`StyleBox<class_StyleBox>` **tab_disabled**
 
 The style of disabled tabs.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_TabContainer_theme_style_tab_hovered:
+
+.. rst-class:: classref-themeproperty
+
+:ref:`StyleBox<class_StyleBox>` **tab_hovered**
+
+The style of the currently hovered tab.
 
 .. rst-class:: classref-item-separator
 

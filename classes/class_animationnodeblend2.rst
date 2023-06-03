@@ -19,14 +19,16 @@ Blends two animations linearly inside of an :ref:`AnimationNodeBlendTree<class_A
 Description
 -----------
 
-A resource to add to an :ref:`AnimationNodeBlendTree<class_AnimationNodeBlendTree>`. Blends two animations linearly based on an amount value in the ``[0.0, 1.0]`` range.
+A resource to add to an :ref:`AnimationNodeBlendTree<class_AnimationNodeBlendTree>`. Blends two animations linearly based on the amount value.
+
+In general, the blend value should be in the ``[0.0, 1.0]`` range. Values outside of this range can blend amplified or inverted animations, however, :ref:`AnimationNodeAdd2<class_AnimationNodeAdd2>` works better for this purpose.
 
 .. rst-class:: classref-introduction-group
 
 Tutorials
 ---------
 
-- :doc:`AnimationTree <../tutorials/animation/animation_tree>`
+- :doc:`Using AnimationTree <../tutorials/animation/animation_tree>`
 
 - `3D Platformer Demo <https://godotengine.org/asset-library/asset/125>`__
 

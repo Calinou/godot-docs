@@ -12,14 +12,14 @@ FileAccess
 
 **Inherits:** :ref:`RefCounted<class_RefCounted>` **<** :ref:`Object<class_Object>`
 
-Type to handle file reading and writing operations.
+Provides methods for file reading and writing operations.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-File type. This is used to permanently store data into the user device's file system and to read from it. This can be used to store game save data or player configuration files, for example.
+This class can be used to permanently store data in the user device's file system and to read from it. This is useful for store game save data or player configuration files.
 
 Here's a sample on how to write and read from a file:
 
@@ -56,24 +56,9 @@ Here's a sample on how to write and read from a file:
 
 In the example above, the file will be saved in the user data folder as specified in the :doc:`Data paths <../tutorials/io/data_paths>` documentation.
 
-\ **FileAccess** will close when it's freed, which happens when it goes out of scope or when it gets assigned with ``null``. In C# the reference must be disposed after we are done using it, this can be done with the ``using`` statement or calling the ``Dispose`` method directly.
+\ **FileAccess** will close when it's freed, which happens when it goes out of scope or when it gets assigned with ``null``. :ref:`close<class_FileAccess_method_close>` can be used to close it before then explicitly. In C# the reference must be disposed manually, which can be done with the ``using`` statement or by calling the ``Dispose`` method directly.
 
-
-.. tabs::
-
- .. code-tab:: gdscript
-
-    var file = FileAccess.open("res://something") # File is opened and locked for use.
-    file = null # File is closed.
-
- .. code-tab:: csharp
-
-    using var file = FileAccess.Open("res://something"); // File is opened and locked for use.
-    // The using statement calls Dispose when going out of scope.
-
-
-
-\ **Note:** To access project resources once exported, it is recommended to use :ref:`ResourceLoader<class_ResourceLoader>` instead of the **FileAccess** API, as some files are converted to engine-specific formats and their original source files might not be present in the exported PCK package.
+\ **Note:** To access project resources once exported, it is recommended to use :ref:`ResourceLoader<class_ResourceLoader>` instead of **FileAccess**, as some files are converted to engine-specific formats and their original source files might not be present in the exported PCK package.
 
 \ **Note:** Files are automatically closed only if the process exits "normally" (such as by clicking the window manager's close button or pressing **Alt + F4**). If you stop the project execution by pressing **F8** while the project is running, the file won't be closed as the game process will be killed. You can work around this by calling :ref:`flush<class_FileAccess_method_flush>` at regular intervals.
 
@@ -115,13 +100,13 @@ Methods
    +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | void                                              | :ref:`flush<class_FileAccess_method_flush>` **(** **)**                                                                                                                                                                                                   |
    +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`int<class_int>`                             | :ref:`get_8<class_FileAccess_method_get_8>` **(** **)** |const|                                                                                                                                                                                           |
+   +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`                             | :ref:`get_16<class_FileAccess_method_get_16>` **(** **)** |const|                                                                                                                                                                                         |
    +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`                             | :ref:`get_32<class_FileAccess_method_get_32>` **(** **)** |const|                                                                                                                                                                                         |
    +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`                             | :ref:`get_64<class_FileAccess_method_get_64>` **(** **)** |const|                                                                                                                                                                                         |
-   +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`int<class_int>`                             | :ref:`get_8<class_FileAccess_method_get_8>` **(** **)** |const|                                                                                                                                                                                           |
    +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`String<class_String>`                       | :ref:`get_as_text<class_FileAccess_method_get_as_text>` **(** :ref:`bool<class_bool>` skip_cr=false **)** |const|                                                                                                                                         |
    +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -177,13 +162,13 @@ Methods
    +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | void                                              | :ref:`seek_end<class_FileAccess_method_seek_end>` **(** :ref:`int<class_int>` position=0 **)**                                                                                                                                                            |
    +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | void                                              | :ref:`store_8<class_FileAccess_method_store_8>` **(** :ref:`int<class_int>` value **)**                                                                                                                                                                   |
+   +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | void                                              | :ref:`store_16<class_FileAccess_method_store_16>` **(** :ref:`int<class_int>` value **)**                                                                                                                                                                 |
    +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | void                                              | :ref:`store_32<class_FileAccess_method_store_32>` **(** :ref:`int<class_int>` value **)**                                                                                                                                                                 |
    +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | void                                              | :ref:`store_64<class_FileAccess_method_store_64>` **(** :ref:`int<class_int>` value **)**                                                                                                                                                                 |
-   +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                              | :ref:`store_8<class_FileAccess_method_store_8>` **(** :ref:`int<class_int>` value **)**                                                                                                                                                                   |
    +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | void                                              | :ref:`store_buffer<class_FileAccess_method_store_buffer>` **(** :ref:`PackedByteArray<class_PackedByteArray>` buffer **)**                                                                                                                                |
    +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -292,6 +277,14 @@ Uses the `Zstandard <https://facebook.github.io/zstd/>`__ compression method.
 :ref:`CompressionMode<enum_FileAccess_CompressionMode>` **COMPRESSION_GZIP** = ``3``
 
 Uses the `gzip <https://www.gzip.org/>`__ compression method.
+
+.. _class_FileAccess_constant_COMPRESSION_BROTLI:
+
+.. rst-class:: classref-enumeration-constant
+
+:ref:`CompressionMode<enum_FileAccess_CompressionMode>` **COMPRESSION_BROTLI** = ``4``
+
+Uses the `brotli <https://github.com/google/brotli>`__ compression method (only decompression is supported).
 
 .. rst-class:: classref-section-separator
 
@@ -403,6 +396,18 @@ Writes the file's buffer to disk. Flushing is automatically performed when the f
 
 ----
 
+.. _class_FileAccess_method_get_8:
+
+.. rst-class:: classref-method
+
+:ref:`int<class_int>` **get_8** **(** **)** |const|
+
+Returns the next 8 bits from the file as an integer. See :ref:`store_8<class_FileAccess_method_store_8>` for details on what values can be stored and retrieved this way.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_FileAccess_method_get_16:
 
 .. rst-class:: classref-method
@@ -434,18 +439,6 @@ Returns the next 32 bits from the file as an integer. See :ref:`store_32<class_F
 :ref:`int<class_int>` **get_64** **(** **)** |const|
 
 Returns the next 64 bits from the file as an integer. See :ref:`store_64<class_FileAccess_method_store_64>` for details on what values can be stored and retrieved this way.
-
-.. rst-class:: classref-item-separator
-
-----
-
-.. _class_FileAccess_method_get_8:
-
-.. rst-class:: classref-method
-
-:ref:`int<class_int>` **get_8** **(** **)** |const|
-
-Returns the next 8 bits from the file as an integer. See :ref:`store_8<class_FileAccess_method_store_8>` for details on what values can be stored and retrieved this way.
 
 .. rst-class:: classref-item-separator
 
@@ -811,6 +804,22 @@ Changes the file reading/writing cursor to the specified position (in bytes from
 
 ----
 
+.. _class_FileAccess_method_store_8:
+
+.. rst-class:: classref-method
+
+void **store_8** **(** :ref:`int<class_int>` value **)**
+
+Stores an integer as 8 bits in the file.
+
+\ **Note:** The ``value`` should lie in the interval ``[0, 255]``. Any other value will overflow and wrap around.
+
+To store a signed integer, use :ref:`store_64<class_FileAccess_method_store_64>`, or convert it manually (see :ref:`store_16<class_FileAccess_method_store_16>` for an example).
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_FileAccess_method_store_16:
 
 .. rst-class:: classref-method
@@ -889,22 +898,6 @@ void **store_64** **(** :ref:`int<class_int>` value **)**
 Stores an integer as 64 bits in the file.
 
 \ **Note:** The ``value`` must lie in the interval ``[-2^63, 2^63 - 1]`` (i.e. be a valid :ref:`int<class_int>` value).
-
-.. rst-class:: classref-item-separator
-
-----
-
-.. _class_FileAccess_method_store_8:
-
-.. rst-class:: classref-method
-
-void **store_8** **(** :ref:`int<class_int>` value **)**
-
-Stores an integer as 8 bits in the file.
-
-\ **Note:** The ``value`` should lie in the interval ``[0, 255]``. Any other value will overflow and wrap around.
-
-To store a signed integer, use :ref:`store_64<class_FileAccess_method_store_64>`, or convert it manually (see :ref:`store_16<class_FileAccess_method_store_16>` for an example).
 
 .. rst-class:: classref-item-separator
 
