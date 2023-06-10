@@ -12,16 +12,16 @@ ButtonGroup
 
 **Inherits:** :ref:`Resource<class_Resource>` **<** :ref:`RefCounted<class_RefCounted>` **<** :ref:`Object<class_Object>`
 
-Group of Buttons.
+A group of buttons that doesn't allow more than one button to be pressed at a time.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-Group of :ref:`BaseButton<class_BaseButton>`. The members of this group are treated like radio buttons in the sense that only one button can be pressed at the same time.
+A group of :ref:`BaseButton<class_BaseButton>`-derived buttons. The buttons in a **ButtonGroup** are treated like radio buttons: No more than one button can be pressed at a time. Some types of buttons (such as :ref:`CheckBox<class_CheckBox>`) may have a special appearance in this state.
 
-Every member of the ButtonGroup should have :ref:`BaseButton.toggle_mode<class_BaseButton_property_toggle_mode>` set to ``true``.
+Every member of a **ButtonGroup** should have :ref:`BaseButton.toggle_mode<class_BaseButton_property_toggle_mode>` set to ``true``.
 
 .. rst-class:: classref-reftable-group
 
@@ -31,9 +31,11 @@ Properties
 .. table::
    :widths: auto
 
-   +-------------------------+-------------------------+---------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>` | resource_local_to_scene | ``true`` (overrides :ref:`Resource<class_Resource_property_resource_local_to_scene>`) |
-   +-------------------------+-------------------------+---------------------------------------------------------------------------------------+
+   +-------------------------+----------------------------------------------------------------+---------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>` | :ref:`allow_unpress<class_ButtonGroup_property_allow_unpress>` | ``false``                                                                             |
+   +-------------------------+----------------------------------------------------------------+---------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>` | resource_local_to_scene                                        | ``true`` (overrides :ref:`Resource<class_Resource_property_resource_local_to_scene>`) |
+   +-------------------------+----------------------------------------------------------------+---------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-reftable-group
 
@@ -65,6 +67,28 @@ Signals
 **pressed** **(** :ref:`BaseButton<class_BaseButton>` button **)**
 
 Emitted when one of the buttons of the group is pressed.
+
+.. rst-class:: classref-section-separator
+
+----
+
+.. rst-class:: classref-descriptions-group
+
+Property Descriptions
+---------------------
+
+.. _class_ButtonGroup_property_allow_unpress:
+
+.. rst-class:: classref-property
+
+:ref:`bool<class_bool>` **allow_unpress** = ``false``
+
+.. rst-class:: classref-property-setget
+
+- void **set_allow_unpress** **(** :ref:`bool<class_bool>` value **)**
+- :ref:`bool<class_bool>` **is_allow_unpress** **(** **)**
+
+If ``true``, it is possible to unpress all buttons in this **ButtonGroup**.
 
 .. rst-class:: classref-section-separator
 

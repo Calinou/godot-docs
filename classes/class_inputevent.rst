@@ -14,21 +14,21 @@ InputEvent
 
 **Inherited By:** :ref:`InputEventAction<class_InputEventAction>`, :ref:`InputEventFromWindow<class_InputEventFromWindow>`, :ref:`InputEventJoypadButton<class_InputEventJoypadButton>`, :ref:`InputEventJoypadMotion<class_InputEventJoypadMotion>`, :ref:`InputEventMIDI<class_InputEventMIDI>`, :ref:`InputEventShortcut<class_InputEventShortcut>`
 
-Generic input event.
+Abstract base class for input events.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-Base class of all sort of input event. See :ref:`Node._input<class_Node_method__input>`.
+Abstract base class of all types of input events. See :ref:`Node._input<class_Node_method__input>`.
 
 .. rst-class:: classref-introduction-group
 
 Tutorials
 ---------
 
-- :doc:`InputEvent <../tutorials/inputs/inputevent>`
+- :doc:`Using InputEvent <../tutorials/inputs/inputevent>`
 
 - :doc:`Viewport and canvas transforms <../tutorials/2d/2d_transforms>`
 
@@ -71,11 +71,15 @@ Methods
    +-------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`             | :ref:`is_action_type<class_InputEvent_method_is_action_type>` **(** **)** |const|                                                                                                                                       |
    +-------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`             | :ref:`is_canceled<class_InputEvent_method_is_canceled>` **(** **)** |const|                                                                                                                                             |
+   +-------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`             | :ref:`is_echo<class_InputEvent_method_is_echo>` **(** **)** |const|                                                                                                                                                     |
    +-------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`             | :ref:`is_match<class_InputEvent_method_is_match>` **(** :ref:`InputEvent<class_InputEvent>` event, :ref:`bool<class_bool>` exact_match=true **)** |const|                                                               |
    +-------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`             | :ref:`is_pressed<class_InputEvent_method_is_pressed>` **(** **)** |const|                                                                                                                                               |
+   +-------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`             | :ref:`is_released<class_InputEvent_method_is_released>` **(** **)** |const|                                                                                                                                             |
    +-------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`InputEvent<class_InputEvent>` | :ref:`xformed_by<class_InputEvent_method_xformed_by>` **(** :ref:`Transform2D<class_Transform2D>` xform, :ref:`Vector2<class_Vector2>` local_ofs=Vector2(0, 0) **)** |const|                                            |
    +-------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -209,6 +213,18 @@ Returns ``true`` if this input event's type is one that can be assigned to an in
 
 ----
 
+.. _class_InputEvent_method_is_canceled:
+
+.. rst-class:: classref-method
+
+:ref:`bool<class_bool>` **is_canceled** **(** **)** |const|
+
+Returns ``true`` if this input event has been canceled.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_InputEvent_method_is_echo:
 
 .. rst-class:: classref-method
@@ -244,6 +260,18 @@ If ``exact_match`` is ``false``, it ignores additional input modifiers for :ref:
 Returns ``true`` if this input event is pressed. Not relevant for events of type :ref:`InputEventMouseMotion<class_InputEventMouseMotion>` or :ref:`InputEventScreenDrag<class_InputEventScreenDrag>`.
 
 \ **Note:** Due to keyboard ghosting, :ref:`is_pressed<class_InputEvent_method_is_pressed>` may return ``false`` even if one of the action's keys is pressed. See `Input examples <../tutorials/inputs/input_examples.html#keyboard-events>`__ in the documentation for more information.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_InputEvent_method_is_released:
+
+.. rst-class:: classref-method
+
+:ref:`bool<class_bool>` **is_released** **(** **)** |const|
+
+Returns ``true`` if this input event is released. Not relevant for events of type :ref:`InputEventMouseMotion<class_InputEventMouseMotion>` or :ref:`InputEventScreenDrag<class_InputEventScreenDrag>`.
 
 .. rst-class:: classref-item-separator
 

@@ -12,16 +12,16 @@ VehicleWheel3D
 
 **Inherits:** :ref:`Node3D<class_Node3D>` **<** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
 
-Physics object that simulates the behavior of a wheel.
+A 3D physics body for a :ref:`VehicleBody3D<class_VehicleBody3D>` that simulates the behavior of a wheel.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-This node needs to be used as a child node of :ref:`VehicleBody3D<class_VehicleBody3D>` and simulates the behavior of one of its wheels. This node also acts as a collider to detect if the wheel is touching a surface.
+A node used as a child of a :ref:`VehicleBody3D<class_VehicleBody3D>` parent to simulate the behavior of one of its wheels. This node also acts as a collider to detect if the wheel is touching a surface.
 
-\ **Note:** This class has known issues and isn't designed to provide realistic 3D vehicle physics. If you want advanced vehicle physics, you will probably have to write your own physics integration using another :ref:`PhysicsBody3D<class_PhysicsBody3D>` class.
+\ **Note:** This class has known issues and isn't designed to provide realistic 3D vehicle physics. If you want advanced vehicle physics, you may need to write your own physics integration using another :ref:`PhysicsBody3D<class_PhysicsBody3D>` class.
 
 .. rst-class:: classref-introduction-group
 
@@ -53,7 +53,7 @@ Properties
    +---------------------------+---------------------------------------------------------------------------------+------------+
    | :ref:`float<class_float>` | :ref:`suspension_stiffness<class_VehicleWheel3D_property_suspension_stiffness>` | ``5.88``   |
    +---------------------------+---------------------------------------------------------------------------------+------------+
-   | :ref:`float<class_float>` | :ref:`suspension_travel<class_VehicleWheel3D_property_suspension_travel>`       | ``5.0``    |
+   | :ref:`float<class_float>` | :ref:`suspension_travel<class_VehicleWheel3D_property_suspension_travel>`       | ``0.2``    |
    +---------------------------+---------------------------------------------------------------------------------+------------+
    | :ref:`bool<class_bool>`   | :ref:`use_as_steering<class_VehicleWheel3D_property_use_as_steering>`           | ``false``  |
    +---------------------------+---------------------------------------------------------------------------------+------------+
@@ -222,7 +222,7 @@ This value defines the stiffness of the suspension. Use a value lower than 50 fo
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **suspension_travel** = ``5.0``
+:ref:`float<class_float>` **suspension_travel** = ``0.2``
 
 .. rst-class:: classref-property-setget
 

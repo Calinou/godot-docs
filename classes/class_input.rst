@@ -12,14 +12,16 @@ Input
 
 **Inherits:** :ref:`Object<class_Object>`
 
-A singleton that deals with inputs.
+A singleton for handling inputs.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-A singleton that deals with inputs. This includes key presses, mouse buttons and movement, joypads, and input actions. Actions and their events can be set in the **Input Map** tab in the **Project > Project Settings**, or with the :ref:`InputMap<class_InputMap>` class.
+The **Input** singleton handles key presses, mouse buttons and movement, gamepads, and input actions. Actions and their events can be set in the **Input Map** tab in **Project > Project Settings**, or with the :ref:`InputMap<class_InputMap>` class.
+
+\ **Note:** **Input**'s methods reflect the global input state and are not affected by :ref:`Control.accept_event<class_Control_method_accept_event>` or :ref:`Viewport.set_input_as_handled<class_Viewport_method_set_input_as_handled>`, as those methods only deal with the way input is propagated in the :ref:`SceneTree<class_SceneTree>`.
 
 .. rst-class:: classref-introduction-group
 
@@ -598,7 +600,7 @@ Returns the current value of the joypad axis at given index (see :ref:`JoyAxis<e
 
 :ref:`String<class_String>` **get_joy_guid** **(** :ref:`int<class_int>` device **)** |const|
 
-Returns a SDL2-compatible device GUID on platforms that use gamepad remapping. Returns ``"Default Gamepad"`` otherwise.
+Returns a SDL2-compatible device GUID on platforms that use gamepad remapping, e.g. ``030000004c050000c405000000010000``. Returns ``"Default Gamepad"`` otherwise. Godot uses the `SDL2 game controller database <https://github.com/gabomdq/SDL_GameControllerDB>`__ to determine gamepad names and mappings based on this GUID.
 
 .. rst-class:: classref-item-separator
 
@@ -610,7 +612,7 @@ Returns a SDL2-compatible device GUID on platforms that use gamepad remapping. R
 
 :ref:`String<class_String>` **get_joy_name** **(** :ref:`int<class_int>` device **)**
 
-Returns the name of the joypad at the specified device index.
+Returns the name of the joypad at the specified device index, e.g. ``PS4 Controller``. Godot uses the `SDL2 game controller database <https://github.com/gabomdq/SDL_GameControllerDB>`__ to determine gamepad names.
 
 .. rst-class:: classref-item-separator
 
@@ -901,13 +903,13 @@ void **set_custom_mouse_cursor** **(** :ref:`Resource<class_Resource>` image, :r
 
 Sets a custom mouse cursor image, which is only visible inside the game window. The hotspot can also be specified. Passing ``null`` to the image parameter resets to the system cursor. See :ref:`CursorShape<enum_Input_CursorShape>` for the list of shapes.
 
-\ ``image``'s size must be lower than 256×256.
+\ ``image``'s size must be lower than or equal to 256×256. To avoid rendering issues, sizes lower than or equal to 128×128 are recommended.
 
 \ ``hotspot`` must be within ``image``'s size.
 
 \ **Note:** :ref:`AnimatedTexture<class_AnimatedTexture>`\ s aren't supported as custom mouse cursors. If using an :ref:`AnimatedTexture<class_AnimatedTexture>`, only the first frame will be displayed.
 
-\ **Note:** Only images imported with the **Lossless**, **Lossy** or **Uncompressed** compression modes are supported. The **Video RAM** compression mode can't be used for custom cursors.
+\ **Note:** The **Lossless**, **Lossy** or **Uncompressed** compression modes are recommended. The **Video RAM** compression mode can be used, but it will be decompressed on the CPU, which means loading times are slowed down and no memory is saved compared to lossless modes.
 
 \ **Note:** On the web platform, the maximum allowed cursor image size is 128×128. Cursor images larger than 32×32 will also only be displayed if the mouse cursor image is entirely located within the page for `security reasons <https://chromestatus.com/feature/5825971391299584>`__.
 

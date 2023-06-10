@@ -12,9 +12,16 @@ PhysicsDirectBodyState2DExtension
 
 **Inherits:** :ref:`PhysicsDirectBodyState2D<class_PhysicsDirectBodyState2D>` **<** :ref:`Object<class_Object>`
 
-.. container:: contribute
+Provides virtual methods that can be overridden to create custom :ref:`PhysicsDirectBodyState2D<class_PhysicsDirectBodyState2D>` implementations.
 
-	There is currently no description for this class. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+.. rst-class:: classref-introduction-group
+
+Description
+-----------
+
+This class extends :ref:`PhysicsDirectBodyState2D<class_PhysicsDirectBodyState2D>` by providing additional virtual methods that can be overridden. When these methods are overridden, they will be called instead of the internal methods of the physics server.
+
+Intended for use with GDExtension to create custom implementations of :ref:`PhysicsDirectBodyState2D<class_PhysicsDirectBodyState2D>`.
 
 .. rst-class:: classref-reftable-group
 
@@ -74,6 +81,8 @@ Methods
    | :ref:`Vector2<class_Vector2>`                                     | :ref:`_get_contact_local_position<class_PhysicsDirectBodyState2DExtension_method__get_contact_local_position>` **(** :ref:`int<class_int>` contact_idx **)** |virtual| |const|                               |
    +-------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`                                             | :ref:`_get_contact_local_shape<class_PhysicsDirectBodyState2DExtension_method__get_contact_local_shape>` **(** :ref:`int<class_int>` contact_idx **)** |virtual| |const|                                     |
+   +-------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Vector2<class_Vector2>`                                     | :ref:`_get_contact_local_velocity_at_position<class_PhysicsDirectBodyState2DExtension_method__get_contact_local_velocity_at_position>` **(** :ref:`int<class_int>` contact_idx **)** |virtual| |const|       |
    +-------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`float<class_float>`                                         | :ref:`_get_inverse_inertia<class_PhysicsDirectBodyState2DExtension_method__get_inverse_inertia>` **(** **)** |virtual| |const|                                                                               |
    +-------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -462,6 +471,20 @@ void **_apply_torque_impulse** **(** :ref:`float<class_float>` impulse **)** |vi
 .. rst-class:: classref-method
 
 :ref:`int<class_int>` **_get_contact_local_shape** **(** :ref:`int<class_int>` contact_idx **)** |virtual| |const|
+
+.. container:: contribute
+
+	There is currently no description for this method. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_PhysicsDirectBodyState2DExtension_method__get_contact_local_velocity_at_position:
+
+.. rst-class:: classref-method
+
+:ref:`Vector2<class_Vector2>` **_get_contact_local_velocity_at_position** **(** :ref:`int<class_int>` contact_idx **)** |virtual| |const|
 
 .. container:: contribute
 

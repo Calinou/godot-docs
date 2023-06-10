@@ -14,14 +14,14 @@ TextEdit
 
 **Inherited By:** :ref:`CodeEdit<class_CodeEdit>`
 
-Multiline text editing control.
+A multiline text editor.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-TextEdit is meant for editing large, multiline text. It also has facilities for editing code, such as syntax highlighting support and multiple levels of undo/redo.
+A multiline text editor. It also has limited facilities for editing code, such as syntax highlighting support. For more advanced facilities for editing code, see :ref:`CodeEdit<class_CodeEdit>`.
 
 \ **Note:** Most viewport, caret and edit methods contain a ``caret_index`` argument for :ref:`caret_multiple<class_TextEdit_property_caret_multiple>` support. The argument should be one of the following: ``-1`` for all carets, ``0`` for the main caret, or greater than ``0`` for secondary carets.
 
@@ -39,6 +39,8 @@ Properties
    | :ref:`bool<class_bool>`                                           | :ref:`caret_blink<class_TextEdit_property_caret_blink>`                                                     | ``false``                                                                           |
    +-------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+
    | :ref:`float<class_float>`                                         | :ref:`caret_blink_interval<class_TextEdit_property_caret_blink_interval>`                                   | ``0.65``                                                                            |
+   +-------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                                           | :ref:`caret_draw_when_editable_disabled<class_TextEdit_property_caret_draw_when_editable_disabled>`         | ``false``                                                                           |
    +-------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                                           | :ref:`caret_mid_grapheme<class_TextEdit_property_caret_mid_grapheme>`                                       | ``true``                                                                            |
    +-------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+
@@ -959,7 +961,7 @@ Select whole words as if the user double clicked.
 
 :ref:`SelectionMode<enum_TextEdit_SelectionMode>` **SELECTION_MODE_LINE** = ``4``
 
-Select whole lines as if the user tripped clicked.
+Select whole lines as if the user triple clicked.
 
 .. rst-class:: classref-item-separator
 
@@ -1041,7 +1043,7 @@ Property Descriptions
 - void **set_caret_blink_enabled** **(** :ref:`bool<class_bool>` value **)**
 - :ref:`bool<class_bool>` **is_caret_blink_enabled** **(** **)**
 
-Sets if the caret should blink.
+If ``true``, makes the caret blink.
 
 .. rst-class:: classref-item-separator
 
@@ -1058,7 +1060,24 @@ Sets if the caret should blink.
 - void **set_caret_blink_interval** **(** :ref:`float<class_float>` value **)**
 - :ref:`float<class_float>` **get_caret_blink_interval** **(** **)**
 
-Duration (in seconds) of a caret's blinking cycle.
+The interval at which the caret blinks (in seconds).
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_TextEdit_property_caret_draw_when_editable_disabled:
+
+.. rst-class:: classref-property
+
+:ref:`bool<class_bool>` **caret_draw_when_editable_disabled** = ``false``
+
+.. rst-class:: classref-property-setget
+
+- void **set_draw_caret_when_editable_disabled** **(** :ref:`bool<class_bool>` value **)**
+- :ref:`bool<class_bool>` **is_drawing_caret_when_editable_disabled** **(** **)**
+
+If ``true``, caret will be visible when :ref:`editable<class_TextEdit_property_editable>` is disabled.
 
 .. rst-class:: classref-item-separator
 
@@ -2222,7 +2241,9 @@ Returns the text currently in ``gutter`` at ``line``.
 
 :ref:`int<class_int>` **get_line_height** **(** **)** |const|
 
-Returns the height of a largest line.
+Returns the maximum value of the line height among all lines.
+
+\ **Note:** The return value is influenced by :ref:`line_spacing<class_TextEdit_theme_constant_line_spacing>` and :ref:`font_size<class_TextEdit_theme_font_size_font_size>`. And it will not be less than ``1``.
 
 .. rst-class:: classref-item-separator
 
@@ -2453,7 +2474,7 @@ Returns the scroll position for ``wrap_index`` of ``line``.
 
 :ref:`String<class_String>` **get_selected_text** **(** :ref:`int<class_int>` caret_index=-1 **)**
 
-Returns the text inside the selection.
+Returns the text inside the selection of a caret, or all the carets if ``caret_index`` is its default value ``-1``.
 
 .. rst-class:: classref-item-separator
 
