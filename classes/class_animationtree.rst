@@ -12,14 +12,14 @@ AnimationTree
 
 **Inherits:** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
 
-A node to be used for advanced animation transitions in an :ref:`AnimationPlayer<class_AnimationPlayer>`.
+A node used for advanced animation transitions in an :ref:`AnimationPlayer<class_AnimationPlayer>`.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-A node to be used for advanced animation transitions in an :ref:`AnimationPlayer<class_AnimationPlayer>`.
+A node used for advanced animation transitions in an :ref:`AnimationPlayer<class_AnimationPlayer>`.
 
 \ **Note:** When linked with an :ref:`AnimationPlayer<class_AnimationPlayer>`, several properties and methods of the corresponding :ref:`AnimationPlayer<class_AnimationPlayer>` will not function as expected. Playback and transitions should be handled using only the **AnimationTree** and its constituent :ref:`AnimationNode<class_AnimationNode>`\ (s). The :ref:`AnimationPlayer<class_AnimationPlayer>` node should be used solely for adding, deleting, and editing animations.
 
@@ -552,3 +552,4 @@ However, if the animation loops, an unintended discrete change may occur, so thi
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

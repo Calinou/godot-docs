@@ -1279,7 +1279,7 @@ The callback should have 4 arguments: :ref:`Object<class_Object>` ``undo_redo``,
 
 :ref:`EditorInterface<class_EditorInterface>` **get_editor_interface** **(** **)**
 
-Returns the :ref:`EditorInterface<class_EditorInterface>` object that gives you control over Godot editor's window and its functionalities.
+Returns the :ref:`EditorInterface<class_EditorInterface>` singleton. It provides access to some parts of the editor GUI as well as various inner states and tools.
 
 .. rst-class:: classref-item-separator
 
@@ -1591,3 +1591,4 @@ Updates the overlays of the 2D and 3D editor viewport. Causes methods :ref:`_for
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

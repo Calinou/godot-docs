@@ -21,6 +21,8 @@ Description
 
 Counts down a specified interval and emits a signal on reaching 0. Can be set to repeat or "one-shot" mode.
 
+\ **Note:** Timers are affected by :ref:`Engine.time_scale<class_Engine_property_time_scale>`, a higher scale means quicker timeouts, and vice versa.
+
 \ **Note:** To create a one-shot timer without instantiating a node, use :ref:`SceneTree.create_timer<class_SceneTree_method_create_timer>`.
 
 .. rst-class:: classref-introduction-group
@@ -226,7 +228,7 @@ The timer's remaining time in seconds. Returns 0 if the timer is inactive.
 
 The wait time in seconds.
 
-\ **Note:** Timers can only emit once per rendered frame at most (or once per physics frame if :ref:`process_callback<class_Timer_property_process_callback>` is :ref:`TIMER_PROCESS_PHYSICS<class_Timer_constant_TIMER_PROCESS_PHYSICS>`). This means very low wait times (lower than 0.05 seconds) will behave in significantly different ways depending on the rendered framerate. For very low wait times, it is recommended to use a process loop in a script instead of using a Timer node.
+\ **Note:** Timers can only emit once per rendered frame at most (or once per physics frame if :ref:`process_callback<class_Timer_property_process_callback>` is :ref:`TIMER_PROCESS_PHYSICS<class_Timer_constant_TIMER_PROCESS_PHYSICS>`). This means very low wait times (lower than 0.05 seconds) will behave in significantly different ways depending on the rendered framerate. For very low wait times, it is recommended to use a process loop in a script instead of using a Timer node. Timers are affected by :ref:`Engine.time_scale<class_Engine_property_time_scale>`, a higher scale means quicker timeouts, and vice versa.
 
 .. rst-class:: classref-section-separator
 
@@ -277,3 +279,4 @@ Stops the timer.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

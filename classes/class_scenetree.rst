@@ -288,7 +288,7 @@ Property Descriptions
 - void **set_auto_accept_quit** **(** :ref:`bool<class_bool>` value **)**
 - :ref:`bool<class_bool>` **is_auto_accept_quit** **(** **)**
 
-If ``true``, the application automatically accepts quitting.
+If ``true``, the application automatically accepts quitting requests.
 
 For mobile platforms, see :ref:`quit_on_go_back<class_SceneTree_property_quit_on_go_back>`.
 
@@ -438,7 +438,7 @@ If ``true``, the **SceneTree** is paused. Doing so will have the following behav
 - void **set_quit_on_go_back** **(** :ref:`bool<class_bool>` value **)**
 - :ref:`bool<class_bool>` **is_quit_on_go_back** **(** **)**
 
-If ``true``, the application quits automatically on going back (e.g. on Android).
+If ``true``, the application quits automatically when navigating back (e.g. using the system "Back" button on Android).
 
 To handle 'Go Back' button when this option is disabled, use :ref:`DisplayServer.WINDOW_EVENT_GO_BACK_REQUEST<class_DisplayServer_constant_WINDOW_EVENT_GO_BACK_REQUEST>`.
 
@@ -538,7 +538,7 @@ Returns :ref:`@GlobalScope.OK<class_@GlobalScope_constant_OK>` on success, :ref:
 
 :ref:`SceneTreeTimer<class_SceneTreeTimer>` **create_timer** **(** :ref:`float<class_float>` time_sec, :ref:`bool<class_bool>` process_always=true, :ref:`bool<class_bool>` process_in_physics=false, :ref:`bool<class_bool>` ignore_time_scale=false **)**
 
-Returns a :ref:`SceneTreeTimer<class_SceneTreeTimer>` which will :ref:`SceneTreeTimer.timeout<class_SceneTreeTimer_signal_timeout>` after the given time in seconds elapsed in this **SceneTree**.
+Returns a :ref:`SceneTreeTimer<class_SceneTreeTimer>` which will emit :ref:`SceneTreeTimer.timeout<class_SceneTreeTimer_signal_timeout>` after the given time in seconds elapsed in this **SceneTree**.
 
 If ``process_always`` is set to ``false``, pausing the **SceneTree** will also pause the timer.
 
@@ -581,7 +581,7 @@ The timer will be automatically freed after its time elapses.
 
 :ref:`Tween<class_Tween>` **create_tween** **(** **)**
 
-Creates and returns a new :ref:`Tween<class_Tween>`.
+Creates and returns a new :ref:`Tween<class_Tween>`. The Tween will start automatically on the next process frame or physics frame (depending on :ref:`TweenProcessMode<enum_Tween_TweenProcessMode>`).
 
 .. rst-class:: classref-item-separator
 
@@ -797,3 +797,4 @@ If a current scene is loaded, calling this method will unload it.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
