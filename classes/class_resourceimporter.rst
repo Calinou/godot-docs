@@ -14,14 +14,14 @@ ResourceImporter
 
 **Inherited By:** :ref:`EditorImportPlugin<class_EditorImportPlugin>`
 
-Base class for the implementation of core resource importers.
+Base class for resource importers.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-This is the base class for the resource importers implemented in core. To implement your own resource importers using editor plugins, see :ref:`EditorImportPlugin<class_EditorImportPlugin>`.
+This is the base class for Godot's resource importers. To implement your own resource importers using editor plugins, see :ref:`EditorImportPlugin<class_EditorImportPlugin>`.
 
 .. rst-class:: classref-introduction-group
 
@@ -67,3 +67,4 @@ The import order for scenes, which ensures scenes are imported *after* all other
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

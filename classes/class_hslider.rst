@@ -12,16 +12,14 @@ HSlider
 
 **Inherits:** :ref:`Slider<class_Slider>` **<** :ref:`Range<class_Range>` **<** :ref:`Control<class_Control>` **<** :ref:`CanvasItem<class_CanvasItem>` **<** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
 
-Horizontal slider.
+A horizontal slider that goes from left (min) to right (max).
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-Horizontal slider. See :ref:`Slider<class_Slider>`. This one goes from left (min) to right (max).
-
-\ **Note:** The :ref:`Range.changed<class_Range_signal_changed>` and :ref:`Range.value_changed<class_Range_signal_value_changed>` signals are part of the :ref:`Range<class_Range>` class which this class inherits from.
+A horizontal slider, used to adjust a value by moving a grabber along a horizontal axis. It is a :ref:`Range<class_Range>`-based control and goes from left (min) to right (max).
 
 .. rst-class:: classref-reftable-group
 
@@ -31,6 +29,8 @@ Theme Properties
 .. table::
    :widths: auto
 
+   +-----------------------------------+---------------------------------------------------------------------------------+-------+
+   | :ref:`int<class_int>`             | :ref:`center_grabber<class_HSlider_theme_constant_center_grabber>`              | ``0`` |
    +-----------------------------------+---------------------------------------------------------------------------------+-------+
    | :ref:`int<class_int>`             | :ref:`grabber_offset<class_HSlider_theme_constant_grabber_offset>`              | ``0`` |
    +-----------------------------------+---------------------------------------------------------------------------------+-------+
@@ -57,6 +57,18 @@ Theme Properties
 
 Theme Property Descriptions
 ---------------------------
+
+.. _class_HSlider_theme_constant_center_grabber:
+
+.. rst-class:: classref-themeproperty
+
+:ref:`int<class_int>` **center_grabber** = ``0``
+
+Boolean constant. If ``1``, the grabber texture size will be ignored and it will fit within slider's bounds based only on its center position.
+
+.. rst-class:: classref-item-separator
+
+----
 
 .. _class_HSlider_theme_constant_grabber_offset:
 
@@ -156,3 +168,4 @@ The background for the whole slider. Determines the height of the ``grabber_area
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

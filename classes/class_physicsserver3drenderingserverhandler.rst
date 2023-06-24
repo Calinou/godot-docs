@@ -12,9 +12,7 @@ PhysicsServer3DRenderingServerHandler
 
 **Inherits:** :ref:`Object<class_Object>`
 
-.. container:: contribute
-
-	There is currently no description for this class. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+A class used to provide :ref:`PhysicsServer3DExtension._soft_body_update_rendering_server<class_PhysicsServer3DExtension_method__soft_body_update_rendering_server>` with a rendering handler for soft bodies.
 
 .. rst-class:: classref-reftable-group
 
@@ -85,3 +83,4 @@ void **_set_vertex** **(** :ref:`int<class_int>` vertex_id, const void* vertices
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
