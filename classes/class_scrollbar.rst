@@ -14,14 +14,14 @@ ScrollBar
 
 **Inherited By:** :ref:`HScrollBar<class_HScrollBar>`, :ref:`VScrollBar<class_VScrollBar>`
 
-Base class for scroll bars.
+Abstract base class for scrollbars.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-Scrollbars are a :ref:`Range<class_Range>`-based :ref:`Control<class_Control>`, that display a draggable area (the size of the page). Horizontal (:ref:`HScrollBar<class_HScrollBar>`) and Vertical (:ref:`VScrollBar<class_VScrollBar>`) versions are available.
+Abstract base class for scrollbars, typically used to navigate through content that extends beyond the visible area of a control. Scrollbars are :ref:`Range<class_Range>`-based controls.
 
 .. rst-class:: classref-reftable-group
 
@@ -82,3 +82,4 @@ Overrides the step used when clicking increment and decrement buttons or when us
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

@@ -12,16 +12,14 @@ MenuButton
 
 **Inherits:** :ref:`Button<class_Button>` **<** :ref:`BaseButton<class_BaseButton>` **<** :ref:`Control<class_Control>` **<** :ref:`CanvasItem<class_CanvasItem>` **<** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
 
-Special button that brings up a :ref:`PopupMenu<class_PopupMenu>` when clicked.
+A button that brings up a :ref:`PopupMenu<class_PopupMenu>` when clicked.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-Special button that brings up a :ref:`PopupMenu<class_PopupMenu>` when clicked.
-
-New items can be created inside this :ref:`PopupMenu<class_PopupMenu>` using ``get_popup().add_item("My Item Name")``. You can also create them directly from the editor. To do so, select the **MenuButton** node, then in the toolbar at the top of the 2D editor, click **Items** then click **Add** in the popup. You will be able to give each item new properties.
+A button that brings up a :ref:`PopupMenu<class_PopupMenu>` when clicked. To create new items inside this :ref:`PopupMenu<class_PopupMenu>`, use ``get_popup().add_item("My Item Name")``. You can also create them directly from Godot editor's inspector.
 
 See also :ref:`BaseButton<class_BaseButton>` which contains common properties and methods associated with this node.
 
@@ -395,3 +393,4 @@ Default :ref:`StyleBox<class_StyleBox>` for the **MenuButton**.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

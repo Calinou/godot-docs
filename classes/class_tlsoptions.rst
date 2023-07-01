@@ -35,7 +35,7 @@ Objects of this class cannot be instantiated directly, and one of the static met
     # Create a TLS server configuration.
     var server_certs = load("res://my_server_cas.crt")
     var server_key = load("res://my_server_key.key")
-    var server_tls_options = TLSOptions.server(server_certs, server_key)
+    var server_tls_options = TLSOptions.server(server_key, server_certs)
 
 
 
@@ -110,3 +110,4 @@ Note: The ``certificate`` should include the full certificate chain up to the si
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

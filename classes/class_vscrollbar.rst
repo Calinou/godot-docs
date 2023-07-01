@@ -12,14 +12,14 @@ VScrollBar
 
 **Inherits:** :ref:`ScrollBar<class_ScrollBar>` **<** :ref:`Range<class_Range>` **<** :ref:`Control<class_Control>` **<** :ref:`CanvasItem<class_CanvasItem>` **<** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
 
-Vertical scroll bar.
+A vertical scrollbar that goes from top (min) to bottom (max).
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-Vertical version of :ref:`ScrollBar<class_ScrollBar>`, which goes from top (min) to bottom (max).
+A vertical scrollbar, typically used to navigate through content that extends beyond the visible height of a control. It is a :ref:`Range<class_Range>`-based control and goes from top (min) to bottom (max). Note that this direction is the opposite of :ref:`VSlider<class_VSlider>`'s.
 
 .. rst-class:: classref-reftable-group
 
@@ -29,11 +29,11 @@ Properties
 .. table::
    :widths: auto
 
-   +------------------------------------------+-----------------------+--------------------------------------------------------------------------------+
-   | :ref:`SizeFlags<enum_Control_SizeFlags>` | size_flags_horizontal | ``0`` (overrides :ref:`Control<class_Control_property_size_flags_horizontal>`) |
-   +------------------------------------------+-----------------------+--------------------------------------------------------------------------------+
-   | :ref:`SizeFlags<enum_Control_SizeFlags>` | size_flags_vertical   | ``1`` (overrides :ref:`Control<class_Control_property_size_flags_vertical>`)   |
-   +------------------------------------------+-----------------------+--------------------------------------------------------------------------------+
+   +--------------------------------------------------------+-----------------------+--------------------------------------------------------------------------------+
+   | |bitfield|\<:ref:`SizeFlags<enum_Control_SizeFlags>`\> | size_flags_horizontal | ``0`` (overrides :ref:`Control<class_Control_property_size_flags_horizontal>`) |
+   +--------------------------------------------------------+-----------------------+--------------------------------------------------------------------------------+
+   | |bitfield|\<:ref:`SizeFlags<enum_Control_SizeFlags>`\> | size_flags_vertical   | ``1`` (overrides :ref:`Control<class_Control_property_size_flags_vertical>`)   |
+   +--------------------------------------------------------+-----------------------+--------------------------------------------------------------------------------+
 
 .. rst-class:: classref-reftable-group
 
@@ -210,3 +210,4 @@ Used as background when the :ref:`ScrollBar<class_ScrollBar>` has the GUI focus.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

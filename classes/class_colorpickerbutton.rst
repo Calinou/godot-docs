@@ -12,14 +12,14 @@ ColorPickerButton
 
 **Inherits:** :ref:`Button<class_Button>` **<** :ref:`BaseButton<class_BaseButton>` **<** :ref:`Control<class_Control>` **<** :ref:`CanvasItem<class_CanvasItem>` **<** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
 
-Button that pops out a :ref:`ColorPicker<class_ColorPicker>`.
+A button that brings up a :ref:`ColorPicker<class_ColorPicker>` when pressed.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-Encapsulates a :ref:`ColorPicker<class_ColorPicker>` making it accessible by pressing a button. Pressing the button will toggle the :ref:`ColorPicker<class_ColorPicker>` visibility.
+Encapsulates a :ref:`ColorPicker<class_ColorPicker>`, making it accessible by pressing a button. Pressing the button will toggle the :ref:`ColorPicker<class_ColorPicker>`'s visibility.
 
 See also :ref:`BaseButton<class_BaseButton>` which contains common properties and methods associated with this node.
 
@@ -424,3 +424,4 @@ Default :ref:`StyleBox<class_StyleBox>` for the **ColorPickerButton**.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

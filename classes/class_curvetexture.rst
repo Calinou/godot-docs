@@ -109,7 +109,7 @@ The :ref:`Curve<class_Curve>` that is rendered onto the texture.
 - void **set_texture_mode** **(** :ref:`TextureMode<enum_CurveTexture_TextureMode>` value **)**
 - :ref:`TextureMode<enum_CurveTexture_TextureMode>` **get_texture_mode** **(** **)**
 
-The format the texture should be generated with. When passing a CurveTexture as a input to a :ref:`Shader<class_Shader>`, this may need to be adjusted.
+The format the texture should be generated with. When passing a CurveTexture as an input to a :ref:`Shader<class_Shader>`, this may need to be adjusted.
 
 .. rst-class:: classref-item-separator
 
@@ -134,3 +134,4 @@ The width of the texture (in pixels). Higher values make it possible to represen
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
