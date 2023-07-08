@@ -12,14 +12,14 @@ ProgressBar
 
 **Inherits:** :ref:`Range<class_Range>` **<** :ref:`Control<class_Control>` **<** :ref:`CanvasItem<class_CanvasItem>` **<** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
 
-General-purpose progress bar.
+A control used for visual representation of a percentage.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-General-purpose progress bar. Shows fill percentage from right to left.
+A control used for visual representation of a percentage. Shows fill percentage from right to left.
 
 .. rst-class:: classref-reftable-group
 
@@ -256,3 +256,4 @@ The style of the progress (i.e. the part that fills the bar).
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

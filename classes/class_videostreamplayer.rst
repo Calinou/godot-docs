@@ -12,14 +12,14 @@ VideoStreamPlayer
 
 **Inherits:** :ref:`Control<class_Control>` **<** :ref:`CanvasItem<class_CanvasItem>` **<** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
 
-Control for playing video streams.
+A control used for video playback.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-Control node for playing video streams using :ref:`VideoStream<class_VideoStream>` resources.
+A control used for playback of :ref:`VideoStream<class_VideoStream>` resources.
 
 Supported video formats are `Ogg Theora <https://www.theora.org/>`__ (``.ogv``, :ref:`VideoStreamTheora<class_VideoStreamTheora>`) and any format exposed via a GDExtension plugin.
 
@@ -346,3 +346,4 @@ Stops the video playback and sets the stream position to 0.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
