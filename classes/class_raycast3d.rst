@@ -12,22 +12,20 @@ RayCast3D
 
 **Inherits:** :ref:`Node3D<class_Node3D>` **<** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
 
-Query the closest object intersecting a ray.
+A ray in 3D space, used to find the first :ref:`CollisionObject3D<class_CollisionObject3D>` it intersects.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-A RayCast represents a line from its origin to its destination position, :ref:`target_position<class_RayCast3D_property_target_position>`. It is used to query the 3D space in order to find the closest object along the path of the ray.
+A raycast represents a ray from its origin to its :ref:`target_position<class_RayCast3D_property_target_position>` that finds the closest :ref:`CollisionObject3D<class_CollisionObject3D>` along its path, if it intersects any. This is useful for a lot of things, such as
 
-RayCast3D can ignore some objects by adding them to the exception list via :ref:`add_exception<class_RayCast3D_method_add_exception>` or by setting proper filtering with collision layers and masks.
+\ **RayCast3D** can ignore some objects by adding them to an exception list, by making its detection reporting ignore :ref:`Area3D<class_Area3D>`\ s (:ref:`collide_with_areas<class_RayCast3D_property_collide_with_areas>`) or :ref:`PhysicsBody3D<class_PhysicsBody3D>`\ s (:ref:`collide_with_bodies<class_RayCast3D_property_collide_with_bodies>`), or by configuring physics layers.
 
-RayCast3D can be configured to report collisions with :ref:`Area3D<class_Area3D>`\ s (:ref:`collide_with_areas<class_RayCast3D_property_collide_with_areas>`) and/or :ref:`PhysicsBody3D<class_PhysicsBody3D>`\ s (:ref:`collide_with_bodies<class_RayCast3D_property_collide_with_bodies>`).
+\ **RayCast3D** calculates intersection every physics frame, and it holds the result until the next physics frame. For an immediate raycast, or if you want to configure a **RayCast3D** multiple times within the same physics frame, use :ref:`force_raycast_update<class_RayCast3D_method_force_raycast_update>`.
 
-Only enabled raycasts will be able to query the space and report collisions.
-
-RayCast3D calculates intersection every physics frame (see :ref:`Node<class_Node>`), and the result is cached so it can be used later until the next frame. If multiple queries are required between physics frames (or during the same frame), use :ref:`force_raycast_update<class_RayCast3D_method_force_raycast_update>` after adjusting the raycast.
+To sweep over a region of 3D space, you can approximate the region with multiple **RayCast3D**\ s or use :ref:`ShapeCast3D<class_ShapeCast3D>`.
 
 .. rst-class:: classref-introduction-group
 
@@ -60,6 +58,8 @@ Properties
    | :ref:`bool<class_bool>`       | :ref:`enabled<class_RayCast3D_property_enabled>`                                   | ``true``              |
    +-------------------------------+------------------------------------------------------------------------------------+-----------------------+
    | :ref:`bool<class_bool>`       | :ref:`exclude_parent<class_RayCast3D_property_exclude_parent>`                     | ``true``              |
+   +-------------------------------+------------------------------------------------------------------------------------+-----------------------+
+   | :ref:`bool<class_bool>`       | :ref:`hit_back_faces<class_RayCast3D_property_hit_back_faces>`                     | ``true``              |
    +-------------------------------+------------------------------------------------------------------------------------+-----------------------+
    | :ref:`bool<class_bool>`       | :ref:`hit_from_inside<class_RayCast3D_property_hit_from_inside>`                   | ``false``             |
    +-------------------------------+------------------------------------------------------------------------------------+-----------------------+
@@ -229,6 +229,23 @@ If ``true``, collisions will be reported.
 - :ref:`bool<class_bool>` **get_exclude_parent_body** **(** **)**
 
 If ``true``, collisions will be ignored for this RayCast3D's immediate parent.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_RayCast3D_property_hit_back_faces:
+
+.. rst-class:: classref-property
+
+:ref:`bool<class_bool>` **hit_back_faces** = ``true``
+
+.. rst-class:: classref-property-setget
+
+- void **set_hit_back_faces** **(** :ref:`bool<class_bool>` value **)**
+- :ref:`bool<class_bool>` **is_hit_back_faces_enabled** **(** **)**
+
+If ``true``, the ray will hit back faces with concave polygon shapes with back face enabled or heightmap shapes.
 
 .. rst-class:: classref-item-separator
 
@@ -447,3 +464,4 @@ Based on ``value``, enables or disables the specified layer in the :ref:`collisi
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

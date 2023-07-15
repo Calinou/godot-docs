@@ -120,6 +120,25 @@ Methods
 
 .. rst-class:: classref-descriptions-group
 
+Signals
+-------
+
+.. _class_GPUParticles3D_signal_finished:
+
+.. rst-class:: classref-signal
+
+**finished** **(** **)**
+
+Emitted when all active particles have finished processing. When :ref:`one_shot<class_GPUParticles3D_property_one_shot>` is disabled, particles will process continuously, so this is never emitted.
+
+\ **Note:** Due to the particles being computed on the GPU there might be a delay before the signal gets emitted.
+
+.. rst-class:: classref-section-separator
+
+----
+
+.. rst-class:: classref-descriptions-group
+
 Enumerations
 ------------
 
@@ -802,3 +821,4 @@ Sets the :ref:`Mesh<class_Mesh>` that is drawn at index ``pass``.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

@@ -115,7 +115,7 @@ Property Descriptions
 - void **set_loop** **(** :ref:`bool<class_bool>` value **)**
 - :ref:`bool<class_bool>` **has_loop** **(** **)**
 
-If ``true``, the stream will automatically loop when it reaches the end.
+If ``true``, the audio will play again from the specified :ref:`loop_offset<class_AudioStreamOggVorbis_property_loop_offset>` once it is done playing. Useful for ambient sounds and background music.
 
 .. rst-class:: classref-item-separator
 
@@ -157,3 +157,4 @@ Contains the raw Ogg data for this stream.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
