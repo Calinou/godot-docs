@@ -206,6 +206,23 @@ Methods
 
 .. rst-class:: classref-descriptions-group
 
+Signals
+-------
+
+.. _class_CPUParticles2D_signal_finished:
+
+.. rst-class:: classref-signal
+
+**finished** **(** **)**
+
+Emitted when all active particles have finished processing. When :ref:`one_shot<class_CPUParticles2D_property_one_shot>` is disabled, particles will process continuously, so this is never emitted.
+
+.. rst-class:: classref-section-separator
+
+----
+
+.. rst-class:: classref-descriptions-group
+
 Enumerations
 ------------
 
@@ -1700,3 +1717,4 @@ Enables or disables the given flag (see :ref:`ParticleFlags<enum_CPUParticles2D_
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

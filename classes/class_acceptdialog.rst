@@ -14,14 +14,14 @@ AcceptDialog
 
 **Inherited By:** :ref:`ConfirmationDialog<class_ConfirmationDialog>`
 
-Base dialog for user notification.
+A base dialog used for user notification.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-This dialog is useful for small notifications to the user about an event. It can only be accepted or closed, with the same result.
+The default use of **AcceptDialog** is to allow it to only be accepted or closed, with the same result. However, the :ref:`confirmed<class_AcceptDialog_signal_confirmed>` and :ref:`canceled<class_AcceptDialog_signal_canceled>` signals allow to make the two actions different, and the :ref:`add_button<class_AcceptDialog_method_add_button>` method allows to add custom buttons and actions.
 
 .. rst-class:: classref-reftable-group
 
@@ -344,3 +344,4 @@ The panel that fills the background of the window.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

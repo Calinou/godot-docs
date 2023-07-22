@@ -10,7 +10,7 @@
 NodePath
 ========
 
-Pre-parsed scene tree path.
+A pre-parsed scene tree path.
 
 .. rst-class:: classref-introduction-group
 
@@ -33,6 +33,7 @@ Some examples of NodePaths include the following:
     ^"." # The current node.
     ^".." # The parent node.
     ^"../C" # A sibling node C.
+    ^"../.." # The grandparent node.
     # A leading slash means it is absolute from the SceneTree.
     ^"/root" # Equivalent to get_tree().get_root().
     ^"/root/Main" # If your main scene's root node were named "Main".
@@ -41,6 +42,12 @@ Some examples of NodePaths include the following:
 See also :ref:`StringName<class_StringName>`, which is a similar concept for general-purpose string interning.
 
 \ **Note:** In the editor, **NodePath** properties are automatically updated when moving, renaming or deleting a node in the scene tree, but they are never updated at runtime.
+
+\ **Note:** In a boolean context, a **NodePath** will evaluate to ``false`` if it is empty (``NodePath("")``). Otherwise, a **NodePath** will always evaluate to ``true``.
+
+.. note::
+
+	There are notable differences when using this API with C#. See :ref:`doc_c_sharp_differences` for more information.
 
 .. rst-class:: classref-introduction-group
 
@@ -297,7 +304,7 @@ For example, ``"Path2D/PathFollow2D/Sprite2D"`` has 3 names.
 
 :ref:`StringName<class_StringName>` **get_subname** **(** :ref:`int<class_int>` idx **)** |const|
 
-Gets the resource or property name indicated by ``idx`` (0 to :ref:`get_subname_count<class_NodePath_method_get_subname_count>`).
+Gets the resource or property name indicated by ``idx`` (0 to :ref:`get_subname_count<class_NodePath_method_get_subname_count>` - 1).
 
 
 .. tabs::
@@ -401,3 +408,4 @@ Returns ``true`` if two node paths are equal, i.e. all node names in the path ar
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

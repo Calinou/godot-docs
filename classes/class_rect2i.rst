@@ -10,7 +10,7 @@
 Rect2i
 ======
 
-2D axis-aligned bounding box using integer coordinates.
+A 2D axis-aligned bounding box using integer coordinates.
 
 .. rst-class:: classref-introduction-group
 
@@ -22,6 +22,10 @@ Description
 It uses integer coordinates. If you need floating-point coordinates, use :ref:`Rect2<class_Rect2>` instead.
 
 Negative values for :ref:`size<class_Rect2i_property_size>` are not supported and will not work for most methods. Use :ref:`abs<class_Rect2i_method_abs>` to get a Rect2i with a positive size.
+
+.. note::
+
+	There are notable differences when using this API with C#. See :ref:`doc_c_sharp_differences` for more information.
 
 .. rst-class:: classref-introduction-group
 
@@ -439,3 +443,4 @@ Returns ``true`` if the rectangles are equal.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

@@ -12,14 +12,14 @@ Geometry3D
 
 **Inherits:** :ref:`Object<class_Object>`
 
-Helper node to calculate generic geometry operations in 3D space.
+Provides methods for some common 3D geometric operations.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-Geometry3D provides users with a set of helper functions to create geometric shapes, compute intersections between shapes, and process various other geometric operations.
+Provides a set of helper functions to create geometric shapes, compute intersections between shapes, and process various other geometric operations in 3D.
 
 .. rst-class:: classref-reftable-group
 
@@ -46,7 +46,7 @@ Methods
    +-----------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`Variant<class_Variant>`                       | :ref:`ray_intersects_triangle<class_Geometry3D_method_ray_intersects_triangle>` **(** :ref:`Vector3<class_Vector3>` from, :ref:`Vector3<class_Vector3>` dir, :ref:`Vector3<class_Vector3>` a, :ref:`Vector3<class_Vector3>` b, :ref:`Vector3<class_Vector3>` c **)**        |
    +-----------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`PackedVector3Array<class_PackedVector3Array>` | :ref:`segment_intersects_convex<class_Geometry3D_method_segment_intersects_convex>` **(** :ref:`Vector3<class_Vector3>` from, :ref:`Vector3<class_Vector3>` to, :ref:`Array<class_Array>` planes **)**                                                                      |
+   | :ref:`PackedVector3Array<class_PackedVector3Array>` | :ref:`segment_intersects_convex<class_Geometry3D_method_segment_intersects_convex>` **(** :ref:`Vector3<class_Vector3>` from, :ref:`Vector3<class_Vector3>` to, :ref:`Plane[]<class_Plane>` planes **)**                                                                    |
    +-----------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`PackedVector3Array<class_PackedVector3Array>` | :ref:`segment_intersects_cylinder<class_Geometry3D_method_segment_intersects_cylinder>` **(** :ref:`Vector3<class_Vector3>` from, :ref:`Vector3<class_Vector3>` to, :ref:`float<class_float>` height, :ref:`float<class_float>` radius **)**                                |
    +-----------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -164,7 +164,7 @@ Tests if the 3D ray starting at ``from`` with the direction of ``dir`` intersect
 
 .. rst-class:: classref-method
 
-:ref:`PackedVector3Array<class_PackedVector3Array>` **segment_intersects_convex** **(** :ref:`Vector3<class_Vector3>` from, :ref:`Vector3<class_Vector3>` to, :ref:`Array<class_Array>` planes **)**
+:ref:`PackedVector3Array<class_PackedVector3Array>` **segment_intersects_convex** **(** :ref:`Vector3<class_Vector3>` from, :ref:`Vector3<class_Vector3>` to, :ref:`Plane[]<class_Plane>` planes **)**
 
 Given a convex hull defined though the :ref:`Plane<class_Plane>`\ s in the array ``planes``, tests if the segment (``from``, ``to``) intersects with that hull. If an intersection is found, returns a :ref:`PackedVector3Array<class_PackedVector3Array>` containing the point the intersection and the hull's normal. Otherwise, returns an empty array.
 
@@ -210,3 +210,4 @@ Tests if the segment (``from``, ``to``) intersects the triangle ``a``, ``b``, ``
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

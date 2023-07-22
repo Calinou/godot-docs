@@ -12,16 +12,14 @@ PopupPanel
 
 **Inherits:** :ref:`Popup<class_Popup>` **<** :ref:`Window<class_Window>` **<** :ref:`Viewport<class_Viewport>` **<** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
 
-Class for displaying popups with a panel background.
+A popup with a panel background.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-Class for displaying popups with a panel background. In some cases it might be simpler to use than :ref:`Popup<class_Popup>`, since it provides a configurable background. If you are making windows, better check :ref:`Window<class_Window>`.
-
-If any :ref:`Control<class_Control>` node is added as a child of this **PopupPanel**, it will be stretched to fit the panel's size (similar to how :ref:`PanelContainer<class_PanelContainer>` works).
+A popup with a configurable panel background. Any child controls added to this node will be stretched to fit the panel's size (similar to how :ref:`PanelContainer<class_PanelContainer>` works). If you are making windows, see :ref:`Window<class_Window>`.
 
 .. rst-class:: classref-reftable-group
 
@@ -58,3 +56,4 @@ The background panel style of this **PopupPanel**.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
