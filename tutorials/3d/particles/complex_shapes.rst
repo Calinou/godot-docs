@@ -1,7 +1,7 @@
 .. _doc_3d_particles_complex_shapes:
 
-Complex emission shapes
------------------------
+Complex 3D particle emission shapes
+-----------------------------------
 
 .. figure:: img/particle_complex_emission.webp
    :alt: Complex emission shapes

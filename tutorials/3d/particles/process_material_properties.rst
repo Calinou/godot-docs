@@ -1,7 +1,7 @@
 .. _doc_process_material_properties:
 
-Process material properties
----------------------------
+3D particle process material properties
+---------------------------------------
 
 .. figure:: img/particle_minmaxcurve.webp
    :alt: ParticleProcessMaterial properties

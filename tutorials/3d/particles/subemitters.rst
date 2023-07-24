@@ -1,7 +1,7 @@
 .. _doc_3d_particles_subemitters:
 
-Particle sub-emitters
----------------------
+3D particle sub-emitters
+------------------------
 
 .. figure:: img/particle_sub_chain.webp
    :alt: Chained sub-emitters

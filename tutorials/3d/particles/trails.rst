@@ -1,6 +1,6 @@
 .. _doc_3d_particles_trails:
 
-3D Particle trails
+3D particle trails
 ------------------
 
 .. figure:: img/particle_trails.webp

@@ -18,7 +18,7 @@ Rendering
    2d_lights_and_shadows
    2d_meshes
    2d_sprite_animation
-   particle_systems_2d
+   particles/index
    2d_antialiasing
    custom_drawing_in_2d
 

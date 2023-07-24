@@ -1,7 +1,7 @@
 .. _doc_3d_particles_turbulence:
 
-Particle turbulence
--------------------
+3D particle turbulence
+----------------------
 
 .. figure:: img/particle_turbulence.webp
    :alt: Particle turbulence

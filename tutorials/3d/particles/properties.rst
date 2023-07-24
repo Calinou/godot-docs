@@ -1,6 +1,6 @@
 .. _doc_3d_particles_properties:
 
-3D Particle system properties
+3D particle system properties
 -----------------------------
 
 Emitter properties

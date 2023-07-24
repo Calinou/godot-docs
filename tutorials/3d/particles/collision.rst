@@ -1,6 +1,6 @@
 .. _doc_3d_particles_collision:
 
-3D Particle collisions
+3D particle collisions
 ----------------------
 
 .. figure:: img/particle_collision.webp

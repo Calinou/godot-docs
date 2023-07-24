@@ -1,6 +1,6 @@
 .. _doc_3d_particles_attractors:
 
-3D Particle attractors
+3D particle attractors
 ----------------------
 
 .. figure:: img/particle_attractor.webp
