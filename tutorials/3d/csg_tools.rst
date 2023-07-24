@@ -1,5 +1,3 @@
-:article_outdated: True
-
 .. _doc_csg_tools:
 
 Prototyping levels with CSG
@@ -18,10 +16,10 @@ Interior environments can be created by using inverted primitives.
           extruded 2D polygons can be used with the CSGPolygon3D node).
 
           If you're looking for an easy to use level design tool for a project,
-          you may want to use `Qodot <https://github.com/Shfty/qodot-plugin>`__
-          instead. It lets you design levels using
-          `TrenchBroom <https://kristianduske.com/trenchbroom/>`__ and import
-          them in Godot.
+          you may want to use `Cyclops <https://github.com/blackears/cyclopsLevelBuilder>`__
+          or `Qodot <https://github.com/QodotPlugin/Qodot>`__.
+          Cyclops is a plugin that integrates in the Godot editor, while Qodot is
+          a plugin to import maps created with `TrenchBroom <https://trenchbroom.github.io/>`__.
 
 .. image:: img/csg.gif
 
