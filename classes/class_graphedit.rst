@@ -12,18 +12,16 @@ GraphEdit
 
 **Inherits:** :ref:`Control<class_Control>` **<** :ref:`CanvasItem<class_CanvasItem>` **<** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
 
-GraphEdit is a control responsible for displaying and manipulating graph-like data using :ref:`GraphNode<class_GraphNode>`\ s. It provides access to creation, removal, connection, and disconnection of nodes.
+An editor for graph-like structures, using :ref:`GraphNode<class_GraphNode>`\ s.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-**Note:** Please be aware that this node will undergo extensive refactoring in a future 4.x version involving compatibility-breaking API changes.
+**GraphEdit** provides tools for creation, manipulation, and display of various graphs. Its main purpose in the engine is to power the visual programming systems, such as visual shaders, but it is also available for use in user projects.
 
-GraphEdit provides tools for creation, manipulation, and display of various graphs. Its main purpose in the engine is to power the visual programming systems, such as visual shaders, but it is also available for use in user projects.
-
-GraphEdit by itself is only an empty container, representing an infinite grid where :ref:`GraphNode<class_GraphNode>`\ s can be placed. Each :ref:`GraphNode<class_GraphNode>` represent a node in the graph, a single unit of data in the connected scheme. GraphEdit, in turn, helps to control various interactions with nodes and between nodes. When the user attempts to connect, disconnect, or close a :ref:`GraphNode<class_GraphNode>`, a signal is emitted in the GraphEdit, but no action is taken by default. It is the responsibility of the programmer utilizing this control to implement the necessary logic to determine how each request should be handled.
+\ **GraphEdit** by itself is only an empty container, representing an infinite grid where :ref:`GraphNode<class_GraphNode>`\ s can be placed. Each :ref:`GraphNode<class_GraphNode>` represents a node in the graph, a single unit of data in the connected scheme. **GraphEdit**, in turn, helps to control various interactions with nodes and between nodes. When the user attempts to connect, disconnect, or close a :ref:`GraphNode<class_GraphNode>`, a signal is emitted in the **GraphEdit**, but no action is taken by default. It is the responsibility of the programmer utilizing this control to implement the necessary logic to determine how each request should be handled.
 
 \ **Performance:** It is greatly advised to enable low-processor usage mode (see :ref:`OS.low_processor_usage_mode<class_OS_property_low_processor_usage_mode>`) when using GraphEdits.
 
@@ -60,11 +58,13 @@ Properties
    +----------------------------------------------------+--------------------------------------------------------------------------------------------+---------------------------------------------------------------------------+
    | :ref:`Vector2<class_Vector2>`                      | :ref:`scroll_offset<class_GraphEdit_property_scroll_offset>`                               | ``Vector2(0, 0)``                                                         |
    +----------------------------------------------------+--------------------------------------------------------------------------------------------+---------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                            | :ref:`show_grid<class_GraphEdit_property_show_grid>`                                       | ``true``                                                                  |
+   +----------------------------------------------------+--------------------------------------------------------------------------------------------+---------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                            | :ref:`show_zoom_label<class_GraphEdit_property_show_zoom_label>`                           | ``false``                                                                 |
    +----------------------------------------------------+--------------------------------------------------------------------------------------------+---------------------------------------------------------------------------+
-   | :ref:`int<class_int>`                              | :ref:`snap_distance<class_GraphEdit_property_snap_distance>`                               | ``20``                                                                    |
+   | :ref:`int<class_int>`                              | :ref:`snapping_distance<class_GraphEdit_property_snapping_distance>`                       | ``20``                                                                    |
    +----------------------------------------------------+--------------------------------------------------------------------------------------------+---------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`                            | :ref:`use_snap<class_GraphEdit_property_use_snap>`                                         | ``true``                                                                  |
+   | :ref:`bool<class_bool>`                            | :ref:`snapping_enabled<class_GraphEdit_property_snapping_enabled>`                         | ``true``                                                                  |
    +----------------------------------------------------+--------------------------------------------------------------------------------------------+---------------------------------------------------------------------------+
    | :ref:`float<class_float>`                          | :ref:`zoom<class_GraphEdit_property_zoom>`                                                 | ``1.0``                                                                   |
    +----------------------------------------------------+--------------------------------------------------------------------------------------------+---------------------------------------------------------------------------+
@@ -112,7 +112,7 @@ Methods
    +-----------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`Dictionary[]<class_Dictionary>`               | :ref:`get_connection_list<class_GraphEdit_method_get_connection_list>` **(** **)** |const|                                                                                                                                                                                              |
    +-----------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`HBoxContainer<class_HBoxContainer>`           | :ref:`get_zoom_hbox<class_GraphEdit_method_get_zoom_hbox>` **(** **)**                                                                                                                                                                                                                  |
+   | :ref:`HBoxContainer<class_HBoxContainer>`           | :ref:`get_menu_hbox<class_GraphEdit_method_get_menu_hbox>` **(** **)**                                                                                                                                                                                                                  |
    +-----------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                             | :ref:`is_node_connected<class_GraphEdit_method_is_node_connected>` **(** :ref:`StringName<class_StringName>` from_node, :ref:`int<class_int>` from_port, :ref:`StringName<class_StringName>` to_node, :ref:`int<class_int>` to_port **)**                                               |
    +-----------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -152,19 +152,21 @@ Theme Properties
    +-----------------------------------+--------------------------------------------------------------------------------------------+--------------------------+
    | :ref:`int<class_int>`             | :ref:`port_hotzone_outer_extent<class_GraphEdit_theme_constant_port_hotzone_outer_extent>` | ``26``                   |
    +-----------------------------------+--------------------------------------------------------------------------------------------+--------------------------+
+   | :ref:`Texture2D<class_Texture2D>` | :ref:`grid_toggle<class_GraphEdit_theme_icon_grid_toggle>`                                 |                          |
+   +-----------------------------------+--------------------------------------------------------------------------------------------+--------------------------+
    | :ref:`Texture2D<class_Texture2D>` | :ref:`layout<class_GraphEdit_theme_icon_layout>`                                           |                          |
    +-----------------------------------+--------------------------------------------------------------------------------------------+--------------------------+
-   | :ref:`Texture2D<class_Texture2D>` | :ref:`minimap<class_GraphEdit_theme_icon_minimap>`                                         |                          |
+   | :ref:`Texture2D<class_Texture2D>` | :ref:`minimap_toggle<class_GraphEdit_theme_icon_minimap_toggle>`                           |                          |
    +-----------------------------------+--------------------------------------------------------------------------------------------+--------------------------+
-   | :ref:`Texture2D<class_Texture2D>` | :ref:`minus<class_GraphEdit_theme_icon_minus>`                                             |                          |
+   | :ref:`Texture2D<class_Texture2D>` | :ref:`snapping_toggle<class_GraphEdit_theme_icon_snapping_toggle>`                         |                          |
    +-----------------------------------+--------------------------------------------------------------------------------------------+--------------------------+
-   | :ref:`Texture2D<class_Texture2D>` | :ref:`more<class_GraphEdit_theme_icon_more>`                                               |                          |
+   | :ref:`Texture2D<class_Texture2D>` | :ref:`zoom_in<class_GraphEdit_theme_icon_zoom_in>`                                         |                          |
    +-----------------------------------+--------------------------------------------------------------------------------------------+--------------------------+
-   | :ref:`Texture2D<class_Texture2D>` | :ref:`reset<class_GraphEdit_theme_icon_reset>`                                             |                          |
+   | :ref:`Texture2D<class_Texture2D>` | :ref:`zoom_out<class_GraphEdit_theme_icon_zoom_out>`                                       |                          |
    +-----------------------------------+--------------------------------------------------------------------------------------------+--------------------------+
-   | :ref:`Texture2D<class_Texture2D>` | :ref:`snap<class_GraphEdit_theme_icon_snap>`                                               |                          |
+   | :ref:`Texture2D<class_Texture2D>` | :ref:`zoom_reset<class_GraphEdit_theme_icon_zoom_reset>`                                   |                          |
    +-----------------------------------+--------------------------------------------------------------------------------------------+--------------------------+
-   | :ref:`StyleBox<class_StyleBox>`   | :ref:`bg<class_GraphEdit_theme_style_bg>`                                                  |                          |
+   | :ref:`StyleBox<class_StyleBox>`   | :ref:`panel<class_GraphEdit_theme_style_panel>`                                            |                          |
    +-----------------------------------+--------------------------------------------------------------------------------------------+--------------------------+
 
 .. rst-class:: classref-section-separator
@@ -567,10 +569,27 @@ If ``true``, enables disconnection of existing connections in the GraphEdit by d
 
 .. rst-class:: classref-property-setget
 
-- void **set_scroll_ofs** **(** :ref:`Vector2<class_Vector2>` value **)**
-- :ref:`Vector2<class_Vector2>` **get_scroll_ofs** **(** **)**
+- void **set_scroll_offset** **(** :ref:`Vector2<class_Vector2>` value **)**
+- :ref:`Vector2<class_Vector2>` **get_scroll_offset** **(** **)**
 
 The scroll offset.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_GraphEdit_property_show_grid:
+
+.. rst-class:: classref-property
+
+:ref:`bool<class_bool>` **show_grid** = ``true``
+
+.. rst-class:: classref-property-setget
+
+- void **set_show_grid** **(** :ref:`bool<class_bool>` value **)**
+- :ref:`bool<class_bool>` **is_showing_grid** **(** **)**
+
+If ``true``, the grid is visible.
 
 .. rst-class:: classref-item-separator
 
@@ -593,33 +612,33 @@ If ``true``, makes a label with the current zoom level visible. The zoom value i
 
 ----
 
-.. _class_GraphEdit_property_snap_distance:
+.. _class_GraphEdit_property_snapping_distance:
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **snap_distance** = ``20``
+:ref:`int<class_int>` **snapping_distance** = ``20``
 
 .. rst-class:: classref-property-setget
 
-- void **set_snap** **(** :ref:`int<class_int>` value **)**
-- :ref:`int<class_int>` **get_snap** **(** **)**
+- void **set_snapping_distance** **(** :ref:`int<class_int>` value **)**
+- :ref:`int<class_int>` **get_snapping_distance** **(** **)**
 
-The snapping distance in pixels.
+The snapping distance in pixels, also determines the grid line distance.
 
 .. rst-class:: classref-item-separator
 
 ----
 
-.. _class_GraphEdit_property_use_snap:
+.. _class_GraphEdit_property_snapping_enabled:
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **use_snap** = ``true``
+:ref:`bool<class_bool>` **snapping_enabled** = ``true``
 
 .. rst-class:: classref-property-setget
 
-- void **set_use_snap** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **is_using_snap** **(** **)**
+- void **set_snapping_enabled** **(** :ref:`bool<class_bool>` value **)**
+- :ref:`bool<class_bool>` **is_snapping_enabled** **(** **)**
 
 If ``true``, enables snapping.
 
@@ -727,8 +746,8 @@ Below is a sample code to help get started:
 ::
 
     func _is_in_input_hotzone(in_node, in_port, mouse_position):
-        var port_size : Vector2 = Vector2(get_theme_constant("port_grab_distance_horizontal"), get_theme_constant("port_grab_distance_vertical"))
-        var port_pos : Vector2 = in_node.get_position() + in_node.get_connection_input_position(in_port) - port_size / 2
+        var port_size: Vector2 = Vector2(get_theme_constant("port_grab_distance_horizontal"), get_theme_constant("port_grab_distance_vertical"))
+        var port_pos: Vector2 = in_node.get_position() + in_node.get_connection_input_position(in_port) - port_size / 2
         var rect = Rect2(port_pos, port_size)
     
         return rect.has_point(mouse_position)
@@ -750,8 +769,8 @@ Below is a sample code to help get started:
 ::
 
     func _is_in_output_hotzone(in_node, in_port, mouse_position):
-        var port_size : Vector2 = Vector2(get_theme_constant("port_grab_distance_horizontal"), get_theme_constant("port_grab_distance_vertical"))
-        var port_pos : Vector2 = in_node.get_position() + in_node.get_connection_output_position(in_port) - port_size / 2
+        var port_size: Vector2 = Vector2(get_theme_constant("port_grab_distance_horizontal"), get_theme_constant("port_grab_distance_vertical"))
+        var port_pos: Vector2 = in_node.get_position() + in_node.get_connection_output_position(in_port) - port_size / 2
         var rect = Rect2(port_pos, port_size)
     
         return rect.has_point(mouse_position)
@@ -919,11 +938,11 @@ Returns an Array containing the list of connections. A connection consists in a 
 
 ----
 
-.. _class_GraphEdit_method_get_zoom_hbox:
+.. _class_GraphEdit_method_get_menu_hbox:
 
 .. rst-class:: classref-method
 
-:ref:`HBoxContainer<class_HBoxContainer>` **get_zoom_hbox** **(** **)**
+:ref:`HBoxContainer<class_HBoxContainer>` **get_menu_hbox** **(** **)**
 
 Gets the :ref:`HBoxContainer<class_HBoxContainer>` that contains the zooming and grid snap controls in the top left of the graph. You can use this method to reposition the toolbar or to add your own custom controls to it.
 
@@ -1112,51 +1131,59 @@ The horizontal range within which a port can be grabbed (outer side).
 
 ----
 
+.. _class_GraphEdit_theme_icon_grid_toggle:
+
+.. rst-class:: classref-themeproperty
+
+:ref:`Texture2D<class_Texture2D>` **grid_toggle**
+
+The icon for the grid toggle button.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_GraphEdit_theme_icon_layout:
 
 .. rst-class:: classref-themeproperty
 
 :ref:`Texture2D<class_Texture2D>` **layout**
 
-.. container:: contribute
-
-	There is currently no description for this theme property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+The icon for the layout button for auto-arranging the graph.
 
 .. rst-class:: classref-item-separator
 
 ----
 
-.. _class_GraphEdit_theme_icon_minimap:
+.. _class_GraphEdit_theme_icon_minimap_toggle:
 
 .. rst-class:: classref-themeproperty
 
-:ref:`Texture2D<class_Texture2D>` **minimap**
+:ref:`Texture2D<class_Texture2D>` **minimap_toggle**
 
-.. container:: contribute
-
-	There is currently no description for this theme property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+The icon for the minimap toggle button.
 
 .. rst-class:: classref-item-separator
 
 ----
 
-.. _class_GraphEdit_theme_icon_minus:
+.. _class_GraphEdit_theme_icon_snapping_toggle:
 
 .. rst-class:: classref-themeproperty
 
-:ref:`Texture2D<class_Texture2D>` **minus**
+:ref:`Texture2D<class_Texture2D>` **snapping_toggle**
 
-The icon for the zoom out button.
+The icon for the snapping toggle button.
 
 .. rst-class:: classref-item-separator
 
 ----
 
-.. _class_GraphEdit_theme_icon_more:
+.. _class_GraphEdit_theme_icon_zoom_in:
 
 .. rst-class:: classref-themeproperty
 
-:ref:`Texture2D<class_Texture2D>` **more**
+:ref:`Texture2D<class_Texture2D>` **zoom_in**
 
 The icon for the zoom in button.
 
@@ -1164,11 +1191,23 @@ The icon for the zoom in button.
 
 ----
 
-.. _class_GraphEdit_theme_icon_reset:
+.. _class_GraphEdit_theme_icon_zoom_out:
 
 .. rst-class:: classref-themeproperty
 
-:ref:`Texture2D<class_Texture2D>` **reset**
+:ref:`Texture2D<class_Texture2D>` **zoom_out**
+
+The icon for the zoom out button.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_GraphEdit_theme_icon_zoom_reset:
+
+.. rst-class:: classref-themeproperty
+
+:ref:`Texture2D<class_Texture2D>` **zoom_reset**
 
 The icon for the zoom reset button.
 
@@ -1176,23 +1215,11 @@ The icon for the zoom reset button.
 
 ----
 
-.. _class_GraphEdit_theme_icon_snap:
+.. _class_GraphEdit_theme_style_panel:
 
 .. rst-class:: classref-themeproperty
 
-:ref:`Texture2D<class_Texture2D>` **snap**
-
-The icon for the snap toggle button.
-
-.. rst-class:: classref-item-separator
-
-----
-
-.. _class_GraphEdit_theme_style_bg:
-
-.. rst-class:: classref-themeproperty
-
-:ref:`StyleBox<class_StyleBox>` **bg**
+:ref:`StyleBox<class_StyleBox>` **panel**
 
 The background drawn under the grid.
 
@@ -1202,3 +1229,4 @@ The background drawn under the grid.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

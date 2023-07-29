@@ -12,6 +12,8 @@ XMLParser
 
 **Inherits:** :ref:`RefCounted<class_RefCounted>` **<** :ref:`Object<class_Object>`
 
+Provides a low-level interface for creating parsers for XML files.
+
 Low-level class for creating parsers for `XML <https://en.wikipedia.org/wiki/XML>`__ files.
 
 .. rst-class:: classref-introduction-group
@@ -19,7 +21,7 @@ Low-level class for creating parsers for `XML <https://en.wikipedia.org/wiki/XML
 Description
 -----------
 
-This class can serve as base to make custom XML parsers. Since XML is a very flexible standard, this interface is low-level so it can be applied to any possible schema.
+Provides a low-level interface for creating parsers for `XML <https://en.wikipedia.org/wiki/XML>`__ files. This class can serve as base to make custom XML parsers.
 
 .. rst-class:: classref-reftable-group
 
@@ -351,3 +353,4 @@ Skips the current section. If the node contains other elements, they will be ign
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
