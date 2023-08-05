@@ -206,6 +206,23 @@ Methods
 
 .. rst-class:: classref-descriptions-group
 
+Signals
+-------
+
+.. _class_CPUParticles2D_signal_finished:
+
+.. rst-class:: classref-signal
+
+**finished** **(** **)**
+
+Emitted when all active particles have finished processing. When :ref:`one_shot<class_CPUParticles2D_property_one_shot>` is disabled, particles will process continuously, so this is never emitted.
+
+.. rst-class:: classref-section-separator
+
+----
+
+.. rst-class:: classref-descriptions-group
+
 Enumerations
 ------------
 
@@ -934,7 +951,7 @@ The sphere's radius if :ref:`emission_shape<class_CPUParticles2D_property_emissi
 - void **set_emitting** **(** :ref:`bool<class_bool>` value **)**
 - :ref:`bool<class_bool>` **is_emitting** **(** **)**
 
-If ``true``, particles are being emitted.
+If ``true``, particles are being emitted. :ref:`emitting<class_CPUParticles2D_property_emitting>` can be used to start and stop particles from emitting. However, if :ref:`one_shot<class_CPUParticles2D_property_one_shot>` is ``true`` setting :ref:`emitting<class_CPUParticles2D_property_emitting>` to ``true`` will not restart the emission cycle until after all active particles finish processing. You can use the :ref:`finished<class_CPUParticles2D_signal_finished>` signal to be notified once all active particles finish processing.
 
 .. rst-class:: classref-item-separator
 
@@ -1700,3 +1717,4 @@ Enables or disables the given flag (see :ref:`ParticleFlags<enum_CPUParticles2D_
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

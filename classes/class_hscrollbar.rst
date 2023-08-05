@@ -12,14 +12,14 @@ HScrollBar
 
 **Inherits:** :ref:`ScrollBar<class_ScrollBar>` **<** :ref:`Range<class_Range>` **<** :ref:`Control<class_Control>` **<** :ref:`CanvasItem<class_CanvasItem>` **<** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
 
-Horizontal scroll bar.
+A horizontal scrollbar that goes from left (min) to right (max).
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-Horizontal version of :ref:`ScrollBar<class_ScrollBar>`, which goes from left (min) to right (max).
+A horizontal scrollbar, typically used to navigate through content that extends beyond the visible width of a control. It is a :ref:`Range<class_Range>`-based control and goes from left (min) to right (max).
 
 .. rst-class:: classref-reftable-group
 
@@ -196,3 +196,4 @@ Used as background when the :ref:`ScrollBar<class_ScrollBar>` has the GUI focus.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
