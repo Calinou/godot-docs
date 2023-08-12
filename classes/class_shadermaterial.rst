@@ -21,6 +21,8 @@ Description
 
 A material that uses a custom :ref:`Shader<class_Shader>` program to render either items to screen or process particles. You can create multiple materials for the same shader but configure different values for the uniforms defined in the shader.
 
+\ **Note:** For performance reasons the :ref:`Resource.changed<class_Resource_signal_changed>` signal is only emitted when the :ref:`Resource.resource_name<class_Resource_property_resource_name>` is changed. Only in editor, is also emitted for :ref:`shader<class_ShaderMaterial_property_shader>` changes.
+
 .. rst-class:: classref-introduction-group
 
 Tutorials
@@ -115,3 +117,4 @@ Changes the value set for this material of a uniform in the shader.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

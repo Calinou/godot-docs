@@ -12,14 +12,14 @@ PinJoint2D
 
 **Inherits:** :ref:`Joint2D<class_Joint2D>` **<** :ref:`Node2D<class_Node2D>` **<** :ref:`CanvasItem<class_CanvasItem>` **<** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
 
-Pin joint for 2D shapes.
+A physics joint that attaches two 2D physics bodies at a single point, allowing them to freely rotate.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-Pin joint for 2D rigid bodies. It pins two bodies (dynamic or static) together.
+A physics joint that attaches two 2D physics bodies at a single point, allowing them to freely rotate. For example, a :ref:`RigidBody2D<class_RigidBody2D>` can be attached to a :ref:`StaticBody2D<class_StaticBody2D>` to create a pendulum or a seesaw.
 
 .. rst-class:: classref-reftable-group
 
@@ -61,3 +61,4 @@ The higher this value, the more the bond to the pinned partner can flex.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

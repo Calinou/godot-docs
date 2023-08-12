@@ -80,6 +80,14 @@ The colors are linearly interpolated in a straight line.
 
 The colors are linearly interpolated in a circular pattern.
 
+.. _class_GradientTexture2D_constant_FILL_SQUARE:
+
+.. rst-class:: classref-enumeration-constant
+
+:ref:`Fill<enum_GradientTexture2D_Fill>` **FILL_SQUARE** = ``2``
+
+The colors are linearly interpolated in a square pattern.
+
 .. rst-class:: classref-item-separator
 
 ----
@@ -261,3 +269,4 @@ The number of horizontal color samples that will be obtained from the :ref:`Grad
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

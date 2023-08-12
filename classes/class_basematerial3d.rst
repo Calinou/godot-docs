@@ -2474,7 +2474,7 @@ Specifies the channel of the :ref:`metallic_texture<class_BaseMaterial3D_propert
 - void **set_msdf_outline_size** **(** :ref:`float<class_float>` value **)**
 - :ref:`float<class_float>` **get_msdf_outline_size** **(** **)**
 
-The width of the shape outine.
+The width of the shape outline.
 
 .. rst-class:: classref-item-separator
 
@@ -2945,7 +2945,7 @@ The method for rendering the specular blob. See :ref:`SpecularMode<enum_BaseMate
 - void **set_feature** **(** :ref:`Feature<enum_BaseMaterial3D_Feature>` feature, :ref:`bool<class_bool>` enable **)**
 - :ref:`bool<class_bool>` **get_feature** **(** :ref:`Feature<enum_BaseMaterial3D_Feature>` feature **)** |const|
 
-If ``true``, subsurface scattering is enabled. Emulates light that penetrates an object's surface, is scattered, and then emerges.
+If ``true``, subsurface scattering is enabled. Emulates light that penetrates an object's surface, is scattered, and then emerges. Subsurface scattering quality is controlled by :ref:`ProjectSettings.rendering/environment/subsurface_scattering/subsurface_scattering_quality<class_ProjectSettings_property_rendering/environment/subsurface_scattering/subsurface_scattering_quality>`.
 
 .. rst-class:: classref-item-separator
 
@@ -2979,7 +2979,7 @@ If ``true``, subsurface scattering will use a special mode optimized for the col
 - void **set_subsurface_scattering_strength** **(** :ref:`float<class_float>` value **)**
 - :ref:`float<class_float>` **get_subsurface_scattering_strength** **(** **)**
 
-The strength of the subsurface scattering effect.
+The strength of the subsurface scattering effect. The depth of the effect is also controlled by :ref:`ProjectSettings.rendering/environment/subsurface_scattering/subsurface_scattering_scale<class_ProjectSettings_property_rendering/environment/subsurface_scattering/subsurface_scattering_scale>`, which is set globally.
 
 .. rst-class:: classref-item-separator
 
@@ -3134,7 +3134,7 @@ Repeat flags for the texture. See :ref:`TextureFilter<enum_BaseMaterial3D_Textur
 - void **set_transparency** **(** :ref:`Transparency<enum_BaseMaterial3D_Transparency>` value **)**
 - :ref:`Transparency<enum_BaseMaterial3D_Transparency>` **get_transparency** **(** **)**
 
-If ``true``, transparency is enabled on the body. Some transparency modes will disable shadow casting. Any transparency mode other than Disabled has a greater performance impact compared to opaque rendering. See also :ref:`blend_mode<class_BaseMaterial3D_property_blend_mode>`.
+The material's transparency mode. Some transparency modes will disable shadow casting. Any transparency mode other than :ref:`TRANSPARENCY_DISABLED<class_BaseMaterial3D_constant_TRANSPARENCY_DISABLED>` has a greater performance impact compared to opaque rendering. See also :ref:`blend_mode<class_BaseMaterial3D_property_blend_mode>`.
 
 .. rst-class:: classref-item-separator
 
@@ -3465,3 +3465,4 @@ Sets the texture for the slot specified by ``param``. See :ref:`TextureParam<enu
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

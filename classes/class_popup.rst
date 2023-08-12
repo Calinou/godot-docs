@@ -14,14 +14,14 @@ Popup
 
 **Inherited By:** :ref:`PopupMenu<class_PopupMenu>`, :ref:`PopupPanel<class_PopupPanel>`
 
-Popup is a base window container for popup-like subwindows.
+Base class for contextual windows and panels with fixed position.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-Popup is a base window container for popup-like subwindows. It's a modal by default (see :ref:`Window.popup_window<class_Window_property_popup_window>`) and has helpers for custom popup behavior.
+**Popup** is a base class for contextual windows and panels with fixed position. It's a modal by default (see :ref:`Window.popup_window<class_Window_property_popup_window>`) and provides methods for implementing custom popup behavior.
 
 .. rst-class:: classref-reftable-group
 
@@ -68,3 +68,4 @@ Emitted when the popup is hidden.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

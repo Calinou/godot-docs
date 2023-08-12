@@ -133,11 +133,17 @@ Methods
    +-----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`Error<enum_@GlobalScope_Error>`         | :ref:`load_bmp_from_buffer<class_Image_method_load_bmp_from_buffer>` **(** :ref:`PackedByteArray<class_PackedByteArray>` buffer **)**                                                                                                                                         |
    +-----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Error<enum_@GlobalScope_Error>`         | :ref:`load_dds_from_buffer<class_Image_method_load_dds_from_buffer>` **(** :ref:`PackedByteArray<class_PackedByteArray>` buffer **)**                                                                                                                                         |
+   +-----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`Image<class_Image>`                     | :ref:`load_from_file<class_Image_method_load_from_file>` **(** :ref:`String<class_String>` path **)** |static|                                                                                                                                                                |
    +-----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`Error<enum_@GlobalScope_Error>`         | :ref:`load_jpg_from_buffer<class_Image_method_load_jpg_from_buffer>` **(** :ref:`PackedByteArray<class_PackedByteArray>` buffer **)**                                                                                                                                         |
    +-----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`Error<enum_@GlobalScope_Error>`         | :ref:`load_png_from_buffer<class_Image_method_load_png_from_buffer>` **(** :ref:`PackedByteArray<class_PackedByteArray>` buffer **)**                                                                                                                                         |
+   +-----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Error<enum_@GlobalScope_Error>`         | :ref:`load_svg_from_buffer<class_Image_method_load_svg_from_buffer>` **(** :ref:`PackedByteArray<class_PackedByteArray>` buffer, :ref:`float<class_float>` scale=1.0 **)**                                                                                                    |
+   +-----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Error<enum_@GlobalScope_Error>`         | :ref:`load_svg_from_string<class_Image_method_load_svg_from_string>` **(** :ref:`String<class_String>` svg_str, :ref:`float<class_float>` scale=1.0 **)**                                                                                                                     |
    +-----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`Error<enum_@GlobalScope_Error>`         | :ref:`load_tga_from_buffer<class_Image_method_load_tga_from_buffer>` **(** :ref:`PackedByteArray<class_PackedByteArray>` buffer **)**                                                                                                                                         |
    +-----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -153,9 +159,9 @@ Methods
    +-----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`Image<class_Image>`                     | :ref:`rgbe_to_srgb<class_Image_method_rgbe_to_srgb>` **(** **)**                                                                                                                                                                                                              |
    +-----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                          | :ref:`rotate_180<class_Image_method_rotate_180>` **(** **)**                                                                                                                                                                                                                  |
-   +-----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | void                                          | :ref:`rotate_90<class_Image_method_rotate_90>` **(** :ref:`ClockDirection<enum_@GlobalScope_ClockDirection>` direction **)**                                                                                                                                                  |
+   +-----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | void                                          | :ref:`rotate_180<class_Image_method_rotate_180>` **(** **)**                                                                                                                                                                                                                  |
    +-----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`Error<enum_@GlobalScope_Error>`         | :ref:`save_exr<class_Image_method_save_exr>` **(** :ref:`String<class_String>` path, :ref:`bool<class_bool>` grayscale=false **)** |const|                                                                                                                                    |
    +-----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -503,7 +509,7 @@ Texture format that uses `BPTC <https://www.khronos.org/opengl/wiki/BPTC_Texture
 
 :ref:`Format<enum_Image_Format>` **FORMAT_ASTC_4x4** = ``35``
 
-`Adaptive Scalable Texutre Compression <https://en.wikipedia.org/wiki/Adaptive_scalable_texture_compression>`__. This implements the 4x4 (high quality) mode.
+`Adaptive Scalable Texture Compression <https://en.wikipedia.org/wiki/Adaptive_scalable_texture_compression>`__. This implements the 4x4 (high quality) mode.
 
 .. _class_Image_constant_FORMAT_ASTC_4x4_HDR:
 
@@ -519,7 +525,7 @@ Same format as :ref:`FORMAT_ASTC_4x4<class_Image_constant_FORMAT_ASTC_4x4>`, but
 
 :ref:`Format<enum_Image_Format>` **FORMAT_ASTC_8x8** = ``37``
 
-`Adaptive Scalable Texutre Compression <https://en.wikipedia.org/wiki/Adaptive_scalable_texture_compression>`__. This implements the 8x8 (low quality) mode.
+`Adaptive Scalable Texture Compression <https://en.wikipedia.org/wiki/Adaptive_scalable_texture_compression>`__. This implements the 8x8 (low quality) mode.
 
 .. _class_Image_constant_FORMAT_ASTC_8x8_HDR:
 
@@ -670,6 +676,22 @@ Use ETC2 compression.
 :ref:`CompressMode<enum_Image_CompressMode>` **COMPRESS_BPTC** = ``3``
 
 Use BPTC compression.
+
+.. _class_Image_constant_COMPRESS_ASTC:
+
+.. rst-class:: classref-enumeration-constant
+
+:ref:`CompressMode<enum_Image_CompressMode>` **COMPRESS_ASTC** = ``4``
+
+Use ASTC compression.
+
+.. _class_Image_constant_COMPRESS_MAX:
+
+.. rst-class:: classref-enumeration-constant
+
+:ref:`CompressMode<enum_Image_CompressMode>` **COMPRESS_MAX** = ``5``
+
+Represents the size of the :ref:`CompressMode<enum_Image_CompressMode>` enum.
 
 .. rst-class:: classref-item-separator
 
@@ -934,7 +956,7 @@ Removes the image's mipmaps.
 
 Compresses the image to use less memory. Can not directly access pixel data while the image is compressed. Returns error if the chosen compression mode is not available.
 
-The ``mode`` parameter helps to pick the best compression method for DXT and ETC2 formats. It is ignored for ASTC compression.
+The ``source`` parameter helps to pick the best compression method for DXT and ETC2 formats. It is ignored for ASTC compression.
 
 For ASTC compression, the ``astc_format`` parameter must be supplied.
 
@@ -1346,6 +1368,18 @@ Loads an image from the binary contents of a BMP file.
 
 ----
 
+.. _class_Image_method_load_dds_from_buffer:
+
+.. rst-class:: classref-method
+
+:ref:`Error<enum_@GlobalScope_Error>` **load_dds_from_buffer** **(** :ref:`PackedByteArray<class_PackedByteArray>` buffer **)**
+
+Loads an image from the binary contents of a DDS file.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_Image_method_load_from_file:
 
 .. rst-class:: classref-method
@@ -1377,6 +1411,36 @@ Loads an image from the binary contents of a JPEG file.
 :ref:`Error<enum_@GlobalScope_Error>` **load_png_from_buffer** **(** :ref:`PackedByteArray<class_PackedByteArray>` buffer **)**
 
 Loads an image from the binary contents of a PNG file.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_Image_method_load_svg_from_buffer:
+
+.. rst-class:: classref-method
+
+:ref:`Error<enum_@GlobalScope_Error>` **load_svg_from_buffer** **(** :ref:`PackedByteArray<class_PackedByteArray>` buffer, :ref:`float<class_float>` scale=1.0 **)**
+
+Loads an image from the UTF-8 binary contents of an **uncompressed** SVG file (**.svg**).
+
+\ **Note:** Beware when using compressed SVG files (like **.svgz**), they need to be ``decompressed`` before loading.
+
+\ **Note:** This method is only available in engine builds with the SVG module enabled. By default, the SVG module is enabled, but it can be disabled at build-time using the ``module_svg_enabled=no`` SCons option.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_Image_method_load_svg_from_string:
+
+.. rst-class:: classref-method
+
+:ref:`Error<enum_@GlobalScope_Error>` **load_svg_from_string** **(** :ref:`String<class_String>` svg_str, :ref:`float<class_float>` scale=1.0 **)**
+
+Loads an image from the string contents of a SVG file (**.svg**).
+
+\ **Note:** This method is only available in engine builds with the SVG module enabled. By default, the SVG module is enabled, but it can be disabled at build-time using the ``module_svg_enabled=no`` SCons option.
 
 .. rst-class:: classref-item-separator
 
@@ -1466,18 +1530,6 @@ Converts a standard RGBE (Red Green Blue Exponent) image to an sRGB image.
 
 ----
 
-.. _class_Image_method_rotate_180:
-
-.. rst-class:: classref-method
-
-void **rotate_180** **(** **)**
-
-Rotates the image by ``180`` degrees. The width and height of the image must be greater than ``1``.
-
-.. rst-class:: classref-item-separator
-
-----
-
 .. _class_Image_method_rotate_90:
 
 .. rst-class:: classref-method
@@ -1485,6 +1537,18 @@ Rotates the image by ``180`` degrees. The width and height of the image must be 
 void **rotate_90** **(** :ref:`ClockDirection<enum_@GlobalScope_ClockDirection>` direction **)**
 
 Rotates the image in the specified ``direction`` by ``90`` degrees. The width and height of the image must be greater than ``1``. If the width and height are not equal, the image will be resized.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_Image_method_rotate_180:
+
+.. rst-class:: classref-method
+
+void **rotate_180** **(** **)**
+
+Rotates the image by ``180`` degrees. The width and height of the image must be greater than ``1``.
 
 .. rst-class:: classref-item-separator
 
@@ -1706,3 +1770,4 @@ Converts the raw data from the sRGB colorspace to a linear scale.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
