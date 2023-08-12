@@ -11,6 +11,19 @@ desktops, this is usually done with the "x" icon on the window title bar.
 On Android, the back button is used to quit when on the main screen (and
 to go back otherwise).
 
+Restarting the project after quitting
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You can restart the project by calling
+:ref:`OS.set_restart_on_exit <class_OS_method_set_restart_on_exit>` with
+``true`` as a parameter, then exiting the project using ``get_tree().quit()``.
+
+You can also specify command-line arguments that will be used when restarting
+the project using the second optional parameter to
+:ref:`OS.set_restart_on_exit <class_OS_method_set_restart_on_exit>`.
+This can be useful to do things such as running a specific scene of the project
+with :ref:`Movie Maker mode <doc_creating_movies>` enabled.
+
 Handling the notification
 -------------------------
 
@@ -35,14 +48,14 @@ Handling the notification is done as follows (on any node):
 
     func _notification(what):
         if what == NOTIFICATION_WM_CLOSE_REQUEST:
-            get_tree().quit() # default behavior
+            get_tree().quit() # Default behavior.
 
  .. code-tab:: csharp
 
     public override void _Notification(int what)
     {
         if (what == NotificationWMCloseRequest)
-            GetTree().Quit(); // default behavior
+            GetTree().Quit(); // Default behavior.
     }
 
 When developing mobile apps, quitting is not desired unless the user is

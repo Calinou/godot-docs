@@ -149,6 +149,9 @@ without having to edit the Project Settings:
     but you can use the :ref:`OS.execute() <class_OS_method_execute>` method to
     run a second instance of the exported project that will record a video file.
 
+    Alternatively, you can restart the project with specific command line arguments,
+    as described in :ref:`doc_handling_quit_requests`.
+
 Choosing an output format
 -------------------------
 
