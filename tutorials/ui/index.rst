@@ -68,6 +68,19 @@ The following articles cover specific details of using particular control nodes.
 
    bbcode_in_richtextlabel
 
+Best practices
+--------------
+
+The following articles cover designing common user interface elements. These are
+designed to be read once you're familiar with control nodes described in the
+above articles.
+
+.. toctree::
+   :maxdepth: 1
+   :name: toc-gui-best-practices
+
+   creating_settings_menus
+
 Creating applications
 ---------------------
 

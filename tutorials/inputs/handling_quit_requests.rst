@@ -11,6 +11,19 @@ desktops, this is usually done with the "x" icon on the window title bar.
 On mobile devices, the app can quit at any time while it is suspended
 to the background.
 
+Restarting the project after quitting
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You can restart the project by calling
+:ref:`OS.set_restart_on_exit <class_OS_method_set_restart_on_exit>` with
+``true`` as a parameter, then exiting the project using ``get_tree().quit()``.
+
+You can also specify command-line arguments that will be used when restarting
+the project using the second optional parameter to
+:ref:`OS.set_restart_on_exit <class_OS_method_set_restart_on_exit>`.
+This can be useful to do things such as running a specific scene of the project
+with :ref:`Movie Maker mode <doc_creating_movies>` enabled.
+
 Handling the notification
 -------------------------
 
@@ -25,7 +38,7 @@ Handling the notification is done as follows (on any node):
 
     func _notification(what):
         if what == NOTIFICATION_WM_CLOSE_REQUEST:
-            get_tree().quit() # default behavior
+            get_tree().quit() # Default behavior.
 
  .. code-tab:: csharp
 
@@ -33,7 +46,7 @@ Handling the notification is done as follows (on any node):
     {
         if (what == NotificationWMCloseRequest)
         {
-            GetTree().Quit(); // default behavior
+            GetTree().Quit(); // Default behavior.
         }
     }
 
@@ -54,18 +67,18 @@ procedure:
 On mobile devices
 -----------------
 
-There is no direct equivalent to ``NOTIFICATION_WM_CLOSE_REQUEST`` on mobile 
-platforms. Due to the nature of mobile operating systems, the only place 
-that you can run code prior to quitting is when the app is being suspended to 
-the background. On both Android and iOS, the app can be killed while suspended 
-at any time by either the user or the OS. A way to plan ahead for this 
-possibility is to utilize ``NOTIFICATION_APPLICATION_PAUSED`` in order to 
+There is no direct equivalent to ``NOTIFICATION_WM_CLOSE_REQUEST`` on mobile
+platforms. Due to the nature of mobile operating systems, the only place
+that you can run code prior to quitting is when the app is being suspended to
+the background. On both Android and iOS, the app can be killed while suspended
+at any time by either the user or the OS. A way to plan ahead for this
+possibility is to utilize ``NOTIFICATION_APPLICATION_PAUSED`` in order to
 perform any needed actions as the app is being suspended.
 
 .. note:: On iOS, you only have approximately 5 seconds to finish a task started by this signal. If you go over this allotment, iOS will kill the app instead of pausing it.
 
-On Android, pressing the Back button will exit the application if 
-**Application > Config > Quit On Go Back** is checked in the Project Settings 
+On Android, pressing the Back button will exit the application if
+**Application > Config > Quit On Go Back** is checked in the Project Settings
 (which is the default). This will fire ``NOTIFICATION_WM_GO_BACK_REQUEST``.
 
 
