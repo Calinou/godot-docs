@@ -12,14 +12,14 @@ ColorPickerButton
 
 **Inherits:** :ref:`Button<class_Button>` **<** :ref:`BaseButton<class_BaseButton>` **<** :ref:`Control<class_Control>` **<** :ref:`CanvasItem<class_CanvasItem>` **<** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
 
-Button that pops out a :ref:`ColorPicker<class_ColorPicker>`.
+A button that brings up a :ref:`ColorPicker<class_ColorPicker>` when pressed.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-Encapsulates a :ref:`ColorPicker<class_ColorPicker>` making it accessible by pressing a button. Pressing the button will toggle the :ref:`ColorPicker<class_ColorPicker>` visibility.
+Encapsulates a :ref:`ColorPicker<class_ColorPicker>`, making it accessible by pressing a button. Pressing the button will toggle the :ref:`ColorPicker<class_ColorPicker>`'s visibility.
 
 See also :ref:`BaseButton<class_BaseButton>` which contains common properties and methods associated with this node.
 
@@ -85,7 +85,7 @@ Theme Properties
    +-----------------------------------+-------------------------------------------------------------------------------------+-------------------------------+
    | :ref:`Color<class_Color>`         | :ref:`font_pressed_color<class_ColorPickerButton_theme_color_font_pressed_color>`   | ``Color(0.8, 0.8, 0.8, 1)``   |
    +-----------------------------------+-------------------------------------------------------------------------------------+-------------------------------+
-   | :ref:`int<class_int>`             | :ref:`h_separation<class_ColorPickerButton_theme_constant_h_separation>`            | ``2``                         |
+   | :ref:`int<class_int>`             | :ref:`h_separation<class_ColorPickerButton_theme_constant_h_separation>`            | ``4``                         |
    +-----------------------------------+-------------------------------------------------------------------------------------+-------------------------------+
    | :ref:`int<class_int>`             | :ref:`outline_size<class_ColorPickerButton_theme_constant_outline_size>`            | ``0``                         |
    +-----------------------------------+-------------------------------------------------------------------------------------+-------------------------------+
@@ -304,7 +304,7 @@ Text :ref:`Color<class_Color>` used when the **ColorPickerButton** is being pres
 
 .. rst-class:: classref-themeproperty
 
-:ref:`int<class_int>` **h_separation** = ``2``
+:ref:`int<class_int>` **h_separation** = ``4``
 
 The horizontal space between **ColorPickerButton**'s icon and text.
 
@@ -424,3 +424,4 @@ Default :ref:`StyleBox<class_StyleBox>` for the **ColorPickerButton**.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
