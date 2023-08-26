@@ -69,6 +69,8 @@ Methods
    +-----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`Dictionary<class_Dictionary>`                       | :ref:`_get_state<class_EditorPlugin_method__get_state>` **(** **)** |virtual| |const|                                                                                                                                                                 |
    +-----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`String<class_String>`                               | :ref:`_get_unsaved_status<class_EditorPlugin_method__get_unsaved_status>` **(** :ref:`String<class_String>` for_scene **)** |virtual| |const|                                                                                                         |
+   +-----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | void                                                      | :ref:`_get_window_layout<class_EditorPlugin_method__get_window_layout>` **(** :ref:`ConfigFile<class_ConfigFile>` configuration **)** |virtual|                                                                                                       |
    +-----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                                   | :ref:`_handles<class_EditorPlugin_method__handles>` **(** :ref:`Object<class_Object>` object **)** |virtual| |const|                                                                                                                                  |
@@ -120,6 +122,8 @@ Methods
    | :ref:`EditorInterface<class_EditorInterface>`             | :ref:`get_editor_interface<class_EditorPlugin_method_get_editor_interface>` **(** **)**                                                                                                                                                               |
    +-----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`PopupMenu<class_PopupMenu>`                         | :ref:`get_export_as_menu<class_EditorPlugin_method_get_export_as_menu>` **(** **)**                                                                                                                                                                   |
+   +-----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`String<class_String>`                               | :ref:`get_plugin_version<class_EditorPlugin_method_get_plugin_version>` **(** **)** |const|                                                                                                                                                           |
    +-----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`ScriptCreateDialog<class_ScriptCreateDialog>`       | :ref:`get_script_create_dialog<class_EditorPlugin_method_get_script_create_dialog>` **(** **)**                                                                                                                                                       |
    +-----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -198,6 +202,8 @@ Emitted when user changes the workspace (**2D**, **3D**, **Script**, **AssetLib*
 **project_settings_changed** **(** **)**
 
 Emitted when any project setting has changed.
+
+\ *Deprecated.* Use :ref:`ProjectSettings.settings_changed<class_ProjectSettings_signal_settings_changed>` instead.
 
 .. rst-class:: classref-item-separator
 
@@ -826,7 +832,7 @@ Ideally, the plugin icon should be white with a transparent background and 16x16
         # You can use a custom icon:
         return preload("res://addons/my_plugin/my_plugin_icon.svg")
         # Or use a built-in icon:
-        return get_editor_interface().get_base_control().get_theme_icon("Node", "EditorIcons")
+        return EditorInterface.get_base_control().get_theme_icon("Node", "EditorIcons")
 
  .. code-tab:: csharp
 
@@ -835,7 +841,7 @@ Ideally, the plugin icon should be white with a transparent background and 16x16
         // You can use a custom icon:
         return ResourceLoader.Load<Texture2D>("res://addons/my_plugin/my_plugin_icon.svg");
         // Or use a built-in icon:
-        return GetEditorInterface().GetBaseControl().GetThemeIcon("Node", "EditorIcons");
+        return EditorInterface.Singleton.GetBaseControl().GetThemeIcon("Node", "EditorIcons");
     }
 
 
@@ -882,6 +888,44 @@ Use :ref:`_set_state<class_EditorPlugin_method__set_state>` to restore your save
 
 ----
 
+.. _class_EditorPlugin_method__get_unsaved_status:
+
+.. rst-class:: classref-method
+
+:ref:`String<class_String>` **_get_unsaved_status** **(** :ref:`String<class_String>` for_scene **)** |virtual| |const|
+
+Override this method to provide a custom message that lists unsaved changes. The editor will call this method when exiting or when closing a scene, and display the returned string in a confirmation dialog. Return empty string if the plugin has no unsaved changes.
+
+When closing a scene, ``for_scene`` is the path to the scene being closed. You can use it to handle built-in resources in that scene.
+
+If the user confirms saving, :ref:`_save_external_data<class_EditorPlugin_method__save_external_data>` will be called, before closing the editor.
+
+::
+
+    func _get_unsaved_status(for_scene):
+        if not unsaved:
+            return ""
+    
+        if for_scene.is_empty():
+            return "Save changes in MyCustomPlugin before closing?"
+        else:
+            return "Scene %s has changes from MyCustomPlugin. Save before closing?" % for_scene.get_file()
+    
+    func _save_external_data():
+        unsaved = false
+
+If the plugin has no scene-specific changes, you can ignore the calls when closing scenes:
+
+::
+
+    func _get_unsaved_status(for_scene):
+        if not for_scene.is_empty():
+            return ""
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_EditorPlugin_method__get_window_layout:
 
 .. rst-class:: classref-method
@@ -910,6 +954,8 @@ Use :ref:`_set_window_layout<class_EditorPlugin_method__set_window_layout>` to r
 
 Implement this function if your plugin edits a specific type of object (Resource or Node). If you return ``true``, then you will get the functions :ref:`_edit<class_EditorPlugin_method__edit>` and :ref:`_make_visible<class_EditorPlugin_method__make_visible>` called when the editor requests them. If you have declared the methods :ref:`_forward_canvas_gui_input<class_EditorPlugin_method__forward_canvas_gui_input>` and :ref:`_forward_3d_gui_input<class_EditorPlugin_method__forward_3d_gui_input>` these will be called too.
 
+\ **Note:** Each plugin should handle only one type of objects at a time. If a plugin handes more types of objects and they are edited at the same time, it will result in errors.
+
 .. rst-class:: classref-item-separator
 
 ----
@@ -932,7 +978,7 @@ Use :ref:`_get_plugin_name<class_EditorPlugin_method__get_plugin_name>` and :ref
     
     func _enter_tree():
         plugin_control = preload("my_plugin_control.tscn").instantiate()
-        get_editor_interface().get_editor_main_screen().add_child(plugin_control)
+        EditorInterface.get_editor_main_screen().add_child(plugin_control)
         plugin_control.hide()
     
     func _has_main_screen():
@@ -945,7 +991,7 @@ Use :ref:`_get_plugin_name<class_EditorPlugin_method__get_plugin_name>` and :ref
         return "My Super Cool Plugin 3000"
     
     func _get_plugin_icon():
-        return get_editor_interface().get_base_control().get_theme_icon("Node", "EditorIcons")
+        return EditorInterface.get_base_control().get_theme_icon("Node", "EditorIcons")
 
 .. rst-class:: classref-item-separator
 
@@ -1279,7 +1325,9 @@ The callback should have 4 arguments: :ref:`Object<class_Object>` ``undo_redo``,
 
 :ref:`EditorInterface<class_EditorInterface>` **get_editor_interface** **(** **)**
 
-Returns the :ref:`EditorInterface<class_EditorInterface>` object that gives you control over Godot editor's window and its functionalities.
+Returns the :ref:`EditorInterface<class_EditorInterface>` singleton instance.
+
+\ *Deprecated.* :ref:`EditorInterface<class_EditorInterface>` is a global singleton and can be accessed directly by its name.
 
 .. rst-class:: classref-item-separator
 
@@ -1292,6 +1340,18 @@ Returns the :ref:`EditorInterface<class_EditorInterface>` object that gives you 
 :ref:`PopupMenu<class_PopupMenu>` **get_export_as_menu** **(** **)**
 
 Returns the :ref:`PopupMenu<class_PopupMenu>` under **Scene > Export As...**.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_EditorPlugin_method_get_plugin_version:
+
+.. rst-class:: classref-method
+
+:ref:`String<class_String>` **get_plugin_version** **(** **)** |const|
+
+Provide the version of the plugin declared in the ``plugin.cfg`` config file.
 
 .. rst-class:: classref-item-separator
 
@@ -1591,3 +1651,4 @@ Updates the overlays of the 2D and 3D editor viewport. Causes methods :ref:`_for
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

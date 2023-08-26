@@ -40,7 +40,7 @@ Below is an example of how MeshDataTool may be used.
         vertex += mdt.get_vertex_normal(i)
         # Save your change.
         mdt.set_vertex(i, vertex)
-    mesh.surface_remove(0)
+    mesh.clear_surfaces()
     mdt.commit_to_surface(mesh)
     var mi = MeshInstance.new()
     mi.mesh = mesh
@@ -60,7 +60,7 @@ Below is an example of how MeshDataTool may be used.
         // Save your change.
         mdt.SetVertex(i, vertex);
     }
-    mesh.SurfaceRemove(0);
+    mesh.ClearSurfaces();
     mdt.CommitToSurface(mesh);
     var mi = new MeshInstance();
     mi.Mesh = mesh;
@@ -71,6 +71,13 @@ Below is an example of how MeshDataTool may be used.
 See also :ref:`ArrayMesh<class_ArrayMesh>`, :ref:`ImmediateMesh<class_ImmediateMesh>` and :ref:`SurfaceTool<class_SurfaceTool>` for procedural geometry generation.
 
 \ **Note:** Godot uses clockwise `winding order <https://learnopengl.com/Advanced-OpenGL/Face-culling>`__ for front faces of triangle primitive modes.
+
+.. rst-class:: classref-introduction-group
+
+Tutorials
+---------
+
+- :doc:`Using the MeshDataTool <../tutorials/3d/procedural_geometry/meshdatatool>`
 
 .. rst-class:: classref-reftable-group
 
@@ -635,3 +642,4 @@ Sets the bone weights of the given vertex.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

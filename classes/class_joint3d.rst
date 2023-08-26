@@ -14,14 +14,14 @@ Joint3D
 
 **Inherited By:** :ref:`ConeTwistJoint3D<class_ConeTwistJoint3D>`, :ref:`Generic6DOFJoint3D<class_Generic6DOFJoint3D>`, :ref:`HingeJoint3D<class_HingeJoint3D>`, :ref:`PinJoint3D<class_PinJoint3D>`, :ref:`SliderJoint3D<class_SliderJoint3D>`
 
-Base class for all 3D joints.
+Abstract base class for all 3D physics joints.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-Joints are used to bind together two physics bodies. They have a solver priority and can define if the bodies of the two attached nodes should be able to collide with each other. See also :ref:`Generic6DOFJoint3D<class_Generic6DOFJoint3D>`.
+Abstract base class for all joints in 3D physics. 3D joints bind together two physics bodies and apply a constraint.
 
 .. rst-class:: classref-introduction-group
 
@@ -127,3 +127,4 @@ The priority used to define which solver is executed first for multiple joints. 
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

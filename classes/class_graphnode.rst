@@ -12,22 +12,20 @@ GraphNode
 
 **Inherits:** :ref:`Container<class_Container>` **<** :ref:`Control<class_Control>` **<** :ref:`CanvasItem<class_CanvasItem>` **<** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
 
-GraphNode is a :ref:`Container<class_Container>` control that represents a single data unit in a :ref:`GraphEdit<class_GraphEdit>` graph. You can customize the number, type, and color of left- and right-side connection ports.
+A container with connection ports, representing a node in a :ref:`GraphEdit<class_GraphEdit>`.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-**Note:** Please be aware that this node will undergo extensive refactoring in a future 4.x version involving compatibility-breaking API changes.
+**GraphNode** allows to create nodes for a :ref:`GraphEdit<class_GraphEdit>` graph with customizable content based on its child controls. **GraphNode** is derived from :ref:`Container<class_Container>` and it is responsible for placing its children on screen. This works similar to :ref:`VBoxContainer<class_VBoxContainer>`. Children, in turn, provide **GraphNode** with so-called slots, each of which can have a connection port on either side.
 
-GraphNode allows to create nodes for a :ref:`GraphEdit<class_GraphEdit>` graph with customizable content based on its child :ref:`Control<class_Control>`\ s. GraphNode is a :ref:`Container<class_Container>` and is responsible for placing its children on screen. This works similar to :ref:`VBoxContainer<class_VBoxContainer>`. Children, in turn, provide GraphNode with so-called slots, each of which can have a connection port on either side. This is similar to how :ref:`TabContainer<class_TabContainer>` uses children to create the tabs.
-
-Each GraphNode slot is defined by its index and can provide the node with up to two ports: one on the left, and one on the right. By convention the left port is also referred to as the input port and the right port is referred to as the output port. Each port can be enabled and configured individually, using different type and color. The type is an arbitrary value that you can define using your own considerations. The parent :ref:`GraphEdit<class_GraphEdit>` will receive this information on each connect and disconnect request.
+Each **GraphNode** slot is defined by its index and can provide the node with up to two ports: one on the left, and one on the right. By convention the left port is also referred to as the **input port** and the right port is referred to as the **output port**. Each port can be enabled and configured individually, using different type and color. The type is an arbitrary value that you can define using your own considerations. The parent :ref:`GraphEdit<class_GraphEdit>` will receive this information on each connect and disconnect request.
 
 Slots can be configured in the Inspector dock once you add at least one child :ref:`Control<class_Control>`. The properties are grouped by each slot's index in the "Slot" section.
 
-\ **Note:** While GraphNode is set up using slots and slot indices, connections are made between the ports which are enabled. Because of that :ref:`GraphEdit<class_GraphEdit>` uses port's index and not slot's index. You can use :ref:`get_connection_input_slot<class_GraphNode_method_get_connection_input_slot>` and :ref:`get_connection_output_slot<class_GraphNode_method_get_connection_output_slot>` to get the slot index from the port index.
+\ **Note:** While GraphNode is set up using slots and slot indices, connections are made between the ports which are enabled. Because of that, :ref:`GraphEdit<class_GraphEdit>` uses the port's index and not the slot's index. You can use :ref:`get_connection_input_slot<class_GraphNode_method_get_connection_input_slot>` and :ref:`get_connection_output_slot<class_GraphNode_method_get_connection_output_slot>` to get the slot index from the port index.
 
 .. rst-class:: classref-reftable-group
 
@@ -37,8 +35,6 @@ Properties
 .. table::
    :widths: auto
 
-   +--------------------------------------------------+------------------------------------------------------------------+-----------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`                          | :ref:`comment<class_GraphNode_property_comment>`                 | ``false``                                                             |
    +--------------------------------------------------+------------------------------------------------------------------+-----------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                          | :ref:`draggable<class_GraphNode_property_draggable>`             | ``true``                                                              |
    +--------------------------------------------------+------------------------------------------------------------------+-----------------------------------------------------------------------+
@@ -146,7 +142,7 @@ Theme Properties
    +-----------------------------------+----------------------------------------------------------------------+-----------------------------------+
    | :ref:`Color<class_Color>`         | :ref:`title_color<class_GraphNode_theme_color_title_color>`          | ``Color(0.875, 0.875, 0.875, 1)`` |
    +-----------------------------------+----------------------------------------------------------------------+-----------------------------------+
-   | :ref:`int<class_int>`             | :ref:`close_h_offset<class_GraphNode_theme_constant_close_h_offset>` | ``22``                            |
+   | :ref:`int<class_int>`             | :ref:`close_h_offset<class_GraphNode_theme_constant_close_h_offset>` | ``12``                            |
    +-----------------------------------+----------------------------------------------------------------------+-----------------------------------+
    | :ref:`int<class_int>`             | :ref:`close_offset<class_GraphNode_theme_constant_close_offset>`     | ``22``                            |
    +-----------------------------------+----------------------------------------------------------------------+-----------------------------------+
@@ -167,10 +163,6 @@ Theme Properties
    | :ref:`Texture2D<class_Texture2D>` | :ref:`resizer<class_GraphNode_theme_icon_resizer>`                   |                                   |
    +-----------------------------------+----------------------------------------------------------------------+-----------------------------------+
    | :ref:`StyleBox<class_StyleBox>`   | :ref:`breakpoint<class_GraphNode_theme_style_breakpoint>`            |                                   |
-   +-----------------------------------+----------------------------------------------------------------------+-----------------------------------+
-   | :ref:`StyleBox<class_StyleBox>`   | :ref:`comment<class_GraphNode_theme_style_comment>`                  |                                   |
-   +-----------------------------------+----------------------------------------------------------------------+-----------------------------------+
-   | :ref:`StyleBox<class_StyleBox>`   | :ref:`comment_focus<class_GraphNode_theme_style_comment_focus>`      |                                   |
    +-----------------------------------+----------------------------------------------------------------------+-----------------------------------+
    | :ref:`StyleBox<class_StyleBox>`   | :ref:`frame<class_GraphNode_theme_style_frame>`                      |                                   |
    +-----------------------------------+----------------------------------------------------------------------+-----------------------------------+
@@ -329,23 +321,6 @@ Show overlay set in the :ref:`position<class_GraphNode_theme_style_position>` th
 
 Property Descriptions
 ---------------------
-
-.. _class_GraphNode_property_comment:
-
-.. rst-class:: classref-property
-
-:ref:`bool<class_bool>` **comment** = ``false``
-
-.. rst-class:: classref-property-setget
-
-- void **set_comment** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **is_comment** **(** **)**
-
-If ``true``, the GraphNode is a comment node.
-
-.. rst-class:: classref-item-separator
-
-----
 
 .. _class_GraphNode_property_draggable:
 
@@ -933,7 +908,7 @@ Color of the title text.
 
 .. rst-class:: classref-themeproperty
 
-:ref:`int<class_int>` **close_h_offset** = ``22``
+:ref:`int<class_int>` **close_h_offset** = ``12``
 
 .. container:: contribute
 
@@ -1063,30 +1038,6 @@ The background used when :ref:`overlay<class_GraphNode_property_overlay>` is set
 
 ----
 
-.. _class_GraphNode_theme_style_comment:
-
-.. rst-class:: classref-themeproperty
-
-:ref:`StyleBox<class_StyleBox>` **comment**
-
-The :ref:`StyleBox<class_StyleBox>` used when :ref:`comment<class_GraphNode_property_comment>` is enabled.
-
-.. rst-class:: classref-item-separator
-
-----
-
-.. _class_GraphNode_theme_style_comment_focus:
-
-.. rst-class:: classref-themeproperty
-
-:ref:`StyleBox<class_StyleBox>` **comment_focus**
-
-The :ref:`StyleBox<class_StyleBox>` used when :ref:`comment<class_GraphNode_property_comment>` is enabled and the **GraphNode** is focused.
-
-.. rst-class:: classref-item-separator
-
-----
-
 .. _class_GraphNode_theme_style_frame:
 
 .. rst-class:: classref-themeproperty
@@ -1137,3 +1088,4 @@ The :ref:`StyleBox<class_StyleBox>` used for each slot of the **GraphNode**.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
