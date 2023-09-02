@@ -19,7 +19,7 @@ A modified version of :ref:`FileDialog<class_FileDialog>` used by the editor.
 Description
 -----------
 
-**EditorFileDialog** is an enhanced version of :ref:`FileDialog<class_FileDialog>` available only to editor plugins. Additional features include list of favorited/recent files and ability to see files as thumbnails grid instead of list.
+**EditorFileDialog** is an enhanced version of :ref:`FileDialog<class_FileDialog>` available only to editor plugins. Additional features include list of favorited/recent files and the ability to see files as thumbnails grid instead of list.
 
 .. rst-class:: classref-reftable-group
 
@@ -351,7 +351,7 @@ The view format in which the **EditorFileDialog** displays resources to the user
 - void **set_file_mode** **(** :ref:`FileMode<enum_EditorFileDialog_FileMode>` value **)**
 - :ref:`FileMode<enum_EditorFileDialog_FileMode>` **get_file_mode** **(** **)**
 
-The dialog's open or save mode, which affects the selection behavior. See :ref:`FileMode<enum_EditorFileDialog_FileMode>`
+The dialog's open or save mode, which affects the selection behavior. See :ref:`FileMode<enum_EditorFileDialog_FileMode>`.
 
 .. rst-class:: classref-item-separator
 
@@ -466,3 +466,4 @@ Notify the **EditorFileDialog** that its view of the data is no longer accurate.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

@@ -31,6 +31,13 @@ The **LightmapGI** node is used to compute and store baked lightmaps. Lightmaps 
 
 \ **Note:** If no custom lightmappers are installed, **LightmapGI** can only be baked when using the Vulkan backend (Forward+ or Mobile), not OpenGL.
 
+.. rst-class:: classref-introduction-group
+
+Tutorials
+---------
+
+- :doc:`Using Lightmap global illumination <../tutorials/3d/global_illumination/using_lightmap_gi>`
+
 .. rst-class:: classref-reftable-group
 
 Properties
@@ -551,3 +558,4 @@ If ``true``, uses a CPU-based denoising algorithm on the generated lightmap. Thi
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

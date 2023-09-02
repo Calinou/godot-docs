@@ -14,21 +14,21 @@ VBoxContainer
 
 **Inherited By:** :ref:`ColorPicker<class_ColorPicker>`, :ref:`FileSystemDock<class_FileSystemDock>`, :ref:`ScriptEditorBase<class_ScriptEditorBase>`
 
-Vertical box container.
+A container that arranges its child controls vertically.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-Vertical box container. See :ref:`BoxContainer<class_BoxContainer>`.
+A variant of :ref:`BoxContainer<class_BoxContainer>` that can only arrange its child controls vertically. Child controls are rearranged automatically when their minimum size changes.
 
 .. rst-class:: classref-introduction-group
 
 Tutorials
 ---------
 
-- :doc:`GUI containers <../tutorials/ui/gui_containers>`
+- :doc:`Using Containers <../tutorials/ui/gui_containers>`
 
 - `3D Voxel Demo <https://godotengine.org/asset-library/asset/676>`__
 
@@ -67,3 +67,4 @@ The vertical space between the **VBoxContainer**'s elements.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

@@ -49,6 +49,8 @@ Methods
    +-------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`String<class_String>`                     | :ref:`_get_code<class_VisualShaderNodeCustom_method__get_code>` **(** :ref:`String[]<class_String>` input_vars, :ref:`String[]<class_String>` output_vars, :ref:`Mode<enum_Shader_Mode>` mode, :ref:`Type<enum_VisualShader_Type>` type **)** |virtual| |const| |
    +-------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`int<class_int>`                           | :ref:`_get_default_input_port<class_VisualShaderNodeCustom_method__get_default_input_port>` **(** :ref:`PortType<enum_VisualShaderNode_PortType>` type **)** |virtual| |const|                                                                                  |
+   +-------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`String<class_String>`                     | :ref:`_get_description<class_VisualShaderNodeCustom_method__get_description>` **(** **)** |virtual| |const|                                                                                                                                                     |
    +-------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`String<class_String>`                     | :ref:`_get_func_code<class_VisualShaderNodeCustom_method__get_func_code>` **(** :ref:`Mode<enum_Shader_Mode>` mode, :ref:`Type<enum_VisualShader_Type>` type **)** |virtual| |const|                                                                            |
@@ -114,6 +116,20 @@ The output ports can be assigned values in the shader code. For example, ``retur
 You can customize the generated code based on the shader ``mode`` (see :ref:`Mode<enum_Shader_Mode>`) and/or ``type`` (see :ref:`Type<enum_VisualShader_Type>`).
 
 Defining this method is **required**.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_VisualShaderNodeCustom_method__get_default_input_port:
+
+.. rst-class:: classref-method
+
+:ref:`int<class_int>` **_get_default_input_port** **(** :ref:`PortType<enum_VisualShaderNode_PortType>` type **)** |virtual| |const|
+
+Override this method to define the input port which should be connected by default when this node is created as a result of dragging a connection from an existing node to the empty space on the graph.
+
+Defining this method is **optional**. If not overridden, the connection will be created to the first valid port.
 
 .. rst-class:: classref-item-separator
 
@@ -311,3 +327,4 @@ Defining this method is **optional**. If not overridden, it's ``false``.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
