@@ -36,7 +36,7 @@ Tutorials
 
 - :doc:`Environment and post-processing <../tutorials/3d/environment_and_post_processing>`
 
-- :doc:`Light transport in game engines <../tutorials/3d/high_dynamic_range>`
+- :doc:`High dynamic range lighting <../tutorials/3d/high_dynamic_range>`
 
 - `3D Material Testers Demo <https://godotengine.org/asset-library/asset/123>`__
 
@@ -1858,7 +1858,7 @@ If ``true``, screen-space reflections are enabled. Screen-space reflections are 
 - void **set_ssr_fade_in** **(** :ref:`float<class_float>` value **)**
 - :ref:`float<class_float>` **get_ssr_fade_in** **(** **)**
 
-The fade-in distance for screen-space reflections. Affects the area from the reflected material to the screen-space reflection). Only positive values are valid (negative values will be clamped to ``0.0``).
+The fade-in distance for screen-space reflections. Affects the area from the reflected material to the screen-space reflection. Only positive values are valid (negative values will be clamped to ``0.0``).
 
 .. rst-class:: classref-item-separator
 
@@ -2215,3 +2215,4 @@ Sets the intensity of the glow level ``idx``. A value above ``0.0`` enables the 
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

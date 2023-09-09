@@ -14,14 +14,14 @@ Joint2D
 
 **Inherited By:** :ref:`DampedSpringJoint2D<class_DampedSpringJoint2D>`, :ref:`GrooveJoint2D<class_GrooveJoint2D>`, :ref:`PinJoint2D<class_PinJoint2D>`
 
-Base node for all joint constraints in 2D physics.
+Abstract base class for all 2D physics joints.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-Base node for all joint constraints in 2D physics. Joints take 2 bodies and apply a custom constraint.
+Abstract base class for all joints in 2D physics. 2D joints bind together two physics bodies and apply a constraint.
 
 .. rst-class:: classref-reftable-group
 
@@ -122,3 +122,4 @@ The second body attached to the joint. Must derive from :ref:`PhysicsBody2D<clas
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
