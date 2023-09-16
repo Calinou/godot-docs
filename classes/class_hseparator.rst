@@ -12,14 +12,14 @@ HSeparator
 
 **Inherits:** :ref:`Separator<class_Separator>` **<** :ref:`Control<class_Control>` **<** :ref:`CanvasItem<class_CanvasItem>` **<** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
 
-Horizontal separator.
+A horizontal line used for separating other controls.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-Horizontal separator. See :ref:`Separator<class_Separator>`. Even though it looks horizontal, it is used to separate objects vertically.
+A horizontal separator used for separating other controls that are arranged **vertically**. **HSeparator** is purely visual and normally drawn as a :ref:`StyleBoxLine<class_StyleBoxLine>`.
 
 .. rst-class:: classref-reftable-group
 
@@ -70,3 +70,4 @@ The style for the separator line. Works best with :ref:`StyleBoxLine<class_Style
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

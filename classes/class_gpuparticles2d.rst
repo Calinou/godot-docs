@@ -12,7 +12,7 @@ GPUParticles2D
 
 **Inherits:** :ref:`Node2D<class_Node2D>` **<** :ref:`CanvasItem<class_CanvasItem>` **<** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
 
-2D particle emitter.
+A 2D particle emitter.
 
 .. rst-class:: classref-introduction-group
 
@@ -23,7 +23,7 @@ Description
 
 Use the :ref:`process_material<class_GPUParticles2D_property_process_material>` property to add a :ref:`ParticleProcessMaterial<class_ParticleProcessMaterial>` to configure particle appearance and behavior. Alternatively, you can add a :ref:`ShaderMaterial<class_ShaderMaterial>` which will be applied to all particles.
 
-2D particles can optionally collide with :ref:`LightOccluder2D<class_LightOccluder2D>` nodes (note: they don't collide with :ref:`PhysicsBody2D<class_PhysicsBody2D>` nodes).
+2D particles can optionally collide with :ref:`LightOccluder2D<class_LightOccluder2D>`, but they don't collide with :ref:`PhysicsBody2D<class_PhysicsBody2D>` nodes.
 
 .. rst-class:: classref-introduction-group
 
@@ -101,10 +101,31 @@ Methods
    +---------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`Rect2<class_Rect2>` | :ref:`capture_rect<class_GPUParticles2D_method_capture_rect>` **(** **)** |const|                                                                                                                                                                               |
    +---------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | void                      | :ref:`convert_from_particles<class_GPUParticles2D_method_convert_from_particles>` **(** :ref:`Node<class_Node>` particles **)**                                                                                                                                 |
+   +---------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | void                      | :ref:`emit_particle<class_GPUParticles2D_method_emit_particle>` **(** :ref:`Transform2D<class_Transform2D>` xform, :ref:`Vector2<class_Vector2>` velocity, :ref:`Color<class_Color>` color, :ref:`Color<class_Color>` custom, :ref:`int<class_int>` flags **)** |
    +---------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | void                      | :ref:`restart<class_GPUParticles2D_method_restart>` **(** **)**                                                                                                                                                                                                 |
    +---------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+.. rst-class:: classref-section-separator
+
+----
+
+.. rst-class:: classref-descriptions-group
+
+Signals
+-------
+
+.. _class_GPUParticles2D_signal_finished:
+
+.. rst-class:: classref-signal
+
+**finished** **(** **)**
+
+Emitted when all active particles have finished processing. When :ref:`one_shot<class_GPUParticles2D_property_one_shot>` is disabled, particles will process continuously, so this is never emitted.
+
+\ **Note:** Due to the particles being computed on the GPU there might be a delay before the signal gets emitted.
 
 .. rst-class:: classref-section-separator
 
@@ -266,7 +287,7 @@ Particle draw order. Uses :ref:`DrawOrder<enum_GPUParticles2D_DrawOrder>` values
 - void **set_emitting** **(** :ref:`bool<class_bool>` value **)**
 - :ref:`bool<class_bool>` **is_emitting** **(** **)**
 
-If ``true``, particles are being emitted.
+If ``true``, particles are being emitted. :ref:`emitting<class_GPUParticles2D_property_emitting>` can be used to start and stop particles from emitting. However, if :ref:`one_shot<class_GPUParticles2D_property_one_shot>` is ``true`` setting :ref:`emitting<class_GPUParticles2D_property_emitting>` to ``true`` will not restart the emission cycle until after all active particles finish processing. You can use the :ref:`finished<class_GPUParticles2D_signal_finished>` signal to be notified once all active particles finish processing.
 
 .. rst-class:: classref-item-separator
 
@@ -595,6 +616,20 @@ Method Descriptions
 
 Returns a rectangle containing the positions of all existing particles.
 
+\ **Note:** When using threaded rendering this method synchronizes the rendering thread. Calling it often may have a negative impact on performance.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_GPUParticles2D_method_convert_from_particles:
+
+.. rst-class:: classref-method
+
+void **convert_from_particles** **(** :ref:`Node<class_Node>` particles **)**
+
+Sets this node's properties to match a given :ref:`CPUParticles2D<class_CPUParticles2D>` node.
+
 .. rst-class:: classref-item-separator
 
 ----
@@ -625,3 +660,4 @@ Restarts all the existing particles.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
