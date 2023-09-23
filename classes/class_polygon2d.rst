@@ -121,9 +121,7 @@ If ``true``, polygon edges will be anti-aliased.
 
 :ref:`Array<class_Array>` **bones** = ``[]``
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+Internal list of :ref:`Bone2D<class_Bone2D>` nodes used by the assigned :ref:`skeleton<class_Polygon2D_property_skeleton>`. Edited using the Polygon2D editor ("UV" button on the top toolbar).
 
 .. rst-class:: classref-item-separator
 
@@ -157,9 +155,7 @@ The polygon's fill color. If ``texture`` is defined, it will be multiplied by th
 - void **set_internal_vertex_count** **(** :ref:`int<class_int>` value **)**
 - :ref:`int<class_int>` **get_internal_vertex_count** **(** **)**
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+Number of internal vertices, used for UV mapping.
 
 .. rst-class:: classref-item-separator
 
@@ -263,9 +259,7 @@ The list of polygons, in case more than one is being represented. Every individu
 - void **set_skeleton** **(** :ref:`NodePath<class_NodePath>` value **)**
 - :ref:`NodePath<class_NodePath>` **get_skeleton** **(** **)**
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+Path to a :ref:`Skeleton2D<class_Skeleton2D>` node used for skeleton-based deformations of this polygon. If empty or invalid, skeletal deformations will not be used.
 
 .. rst-class:: classref-item-separator
 
@@ -444,7 +438,7 @@ Returns the path to the node associated with the specified bone.
 
 :ref:`PackedFloat32Array<class_PackedFloat32Array>` **get_bone_weights** **(** :ref:`int<class_int>` index **)** |const|
 
-Returns the height values of the specified bone.
+Returns the weight values of the specified bone.
 
 .. rst-class:: classref-item-separator
 
@@ -476,3 +470,4 @@ Sets the weight values for the specified bone.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
