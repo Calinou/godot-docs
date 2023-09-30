@@ -31,6 +31,8 @@ Methods
    +---------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`Script<class_Script>`                 | :ref:`_get_base_script<class_ScriptExtension_method__get_base_script>` **(** **)** |virtual| |const|                                                                    |
    +---------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`String<class_String>`                 | :ref:`_get_class_icon_path<class_ScriptExtension_method__get_class_icon_path>` **(** **)** |virtual| |const|                                                            |
+   +---------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`Dictionary<class_Dictionary>`         | :ref:`_get_constants<class_ScriptExtension_method__get_constants>` **(** **)** |virtual| |const|                                                                        |
    +---------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`Dictionary[]<class_Dictionary>`       | :ref:`_get_documentation<class_ScriptExtension_method__get_documentation>` **(** **)** |virtual| |const|                                                                |
@@ -72,6 +74,8 @@ Methods
    | void*                                       | :ref:`_instance_create<class_ScriptExtension_method__instance_create>` **(** :ref:`Object<class_Object>` for_object **)** |virtual| |const|                             |
    +---------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                     | :ref:`_instance_has<class_ScriptExtension_method__instance_has>` **(** :ref:`Object<class_Object>` object **)** |virtual| |const|                                       |
+   +---------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                     | :ref:`_is_abstract<class_ScriptExtension_method__is_abstract>` **(** **)** |virtual| |const|                                                                            |
    +---------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                     | :ref:`_is_placeholder_fallback_enabled<class_ScriptExtension_method__is_placeholder_fallback_enabled>` **(** **)** |virtual| |const|                                    |
    +---------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -132,6 +136,20 @@ Method Descriptions
 .. rst-class:: classref-method
 
 :ref:`Script<class_Script>` **_get_base_script** **(** **)** |virtual| |const|
+
+.. container:: contribute
+
+	There is currently no description for this method. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_ScriptExtension_method__get_class_icon_path:
+
+.. rst-class:: classref-method
+
+:ref:`String<class_String>` **_get_class_icon_path** **(** **)** |virtual| |const|
 
 .. container:: contribute
 
@@ -435,6 +453,18 @@ void* **_instance_create** **(** :ref:`Object<class_Object>` for_object **)** |v
 
 ----
 
+.. _class_ScriptExtension_method__is_abstract:
+
+.. rst-class:: classref-method
+
+:ref:`bool<class_bool>` **_is_abstract** **(** **)** |virtual| |const|
+
+Returns ``true`` if the script is an abstract script. An abstract script does not have a constructor and cannot be instantiated.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_ScriptExtension_method__is_placeholder_fallback_enabled:
 
 .. rst-class:: classref-method
@@ -549,3 +579,4 @@ void **_update_exports** **(** **)** |virtual|
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

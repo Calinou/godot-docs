@@ -143,6 +143,18 @@ Emitted when the state of a pose tracked by this tracker changes.
 
 ----
 
+.. _class_XRPositionalTracker_signal_pose_lost_tracking:
+
+.. rst-class:: classref-signal
+
+**pose_lost_tracking** **(** :ref:`XRPose<class_XRPose>` pose **)**
+
+Emitted when a pose tracked by this tracker stops getting updated tracking data.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_XRPositionalTracker_signal_profile_changed:
 
 .. rst-class:: classref-signal
@@ -367,3 +379,4 @@ Sets the transform, linear velocity, angular velocity and tracking confidence fo
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
