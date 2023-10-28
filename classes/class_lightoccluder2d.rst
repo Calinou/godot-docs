@@ -98,9 +98,7 @@ The LightOccluder2D's occluder light mask. The LightOccluder2D will cast shadows
 - void **set_as_sdf_collision** **(** :ref:`bool<class_bool>` value **)**
 - :ref:`bool<class_bool>` **is_set_as_sdf_collision** **(** **)**
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+If enabled, the occluder will be part of a real-time generated signed distance field that can be used in custom shaders.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
@@ -108,3 +106,4 @@ The LightOccluder2D's occluder light mask. The LightOccluder2D will cast shadows
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

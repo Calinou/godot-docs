@@ -12,7 +12,7 @@ GPUParticles2D
 
 **Inherits:** :ref:`Node2D<class_Node2D>` **<** :ref:`CanvasItem<class_CanvasItem>` **<** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
 
-2D particle emitter.
+A 2D particle emitter.
 
 .. rst-class:: classref-introduction-group
 
@@ -23,7 +23,7 @@ Description
 
 Use the :ref:`process_material<class_GPUParticles2D_property_process_material>` property to add a :ref:`ParticleProcessMaterial<class_ParticleProcessMaterial>` to configure particle appearance and behavior. Alternatively, you can add a :ref:`ShaderMaterial<class_ShaderMaterial>` which will be applied to all particles.
 
-2D particles can optionally collide with :ref:`LightOccluder2D<class_LightOccluder2D>` nodes (note: they don't collide with :ref:`PhysicsBody2D<class_PhysicsBody2D>` nodes).
+2D particles can optionally collide with :ref:`LightOccluder2D<class_LightOccluder2D>`, but they don't collide with :ref:`PhysicsBody2D<class_PhysicsBody2D>` nodes.
 
 .. rst-class:: classref-introduction-group
 
@@ -47,6 +47,8 @@ Properties
    +-------------------------------------------------+---------------------------------------------------------------------------------------------+---------------------------------+
    | :ref:`int<class_int>`                           | :ref:`amount<class_GPUParticles2D_property_amount>`                                         | ``8``                           |
    +-------------------------------------------------+---------------------------------------------------------------------------------------------+---------------------------------+
+   | :ref:`float<class_float>`                       | :ref:`amount_ratio<class_GPUParticles2D_property_amount_ratio>`                             | ``1.0``                         |
+   +-------------------------------------------------+---------------------------------------------------------------------------------------------+---------------------------------+
    | :ref:`float<class_float>`                       | :ref:`collision_base_size<class_GPUParticles2D_property_collision_base_size>`               | ``1.0``                         |
    +-------------------------------------------------+---------------------------------------------------------------------------------------------+---------------------------------+
    | :ref:`DrawOrder<enum_GPUParticles2D_DrawOrder>` | :ref:`draw_order<class_GPUParticles2D_property_draw_order>`                                 | ``1``                           |
@@ -58,6 +60,8 @@ Properties
    | :ref:`int<class_int>`                           | :ref:`fixed_fps<class_GPUParticles2D_property_fixed_fps>`                                   | ``30``                          |
    +-------------------------------------------------+---------------------------------------------------------------------------------------------+---------------------------------+
    | :ref:`bool<class_bool>`                         | :ref:`fract_delta<class_GPUParticles2D_property_fract_delta>`                               | ``true``                        |
+   +-------------------------------------------------+---------------------------------------------------------------------------------------------+---------------------------------+
+   | :ref:`float<class_float>`                       | :ref:`interp_to_end<class_GPUParticles2D_property_interp_to_end>`                           | ``0.0``                         |
    +-------------------------------------------------+---------------------------------------------------------------------------------------------+---------------------------------+
    | :ref:`bool<class_bool>`                         | :ref:`interpolate<class_GPUParticles2D_property_interpolate>`                               | ``true``                        |
    +-------------------------------------------------+---------------------------------------------------------------------------------------------+---------------------------------+
@@ -101,10 +105,31 @@ Methods
    +---------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`Rect2<class_Rect2>` | :ref:`capture_rect<class_GPUParticles2D_method_capture_rect>` **(** **)** |const|                                                                                                                                                                               |
    +---------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | void                      | :ref:`convert_from_particles<class_GPUParticles2D_method_convert_from_particles>` **(** :ref:`Node<class_Node>` particles **)**                                                                                                                                 |
+   +---------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | void                      | :ref:`emit_particle<class_GPUParticles2D_method_emit_particle>` **(** :ref:`Transform2D<class_Transform2D>` xform, :ref:`Vector2<class_Vector2>` velocity, :ref:`Color<class_Color>` color, :ref:`Color<class_Color>` custom, :ref:`int<class_int>` flags **)** |
    +---------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | void                      | :ref:`restart<class_GPUParticles2D_method_restart>` **(** **)**                                                                                                                                                                                                 |
    +---------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+.. rst-class:: classref-section-separator
+
+----
+
+.. rst-class:: classref-descriptions-group
+
+Signals
+-------
+
+.. _class_GPUParticles2D_signal_finished:
+
+.. rst-class:: classref-signal
+
+**finished** **(** **)**
+
+Emitted when all active particles have finished processing. When :ref:`one_shot<class_GPUParticles2D_property_one_shot>` is disabled, particles will process continuously, so this is never emitted.
+
+\ **Note:** Due to the particles being computed on the GPU there might be a delay before the signal gets emitted.
 
 .. rst-class:: classref-section-separator
 
@@ -215,7 +240,28 @@ Property Descriptions
 - void **set_amount** **(** :ref:`int<class_int>` value **)**
 - :ref:`int<class_int>` **get_amount** **(** **)**
 
-Number of particles emitted in one emission cycle.
+The number of particles to emit in one emission cycle. The effective emission rate is ``(amount * amount_ratio) / lifetime`` particles per second. Higher values will increase GPU requirements, even if not all particles are visible at a given time or if :ref:`amount_ratio<class_GPUParticles2D_property_amount_ratio>` is decreased.
+
+\ **Note:** Changing this value will cause the particle system to restart. To avoid this, change :ref:`amount_ratio<class_GPUParticles2D_property_amount_ratio>` instead.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_GPUParticles2D_property_amount_ratio:
+
+.. rst-class:: classref-property
+
+:ref:`float<class_float>` **amount_ratio** = ``1.0``
+
+.. rst-class:: classref-property-setget
+
+- void **set_amount_ratio** **(** :ref:`float<class_float>` value **)**
+- :ref:`float<class_float>` **get_amount_ratio** **(** **)**
+
+The ratio of particles that should actually be emitted. If set to a value lower than ``1.0``, this will set the amount of emitted particles throughout the lifetime to ``amount * amount_ratio``. Unlike changing :ref:`amount<class_GPUParticles2D_property_amount>`, changing :ref:`amount_ratio<class_GPUParticles2D_property_amount_ratio>` while emitting does not affect already-emitted particles and doesn't cause the particle system to restart. :ref:`amount_ratio<class_GPUParticles2D_property_amount_ratio>` can be used to create effects that make the number of emitted particles vary over time.
+
+\ **Note:** Reducing the :ref:`amount_ratio<class_GPUParticles2D_property_amount_ratio>` has no performance benefit, since resources need to be allocated and processed for the total :ref:`amount<class_GPUParticles2D_property_amount>` of particles regardless of the :ref:`amount_ratio<class_GPUParticles2D_property_amount_ratio>`. If you don't intend to change the number of particles emitted while the particles are emitting, make sure :ref:`amount_ratio<class_GPUParticles2D_property_amount_ratio>` is set to ``1`` and change :ref:`amount<class_GPUParticles2D_property_amount>` to your liking instead.
 
 .. rst-class:: classref-item-separator
 
@@ -232,7 +278,9 @@ Number of particles emitted in one emission cycle.
 - void **set_collision_base_size** **(** :ref:`float<class_float>` value **)**
 - :ref:`float<class_float>` **get_collision_base_size** **(** **)**
 
-Multiplier for particle's collision radius. ``1.0`` corresponds to the size of the sprite.
+Multiplier for particle's collision radius. ``1.0`` corresponds to the size of the sprite. If particles appear to sink into the ground when colliding, increase this value. If particles appear to float when colliding, decrease this value. Only effective if :ref:`ParticleProcessMaterial.collision_mode<class_ParticleProcessMaterial_property_collision_mode>` is :ref:`ParticleProcessMaterial.COLLISION_RIGID<class_ParticleProcessMaterial_constant_COLLISION_RIGID>` or :ref:`ParticleProcessMaterial.COLLISION_HIDE_ON_CONTACT<class_ParticleProcessMaterial_constant_COLLISION_HIDE_ON_CONTACT>`.
+
+\ **Note:** Particles always have a spherical collision shape.
 
 .. rst-class:: classref-item-separator
 
@@ -266,7 +314,7 @@ Particle draw order. Uses :ref:`DrawOrder<enum_GPUParticles2D_DrawOrder>` values
 - void **set_emitting** **(** :ref:`bool<class_bool>` value **)**
 - :ref:`bool<class_bool>` **is_emitting** **(** **)**
 
-If ``true``, particles are being emitted.
+If ``true``, particles are being emitted. :ref:`emitting<class_GPUParticles2D_property_emitting>` can be used to start and stop particles from emitting. However, if :ref:`one_shot<class_GPUParticles2D_property_one_shot>` is ``true`` setting :ref:`emitting<class_GPUParticles2D_property_emitting>` to ``true`` will not restart the emission cycle until after all active particles finish processing. You can use the :ref:`finished<class_GPUParticles2D_signal_finished>` signal to be notified once all active particles finish processing.
 
 .. rst-class:: classref-item-separator
 
@@ -323,6 +371,25 @@ If ``true``, results in fractional delta calculation which has a smoother partic
 
 ----
 
+.. _class_GPUParticles2D_property_interp_to_end:
+
+.. rst-class:: classref-property
+
+:ref:`float<class_float>` **interp_to_end** = ``0.0``
+
+.. rst-class:: classref-property-setget
+
+- void **set_interp_to_end** **(** :ref:`float<class_float>` value **)**
+- :ref:`float<class_float>` **get_interp_to_end** **(** **)**
+
+Causes all the particles in this node to interpolate towards the end of their lifetime.
+
+\ **Note**: This only works when used with a :ref:`ParticleProcessMaterial<class_ParticleProcessMaterial>`. It needs to be manually implemented for custom process shaders.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_GPUParticles2D_property_interpolate:
 
 .. rst-class:: classref-property
@@ -351,7 +418,7 @@ Enables particle interpolation, which makes the particle movement smoother when 
 - void **set_lifetime** **(** :ref:`float<class_float>` value **)**
 - :ref:`float<class_float>` **get_lifetime** **(** **)**
 
-Amount of time each particle will exist.
+The amount of time each particle will exist (in seconds). The effective emission rate is ``(amount * amount_ratio) / lifetime`` particles per second.
 
 .. rst-class:: classref-item-separator
 
@@ -470,7 +537,9 @@ Particle system's running speed scaling ratio. A value of ``0`` can be used to p
 - void **set_sub_emitter** **(** :ref:`NodePath<class_NodePath>` value **)**
 - :ref:`NodePath<class_NodePath>` **get_sub_emitter** **(** **)**
 
-The :ref:`NodePath<class_NodePath>` to the **GPUParticles2D** used for sub-emissions.
+Path to another **GPUParticles2D** node that will be used as a subemitter (see :ref:`ParticleProcessMaterial.sub_emitter_mode<class_ParticleProcessMaterial_property_sub_emitter_mode>`). Subemitters can be used to achieve effects such as fireworks, sparks on collision, bubbles popping into water drops, and more.
+
+\ **Note:** When :ref:`sub_emitter<class_GPUParticles2D_property_sub_emitter>` is set, the target **GPUParticles2D** node will no longer emit particles on its own.
 
 .. rst-class:: classref-item-separator
 
@@ -487,7 +556,9 @@ The :ref:`NodePath<class_NodePath>` to the **GPUParticles2D** used for sub-emiss
 - void **set_texture** **(** :ref:`Texture2D<class_Texture2D>` value **)**
 - :ref:`Texture2D<class_Texture2D>` **get_texture** **(** **)**
 
-Particle texture. If ``null``, particles will be squares.
+Particle texture. If ``null``, particles will be squares with a size of 1×1 pixels.
+
+\ **Note:** To use a flipbook texture, assign a new :ref:`CanvasItemMaterial<class_CanvasItemMaterial>` to the **GPUParticles2D**'s :ref:`CanvasItem.material<class_CanvasItem_property_material>` property, then enable :ref:`CanvasItemMaterial.particles_animation<class_CanvasItemMaterial_property_particles_animation>` and set :ref:`CanvasItemMaterial.particles_anim_h_frames<class_CanvasItemMaterial_property_particles_anim_h_frames>`, :ref:`CanvasItemMaterial.particles_anim_v_frames<class_CanvasItemMaterial_property_particles_anim_v_frames>`, and :ref:`CanvasItemMaterial.particles_anim_loop<class_CanvasItemMaterial_property_particles_anim_loop>` to match the flipbook texture.
 
 .. rst-class:: classref-item-separator
 
@@ -595,6 +666,20 @@ Method Descriptions
 
 Returns a rectangle containing the positions of all existing particles.
 
+\ **Note:** When using threaded rendering this method synchronizes the rendering thread. Calling it often may have a negative impact on performance.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_GPUParticles2D_method_convert_from_particles:
+
+.. rst-class:: classref-method
+
+void **convert_from_particles** **(** :ref:`Node<class_Node>` particles **)**
+
+Sets this node's properties to match a given :ref:`CPUParticles2D<class_CPUParticles2D>` node.
+
 .. rst-class:: classref-item-separator
 
 ----
@@ -625,3 +710,4 @@ Restarts all the existing particles.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
