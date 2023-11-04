@@ -255,7 +255,7 @@ If not yet cached and ``base_mesh`` is provided, ``base_mesh`` will be used and 
 
 :ref:`Array<class_Array>` **get_surface_arrays** **(** :ref:`int<class_int>` surface_idx **)** |const|
 
-Returns the arrays for the vertices, normals, uvs, etc. that make up the requested surface. See :ref:`add_surface<class_ImporterMesh_method_add_surface>`.
+Returns the arrays for the vertices, normals, UVs, etc. that make up the requested surface. See :ref:`add_surface<class_ImporterMesh_method_add_surface>`.
 
 .. rst-class:: classref-item-separator
 
@@ -419,3 +419,4 @@ Sets a name for a given surface.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
