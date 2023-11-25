@@ -19,7 +19,7 @@ Settings for a single tile in a :ref:`TileSet<class_TileSet>`.
 Description
 -----------
 
-**TileData** object represents a single tile in a :ref:`TileSet<class_TileSet>`. It is usually edited using the tileset editor, but it can be modified at runtime using :ref:`TileMap._tile_data_runtime_update<class_TileMap_method__tile_data_runtime_update>`.
+**TileData** object represents a single tile in a :ref:`TileSet<class_TileSet>`. It is usually edited using the tileset editor, but it can be modified at runtime using :ref:`TileMap._tile_data_runtime_update<class_TileMap_private_method__tile_data_runtime_update>`.
 
 .. rst-class:: classref-reftable-group
 
@@ -619,3 +619,4 @@ Sets the tile's terrain bit for the given ``peering_bit`` direction.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
