@@ -12,7 +12,7 @@ Time
 
 **Inherits:** :ref:`Object<class_Object>`
 
-Time singleton for working with time.
+A singleton for working with time data.
 
 .. rst-class:: classref-introduction-group
 
@@ -507,7 +507,11 @@ Converts the given Unix timestamp to an ISO 8601 time string (HH:MM:SS).
 
 :ref:`Dictionary<class_Dictionary>` **get_time_zone_from_system** **(** **)** |const|
 
-Returns the current time zone as a dictionary of keys: ``bias`` and ``name``. The ``bias`` value is the offset from UTC in minutes, since not all time zones are multiples of an hour from UTC.
+Returns the current time zone as a dictionary of keys: ``bias`` and ``name``. 
+
+- ``bias`` is the offset from UTC in minutes, since not all time zones are multiples of an hour from UTC.
+
+- ``name`` is the localized name of the time zone, according to the OS locale settings of the current user.
 
 .. rst-class:: classref-item-separator
 
@@ -565,3 +569,4 @@ Returns the current Unix timestamp in seconds based on the system time in UTC. T
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

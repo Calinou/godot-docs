@@ -21,7 +21,7 @@ Description
 
 A simple server that opens a UDP socket and returns connected :ref:`PacketPeerUDP<class_PacketPeerUDP>` upon receiving new packets. See also :ref:`PacketPeerUDP.connect_to_host<class_PacketPeerUDP_method_connect_to_host>`.
 
-After starting the server (:ref:`listen<class_UDPServer_method_listen>`), you will need to :ref:`poll<class_UDPServer_method_poll>` it at regular intervals (e.g. inside :ref:`Node._process<class_Node_method__process>`) for it to process new packets, delivering them to the appropriate :ref:`PacketPeerUDP<class_PacketPeerUDP>`, and taking new connections.
+After starting the server (:ref:`listen<class_UDPServer_method_listen>`), you will need to :ref:`poll<class_UDPServer_method_poll>` it at regular intervals (e.g. inside :ref:`Node._process<class_Node_private_method__process>`) for it to process new packets, delivering them to the appropriate :ref:`PacketPeerUDP<class_PacketPeerUDP>`, and taking new connections.
 
 Below a small example of how it can be used:
 
@@ -43,7 +43,7 @@ Below a small example of how it can be used:
     func _process(delta):
         server.poll() # Important!
         if server.is_connection_available():
-            var peer : PacketPeerUDP = server.take_connection()
+            var peer: PacketPeerUDP = server.take_connection()
             var packet = peer.get_packet()
             print("Accepted peer: %s:%s" % [peer.get_packet_ip(), peer.get_packet_port()])
             print("Received data: %s" % [packet.get_string_from_utf8()])
@@ -112,7 +112,7 @@ Below a small example of how it can be used:
     func _process(delta):
         if !connected:
             # Try to contact server
-            udp.put_packet("The answer is... 42!".to_utf8())
+            udp.put_packet("The answer is... 42!".to_utf8_buffer())
         if udp.get_available_packet_count() > 0:
             print("Connected: %s" % udp.get_packet().get_string_from_utf8())
             connected = true
@@ -137,7 +137,7 @@ Below a small example of how it can be used:
             if (!_connected)
             {
                 // Try to contact server
-                _udp.PutPacket("The Answer Is..42!".ToUtf8());
+                _udp.PutPacket("The Answer Is..42!".ToUtf8Buffer());
             }
             if (_udp.GetAvailablePacketCount() > 0)
             {
@@ -270,7 +270,7 @@ Starts the server by opening a UDP socket listening on the given ``port``. You c
 
 :ref:`Error<enum_@GlobalScope_Error>` **poll** **(** **)**
 
-Call this method at regular intervals (e.g. inside :ref:`Node._process<class_Node_method__process>`) to process new packets. And packet from known address/port pair will be delivered to the appropriate :ref:`PacketPeerUDP<class_PacketPeerUDP>`, any packet received from an unknown address/port pair will be added as a pending connection (see :ref:`is_connection_available<class_UDPServer_method_is_connection_available>`, :ref:`take_connection<class_UDPServer_method_take_connection>`). The maximum number of pending connection is defined via :ref:`max_pending_connections<class_UDPServer_property_max_pending_connections>`.
+Call this method at regular intervals (e.g. inside :ref:`Node._process<class_Node_private_method__process>`) to process new packets. And packet from known address/port pair will be delivered to the appropriate :ref:`PacketPeerUDP<class_PacketPeerUDP>`, any packet received from an unknown address/port pair will be added as a pending connection (see :ref:`is_connection_available<class_UDPServer_method_is_connection_available>`, :ref:`take_connection<class_UDPServer_method_take_connection>`). The maximum number of pending connection is defined via :ref:`max_pending_connections<class_UDPServer_property_max_pending_connections>`.
 
 .. rst-class:: classref-item-separator
 
@@ -302,3 +302,4 @@ Returns the first pending connection (connected to the appropriate address/port)
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

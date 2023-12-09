@@ -14,16 +14,16 @@ StyleBox
 
 **Inherited By:** :ref:`StyleBoxEmpty<class_StyleBoxEmpty>`, :ref:`StyleBoxFlat<class_StyleBoxFlat>`, :ref:`StyleBoxLine<class_StyleBoxLine>`, :ref:`StyleBoxTexture<class_StyleBoxTexture>`
 
-Base class for drawing stylized boxes for the UI.
+Abstract base class for defining stylized boxes for UI elements.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-StyleBox is :ref:`Resource<class_Resource>` that provides an abstract base class for drawing stylized boxes for the UI. StyleBoxes are used for drawing the styles of buttons, line edit backgrounds, tree backgrounds, etc. and also for testing a transparency mask for pointer signals. If mask test fails on a StyleBox assigned as mask to a control, clicks and motion signals will go through it to the one below.
+**StyleBox** is an abstract base class for drawing stylized boxes for UI elements. It is used for panels, buttons, :ref:`LineEdit<class_LineEdit>` backgrounds, :ref:`Tree<class_Tree>` backgrounds, etc. and also for testing a transparency mask for pointer signals. If mask test fails on a **StyleBox** assigned as mask to a control, clicks and motion signals will go through it to the one below.
 
-\ **Note:** For children of :ref:`Control<class_Control>` that have *Theme Properties*, the ``focus`` **StyleBox** is displayed over the ``normal``, ``hover`` or ``pressed`` **StyleBox**. This makes the ``focus`` **StyleBox** more reusable across different nodes.
+\ **Note:** For control nodes that have *Theme Properties*, the ``focus`` **StyleBox** is displayed over the ``normal``, ``hover`` or ``pressed`` **StyleBox**. This makes the ``focus`` **StyleBox** more reusable across different nodes.
 
 .. rst-class:: classref-reftable-group
 
@@ -51,33 +51,33 @@ Methods
 .. table::
    :widths: auto
 
-   +-------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                | :ref:`_draw<class_StyleBox_method__draw>` **(** :ref:`RID<class_RID>` to_canvas_item, :ref:`Rect2<class_Rect2>` rect **)** |virtual| |const|                 |
-   +-------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Rect2<class_Rect2>`           | :ref:`_get_draw_rect<class_StyleBox_method__get_draw_rect>` **(** :ref:`Rect2<class_Rect2>` rect **)** |virtual| |const|                                     |
-   +-------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Vector2<class_Vector2>`       | :ref:`_get_minimum_size<class_StyleBox_method__get_minimum_size>` **(** **)** |virtual| |const|                                                              |
-   +-------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`             | :ref:`_test_mask<class_StyleBox_method__test_mask>` **(** :ref:`Vector2<class_Vector2>` point, :ref:`Rect2<class_Rect2>` rect **)** |virtual| |const|        |
-   +-------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                | :ref:`draw<class_StyleBox_method_draw>` **(** :ref:`RID<class_RID>` canvas_item, :ref:`Rect2<class_Rect2>` rect **)** |const|                                |
-   +-------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`float<class_float>`           | :ref:`get_content_margin<class_StyleBox_method_get_content_margin>` **(** :ref:`Side<enum_@GlobalScope_Side>` margin **)** |const|                           |
-   +-------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`CanvasItem<class_CanvasItem>` | :ref:`get_current_item_drawn<class_StyleBox_method_get_current_item_drawn>` **(** **)** |const|                                                              |
-   +-------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`float<class_float>`           | :ref:`get_margin<class_StyleBox_method_get_margin>` **(** :ref:`Side<enum_@GlobalScope_Side>` margin **)** |const|                                           |
-   +-------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Vector2<class_Vector2>`       | :ref:`get_minimum_size<class_StyleBox_method_get_minimum_size>` **(** **)** |const|                                                                          |
-   +-------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Vector2<class_Vector2>`       | :ref:`get_offset<class_StyleBox_method_get_offset>` **(** **)** |const|                                                                                      |
-   +-------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                | :ref:`set_content_margin<class_StyleBox_method_set_content_margin>` **(** :ref:`Side<enum_@GlobalScope_Side>` margin, :ref:`float<class_float>` offset **)** |
-   +-------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                | :ref:`set_content_margin_all<class_StyleBox_method_set_content_margin_all>` **(** :ref:`float<class_float>` offset **)**                                     |
-   +-------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`             | :ref:`test_mask<class_StyleBox_method_test_mask>` **(** :ref:`Vector2<class_Vector2>` point, :ref:`Rect2<class_Rect2>` rect **)** |const|                    |
-   +-------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   +-------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | void                                | :ref:`_draw<class_StyleBox_private_method__draw>` **(** :ref:`RID<class_RID>` to_canvas_item, :ref:`Rect2<class_Rect2>` rect **)** |virtual| |const|          |
+   +-------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Rect2<class_Rect2>`           | :ref:`_get_draw_rect<class_StyleBox_private_method__get_draw_rect>` **(** :ref:`Rect2<class_Rect2>` rect **)** |virtual| |const|                              |
+   +-------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Vector2<class_Vector2>`       | :ref:`_get_minimum_size<class_StyleBox_private_method__get_minimum_size>` **(** **)** |virtual| |const|                                                       |
+   +-------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`             | :ref:`_test_mask<class_StyleBox_private_method__test_mask>` **(** :ref:`Vector2<class_Vector2>` point, :ref:`Rect2<class_Rect2>` rect **)** |virtual| |const| |
+   +-------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | void                                | :ref:`draw<class_StyleBox_method_draw>` **(** :ref:`RID<class_RID>` canvas_item, :ref:`Rect2<class_Rect2>` rect **)** |const|                                 |
+   +-------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`float<class_float>`           | :ref:`get_content_margin<class_StyleBox_method_get_content_margin>` **(** :ref:`Side<enum_@GlobalScope_Side>` margin **)** |const|                            |
+   +-------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`CanvasItem<class_CanvasItem>` | :ref:`get_current_item_drawn<class_StyleBox_method_get_current_item_drawn>` **(** **)** |const|                                                               |
+   +-------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`float<class_float>`           | :ref:`get_margin<class_StyleBox_method_get_margin>` **(** :ref:`Side<enum_@GlobalScope_Side>` margin **)** |const|                                            |
+   +-------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Vector2<class_Vector2>`       | :ref:`get_minimum_size<class_StyleBox_method_get_minimum_size>` **(** **)** |const|                                                                           |
+   +-------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Vector2<class_Vector2>`       | :ref:`get_offset<class_StyleBox_method_get_offset>` **(** **)** |const|                                                                                       |
+   +-------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | void                                | :ref:`set_content_margin<class_StyleBox_method_set_content_margin>` **(** :ref:`Side<enum_@GlobalScope_Side>` margin, :ref:`float<class_float>` offset **)**  |
+   +-------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | void                                | :ref:`set_content_margin_all<class_StyleBox_method_set_content_margin_all>` **(** :ref:`float<class_float>` offset **)**                                      |
+   +-------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`             | :ref:`test_mask<class_StyleBox_method_test_mask>` **(** :ref:`Vector2<class_Vector2>` point, :ref:`Rect2<class_Rect2>` rect **)** |const|                     |
+   +-------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -101,7 +101,7 @@ Property Descriptions
 
 The bottom margin for the contents of this style box. Increasing this value reduces the space available to the contents from the bottom.
 
-If this value is negative, it is ignored and a child-specific margin is used instead. For example for :ref:`StyleBoxFlat<class_StyleBoxFlat>` the border thickness (if any) is used instead.
+If this value is negative, it is ignored and a child-specific margin is used instead. For example, for :ref:`StyleBoxFlat<class_StyleBoxFlat>`, the border thickness (if any) is used instead.
 
 It is up to the code using this style box to decide what these contents are: for example, a :ref:`Button<class_Button>` respects this content margin for the textual contents of the button.
 
@@ -122,7 +122,7 @@ It is up to the code using this style box to decide what these contents are: for
 - void **set_content_margin** **(** :ref:`Side<enum_@GlobalScope_Side>` margin, :ref:`float<class_float>` offset **)**
 - :ref:`float<class_float>` **get_content_margin** **(** :ref:`Side<enum_@GlobalScope_Side>` margin **)** |const|
 
-The left margin for the contents of this style box.	Increasing this value reduces the space available to the contents from the left.
+The left margin for the contents of this style box. Increasing this value reduces the space available to the contents from the left.
 
 Refer to :ref:`content_margin_bottom<class_StyleBox_property_content_margin_bottom>` for extra considerations.
 
@@ -173,7 +173,7 @@ Refer to :ref:`content_margin_bottom<class_StyleBox_property_content_margin_bott
 Method Descriptions
 -------------------
 
-.. _class_StyleBox_method__draw:
+.. _class_StyleBox_private_method__draw:
 
 .. rst-class:: classref-method
 
@@ -187,7 +187,7 @@ void **_draw** **(** :ref:`RID<class_RID>` to_canvas_item, :ref:`Rect2<class_Rec
 
 ----
 
-.. _class_StyleBox_method__get_draw_rect:
+.. _class_StyleBox_private_method__get_draw_rect:
 
 .. rst-class:: classref-method
 
@@ -201,7 +201,7 @@ void **_draw** **(** :ref:`RID<class_RID>` to_canvas_item, :ref:`Rect2<class_Rec
 
 ----
 
-.. _class_StyleBox_method__get_minimum_size:
+.. _class_StyleBox_private_method__get_minimum_size:
 
 .. rst-class:: classref-method
 
@@ -213,7 +213,7 @@ Virtual method to be implemented by the user. Returns a custom minimum size that
 
 ----
 
-.. _class_StyleBox_method__test_mask:
+.. _class_StyleBox_private_method__test_mask:
 
 .. rst-class:: classref-method
 
@@ -259,7 +259,7 @@ Returns the default margin of the specified :ref:`Side<enum_@GlobalScope_Side>`.
 
 :ref:`CanvasItem<class_CanvasItem>` **get_current_item_drawn** **(** **)** |const|
 
-Returns the :ref:`CanvasItem<class_CanvasItem>` that handles its :ref:`CanvasItem.NOTIFICATION_DRAW<class_CanvasItem_constant_NOTIFICATION_DRAW>` or :ref:`CanvasItem._draw<class_CanvasItem_method__draw>` callback at this moment.
+Returns the :ref:`CanvasItem<class_CanvasItem>` that handles its :ref:`CanvasItem.NOTIFICATION_DRAW<class_CanvasItem_constant_NOTIFICATION_DRAW>` or :ref:`CanvasItem._draw<class_CanvasItem_private_method__draw>` callback at this moment.
 
 .. rst-class:: classref-item-separator
 
@@ -341,3 +341,4 @@ Test a position in a rectangle, return whether it passes the mask test.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
