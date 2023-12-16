@@ -21,6 +21,8 @@ Description
 
 This :ref:`Control<class_Control>` node is used in the editor's Inspector dock to allow editing of numeric values. Can be used with :ref:`EditorInspectorPlugin<class_EditorInspectorPlugin>` to recreate the same behavior.
 
+If the :ref:`Range.step<class_Range_property_step>` value is ``1``, the **EditorSpinSlider** will display up/down arrows, similar to :ref:`SpinBox<class_SpinBox>`. If the :ref:`Range.step<class_Range_property_step>` value is not ``1``, a slider will be displayed instead.
+
 .. rst-class:: classref-reftable-group
 
 Properties
@@ -29,23 +31,23 @@ Properties
 .. table::
    :widths: auto
 
-   +------------------------------------------+-----------------------------------------------------------------+------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`                  | :ref:`flat<class_EditorSpinSlider_property_flat>`               | ``false``                                                                    |
-   +------------------------------------------+-----------------------------------------------------------------+------------------------------------------------------------------------------+
-   | :ref:`FocusMode<enum_Control_FocusMode>` | focus_mode                                                      | ``2`` (overrides :ref:`Control<class_Control_property_focus_mode>`)          |
-   +------------------------------------------+-----------------------------------------------------------------+------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`                  | :ref:`hide_slider<class_EditorSpinSlider_property_hide_slider>` | ``false``                                                                    |
-   +------------------------------------------+-----------------------------------------------------------------+------------------------------------------------------------------------------+
-   | :ref:`String<class_String>`              | :ref:`label<class_EditorSpinSlider_property_label>`             | ``""``                                                                       |
-   +------------------------------------------+-----------------------------------------------------------------+------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`                  | :ref:`read_only<class_EditorSpinSlider_property_read_only>`     | ``false``                                                                    |
-   +------------------------------------------+-----------------------------------------------------------------+------------------------------------------------------------------------------+
-   | :ref:`SizeFlags<enum_Control_SizeFlags>` | size_flags_vertical                                             | ``1`` (overrides :ref:`Control<class_Control_property_size_flags_vertical>`) |
-   +------------------------------------------+-----------------------------------------------------------------+------------------------------------------------------------------------------+
-   | :ref:`float<class_float>`                | step                                                            | ``1.0`` (overrides :ref:`Range<class_Range_property_step>`)                  |
-   +------------------------------------------+-----------------------------------------------------------------+------------------------------------------------------------------------------+
-   | :ref:`String<class_String>`              | :ref:`suffix<class_EditorSpinSlider_property_suffix>`           | ``""``                                                                       |
-   +------------------------------------------+-----------------------------------------------------------------+------------------------------------------------------------------------------+
+   +--------------------------------------------------------+-----------------------------------------------------------------+------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                                | :ref:`flat<class_EditorSpinSlider_property_flat>`               | ``false``                                                                    |
+   +--------------------------------------------------------+-----------------------------------------------------------------+------------------------------------------------------------------------------+
+   | :ref:`FocusMode<enum_Control_FocusMode>`               | focus_mode                                                      | ``2`` (overrides :ref:`Control<class_Control_property_focus_mode>`)          |
+   +--------------------------------------------------------+-----------------------------------------------------------------+------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                                | :ref:`hide_slider<class_EditorSpinSlider_property_hide_slider>` | ``false``                                                                    |
+   +--------------------------------------------------------+-----------------------------------------------------------------+------------------------------------------------------------------------------+
+   | :ref:`String<class_String>`                            | :ref:`label<class_EditorSpinSlider_property_label>`             | ``""``                                                                       |
+   +--------------------------------------------------------+-----------------------------------------------------------------+------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                                | :ref:`read_only<class_EditorSpinSlider_property_read_only>`     | ``false``                                                                    |
+   +--------------------------------------------------------+-----------------------------------------------------------------+------------------------------------------------------------------------------+
+   | |bitfield|\<:ref:`SizeFlags<enum_Control_SizeFlags>`\> | size_flags_vertical                                             | ``1`` (overrides :ref:`Control<class_Control_property_size_flags_vertical>`) |
+   +--------------------------------------------------------+-----------------------------------------------------------------+------------------------------------------------------------------------------+
+   | :ref:`float<class_float>`                              | step                                                            | ``1.0`` (overrides :ref:`Range<class_Range_property_step>`)                  |
+   +--------------------------------------------------------+-----------------------------------------------------------------+------------------------------------------------------------------------------+
+   | :ref:`String<class_String>`                            | :ref:`suffix<class_EditorSpinSlider_property_suffix>`           | ``""``                                                                       |
+   +--------------------------------------------------------+-----------------------------------------------------------------+------------------------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -137,7 +139,7 @@ If ``true``, the slider will not draw background.
 - void **set_hide_slider** **(** :ref:`bool<class_bool>` value **)**
 - :ref:`bool<class_bool>` **is_hiding_slider** **(** **)**
 
-If ``true``, the slider is hidden.
+If ``true``, the slider and up/down arrows are hidden.
 
 .. rst-class:: classref-item-separator
 
@@ -196,3 +198,4 @@ The suffix to display after the value (in a faded color). This should generally 
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
