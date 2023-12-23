@@ -94,7 +94,7 @@ Property Descriptions
 - void **set_frame** **(** :ref:`int<class_int>` value **)**
 - :ref:`int<class_int>` **get_frame** **(** **)**
 
-Current frame to display from sprite sheet. :ref:`hframes<class_Sprite3D_property_hframes>` or :ref:`vframes<class_Sprite3D_property_vframes>` must be greater than 1.
+Current frame to display from sprite sheet. :ref:`hframes<class_Sprite3D_property_hframes>` or :ref:`vframes<class_Sprite3D_property_vframes>` must be greater than 1. This property is automatically adjusted when :ref:`hframes<class_Sprite3D_property_hframes>` or :ref:`vframes<class_Sprite3D_property_vframes>` are changed to keep pointing to the same visual frame (same column and row). If that's impossible, this value is reset to ``0``.
 
 .. rst-class:: classref-item-separator
 
@@ -128,7 +128,7 @@ Coordinates of the frame to display from sprite sheet. This is as an alias for t
 - void **set_hframes** **(** :ref:`int<class_int>` value **)**
 - :ref:`int<class_int>` **get_hframes** **(** **)**
 
-The number of columns in the sprite sheet.
+The number of columns in the sprite sheet. When this property is changed, :ref:`frame<class_Sprite3D_property_frame>` is adjusted so that the same visual frame is maintained (same row and column). If that's impossible, :ref:`frame<class_Sprite3D_property_frame>` is reset to ``0``.
 
 .. rst-class:: classref-item-separator
 
@@ -196,7 +196,7 @@ The region of the atlas texture to display. :ref:`region_enabled<class_Sprite3D_
 - void **set_vframes** **(** :ref:`int<class_int>` value **)**
 - :ref:`int<class_int>` **get_vframes** **(** **)**
 
-The number of rows in the sprite sheet.
+The number of rows in the sprite sheet. When this property is changed, :ref:`frame<class_Sprite3D_property_frame>` is adjusted so that the same visual frame is maintained (same row and column). If that's impossible, :ref:`frame<class_Sprite3D_property_frame>` is reset to ``0``.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
@@ -204,3 +204,4 @@ The number of rows in the sprite sheet.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

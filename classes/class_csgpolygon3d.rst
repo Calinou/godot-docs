@@ -348,7 +348,7 @@ When :ref:`mode<class_CSGPolygon3D_property_mode>` is :ref:`MODE_PATH<class_CSGP
 - void **set_path_rotation** **(** :ref:`PathRotation<enum_CSGPolygon3D_PathRotation>` value **)**
 - :ref:`PathRotation<enum_CSGPolygon3D_PathRotation>` **get_path_rotation** **(** **)**
 
-When :ref:`mode<class_CSGPolygon3D_property_mode>` is :ref:`MODE_PATH<class_CSGPolygon3D_constant_MODE_PATH>`, the :ref:`PathRotation<enum_CSGPolygon3D_PathRotation>` method used to rotate the :ref:`polygon<class_CSGPolygon3D_property_polygon>` as it is extruded.
+When :ref:`mode<class_CSGPolygon3D_property_mode>` is :ref:`MODE_PATH<class_CSGPolygon3D_constant_MODE_PATH>`, the path rotation method used to rotate the :ref:`polygon<class_CSGPolygon3D_property_polygon>` as it is extruded.
 
 .. rst-class:: classref-item-separator
 
@@ -460,3 +460,4 @@ When :ref:`mode<class_CSGPolygon3D_property_mode>` is :ref:`MODE_SPIN<class_CSGP
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
