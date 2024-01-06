@@ -195,7 +195,7 @@ Reimports a set of files. Call this if these files or their ``.import`` files we
 
 If the file type changed or the file was newly created, use :ref:`update_file<class_EditorFileSystem_method_update_file>` or :ref:`scan<class_EditorFileSystem_method_scan>`.
 
-\ **Note:** This function blocks until the import is finished. However, the main loop iteration, including timers and :ref:`Node._process<class_Node_method__process>`, will occur during the import process due to progress bar updates. Avoid calls to :ref:`reimport_files<class_EditorFileSystem_method_reimport_files>` or :ref:`scan<class_EditorFileSystem_method_scan>` while an import is in progress.
+\ **Note:** This function blocks until the import is finished. However, the main loop iteration, including timers and :ref:`Node._process<class_Node_private_method__process>`, will occur during the import process due to progress bar updates. Avoid calls to :ref:`reimport_files<class_EditorFileSystem_method_reimport_files>` or :ref:`scan<class_EditorFileSystem_method_scan>` while an import is in progress.
 
 .. rst-class:: classref-item-separator
 
@@ -241,3 +241,4 @@ This will not import the file. To reimport, call :ref:`reimport_files<class_Edit
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

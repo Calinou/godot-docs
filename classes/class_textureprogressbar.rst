@@ -29,45 +29,45 @@ Properties
 .. table::
    :widths: auto
 
-   +----------------------------------------------+-------------------------------------------------------------------------------------------+------------------------------------------------------------------------------+
-   | :ref:`int<class_int>`                        | :ref:`fill_mode<class_TextureProgressBar_property_fill_mode>`                             | ``0``                                                                        |
-   +----------------------------------------------+-------------------------------------------------------------------------------------------+------------------------------------------------------------------------------+
-   | :ref:`MouseFilter<enum_Control_MouseFilter>` | mouse_filter                                                                              | ``1`` (overrides :ref:`Control<class_Control_property_mouse_filter>`)        |
-   +----------------------------------------------+-------------------------------------------------------------------------------------------+------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`                      | :ref:`nine_patch_stretch<class_TextureProgressBar_property_nine_patch_stretch>`           | ``false``                                                                    |
-   +----------------------------------------------+-------------------------------------------------------------------------------------------+------------------------------------------------------------------------------+
-   | :ref:`Vector2<class_Vector2>`                | :ref:`radial_center_offset<class_TextureProgressBar_property_radial_center_offset>`       | ``Vector2(0, 0)``                                                            |
-   +----------------------------------------------+-------------------------------------------------------------------------------------------+------------------------------------------------------------------------------+
-   | :ref:`float<class_float>`                    | :ref:`radial_fill_degrees<class_TextureProgressBar_property_radial_fill_degrees>`         | ``360.0``                                                                    |
-   +----------------------------------------------+-------------------------------------------------------------------------------------------+------------------------------------------------------------------------------+
-   | :ref:`float<class_float>`                    | :ref:`radial_initial_angle<class_TextureProgressBar_property_radial_initial_angle>`       | ``0.0``                                                                      |
-   +----------------------------------------------+-------------------------------------------------------------------------------------------+------------------------------------------------------------------------------+
-   | :ref:`SizeFlags<enum_Control_SizeFlags>`     | size_flags_vertical                                                                       | ``1`` (overrides :ref:`Control<class_Control_property_size_flags_vertical>`) |
-   +----------------------------------------------+-------------------------------------------------------------------------------------------+------------------------------------------------------------------------------+
-   | :ref:`float<class_float>`                    | step                                                                                      | ``1.0`` (overrides :ref:`Range<class_Range_property_step>`)                  |
-   +----------------------------------------------+-------------------------------------------------------------------------------------------+------------------------------------------------------------------------------+
-   | :ref:`int<class_int>`                        | :ref:`stretch_margin_bottom<class_TextureProgressBar_property_stretch_margin_bottom>`     | ``0``                                                                        |
-   +----------------------------------------------+-------------------------------------------------------------------------------------------+------------------------------------------------------------------------------+
-   | :ref:`int<class_int>`                        | :ref:`stretch_margin_left<class_TextureProgressBar_property_stretch_margin_left>`         | ``0``                                                                        |
-   +----------------------------------------------+-------------------------------------------------------------------------------------------+------------------------------------------------------------------------------+
-   | :ref:`int<class_int>`                        | :ref:`stretch_margin_right<class_TextureProgressBar_property_stretch_margin_right>`       | ``0``                                                                        |
-   +----------------------------------------------+-------------------------------------------------------------------------------------------+------------------------------------------------------------------------------+
-   | :ref:`int<class_int>`                        | :ref:`stretch_margin_top<class_TextureProgressBar_property_stretch_margin_top>`           | ``0``                                                                        |
-   +----------------------------------------------+-------------------------------------------------------------------------------------------+------------------------------------------------------------------------------+
-   | :ref:`Texture2D<class_Texture2D>`            | :ref:`texture_over<class_TextureProgressBar_property_texture_over>`                       |                                                                              |
-   +----------------------------------------------+-------------------------------------------------------------------------------------------+------------------------------------------------------------------------------+
-   | :ref:`Texture2D<class_Texture2D>`            | :ref:`texture_progress<class_TextureProgressBar_property_texture_progress>`               |                                                                              |
-   +----------------------------------------------+-------------------------------------------------------------------------------------------+------------------------------------------------------------------------------+
-   | :ref:`Vector2<class_Vector2>`                | :ref:`texture_progress_offset<class_TextureProgressBar_property_texture_progress_offset>` | ``Vector2(0, 0)``                                                            |
-   +----------------------------------------------+-------------------------------------------------------------------------------------------+------------------------------------------------------------------------------+
-   | :ref:`Texture2D<class_Texture2D>`            | :ref:`texture_under<class_TextureProgressBar_property_texture_under>`                     |                                                                              |
-   +----------------------------------------------+-------------------------------------------------------------------------------------------+------------------------------------------------------------------------------+
-   | :ref:`Color<class_Color>`                    | :ref:`tint_over<class_TextureProgressBar_property_tint_over>`                             | ``Color(1, 1, 1, 1)``                                                        |
-   +----------------------------------------------+-------------------------------------------------------------------------------------------+------------------------------------------------------------------------------+
-   | :ref:`Color<class_Color>`                    | :ref:`tint_progress<class_TextureProgressBar_property_tint_progress>`                     | ``Color(1, 1, 1, 1)``                                                        |
-   +----------------------------------------------+-------------------------------------------------------------------------------------------+------------------------------------------------------------------------------+
-   | :ref:`Color<class_Color>`                    | :ref:`tint_under<class_TextureProgressBar_property_tint_under>`                           | ``Color(1, 1, 1, 1)``                                                        |
-   +----------------------------------------------+-------------------------------------------------------------------------------------------+------------------------------------------------------------------------------+
+   +--------------------------------------------------------+-------------------------------------------------------------------------------------------+------------------------------------------------------------------------------+
+   | :ref:`int<class_int>`                                  | :ref:`fill_mode<class_TextureProgressBar_property_fill_mode>`                             | ``0``                                                                        |
+   +--------------------------------------------------------+-------------------------------------------------------------------------------------------+------------------------------------------------------------------------------+
+   | :ref:`MouseFilter<enum_Control_MouseFilter>`           | mouse_filter                                                                              | ``1`` (overrides :ref:`Control<class_Control_property_mouse_filter>`)        |
+   +--------------------------------------------------------+-------------------------------------------------------------------------------------------+------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                                | :ref:`nine_patch_stretch<class_TextureProgressBar_property_nine_patch_stretch>`           | ``false``                                                                    |
+   +--------------------------------------------------------+-------------------------------------------------------------------------------------------+------------------------------------------------------------------------------+
+   | :ref:`Vector2<class_Vector2>`                          | :ref:`radial_center_offset<class_TextureProgressBar_property_radial_center_offset>`       | ``Vector2(0, 0)``                                                            |
+   +--------------------------------------------------------+-------------------------------------------------------------------------------------------+------------------------------------------------------------------------------+
+   | :ref:`float<class_float>`                              | :ref:`radial_fill_degrees<class_TextureProgressBar_property_radial_fill_degrees>`         | ``360.0``                                                                    |
+   +--------------------------------------------------------+-------------------------------------------------------------------------------------------+------------------------------------------------------------------------------+
+   | :ref:`float<class_float>`                              | :ref:`radial_initial_angle<class_TextureProgressBar_property_radial_initial_angle>`       | ``0.0``                                                                      |
+   +--------------------------------------------------------+-------------------------------------------------------------------------------------------+------------------------------------------------------------------------------+
+   | |bitfield|\<:ref:`SizeFlags<enum_Control_SizeFlags>`\> | size_flags_vertical                                                                       | ``1`` (overrides :ref:`Control<class_Control_property_size_flags_vertical>`) |
+   +--------------------------------------------------------+-------------------------------------------------------------------------------------------+------------------------------------------------------------------------------+
+   | :ref:`float<class_float>`                              | step                                                                                      | ``1.0`` (overrides :ref:`Range<class_Range_property_step>`)                  |
+   +--------------------------------------------------------+-------------------------------------------------------------------------------------------+------------------------------------------------------------------------------+
+   | :ref:`int<class_int>`                                  | :ref:`stretch_margin_bottom<class_TextureProgressBar_property_stretch_margin_bottom>`     | ``0``                                                                        |
+   +--------------------------------------------------------+-------------------------------------------------------------------------------------------+------------------------------------------------------------------------------+
+   | :ref:`int<class_int>`                                  | :ref:`stretch_margin_left<class_TextureProgressBar_property_stretch_margin_left>`         | ``0``                                                                        |
+   +--------------------------------------------------------+-------------------------------------------------------------------------------------------+------------------------------------------------------------------------------+
+   | :ref:`int<class_int>`                                  | :ref:`stretch_margin_right<class_TextureProgressBar_property_stretch_margin_right>`       | ``0``                                                                        |
+   +--------------------------------------------------------+-------------------------------------------------------------------------------------------+------------------------------------------------------------------------------+
+   | :ref:`int<class_int>`                                  | :ref:`stretch_margin_top<class_TextureProgressBar_property_stretch_margin_top>`           | ``0``                                                                        |
+   +--------------------------------------------------------+-------------------------------------------------------------------------------------------+------------------------------------------------------------------------------+
+   | :ref:`Texture2D<class_Texture2D>`                      | :ref:`texture_over<class_TextureProgressBar_property_texture_over>`                       |                                                                              |
+   +--------------------------------------------------------+-------------------------------------------------------------------------------------------+------------------------------------------------------------------------------+
+   | :ref:`Texture2D<class_Texture2D>`                      | :ref:`texture_progress<class_TextureProgressBar_property_texture_progress>`               |                                                                              |
+   +--------------------------------------------------------+-------------------------------------------------------------------------------------------+------------------------------------------------------------------------------+
+   | :ref:`Vector2<class_Vector2>`                          | :ref:`texture_progress_offset<class_TextureProgressBar_property_texture_progress_offset>` | ``Vector2(0, 0)``                                                            |
+   +--------------------------------------------------------+-------------------------------------------------------------------------------------------+------------------------------------------------------------------------------+
+   | :ref:`Texture2D<class_Texture2D>`                      | :ref:`texture_under<class_TextureProgressBar_property_texture_under>`                     |                                                                              |
+   +--------------------------------------------------------+-------------------------------------------------------------------------------------------+------------------------------------------------------------------------------+
+   | :ref:`Color<class_Color>`                              | :ref:`tint_over<class_TextureProgressBar_property_tint_over>`                             | ``Color(1, 1, 1, 1)``                                                        |
+   +--------------------------------------------------------+-------------------------------------------------------------------------------------------+------------------------------------------------------------------------------+
+   | :ref:`Color<class_Color>`                              | :ref:`tint_progress<class_TextureProgressBar_property_tint_progress>`                     | ``Color(1, 1, 1, 1)``                                                        |
+   +--------------------------------------------------------+-------------------------------------------------------------------------------------------+------------------------------------------------------------------------------+
+   | :ref:`Color<class_Color>`                              | :ref:`tint_under<class_TextureProgressBar_property_tint_under>`                           | ``Color(1, 1, 1, 1)``                                                        |
+   +--------------------------------------------------------+-------------------------------------------------------------------------------------------+------------------------------------------------------------------------------+
 
 .. rst-class:: classref-reftable-group
 
@@ -224,7 +224,7 @@ If ``true``, Godot treats the bar's textures like in :ref:`NinePatchRect<class_N
 - void **set_radial_center_offset** **(** :ref:`Vector2<class_Vector2>` value **)**
 - :ref:`Vector2<class_Vector2>` **get_radial_center_offset** **(** **)**
 
-Offsets :ref:`texture_progress<class_TextureProgressBar_property_texture_progress>` if :ref:`fill_mode<class_TextureProgressBar_property_fill_mode>` is :ref:`FILL_CLOCKWISE<class_TextureProgressBar_constant_FILL_CLOCKWISE>` or :ref:`FILL_COUNTER_CLOCKWISE<class_TextureProgressBar_constant_FILL_COUNTER_CLOCKWISE>`.
+Offsets :ref:`texture_progress<class_TextureProgressBar_property_texture_progress>` if :ref:`fill_mode<class_TextureProgressBar_property_fill_mode>` is :ref:`FILL_CLOCKWISE<class_TextureProgressBar_constant_FILL_CLOCKWISE>`, :ref:`FILL_COUNTER_CLOCKWISE<class_TextureProgressBar_constant_FILL_COUNTER_CLOCKWISE>`, or :ref:`FILL_CLOCKWISE_AND_COUNTER_CLOCKWISE<class_TextureProgressBar_constant_FILL_CLOCKWISE_AND_COUNTER_CLOCKWISE>`.
 
 .. rst-class:: classref-item-separator
 
@@ -241,7 +241,7 @@ Offsets :ref:`texture_progress<class_TextureProgressBar_property_texture_progres
 - void **set_fill_degrees** **(** :ref:`float<class_float>` value **)**
 - :ref:`float<class_float>` **get_fill_degrees** **(** **)**
 
-Upper limit for the fill of :ref:`texture_progress<class_TextureProgressBar_property_texture_progress>` if :ref:`fill_mode<class_TextureProgressBar_property_fill_mode>` is :ref:`FILL_CLOCKWISE<class_TextureProgressBar_constant_FILL_CLOCKWISE>` or :ref:`FILL_COUNTER_CLOCKWISE<class_TextureProgressBar_constant_FILL_COUNTER_CLOCKWISE>`. When the node's ``value`` is equal to its ``max_value``, the texture fills up to this angle.
+Upper limit for the fill of :ref:`texture_progress<class_TextureProgressBar_property_texture_progress>` if :ref:`fill_mode<class_TextureProgressBar_property_fill_mode>` is :ref:`FILL_CLOCKWISE<class_TextureProgressBar_constant_FILL_CLOCKWISE>`, :ref:`FILL_COUNTER_CLOCKWISE<class_TextureProgressBar_constant_FILL_COUNTER_CLOCKWISE>`, or :ref:`FILL_CLOCKWISE_AND_COUNTER_CLOCKWISE<class_TextureProgressBar_constant_FILL_CLOCKWISE_AND_COUNTER_CLOCKWISE>`. When the node's ``value`` is equal to its ``max_value``, the texture fills up to this angle.
 
 See :ref:`Range.value<class_Range_property_value>`, :ref:`Range.max_value<class_Range_property_max_value>`.
 
@@ -260,7 +260,7 @@ See :ref:`Range.value<class_Range_property_value>`, :ref:`Range.max_value<class_
 - void **set_radial_initial_angle** **(** :ref:`float<class_float>` value **)**
 - :ref:`float<class_float>` **get_radial_initial_angle** **(** **)**
 
-Starting angle for the fill of :ref:`texture_progress<class_TextureProgressBar_property_texture_progress>` if :ref:`fill_mode<class_TextureProgressBar_property_fill_mode>` is :ref:`FILL_CLOCKWISE<class_TextureProgressBar_constant_FILL_CLOCKWISE>` or :ref:`FILL_COUNTER_CLOCKWISE<class_TextureProgressBar_constant_FILL_COUNTER_CLOCKWISE>`. When the node's ``value`` is equal to its ``min_value``, the texture doesn't show up at all. When the ``value`` increases, the texture fills and tends towards :ref:`radial_fill_degrees<class_TextureProgressBar_property_radial_fill_degrees>`.
+Starting angle for the fill of :ref:`texture_progress<class_TextureProgressBar_property_texture_progress>` if :ref:`fill_mode<class_TextureProgressBar_property_fill_mode>` is :ref:`FILL_CLOCKWISE<class_TextureProgressBar_constant_FILL_CLOCKWISE>`, :ref:`FILL_COUNTER_CLOCKWISE<class_TextureProgressBar_constant_FILL_COUNTER_CLOCKWISE>`, or :ref:`FILL_CLOCKWISE_AND_COUNTER_CLOCKWISE<class_TextureProgressBar_constant_FILL_CLOCKWISE_AND_COUNTER_CLOCKWISE>`. When the node's ``value`` is equal to its ``min_value``, the texture doesn't show up at all. When the ``value`` increases, the texture fills and tends towards :ref:`radial_fill_degrees<class_TextureProgressBar_property_radial_fill_degrees>`.
 
 .. rst-class:: classref-item-separator
 
@@ -277,7 +277,7 @@ Starting angle for the fill of :ref:`texture_progress<class_TextureProgressBar_p
 - void **set_stretch_margin** **(** :ref:`Side<enum_@GlobalScope_Side>` margin, :ref:`int<class_int>` value **)**
 - :ref:`int<class_int>` **get_stretch_margin** **(** :ref:`Side<enum_@GlobalScope_Side>` margin **)** |const|
 
-The height of the 9-patch's bottom row. A margin of 16 means the 9-slice's bottom corners and side will have a height of 16 pixels. You can set all 4 margin values individually to create panels with non-uniform borders.
+The height of the 9-patch's bottom row. A margin of 16 means the 9-slice's bottom corners and side will have a height of 16 pixels. You can set all 4 margin values individually to create panels with non-uniform borders. Only effective if :ref:`nine_patch_stretch<class_TextureProgressBar_property_nine_patch_stretch>` is ``true``.
 
 .. rst-class:: classref-item-separator
 
@@ -294,7 +294,7 @@ The height of the 9-patch's bottom row. A margin of 16 means the 9-slice's botto
 - void **set_stretch_margin** **(** :ref:`Side<enum_@GlobalScope_Side>` margin, :ref:`int<class_int>` value **)**
 - :ref:`int<class_int>` **get_stretch_margin** **(** :ref:`Side<enum_@GlobalScope_Side>` margin **)** |const|
 
-The width of the 9-patch's left column.
+The width of the 9-patch's left column. Only effective if :ref:`nine_patch_stretch<class_TextureProgressBar_property_nine_patch_stretch>` is ``true``.
 
 .. rst-class:: classref-item-separator
 
@@ -311,7 +311,7 @@ The width of the 9-patch's left column.
 - void **set_stretch_margin** **(** :ref:`Side<enum_@GlobalScope_Side>` margin, :ref:`int<class_int>` value **)**
 - :ref:`int<class_int>` **get_stretch_margin** **(** :ref:`Side<enum_@GlobalScope_Side>` margin **)** |const|
 
-The width of the 9-patch's right column.
+The width of the 9-patch's right column. Only effective if :ref:`nine_patch_stretch<class_TextureProgressBar_property_nine_patch_stretch>` is ``true``.
 
 .. rst-class:: classref-item-separator
 
@@ -328,7 +328,7 @@ The width of the 9-patch's right column.
 - void **set_stretch_margin** **(** :ref:`Side<enum_@GlobalScope_Side>` margin, :ref:`int<class_int>` value **)**
 - :ref:`int<class_int>` **get_stretch_margin** **(** :ref:`Side<enum_@GlobalScope_Side>` margin **)** |const|
 
-The height of the 9-patch's top row.
+The height of the 9-patch's top row. Only effective if :ref:`nine_patch_stretch<class_TextureProgressBar_property_nine_patch_stretch>` is ``true``.
 
 .. rst-class:: classref-item-separator
 
@@ -415,7 +415,7 @@ The offset of :ref:`texture_progress<class_TextureProgressBar_property_texture_p
 - void **set_tint_over** **(** :ref:`Color<class_Color>` value **)**
 - :ref:`Color<class_Color>` **get_tint_over** **(** **)**
 
-Multiplies the color of the bar's ``texture_over`` texture. The effect is similar to :ref:`CanvasItem.modulate<class_CanvasItem_property_modulate>`, except it only affects this specific texture instead of the entire node.
+Multiplies the color of the bar's :ref:`texture_over<class_TextureProgressBar_property_texture_over>` texture. The effect is similar to :ref:`CanvasItem.modulate<class_CanvasItem_property_modulate>`, except it only affects this specific texture instead of the entire node.
 
 .. rst-class:: classref-item-separator
 
@@ -432,7 +432,7 @@ Multiplies the color of the bar's ``texture_over`` texture. The effect is simila
 - void **set_tint_progress** **(** :ref:`Color<class_Color>` value **)**
 - :ref:`Color<class_Color>` **get_tint_progress** **(** **)**
 
-Multiplies the color of the bar's ``texture_progress`` texture.
+Multiplies the color of the bar's :ref:`texture_progress<class_TextureProgressBar_property_texture_progress>` texture.
 
 .. rst-class:: classref-item-separator
 
@@ -449,7 +449,7 @@ Multiplies the color of the bar's ``texture_progress`` texture.
 - void **set_tint_under** **(** :ref:`Color<class_Color>` value **)**
 - :ref:`Color<class_Color>` **get_tint_under** **(** **)**
 
-Multiplies the color of the bar's ``texture_under`` texture.
+Multiplies the color of the bar's :ref:`texture_under<class_TextureProgressBar_property_texture_under>` texture.
 
 .. rst-class:: classref-section-separator
 
@@ -486,3 +486,4 @@ Sets the stretch margin with the specified index. See :ref:`stretch_margin_botto
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

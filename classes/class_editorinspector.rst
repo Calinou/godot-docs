@@ -40,6 +40,8 @@ Properties
    :widths: auto
 
    +----------------------------------------------------+------------------------+-------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                            | follow_focus           | ``true`` (overrides :ref:`ScrollContainer<class_ScrollContainer_property_follow_focus>`)        |
+   +----------------------------------------------------+------------------------+-------------------------------------------------------------------------------------------------+
    | :ref:`ScrollMode<enum_ScrollContainer_ScrollMode>` | horizontal_scroll_mode | ``0`` (overrides :ref:`ScrollContainer<class_ScrollContainer_property_horizontal_scroll_mode>`) |
    +----------------------------------------------------+------------------------+-------------------------------------------------------------------------------------------------+
 
@@ -51,6 +53,8 @@ Methods
 .. table::
    :widths: auto
 
+   +-----------------------------+----------------------------------------------------------------------------------------------+
+   | :ref:`Object<class_Object>` | :ref:`get_edited_object<class_EditorInspector_method_get_edited_object>` **(** **)**         |
    +-----------------------------+----------------------------------------------------------------------------------------------+
    | :ref:`String<class_String>` | :ref:`get_selected_path<class_EditorInspector_method_get_selected_path>` **(** **)** |const| |
    +-----------------------------+----------------------------------------------------------------------------------------------+
@@ -179,6 +183,18 @@ Emitted when a property that requires a restart to be applied is edited in the i
 Method Descriptions
 -------------------
 
+.. _class_EditorInspector_method_get_edited_object:
+
+.. rst-class:: classref-method
+
+:ref:`Object<class_Object>` **get_edited_object** **(** **)**
+
+Returns the object currently selected in this inspector.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_EditorInspector_method_get_selected_path:
 
 .. rst-class:: classref-method
@@ -193,3 +209,4 @@ Gets the path of the currently selected property.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
