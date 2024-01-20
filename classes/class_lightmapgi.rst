@@ -31,6 +31,13 @@ The **LightmapGI** node is used to compute and store baked lightmaps. Lightmaps 
 
 \ **Note:** If no custom lightmappers are installed, **LightmapGI** can only be baked when using the Vulkan backend (Forward+ or Mobile), not OpenGL.
 
+.. rst-class:: classref-introduction-group
+
+Tutorials
+---------
+
+- :doc:`Using Lightmap global illumination <../tutorials/3d/global_illumination/using_lightmap_gi>`
+
 .. rst-class:: classref-reftable-group
 
 Properties
@@ -42,9 +49,13 @@ Properties
    +---------------------------------------------------------+---------------------------------------------------------------------------------------+------------+
    | :ref:`float<class_float>`                               | :ref:`bias<class_LightmapGI_property_bias>`                                           | ``0.0005`` |
    +---------------------------------------------------------+---------------------------------------------------------------------------------------+------------+
+   | :ref:`float<class_float>`                               | :ref:`bounce_indirect_energy<class_LightmapGI_property_bounce_indirect_energy>`       | ``1.0``    |
+   +---------------------------------------------------------+---------------------------------------------------------------------------------------+------------+
    | :ref:`int<class_int>`                                   | :ref:`bounces<class_LightmapGI_property_bounces>`                                     | ``3``      |
    +---------------------------------------------------------+---------------------------------------------------------------------------------------+------------+
    | :ref:`CameraAttributes<class_CameraAttributes>`         | :ref:`camera_attributes<class_LightmapGI_property_camera_attributes>`                 |            |
+   +---------------------------------------------------------+---------------------------------------------------------------------------------------+------------+
+   | :ref:`float<class_float>`                               | :ref:`denoiser_strength<class_LightmapGI_property_denoiser_strength>`                 | ``0.1``    |
    +---------------------------------------------------------+---------------------------------------------------------------------------------------+------------+
    | :ref:`bool<class_bool>`                                 | :ref:`directional<class_LightmapGI_property_directional>`                             | ``false``  |
    +---------------------------------------------------------+---------------------------------------------------------------------------------------+------------+
@@ -66,7 +77,11 @@ Properties
    +---------------------------------------------------------+---------------------------------------------------------------------------------------+------------+
    | :ref:`BakeQuality<enum_LightmapGI_BakeQuality>`         | :ref:`quality<class_LightmapGI_property_quality>`                                     | ``1``      |
    +---------------------------------------------------------+---------------------------------------------------------------------------------------+------------+
+   | :ref:`float<class_float>`                               | :ref:`texel_scale<class_LightmapGI_property_texel_scale>`                             | ``1.0``    |
+   +---------------------------------------------------------+---------------------------------------------------------------------------------------+------------+
    | :ref:`bool<class_bool>`                                 | :ref:`use_denoiser<class_LightmapGI_property_use_denoiser>`                           | ``true``   |
+   +---------------------------------------------------------+---------------------------------------------------------------------------------------+------------+
+   | :ref:`bool<class_bool>`                                 | :ref:`use_texture_for_bounces<class_LightmapGI_property_use_texture_for_bounces>`     | ``true``   |
    +---------------------------------------------------------+---------------------------------------------------------------------------------------+------------+
 
 .. rst-class:: classref-section-separator
@@ -248,6 +263,14 @@ Lightmap baking failed as the resulting image couldn't be saved or imported by G
 
 The user aborted the lightmap baking operation (typically by clicking the **Cancel** button in the progress dialog).
 
+.. _class_LightmapGI_constant_BAKE_ERROR_TEXTURE_SIZE_TOO_SMALL:
+
+.. rst-class:: classref-enumeration-constant
+
+:ref:`BakeError<enum_LightmapGI_BakeError>` **BAKE_ERROR_TEXTURE_SIZE_TOO_SMALL** = ``9``
+
+Lightmap baking failed as the maximum texture size is too small to fit some of the meshes marked for baking.
+
 .. rst-class:: classref-item-separator
 
 ----
@@ -318,6 +341,25 @@ The bias to use when computing shadows. Increasing :ref:`bias<class_LightmapGI_p
 
 ----
 
+.. _class_LightmapGI_property_bounce_indirect_energy:
+
+.. rst-class:: classref-property
+
+:ref:`float<class_float>` **bounce_indirect_energy** = ``1.0``
+
+.. rst-class:: classref-property-setget
+
+- void **set_bounce_indirect_energy** **(** :ref:`float<class_float>` value **)**
+- :ref:`float<class_float>` **get_bounce_indirect_energy** **(** **)**
+
+The energy multiplier for each bounce. Higher values will make indirect lighting brighter. A value of ``1.0`` represents physically accurate behavior, but higher values can be used to make indirect lighting propagate more visibly when using a low number of bounces. This can be used to speed up bake times by lowering the number of :ref:`bounces<class_LightmapGI_property_bounces>` then increasing :ref:`bounce_indirect_energy<class_LightmapGI_property_bounce_indirect_energy>`.
+
+\ **Note:** :ref:`bounce_indirect_energy<class_LightmapGI_property_bounce_indirect_energy>` only has an effect if :ref:`bounces<class_LightmapGI_property_bounces>` is set to a value greater than or equal to ``1``.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_LightmapGI_property_bounces:
 
 .. rst-class:: classref-property
@@ -352,6 +394,23 @@ The :ref:`CameraAttributes<class_CameraAttributes>` resource that specifies expo
 
 ----
 
+.. _class_LightmapGI_property_denoiser_strength:
+
+.. rst-class:: classref-property
+
+:ref:`float<class_float>` **denoiser_strength** = ``0.1``
+
+.. rst-class:: classref-property-setget
+
+- void **set_denoiser_strength** **(** :ref:`float<class_float>` value **)**
+- :ref:`float<class_float>` **get_denoiser_strength** **(** **)**
+
+The strength of denoising step applied to the generated lightmaps. Only effective if :ref:`use_denoiser<class_LightmapGI_property_use_denoiser>` is ``true`` and :ref:`ProjectSettings.rendering/lightmapping/denoising/denoiser<class_ProjectSettings_property_rendering/lightmapping/denoising/denoiser>` is set to JNLM.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_LightmapGI_property_directional:
 
 .. rst-class:: classref-property
@@ -363,7 +422,7 @@ The :ref:`CameraAttributes<class_CameraAttributes>` resource that specifies expo
 - void **set_directional** **(** :ref:`bool<class_bool>` value **)**
 - :ref:`bool<class_bool>` **is_directional** **(** **)**
 
-If ``true``, bakes lightmaps to contain directional information as spherical harmonics. This results in more realistic lighting appearance, especially with normal mapped materials and for lights that have their direct light baked (:ref:`Light3D.light_bake_mode<class_Light3D_property_light_bake_mode>` set to :ref:`Light3D.BAKE_STATIC<class_Light3D_constant_BAKE_STATIC>`). The directional information is also used to provide rough reflections for static and dynamic objects. This has a small run-time performance cost as the shader has to perform more work to interpret the direction information from the lightmap. Directional lightmaps also take longer to bake and result in larger file sizes.
+If ``true``, bakes lightmaps to contain directional information as spherical harmonics. This results in more realistic lighting appearance, especially with normal mapped materials and for lights that have their direct light baked (:ref:`Light3D.light_bake_mode<class_Light3D_property_light_bake_mode>` set to :ref:`Light3D.BAKE_STATIC<class_Light3D_constant_BAKE_STATIC>` and with :ref:`Light3D.editor_only<class_Light3D_property_editor_only>` set to ``false``). The directional information is also used to provide rough reflections for static and dynamic objects. This has a small run-time performance cost as the shader has to perform more work to interpret the direction information from the lightmap. Directional lightmaps also take longer to bake and result in larger file sizes.
 
 \ **Note:** The property's name has no relationship with :ref:`DirectionalLight3D<class_DirectionalLight3D>`. :ref:`directional<class_LightmapGI_property_directional>` works with all light types.
 
@@ -530,6 +589,23 @@ To further speed up bake times, decrease :ref:`bounces<class_LightmapGI_property
 
 ----
 
+.. _class_LightmapGI_property_texel_scale:
+
+.. rst-class:: classref-property
+
+:ref:`float<class_float>` **texel_scale** = ``1.0``
+
+.. rst-class:: classref-property-setget
+
+- void **set_texel_scale** **(** :ref:`float<class_float>` value **)**
+- :ref:`float<class_float>` **get_texel_scale** **(** **)**
+
+Scales the lightmap texel density of all meshes for the current bake. This is a multiplier that builds upon the existing lightmap texel size defined in each imported 3D scene, along with the per-mesh density multiplier (which is designed to be used when the same mesh is used at different scales). Lower values will result in faster bake times.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_LightmapGI_property_use_denoiser:
 
 .. rst-class:: classref-property
@@ -541,9 +617,26 @@ To further speed up bake times, decrease :ref:`bounces<class_LightmapGI_property
 - void **set_use_denoiser** **(** :ref:`bool<class_bool>` value **)**
 - :ref:`bool<class_bool>` **is_using_denoiser** **(** **)**
 
-If ``true``, uses a CPU-based denoising algorithm on the generated lightmap. This eliminates most noise within the generated lightmap at the cost of longer bake times. File sizes are generally not impacted significantly by the use of a denoiser, although lossless compression may do a better job at compressing a denoised image.
+If ``true``, uses a GPU-based denoising algorithm on the generated lightmap. This eliminates most noise within the generated lightmap at the cost of longer bake times. File sizes are generally not impacted significantly by the use of a denoiser, although lossless compression may do a better job at compressing a denoised image.
 
-\ **Note:** The built-in denoiser (OpenImageDenoise) may crash when denoising lightmaps in large scenes. If you encounter a crash at the end of lightmap baking, try disabling :ref:`use_denoiser<class_LightmapGI_property_use_denoiser>`.
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_LightmapGI_property_use_texture_for_bounces:
+
+.. rst-class:: classref-property
+
+:ref:`bool<class_bool>` **use_texture_for_bounces** = ``true``
+
+.. rst-class:: classref-property-setget
+
+- void **set_use_texture_for_bounces** **(** :ref:`bool<class_bool>` value **)**
+- :ref:`bool<class_bool>` **is_using_texture_for_bounces** **(** **)**
+
+If ``true``, a texture with the lighting information will be generated to speed up the generation of indirect lighting at the cost of some accuracy. The geometry might exhibit extra light leak artifacts when using low resolution lightmaps or UVs that stretch the lightmap significantly across surfaces. Leave :ref:`use_texture_for_bounces<class_LightmapGI_property_use_texture_for_bounces>` at its default value of ``true`` if unsure.
+
+\ **Note:** :ref:`use_texture_for_bounces<class_LightmapGI_property_use_texture_for_bounces>` only has an effect if :ref:`bounces<class_LightmapGI_property_bounces>` is set to a value greater than or equal to ``1``.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
@@ -551,3 +644,4 @@ If ``true``, uses a CPU-based denoising algorithm on the generated lightmap. Thi
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

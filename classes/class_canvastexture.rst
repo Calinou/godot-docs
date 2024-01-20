@@ -21,7 +21,14 @@ Description
 
 **CanvasTexture** is an alternative to :ref:`ImageTexture<class_ImageTexture>` for 2D rendering. It allows using normal maps and specular maps in any node that inherits from :ref:`CanvasItem<class_CanvasItem>`. **CanvasTexture** also allows overriding the texture's filter and repeat mode independently of the node's properties (or the project settings).
 
-\ **Note:** **CanvasTexture** cannot be used in 3D rendering. For physically-based materials in 3D, use :ref:`BaseMaterial3D<class_BaseMaterial3D>` instead.
+\ **Note:** **CanvasTexture** cannot be used in 3D. It will not display correctly when applied to any :ref:`VisualInstance3D<class_VisualInstance3D>`, such as :ref:`Sprite3D<class_Sprite3D>` or :ref:`Decal<class_Decal>`. For physically-based materials in 3D, use :ref:`BaseMaterial3D<class_BaseMaterial3D>` instead.
+
+.. rst-class:: classref-introduction-group
+
+Tutorials
+---------
+
+- :doc:`2D Lights and Shadows <../tutorials/2d/2d_lights_and_shadows>`
 
 .. rst-class:: classref-reftable-group
 
@@ -181,3 +188,4 @@ The texture repeat mode to use when drawing this **CanvasTexture**.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

@@ -12,9 +12,25 @@ GLTFAccessor
 
 **Inherits:** :ref:`Resource<class_Resource>` **<** :ref:`RefCounted<class_RefCounted>` **<** :ref:`Object<class_Object>`
 
-.. container:: contribute
+Represents a GLTF accessor.
 
-	There is currently no description for this class. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+.. rst-class:: classref-introduction-group
+
+Description
+-----------
+
+GLTFAccessor is a data structure representing GLTF a ``accessor`` that would be found in the ``"accessors"`` array. A buffer is a blob of binary data. A buffer view is a slice of a buffer. An accessor is a typed interpretation of the data in a buffer view.
+
+Most custom data stored in GLTF does not need accessors, only buffer views (see :ref:`GLTFBufferView<class_GLTFBufferView>`). Accessors are for more advanced use cases such as interleaved mesh data encoded for the GPU.
+
+.. rst-class:: classref-introduction-group
+
+Tutorials
+---------
+
+- `Buffers, BufferViews, and Accessors in Khronos glTF specification <https://github.com/KhronosGroup/glTF-Tutorials/blob/master/gltfTutorial/gltfTutorial_005_BuffersBufferViewsAccessors.md>`__
+
+- :doc:`Runtime file loading and saving <../tutorials/io/runtime_file_loading_and_saving>`
 
 .. rst-class:: classref-reftable-group
 
@@ -25,7 +41,7 @@ Properties
    :widths: auto
 
    +-----------------------------------------------------+-------------------------------------------------------------------------------------------------+--------------------------+
-   | :ref:`int<class_int>`                               | :ref:`buffer_view<class_GLTFAccessor_property_buffer_view>`                                     | ``0``                    |
+   | :ref:`int<class_int>`                               | :ref:`buffer_view<class_GLTFAccessor_property_buffer_view>`                                     | ``-1``                   |
    +-----------------------------------------------------+-------------------------------------------------------------------------------------------------+--------------------------+
    | :ref:`int<class_int>`                               | :ref:`byte_offset<class_GLTFAccessor_property_byte_offset>`                                     | ``0``                    |
    +-----------------------------------------------------+-------------------------------------------------------------------------------------------------+--------------------------+
@@ -67,16 +83,14 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **buffer_view** = ``0``
+:ref:`int<class_int>` **buffer_view** = ``-1``
 
 .. rst-class:: classref-property-setget
 
 - void **set_buffer_view** **(** :ref:`int<class_int>` value **)**
 - :ref:`int<class_int>` **get_buffer_view** **(** **)**
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+The index of the buffer view this accessor is referencing. If ``-1``, this accessor is not referencing any buffer view.
 
 .. rst-class:: classref-item-separator
 
@@ -331,3 +345,4 @@ Property Descriptions
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

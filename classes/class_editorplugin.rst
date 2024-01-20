@@ -21,6 +21,8 @@ Description
 
 Plugins are used by the editor to extend functionality. The most common types of plugins are those which edit a given node or resource type, import plugins and export plugins. See also :ref:`EditorScript<class_EditorScript>` to add functions to the editor.
 
+\ **Note:** Some names in this class contain "left" or "right" (e.g. :ref:`DOCK_SLOT_LEFT_UL<class_EditorPlugin_constant_DOCK_SLOT_LEFT_UL>`). These APIs assume left-to-right layout, and would be backwards when using right-to-left layout. These names are kept for compatibility reasons.
+
 .. rst-class:: classref-introduction-group
 
 Tutorials
@@ -37,51 +39,53 @@ Methods
    :widths: auto
 
    +-----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                                      | :ref:`_apply_changes<class_EditorPlugin_method__apply_changes>` **(** **)** |virtual|                                                                                                                                                                 |
+   | void                                                      | :ref:`_apply_changes<class_EditorPlugin_private_method__apply_changes>` **(** **)** |virtual|                                                                                                                                                         |
    +-----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`                                   | :ref:`_build<class_EditorPlugin_method__build>` **(** **)** |virtual|                                                                                                                                                                                 |
+   | :ref:`bool<class_bool>`                                   | :ref:`_build<class_EditorPlugin_private_method__build>` **(** **)** |virtual|                                                                                                                                                                         |
    +-----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                                      | :ref:`_clear<class_EditorPlugin_method__clear>` **(** **)** |virtual|                                                                                                                                                                                 |
+   | void                                                      | :ref:`_clear<class_EditorPlugin_private_method__clear>` **(** **)** |virtual|                                                                                                                                                                         |
    +-----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                                      | :ref:`_disable_plugin<class_EditorPlugin_method__disable_plugin>` **(** **)** |virtual|                                                                                                                                                               |
+   | void                                                      | :ref:`_disable_plugin<class_EditorPlugin_private_method__disable_plugin>` **(** **)** |virtual|                                                                                                                                                       |
    +-----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                                      | :ref:`_edit<class_EditorPlugin_method__edit>` **(** :ref:`Object<class_Object>` object **)** |virtual|                                                                                                                                                |
+   | void                                                      | :ref:`_edit<class_EditorPlugin_private_method__edit>` **(** :ref:`Object<class_Object>` object **)** |virtual|                                                                                                                                        |
    +-----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                                      | :ref:`_enable_plugin<class_EditorPlugin_method__enable_plugin>` **(** **)** |virtual|                                                                                                                                                                 |
+   | void                                                      | :ref:`_enable_plugin<class_EditorPlugin_private_method__enable_plugin>` **(** **)** |virtual|                                                                                                                                                         |
    +-----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                                      | :ref:`_forward_3d_draw_over_viewport<class_EditorPlugin_method__forward_3d_draw_over_viewport>` **(** :ref:`Control<class_Control>` viewport_control **)** |virtual|                                                                                  |
+   | void                                                      | :ref:`_forward_3d_draw_over_viewport<class_EditorPlugin_private_method__forward_3d_draw_over_viewport>` **(** :ref:`Control<class_Control>` viewport_control **)** |virtual|                                                                          |
    +-----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                                      | :ref:`_forward_3d_force_draw_over_viewport<class_EditorPlugin_method__forward_3d_force_draw_over_viewport>` **(** :ref:`Control<class_Control>` viewport_control **)** |virtual|                                                                      |
+   | void                                                      | :ref:`_forward_3d_force_draw_over_viewport<class_EditorPlugin_private_method__forward_3d_force_draw_over_viewport>` **(** :ref:`Control<class_Control>` viewport_control **)** |virtual|                                                              |
    +-----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`int<class_int>`                                     | :ref:`_forward_3d_gui_input<class_EditorPlugin_method__forward_3d_gui_input>` **(** :ref:`Camera3D<class_Camera3D>` viewport_camera, :ref:`InputEvent<class_InputEvent>` event **)** |virtual|                                                        |
+   | :ref:`int<class_int>`                                     | :ref:`_forward_3d_gui_input<class_EditorPlugin_private_method__forward_3d_gui_input>` **(** :ref:`Camera3D<class_Camera3D>` viewport_camera, :ref:`InputEvent<class_InputEvent>` event **)** |virtual|                                                |
    +-----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                                      | :ref:`_forward_canvas_draw_over_viewport<class_EditorPlugin_method__forward_canvas_draw_over_viewport>` **(** :ref:`Control<class_Control>` viewport_control **)** |virtual|                                                                          |
+   | void                                                      | :ref:`_forward_canvas_draw_over_viewport<class_EditorPlugin_private_method__forward_canvas_draw_over_viewport>` **(** :ref:`Control<class_Control>` viewport_control **)** |virtual|                                                                  |
    +-----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                                      | :ref:`_forward_canvas_force_draw_over_viewport<class_EditorPlugin_method__forward_canvas_force_draw_over_viewport>` **(** :ref:`Control<class_Control>` viewport_control **)** |virtual|                                                              |
+   | void                                                      | :ref:`_forward_canvas_force_draw_over_viewport<class_EditorPlugin_private_method__forward_canvas_force_draw_over_viewport>` **(** :ref:`Control<class_Control>` viewport_control **)** |virtual|                                                      |
    +-----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`                                   | :ref:`_forward_canvas_gui_input<class_EditorPlugin_method__forward_canvas_gui_input>` **(** :ref:`InputEvent<class_InputEvent>` event **)** |virtual|                                                                                                 |
+   | :ref:`bool<class_bool>`                                   | :ref:`_forward_canvas_gui_input<class_EditorPlugin_private_method__forward_canvas_gui_input>` **(** :ref:`InputEvent<class_InputEvent>` event **)** |virtual|                                                                                         |
    +-----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`PackedStringArray<class_PackedStringArray>`         | :ref:`_get_breakpoints<class_EditorPlugin_method__get_breakpoints>` **(** **)** |virtual| |const|                                                                                                                                                     |
+   | :ref:`PackedStringArray<class_PackedStringArray>`         | :ref:`_get_breakpoints<class_EditorPlugin_private_method__get_breakpoints>` **(** **)** |virtual| |const|                                                                                                                                             |
    +-----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Texture2D<class_Texture2D>`                         | :ref:`_get_plugin_icon<class_EditorPlugin_method__get_plugin_icon>` **(** **)** |virtual| |const|                                                                                                                                                     |
+   | :ref:`Texture2D<class_Texture2D>`                         | :ref:`_get_plugin_icon<class_EditorPlugin_private_method__get_plugin_icon>` **(** **)** |virtual| |const|                                                                                                                                             |
    +-----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`String<class_String>`                               | :ref:`_get_plugin_name<class_EditorPlugin_method__get_plugin_name>` **(** **)** |virtual| |const|                                                                                                                                                     |
+   | :ref:`String<class_String>`                               | :ref:`_get_plugin_name<class_EditorPlugin_private_method__get_plugin_name>` **(** **)** |virtual| |const|                                                                                                                                             |
    +-----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Dictionary<class_Dictionary>`                       | :ref:`_get_state<class_EditorPlugin_method__get_state>` **(** **)** |virtual| |const|                                                                                                                                                                 |
+   | :ref:`Dictionary<class_Dictionary>`                       | :ref:`_get_state<class_EditorPlugin_private_method__get_state>` **(** **)** |virtual| |const|                                                                                                                                                         |
    +-----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                                      | :ref:`_get_window_layout<class_EditorPlugin_method__get_window_layout>` **(** :ref:`ConfigFile<class_ConfigFile>` configuration **)** |virtual|                                                                                                       |
+   | :ref:`String<class_String>`                               | :ref:`_get_unsaved_status<class_EditorPlugin_private_method__get_unsaved_status>` **(** :ref:`String<class_String>` for_scene **)** |virtual| |const|                                                                                                 |
    +-----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`                                   | :ref:`_handles<class_EditorPlugin_method__handles>` **(** :ref:`Object<class_Object>` object **)** |virtual| |const|                                                                                                                                  |
+   | void                                                      | :ref:`_get_window_layout<class_EditorPlugin_private_method__get_window_layout>` **(** :ref:`ConfigFile<class_ConfigFile>` configuration **)** |virtual|                                                                                               |
    +-----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`                                   | :ref:`_has_main_screen<class_EditorPlugin_method__has_main_screen>` **(** **)** |virtual| |const|                                                                                                                                                     |
+   | :ref:`bool<class_bool>`                                   | :ref:`_handles<class_EditorPlugin_private_method__handles>` **(** :ref:`Object<class_Object>` object **)** |virtual| |const|                                                                                                                          |
    +-----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                                      | :ref:`_make_visible<class_EditorPlugin_method__make_visible>` **(** :ref:`bool<class_bool>` visible **)** |virtual|                                                                                                                                   |
+   | :ref:`bool<class_bool>`                                   | :ref:`_has_main_screen<class_EditorPlugin_private_method__has_main_screen>` **(** **)** |virtual| |const|                                                                                                                                             |
    +-----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                                      | :ref:`_save_external_data<class_EditorPlugin_method__save_external_data>` **(** **)** |virtual|                                                                                                                                                       |
+   | void                                                      | :ref:`_make_visible<class_EditorPlugin_private_method__make_visible>` **(** :ref:`bool<class_bool>` visible **)** |virtual|                                                                                                                           |
    +-----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                                      | :ref:`_set_state<class_EditorPlugin_method__set_state>` **(** :ref:`Dictionary<class_Dictionary>` state **)** |virtual|                                                                                                                               |
+   | void                                                      | :ref:`_save_external_data<class_EditorPlugin_private_method__save_external_data>` **(** **)** |virtual|                                                                                                                                               |
    +-----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                                      | :ref:`_set_window_layout<class_EditorPlugin_method__set_window_layout>` **(** :ref:`ConfigFile<class_ConfigFile>` configuration **)** |virtual|                                                                                                       |
+   | void                                                      | :ref:`_set_state<class_EditorPlugin_private_method__set_state>` **(** :ref:`Dictionary<class_Dictionary>` state **)** |virtual|                                                                                                                       |
+   +-----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | void                                                      | :ref:`_set_window_layout<class_EditorPlugin_private_method__set_window_layout>` **(** :ref:`ConfigFile<class_ConfigFile>` configuration **)** |virtual|                                                                                               |
    +-----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | void                                                      | :ref:`add_autoload_singleton<class_EditorPlugin_method_add_autoload_singleton>` **(** :ref:`String<class_String>` name, :ref:`String<class_String>` path **)**                                                                                        |
    +-----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -120,6 +124,8 @@ Methods
    | :ref:`EditorInterface<class_EditorInterface>`             | :ref:`get_editor_interface<class_EditorPlugin_method_get_editor_interface>` **(** **)**                                                                                                                                                               |
    +-----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`PopupMenu<class_PopupMenu>`                         | :ref:`get_export_as_menu<class_EditorPlugin_method_get_export_as_menu>` **(** **)**                                                                                                                                                                   |
+   +-----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`String<class_String>`                               | :ref:`get_plugin_version<class_EditorPlugin_method_get_plugin_version>` **(** **)** |const|                                                                                                                                                           |
    +-----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`ScriptCreateDialog<class_ScriptCreateDialog>`       | :ref:`get_script_create_dialog<class_EditorPlugin_method_get_script_create_dialog>` **(** **)**                                                                                                                                                       |
    +-----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -198,6 +204,8 @@ Emitted when user changes the workspace (**2D**, **3D**, **Script**, **AssetLib*
 **project_settings_changed** **(** **)**
 
 Emitted when any project setting has changed.
+
+\ *Deprecated.* Use :ref:`ProjectSettings.settings_changed<class_ProjectSettings_signal_settings_changed>` instead.
 
 .. rst-class:: classref-item-separator
 
@@ -394,7 +402,7 @@ Dock slot, left side, bottom-right (in default layout includes FileSystem dock).
 
 :ref:`DockSlot<enum_EditorPlugin_DockSlot>` **DOCK_SLOT_RIGHT_UL** = ``4``
 
-Dock slot, right side, upper-left (empty in default layout).
+Dock slot, right side, upper-left (in default layout includes Inspector, Node, and History docks).
 
 .. _class_EditorPlugin_constant_DOCK_SLOT_RIGHT_BL:
 
@@ -410,7 +418,7 @@ Dock slot, right side, bottom-left (empty in default layout).
 
 :ref:`DockSlot<enum_EditorPlugin_DockSlot>` **DOCK_SLOT_RIGHT_UR** = ``6``
 
-Dock slot, right side, upper-right (in default layout includes Inspector, Node and History docks).
+Dock slot, right side, upper-right (empty in default layout).
 
 .. _class_EditorPlugin_constant_DOCK_SLOT_RIGHT_BR:
 
@@ -471,7 +479,7 @@ Pass the :ref:`InputEvent<class_InputEvent>` to other editor plugins except the 
 Method Descriptions
 -------------------
 
-.. _class_EditorPlugin_method__apply_changes:
+.. _class_EditorPlugin_private_method__apply_changes:
 
 .. rst-class:: classref-method
 
@@ -485,7 +493,7 @@ This is used, for example, in shader editors to let the plugin know that it must
 
 ----
 
-.. _class_EditorPlugin_method__build:
+.. _class_EditorPlugin_private_method__build:
 
 .. rst-class:: classref-method
 
@@ -493,13 +501,13 @@ This is used, for example, in shader editors to let the plugin know that it must
 
 This method is called when the editor is about to run the project. The plugin can then perform required operations before the project runs.
 
-This method must return a boolean. If this method returns ``false``, the project will not run. The run is aborted immediately, so this also prevents all other plugins' :ref:`_build<class_EditorPlugin_method__build>` methods from running.
+This method must return a boolean. If this method returns ``false``, the project will not run. The run is aborted immediately, so this also prevents all other plugins' :ref:`_build<class_EditorPlugin_private_method__build>` methods from running.
 
 .. rst-class:: classref-item-separator
 
 ----
 
-.. _class_EditorPlugin_method__clear:
+.. _class_EditorPlugin_private_method__clear:
 
 .. rst-class:: classref-method
 
@@ -511,7 +519,7 @@ Clear all the state and reset the object being edited to zero. This ensures your
 
 ----
 
-.. _class_EditorPlugin_method__disable_plugin:
+.. _class_EditorPlugin_private_method__disable_plugin:
 
 .. rst-class:: classref-method
 
@@ -523,7 +531,7 @@ Called by the engine when the user disables the **EditorPlugin** in the Plugin t
 
 ----
 
-.. _class_EditorPlugin_method__edit:
+.. _class_EditorPlugin_private_method__edit:
 
 .. rst-class:: classref-method
 
@@ -537,7 +545,7 @@ This function is used for plugins that edit specific object types (nodes or reso
 
 ----
 
-.. _class_EditorPlugin_method__enable_plugin:
+.. _class_EditorPlugin_private_method__enable_plugin:
 
 .. rst-class:: classref-method
 
@@ -549,7 +557,7 @@ Called by the engine when the user enables the **EditorPlugin** in the Plugin ta
 
 ----
 
-.. _class_EditorPlugin_method__forward_3d_draw_over_viewport:
+.. _class_EditorPlugin_private_method__forward_3d_draw_over_viewport:
 
 .. rst-class:: classref-method
 
@@ -598,13 +606,13 @@ Called by the engine when the 3D editor's viewport is updated. Use the ``overlay
 
 ----
 
-.. _class_EditorPlugin_method__forward_3d_force_draw_over_viewport:
+.. _class_EditorPlugin_private_method__forward_3d_force_draw_over_viewport:
 
 .. rst-class:: classref-method
 
 void **_forward_3d_force_draw_over_viewport** **(** :ref:`Control<class_Control>` viewport_control **)** |virtual|
 
-This method is the same as :ref:`_forward_3d_draw_over_viewport<class_EditorPlugin_method__forward_3d_draw_over_viewport>`, except it draws on top of everything. Useful when you need an extra layer that shows over anything else.
+This method is the same as :ref:`_forward_3d_draw_over_viewport<class_EditorPlugin_private_method__forward_3d_draw_over_viewport>`, except it draws on top of everything. Useful when you need an extra layer that shows over anything else.
 
 You need to enable calling of this method by using :ref:`set_force_draw_over_forwarding_enabled<class_EditorPlugin_method_set_force_draw_over_forwarding_enabled>`.
 
@@ -612,13 +620,13 @@ You need to enable calling of this method by using :ref:`set_force_draw_over_for
 
 ----
 
-.. _class_EditorPlugin_method__forward_3d_gui_input:
+.. _class_EditorPlugin_private_method__forward_3d_gui_input:
 
 .. rst-class:: classref-method
 
 :ref:`int<class_int>` **_forward_3d_gui_input** **(** :ref:`Camera3D<class_Camera3D>` viewport_camera, :ref:`InputEvent<class_InputEvent>` event **)** |virtual|
 
-Called when there is a root node in the current edited scene, :ref:`_handles<class_EditorPlugin_method__handles>` is implemented, and an :ref:`InputEvent<class_InputEvent>` happens in the 3D viewport. The return value decides whether the :ref:`InputEvent<class_InputEvent>` is consumed or forwarded to other **EditorPlugin**\ s. See :ref:`AfterGUIInput<enum_EditorPlugin_AfterGUIInput>` for options.
+Called when there is a root node in the current edited scene, :ref:`_handles<class_EditorPlugin_private_method__handles>` is implemented, and an :ref:`InputEvent<class_InputEvent>` happens in the 3D viewport. The return value decides whether the :ref:`InputEvent<class_InputEvent>` is consumed or forwarded to other **EditorPlugin**\ s. See :ref:`AfterGUIInput<enum_EditorPlugin_AfterGUIInput>` for options.
 
 \ **Example:**\ 
 
@@ -668,7 +676,7 @@ Must ``return EditorPlugin.AFTER_GUI_INPUT_PASS`` in order to forward the :ref:`
 
 ----
 
-.. _class_EditorPlugin_method__forward_canvas_draw_over_viewport:
+.. _class_EditorPlugin_private_method__forward_canvas_draw_over_viewport:
 
 .. rst-class:: classref-method
 
@@ -717,13 +725,13 @@ Called by the engine when the 2D editor's viewport is updated. Use the ``overlay
 
 ----
 
-.. _class_EditorPlugin_method__forward_canvas_force_draw_over_viewport:
+.. _class_EditorPlugin_private_method__forward_canvas_force_draw_over_viewport:
 
 .. rst-class:: classref-method
 
 void **_forward_canvas_force_draw_over_viewport** **(** :ref:`Control<class_Control>` viewport_control **)** |virtual|
 
-This method is the same as :ref:`_forward_canvas_draw_over_viewport<class_EditorPlugin_method__forward_canvas_draw_over_viewport>`, except it draws on top of everything. Useful when you need an extra layer that shows over anything else.
+This method is the same as :ref:`_forward_canvas_draw_over_viewport<class_EditorPlugin_private_method__forward_canvas_draw_over_viewport>`, except it draws on top of everything. Useful when you need an extra layer that shows over anything else.
 
 You need to enable calling of this method by using :ref:`set_force_draw_over_forwarding_enabled<class_EditorPlugin_method_set_force_draw_over_forwarding_enabled>`.
 
@@ -731,13 +739,13 @@ You need to enable calling of this method by using :ref:`set_force_draw_over_for
 
 ----
 
-.. _class_EditorPlugin_method__forward_canvas_gui_input:
+.. _class_EditorPlugin_private_method__forward_canvas_gui_input:
 
 .. rst-class:: classref-method
 
 :ref:`bool<class_bool>` **_forward_canvas_gui_input** **(** :ref:`InputEvent<class_InputEvent>` event **)** |virtual|
 
-Called when there is a root node in the current edited scene, :ref:`_handles<class_EditorPlugin_method__handles>` is implemented and an :ref:`InputEvent<class_InputEvent>` happens in the 2D viewport. Intercepts the :ref:`InputEvent<class_InputEvent>`, if ``return true`` **EditorPlugin** consumes the ``event``, otherwise forwards ``event`` to other Editor classes.
+Called when there is a root node in the current edited scene, :ref:`_handles<class_EditorPlugin_private_method__handles>` is implemented and an :ref:`InputEvent<class_InputEvent>` happens in the 2D viewport. Intercepts the :ref:`InputEvent<class_InputEvent>`, if ``return true`` **EditorPlugin** consumes the ``event``, otherwise forwards ``event`` to other Editor classes.
 
 \ **Example:**\ 
 
@@ -793,7 +801,7 @@ Must ``return false`` in order to forward the :ref:`InputEvent<class_InputEvent>
 
 ----
 
-.. _class_EditorPlugin_method__get_breakpoints:
+.. _class_EditorPlugin_private_method__get_breakpoints:
 
 .. rst-class:: classref-method
 
@@ -805,7 +813,7 @@ This is for editors that edit script-based objects. You can return a list of bre
 
 ----
 
-.. _class_EditorPlugin_method__get_plugin_icon:
+.. _class_EditorPlugin_private_method__get_plugin_icon:
 
 .. rst-class:: classref-method
 
@@ -826,7 +834,7 @@ Ideally, the plugin icon should be white with a transparent background and 16x16
         # You can use a custom icon:
         return preload("res://addons/my_plugin/my_plugin_icon.svg")
         # Or use a built-in icon:
-        return get_editor_interface().get_base_control().get_theme_icon("Node", "EditorIcons")
+        return EditorInterface.get_editor_theme().get_icon("Node", "EditorIcons")
 
  .. code-tab:: csharp
 
@@ -835,7 +843,7 @@ Ideally, the plugin icon should be white with a transparent background and 16x16
         // You can use a custom icon:
         return ResourceLoader.Load<Texture2D>("res://addons/my_plugin/my_plugin_icon.svg");
         // Or use a built-in icon:
-        return GetEditorInterface().GetBaseControl().GetThemeIcon("Node", "EditorIcons");
+        return EditorInterface.Singleton.GetEditorTheme().GetIcon("Node", "EditorIcons");
     }
 
 
@@ -844,7 +852,7 @@ Ideally, the plugin icon should be white with a transparent background and 16x16
 
 ----
 
-.. _class_EditorPlugin_method__get_plugin_name:
+.. _class_EditorPlugin_private_method__get_plugin_name:
 
 .. rst-class:: classref-method
 
@@ -858,19 +866,19 @@ For main screen plugins, this appears at the top of the screen, to the right of 
 
 ----
 
-.. _class_EditorPlugin_method__get_state:
+.. _class_EditorPlugin_private_method__get_state:
 
 .. rst-class:: classref-method
 
 :ref:`Dictionary<class_Dictionary>` **_get_state** **(** **)** |virtual| |const|
 
-Override this method to provide a state data you want to be saved, like view position, grid settings, folding, etc. This is used when saving the scene (so state is kept when opening it again) and for switching tabs (so state can be restored when the tab returns). This data is automatically saved for each scene in an ``editstate`` file in the editor metadata folder. If you want to store global (scene-independent) editor data for your plugin, you can use :ref:`_get_window_layout<class_EditorPlugin_method__get_window_layout>` instead.
+Override this method to provide a state data you want to be saved, like view position, grid settings, folding, etc. This is used when saving the scene (so state is kept when opening it again) and for switching tabs (so state can be restored when the tab returns). This data is automatically saved for each scene in an ``editstate`` file in the editor metadata folder. If you want to store global (scene-independent) editor data for your plugin, you can use :ref:`_get_window_layout<class_EditorPlugin_private_method__get_window_layout>` instead.
 
-Use :ref:`_set_state<class_EditorPlugin_method__set_state>` to restore your saved state.
+Use :ref:`_set_state<class_EditorPlugin_private_method__set_state>` to restore your saved state.
 
 \ **Note:** This method should not be used to save important settings that should persist with the project.
 
-\ **Note:** You must implement :ref:`_get_plugin_name<class_EditorPlugin_method__get_plugin_name>` for the state to be stored and restored correctly.
+\ **Note:** You must implement :ref:`_get_plugin_name<class_EditorPlugin_private_method__get_plugin_name>` for the state to be stored and restored correctly.
 
 ::
 
@@ -882,7 +890,45 @@ Use :ref:`_set_state<class_EditorPlugin_method__set_state>` to restore your save
 
 ----
 
-.. _class_EditorPlugin_method__get_window_layout:
+.. _class_EditorPlugin_private_method__get_unsaved_status:
+
+.. rst-class:: classref-method
+
+:ref:`String<class_String>` **_get_unsaved_status** **(** :ref:`String<class_String>` for_scene **)** |virtual| |const|
+
+Override this method to provide a custom message that lists unsaved changes. The editor will call this method when exiting or when closing a scene, and display the returned string in a confirmation dialog. Return empty string if the plugin has no unsaved changes.
+
+When closing a scene, ``for_scene`` is the path to the scene being closed. You can use it to handle built-in resources in that scene.
+
+If the user confirms saving, :ref:`_save_external_data<class_EditorPlugin_private_method__save_external_data>` will be called, before closing the editor.
+
+::
+
+    func _get_unsaved_status(for_scene):
+        if not unsaved:
+            return ""
+    
+        if for_scene.is_empty():
+            return "Save changes in MyCustomPlugin before closing?"
+        else:
+            return "Scene %s has changes from MyCustomPlugin. Save before closing?" % for_scene.get_file()
+    
+    func _save_external_data():
+        unsaved = false
+
+If the plugin has no scene-specific changes, you can ignore the calls when closing scenes:
+
+::
+
+    func _get_unsaved_status(for_scene):
+        if not for_scene.is_empty():
+            return ""
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_EditorPlugin_private_method__get_window_layout:
 
 .. rst-class:: classref-method
 
@@ -890,7 +936,7 @@ void **_get_window_layout** **(** :ref:`ConfigFile<class_ConfigFile>` configurat
 
 Override this method to provide the GUI layout of the plugin or any other data you want to be stored. This is used to save the project's editor layout when :ref:`queue_save_layout<class_EditorPlugin_method_queue_save_layout>` is called or the editor layout was changed (for example changing the position of a dock). The data is stored in the ``editor_layout.cfg`` file in the editor metadata directory.
 
-Use :ref:`_set_window_layout<class_EditorPlugin_method__set_window_layout>` to restore your saved layout.
+Use :ref:`_set_window_layout<class_EditorPlugin_private_method__set_window_layout>` to restore your saved layout.
 
 ::
 
@@ -902,19 +948,21 @@ Use :ref:`_set_window_layout<class_EditorPlugin_method__set_window_layout>` to r
 
 ----
 
-.. _class_EditorPlugin_method__handles:
+.. _class_EditorPlugin_private_method__handles:
 
 .. rst-class:: classref-method
 
 :ref:`bool<class_bool>` **_handles** **(** :ref:`Object<class_Object>` object **)** |virtual| |const|
 
-Implement this function if your plugin edits a specific type of object (Resource or Node). If you return ``true``, then you will get the functions :ref:`_edit<class_EditorPlugin_method__edit>` and :ref:`_make_visible<class_EditorPlugin_method__make_visible>` called when the editor requests them. If you have declared the methods :ref:`_forward_canvas_gui_input<class_EditorPlugin_method__forward_canvas_gui_input>` and :ref:`_forward_3d_gui_input<class_EditorPlugin_method__forward_3d_gui_input>` these will be called too.
+Implement this function if your plugin edits a specific type of object (Resource or Node). If you return ``true``, then you will get the functions :ref:`_edit<class_EditorPlugin_private_method__edit>` and :ref:`_make_visible<class_EditorPlugin_private_method__make_visible>` called when the editor requests them. If you have declared the methods :ref:`_forward_canvas_gui_input<class_EditorPlugin_private_method__forward_canvas_gui_input>` and :ref:`_forward_3d_gui_input<class_EditorPlugin_private_method__forward_3d_gui_input>` these will be called too.
+
+\ **Note:** Each plugin should handle only one type of objects at a time. If a plugin handles more types of objects and they are edited at the same time, it will result in errors.
 
 .. rst-class:: classref-item-separator
 
 ----
 
-.. _class_EditorPlugin_method__has_main_screen:
+.. _class_EditorPlugin_private_method__has_main_screen:
 
 .. rst-class:: classref-method
 
@@ -922,9 +970,9 @@ Implement this function if your plugin edits a specific type of object (Resource
 
 Returns ``true`` if this is a main screen editor plugin (it goes in the workspace selector together with **2D**, **3D**, **Script** and **AssetLib**).
 
-When the plugin's workspace is selected, other main screen plugins will be hidden, but your plugin will not appear automatically. It needs to be added as a child of :ref:`EditorInterface.get_base_control<class_EditorInterface_method_get_base_control>` and made visible inside :ref:`_make_visible<class_EditorPlugin_method__make_visible>`.
+When the plugin's workspace is selected, other main screen plugins will be hidden, but your plugin will not appear automatically. It needs to be added as a child of :ref:`EditorInterface.get_base_control<class_EditorInterface_method_get_base_control>` and made visible inside :ref:`_make_visible<class_EditorPlugin_private_method__make_visible>`.
 
-Use :ref:`_get_plugin_name<class_EditorPlugin_method__get_plugin_name>` and :ref:`_get_plugin_icon<class_EditorPlugin_method__get_plugin_icon>` to customize the plugin button's appearance.
+Use :ref:`_get_plugin_name<class_EditorPlugin_private_method__get_plugin_name>` and :ref:`_get_plugin_icon<class_EditorPlugin_private_method__get_plugin_icon>` to customize the plugin button's appearance.
 
 ::
 
@@ -932,7 +980,7 @@ Use :ref:`_get_plugin_name<class_EditorPlugin_method__get_plugin_name>` and :ref
     
     func _enter_tree():
         plugin_control = preload("my_plugin_control.tscn").instantiate()
-        get_editor_interface().get_editor_main_screen().add_child(plugin_control)
+        EditorInterface.get_editor_main_screen().add_child(plugin_control)
         plugin_control.hide()
     
     func _has_main_screen():
@@ -945,13 +993,13 @@ Use :ref:`_get_plugin_name<class_EditorPlugin_method__get_plugin_name>` and :ref
         return "My Super Cool Plugin 3000"
     
     func _get_plugin_icon():
-        return get_editor_interface().get_base_control().get_theme_icon("Node", "EditorIcons")
+        return EditorInterface.get_editor_theme().get_icon("Node", "EditorIcons")
 
 .. rst-class:: classref-item-separator
 
 ----
 
-.. _class_EditorPlugin_method__make_visible:
+.. _class_EditorPlugin_private_method__make_visible:
 
 .. rst-class:: classref-method
 
@@ -965,7 +1013,7 @@ Remember that you have to manage the visibility of all your editor controls manu
 
 ----
 
-.. _class_EditorPlugin_method__save_external_data:
+.. _class_EditorPlugin_private_method__save_external_data:
 
 .. rst-class:: classref-method
 
@@ -977,15 +1025,15 @@ This method is called after the editor saves the project or when it's closed. It
 
 ----
 
-.. _class_EditorPlugin_method__set_state:
+.. _class_EditorPlugin_private_method__set_state:
 
 .. rst-class:: classref-method
 
 void **_set_state** **(** :ref:`Dictionary<class_Dictionary>` state **)** |virtual|
 
-Restore the state saved by :ref:`_get_state<class_EditorPlugin_method__get_state>`. This method is called when the current scene tab is changed in the editor.
+Restore the state saved by :ref:`_get_state<class_EditorPlugin_private_method__get_state>`. This method is called when the current scene tab is changed in the editor.
 
-\ **Note:** Your plugin must implement :ref:`_get_plugin_name<class_EditorPlugin_method__get_plugin_name>`, otherwise it will not be recognized and this method will not be called.
+\ **Note:** Your plugin must implement :ref:`_get_plugin_name<class_EditorPlugin_private_method__get_plugin_name>`, otherwise it will not be recognized and this method will not be called.
 
 ::
 
@@ -997,13 +1045,13 @@ Restore the state saved by :ref:`_get_state<class_EditorPlugin_method__get_state
 
 ----
 
-.. _class_EditorPlugin_method__set_window_layout:
+.. _class_EditorPlugin_private_method__set_window_layout:
 
 .. rst-class:: classref-method
 
 void **_set_window_layout** **(** :ref:`ConfigFile<class_ConfigFile>` configuration **)** |virtual|
 
-Restore the plugin GUI layout and data saved by :ref:`_get_window_layout<class_EditorPlugin_method__get_window_layout>`. This method is called for every plugin on editor startup. Use the provided ``configuration`` file to read your saved data.
+Restore the plugin GUI layout and data saved by :ref:`_get_window_layout<class_EditorPlugin_private_method__get_window_layout>`. This method is called for every plugin on editor startup. Use the provided ``configuration`` file to read your saved data.
 
 ::
 
@@ -1083,7 +1131,7 @@ When a given node or resource is selected, the base type will be instantiated (e
 
 \ **Note:** The base type is the base engine class which this type's class hierarchy inherits, not any custom type parent classes.
 
-You can use the virtual method :ref:`_handles<class_EditorPlugin_method__handles>` to check if your custom object is being edited by checking the script or using the ``is`` keyword.
+You can use the virtual method :ref:`_handles<class_EditorPlugin_private_method__handles>` to check if your custom object is being edited by checking the script or using the ``is`` keyword.
 
 During run-time, this will be a simple object with a script so this function does not need to be called then.
 
@@ -1241,7 +1289,7 @@ Adds a custom menu item to **Project > Tools** named ``name``. When clicked, the
 
 void **add_tool_submenu_item** **(** :ref:`String<class_String>` name, :ref:`PopupMenu<class_PopupMenu>` submenu **)**
 
-Adds a custom :ref:`PopupMenu<class_PopupMenu>` submenu under **Project > Tools >** ``name``. Use ``remove_tool_menu_item(name)`` on plugin clean up to remove the menu.
+Adds a custom :ref:`PopupMenu<class_PopupMenu>` submenu under **Project > Tools >** ``name``. Use :ref:`remove_tool_menu_item<class_EditorPlugin_method_remove_tool_menu_item>` on plugin clean up to remove the menu.
 
 .. rst-class:: classref-item-separator
 
@@ -1279,7 +1327,9 @@ The callback should have 4 arguments: :ref:`Object<class_Object>` ``undo_redo``,
 
 :ref:`EditorInterface<class_EditorInterface>` **get_editor_interface** **(** **)**
 
-Returns the :ref:`EditorInterface<class_EditorInterface>` object that gives you control over Godot editor's window and its functionalities.
+Returns the :ref:`EditorInterface<class_EditorInterface>` singleton instance.
+
+\ *Deprecated.* :ref:`EditorInterface<class_EditorInterface>` is a global singleton and can be accessed directly by its name.
 
 .. rst-class:: classref-item-separator
 
@@ -1292,6 +1342,18 @@ Returns the :ref:`EditorInterface<class_EditorInterface>` object that gives you 
 :ref:`PopupMenu<class_PopupMenu>` **get_export_as_menu** **(** **)**
 
 Returns the :ref:`PopupMenu<class_PopupMenu>` under **Scene > Export As...**.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_EditorPlugin_method_get_plugin_version:
+
+.. rst-class:: classref-method
+
+:ref:`String<class_String>` **get_plugin_version** **(** **)** |const|
+
+Provide the version of the plugin declared in the ``plugin.cfg`` config file.
 
 .. rst-class:: classref-item-separator
 
@@ -1559,7 +1621,7 @@ Removes a callback previously added by :ref:`add_undo_redo_inspector_hook_callba
 
 void **set_force_draw_over_forwarding_enabled** **(** **)**
 
-Enables calling of :ref:`_forward_canvas_force_draw_over_viewport<class_EditorPlugin_method__forward_canvas_force_draw_over_viewport>` for the 2D editor and :ref:`_forward_3d_force_draw_over_viewport<class_EditorPlugin_method__forward_3d_force_draw_over_viewport>` for the 3D editor when their viewports are updated. You need to call this method only once and it will work permanently for this plugin.
+Enables calling of :ref:`_forward_canvas_force_draw_over_viewport<class_EditorPlugin_private_method__forward_canvas_force_draw_over_viewport>` for the 2D editor and :ref:`_forward_3d_force_draw_over_viewport<class_EditorPlugin_private_method__forward_3d_force_draw_over_viewport>` for the 3D editor when their viewports are updated. You need to call this method only once and it will work permanently for this plugin.
 
 .. rst-class:: classref-item-separator
 
@@ -1571,7 +1633,7 @@ Enables calling of :ref:`_forward_canvas_force_draw_over_viewport<class_EditorPl
 
 void **set_input_event_forwarding_always_enabled** **(** **)**
 
-Use this method if you always want to receive inputs from 3D view screen inside :ref:`_forward_3d_gui_input<class_EditorPlugin_method__forward_3d_gui_input>`. It might be especially usable if your plugin will want to use raycast in the scene.
+Use this method if you always want to receive inputs from 3D view screen inside :ref:`_forward_3d_gui_input<class_EditorPlugin_private_method__forward_3d_gui_input>`. It might be especially usable if your plugin will want to use raycast in the scene.
 
 .. rst-class:: classref-item-separator
 
@@ -1583,7 +1645,7 @@ Use this method if you always want to receive inputs from 3D view screen inside 
 
 :ref:`int<class_int>` **update_overlays** **(** **)** |const|
 
-Updates the overlays of the 2D and 3D editor viewport. Causes methods :ref:`_forward_canvas_draw_over_viewport<class_EditorPlugin_method__forward_canvas_draw_over_viewport>`, :ref:`_forward_canvas_force_draw_over_viewport<class_EditorPlugin_method__forward_canvas_force_draw_over_viewport>`, :ref:`_forward_3d_draw_over_viewport<class_EditorPlugin_method__forward_3d_draw_over_viewport>` and :ref:`_forward_3d_force_draw_over_viewport<class_EditorPlugin_method__forward_3d_force_draw_over_viewport>` to be called.
+Updates the overlays of the 2D and 3D editor viewport. Causes methods :ref:`_forward_canvas_draw_over_viewport<class_EditorPlugin_private_method__forward_canvas_draw_over_viewport>`, :ref:`_forward_canvas_force_draw_over_viewport<class_EditorPlugin_private_method__forward_canvas_force_draw_over_viewport>`, :ref:`_forward_3d_draw_over_viewport<class_EditorPlugin_private_method__forward_3d_draw_over_viewport>` and :ref:`_forward_3d_force_draw_over_viewport<class_EditorPlugin_private_method__forward_3d_force_draw_over_viewport>` to be called.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
@@ -1591,3 +1653,4 @@ Updates the overlays of the 2D and 3D editor viewport. Causes methods :ref:`_for
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
