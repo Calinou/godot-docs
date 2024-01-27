@@ -19,6 +19,10 @@ Description
 
 An array specifically designed to hold :ref:`Color<class_Color>`. Packs data tightly, so it saves memory for large array sizes.
 
+.. note::
+
+	There are notable differences when using this API with C#. See :ref:`doc_c_sharp_differences` for more information.
+
 .. rst-class:: classref-reftable-group
 
 Constructors
@@ -141,6 +145,12 @@ Constructs a **PackedColorArray** as a copy of the given **PackedColorArray**.
 :ref:`PackedColorArray<class_PackedColorArray>` **PackedColorArray** **(** :ref:`Array<class_Array>` from **)**
 
 Constructs a new **PackedColorArray**. Optionally, you can pass in a generic :ref:`Array<class_Array>` that will be converted.
+
+\ **Note:** When initializing a **PackedColorArray** with elements, it must be initialized with an :ref:`Array<class_Array>` of :ref:`Color<class_Color>` values:
+
+::
+
+    var array = PackedColorArray([Color(0.1, 0.2, 0.3), Color(0.4, 0.5, 0.6)])
 
 .. rst-class:: classref-section-separator
 
@@ -315,7 +325,7 @@ Removes an element from the array by index.
 
 :ref:`int<class_int>` **resize** **(** :ref:`int<class_int>` new_size **)**
 
-Sets the size of the array. If the array is grown, reserves elements at the end of the array. If the array is shrunk, truncates the array to the new size.
+Sets the size of the array. If the array is grown, reserves elements at the end of the array. If the array is shrunk, truncates the array to the new size. Calling :ref:`resize<class_PackedColorArray_method_resize>` once and assigning the new values is faster than adding new elements one by one.
 
 .. rst-class:: classref-item-separator
 
@@ -464,3 +474,4 @@ Returns the :ref:`Color<class_Color>` at index ``index``. Negative indices can b
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

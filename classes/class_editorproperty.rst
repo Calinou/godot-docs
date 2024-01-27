@@ -12,14 +12,14 @@ EditorProperty
 
 **Inherits:** :ref:`Container<class_Container>` **<** :ref:`Control<class_Control>` **<** :ref:`CanvasItem<class_CanvasItem>` **<** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
 
-Custom control to edit properties for adding into the inspector.
+Custom control for editing properties that can be added to the :ref:`EditorInspector<class_EditorInspector>`.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-This control allows property editing for one or multiple properties into :ref:`EditorInspector<class_EditorInspector>`. It is added via :ref:`EditorInspectorPlugin<class_EditorInspectorPlugin>`.
+A custom control for editing properties that can be added to the :ref:`EditorInspector<class_EditorInspector>`. It is added via :ref:`EditorInspectorPlugin<class_EditorInspectorPlugin>`.
 
 .. rst-class:: classref-reftable-group
 
@@ -54,9 +54,9 @@ Methods
    :widths: auto
 
    +-------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                | :ref:`_set_read_only<class_EditorProperty_method__set_read_only>` **(** :ref:`bool<class_bool>` read_only **)** |virtual|                                                                                                                          |
+   | void                                | :ref:`_set_read_only<class_EditorProperty_private_method__set_read_only>` **(** :ref:`bool<class_bool>` read_only **)** |virtual|                                                                                                                  |
    +-------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                | :ref:`_update_property<class_EditorProperty_method__update_property>` **(** **)** |virtual|                                                                                                                                                        |
+   | void                                | :ref:`_update_property<class_EditorProperty_private_method__update_property>` **(** **)** |virtual|                                                                                                                                                |
    +-------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | void                                | :ref:`add_focusable<class_EditorProperty_method_add_focusable>` **(** :ref:`Control<class_Control>` control **)**                                                                                                                                  |
    +-------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -86,7 +86,7 @@ Signals
 
 **multiple_properties_changed** **(** :ref:`PackedStringArray<class_PackedStringArray>` properties, :ref:`Array<class_Array>` value **)**
 
-Emit it if you want multiple properties modified at the same time. Do not use if added via :ref:`EditorInspectorPlugin._parse_property<class_EditorInspectorPlugin_method__parse_property>`.
+Emit it if you want multiple properties modified at the same time. Do not use if added via :ref:`EditorInspectorPlugin._parse_property<class_EditorInspectorPlugin_private_method__parse_property>`.
 
 .. rst-class:: classref-item-separator
 
@@ -343,7 +343,7 @@ Used by the inspector, set to ``true`` when the property is read-only.
 Method Descriptions
 -------------------
 
-.. _class_EditorProperty_method__set_read_only:
+.. _class_EditorProperty_private_method__set_read_only:
 
 .. rst-class:: classref-method
 
@@ -355,7 +355,7 @@ Called when the read-only status of the property is changed. It may be used to c
 
 ----
 
-.. _class_EditorProperty_method__update_property:
+.. _class_EditorProperty_private_method__update_property:
 
 .. rst-class:: classref-method
 
@@ -409,7 +409,7 @@ Gets the edited object.
 
 :ref:`StringName<class_StringName>` **get_edited_property** **(** **)** |const|
 
-Gets the edited property. If your editor is for a single property (added via :ref:`EditorInspectorPlugin._parse_property<class_EditorInspectorPlugin_method__parse_property>`), then this will return the property.
+Gets the edited property. If your editor is for a single property (added via :ref:`EditorInspectorPlugin._parse_property<class_EditorInspectorPlugin_private_method__parse_property>`), then this will return the property.
 
 .. rst-class:: classref-item-separator
 
@@ -441,3 +441,4 @@ Forces refresh of the property display.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

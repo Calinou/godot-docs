@@ -30,18 +30,6 @@ Tutorials
 
 .. rst-class:: classref-reftable-group
 
-Properties
-----------
-
-.. table::
-   :widths: auto
-
-   +-------------------------------------+-----------------------------------------------------+--------+
-   | :ref:`Dictionary<class_Dictionary>` | :ref:`_data<class_AnimationLibrary_property__data>` | ``{}`` |
-   +-------------------------------------+-----------------------------------------------------+--------+
-
-.. rst-class:: classref-reftable-group
-
 Methods
 -------
 
@@ -116,25 +104,6 @@ Emitted when an :ref:`Animation<class_Animation>` stored with the key ``name`` i
 **animation_renamed** **(** :ref:`StringName<class_StringName>` name, :ref:`StringName<class_StringName>` to_name **)**
 
 Emitted when the key for an :ref:`Animation<class_Animation>` is changed, from ``name`` to ``to_name``.
-
-.. rst-class:: classref-section-separator
-
-----
-
-.. rst-class:: classref-descriptions-group
-
-Property Descriptions
----------------------
-
-.. _class_AnimationLibrary_property__data:
-
-.. rst-class:: classref-property
-
-:ref:`Dictionary<class_Dictionary>` **_data** = ``{}``
-
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
 
 .. rst-class:: classref-section-separator
 
@@ -219,3 +188,4 @@ Changes the key of the :ref:`Animation<class_Animation>` associated with the key
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

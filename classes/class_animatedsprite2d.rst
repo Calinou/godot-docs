@@ -113,6 +113,8 @@ Emitted when :ref:`animation<class_AnimatedSprite2D_property_animation>` changes
 
 Emitted when the animation reaches the end, or the start if it is played in reverse. When the animation finishes, it pauses the playback.
 
+\ **Note:** This signal is not emitted if an animation is looping.
+
 .. rst-class:: classref-item-separator
 
 ----
@@ -446,3 +448,4 @@ Stops the currently playing animation. The animation position is reset to ``0`` 
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

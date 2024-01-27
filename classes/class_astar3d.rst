@@ -12,18 +12,18 @@ AStar3D
 
 **Inherits:** :ref:`RefCounted<class_RefCounted>` **<** :ref:`Object<class_Object>`
 
-An implementation of A\* to find the shortest paths among connected points in space.
+An implementation of A\* for finding the shortest path between two vertices on a connected graph in 3D space.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-A\* (A star) is a computer algorithm that is widely used in pathfinding and graph traversal, the process of plotting short paths among vertices (points), passing through a given set of edges (segments). It enjoys widespread use due to its performance and accuracy. Godot's A\* implementation uses points in three-dimensional space and Euclidean distances by default.
+A\* (A star) is a computer algorithm used in pathfinding and graph traversal, the process of plotting short paths among vertices (points), passing through a given set of edges (segments). It enjoys widespread use due to its performance and accuracy. Godot's A\* implementation uses points in 3D space and Euclidean distances by default.
 
-You must add points manually with :ref:`add_point<class_AStar3D_method_add_point>` and create segments manually with :ref:`connect_points<class_AStar3D_method_connect_points>`. Then you can test if there is a path between two points with the :ref:`are_points_connected<class_AStar3D_method_are_points_connected>` function, get a path containing indices by :ref:`get_id_path<class_AStar3D_method_get_id_path>`, or one containing actual coordinates with :ref:`get_point_path<class_AStar3D_method_get_point_path>`.
+You must add points manually with :ref:`add_point<class_AStar3D_method_add_point>` and create segments manually with :ref:`connect_points<class_AStar3D_method_connect_points>`. Once done, you can test if there is a path between two points with the :ref:`are_points_connected<class_AStar3D_method_are_points_connected>` function, get a path containing indices by :ref:`get_id_path<class_AStar3D_method_get_id_path>`, or one containing actual coordinates with :ref:`get_point_path<class_AStar3D_method_get_point_path>`.
 
-It is also possible to use non-Euclidean distances. To do so, create a class that extends ``AStar3D`` and override methods :ref:`_compute_cost<class_AStar3D_method__compute_cost>` and :ref:`_estimate_cost<class_AStar3D_method__estimate_cost>`. Both take two indices and return a length, as is shown in the following example.
+It is also possible to use non-Euclidean distances. To do so, create a class that extends **AStar3D** and override methods :ref:`_compute_cost<class_AStar3D_private_method__compute_cost>` and :ref:`_estimate_cost<class_AStar3D_private_method__estimate_cost>`. Both take two indices and return a length, as is shown in the following example.
 
 
 .. tabs::
@@ -56,9 +56,9 @@ It is also possible to use non-Euclidean distances. To do so, create a class tha
 
 
 
-\ :ref:`_estimate_cost<class_AStar3D_method__estimate_cost>` should return a lower bound of the distance, i.e. ``_estimate_cost(u, v) <= _compute_cost(u, v)``. This serves as a hint to the algorithm because the custom ``_compute_cost`` might be computation-heavy. If this is not the case, make :ref:`_estimate_cost<class_AStar3D_method__estimate_cost>` return the same value as :ref:`_compute_cost<class_AStar3D_method__compute_cost>` to provide the algorithm with the most accurate information.
+\ :ref:`_estimate_cost<class_AStar3D_private_method__estimate_cost>` should return a lower bound of the distance, i.e. ``_estimate_cost(u, v) <= _compute_cost(u, v)``. This serves as a hint to the algorithm because the custom :ref:`_compute_cost<class_AStar3D_private_method__compute_cost>` might be computation-heavy. If this is not the case, make :ref:`_estimate_cost<class_AStar3D_private_method__estimate_cost>` return the same value as :ref:`_compute_cost<class_AStar3D_private_method__compute_cost>` to provide the algorithm with the most accurate information.
 
-If the default :ref:`_estimate_cost<class_AStar3D_method__estimate_cost>` and :ref:`_compute_cost<class_AStar3D_method__compute_cost>` methods are used, or if the supplied :ref:`_estimate_cost<class_AStar3D_method__estimate_cost>` method returns a lower bound of the cost, then the paths returned by A\* will be the lowest-cost paths. Here, the cost of a path equals the sum of the :ref:`_compute_cost<class_AStar3D_method__compute_cost>` results of all segments in the path multiplied by the ``weight_scale``\ s of the endpoints of the respective segments. If the default methods are used and the ``weight_scale``\ s of all points are set to ``1.0``, then this equals the sum of Euclidean distances of all segments in the path.
+If the default :ref:`_estimate_cost<class_AStar3D_private_method__estimate_cost>` and :ref:`_compute_cost<class_AStar3D_private_method__compute_cost>` methods are used, or if the supplied :ref:`_estimate_cost<class_AStar3D_private_method__estimate_cost>` method returns a lower bound of the cost, then the paths returned by A\* will be the lowest-cost paths. Here, the cost of a path equals the sum of the :ref:`_compute_cost<class_AStar3D_private_method__compute_cost>` results of all segments in the path multiplied by the ``weight_scale``\ s of the endpoints of the respective segments. If the default methods are used and the ``weight_scale``\ s of all points are set to ``1.0``, then this equals the sum of Euclidean distances of all segments in the path.
 
 .. rst-class:: classref-reftable-group
 
@@ -69,9 +69,9 @@ Methods
    :widths: auto
 
    +-----------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`float<class_float>`                           | :ref:`_compute_cost<class_AStar3D_method__compute_cost>` **(** :ref:`int<class_int>` from_id, :ref:`int<class_int>` to_id **)** |virtual| |const|                                            |
+   | :ref:`float<class_float>`                           | :ref:`_compute_cost<class_AStar3D_private_method__compute_cost>` **(** :ref:`int<class_int>` from_id, :ref:`int<class_int>` to_id **)** |virtual| |const|                                    |
    +-----------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`float<class_float>`                           | :ref:`_estimate_cost<class_AStar3D_method__estimate_cost>` **(** :ref:`int<class_int>` from_id, :ref:`int<class_int>` to_id **)** |virtual| |const|                                          |
+   | :ref:`float<class_float>`                           | :ref:`_estimate_cost<class_AStar3D_private_method__estimate_cost>` **(** :ref:`int<class_int>` from_id, :ref:`int<class_int>` to_id **)** |virtual| |const|                                  |
    +-----------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | void                                                | :ref:`add_point<class_AStar3D_method_add_point>` **(** :ref:`int<class_int>` id, :ref:`Vector3<class_Vector3>` position, :ref:`float<class_float>` weight_scale=1.0 **)**                    |
    +-----------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -129,7 +129,7 @@ Methods
 Method Descriptions
 -------------------
 
-.. _class_AStar3D_method__compute_cost:
+.. _class_AStar3D_private_method__compute_cost:
 
 .. rst-class:: classref-method
 
@@ -137,13 +137,13 @@ Method Descriptions
 
 Called when computing the cost between two connected points.
 
-Note that this function is hidden in the default ``AStar3D`` class.
+Note that this function is hidden in the default **AStar3D** class.
 
 .. rst-class:: classref-item-separator
 
 ----
 
-.. _class_AStar3D_method__estimate_cost:
+.. _class_AStar3D_private_method__estimate_cost:
 
 .. rst-class:: classref-method
 
@@ -151,7 +151,7 @@ Note that this function is hidden in the default ``AStar3D`` class.
 
 Called when estimating the cost between a point and the path's ending point.
 
-Note that this function is hidden in the default ``AStar3D`` class.
+Note that this function is hidden in the default **AStar3D** class.
 
 .. rst-class:: classref-item-separator
 
@@ -165,7 +165,7 @@ void **add_point** **(** :ref:`int<class_int>` id, :ref:`Vector3<class_Vector3>`
 
 Adds a new point at the given position with the given identifier. The ``id`` must be 0 or larger, and the ``weight_scale`` must be 0.0 or greater.
 
-The ``weight_scale`` is multiplied by the result of :ref:`_compute_cost<class_AStar3D_method__compute_cost>` when determining the overall cost of traveling across a segment from a neighboring point to this point. Thus, all else being equal, the algorithm prefers points with lower ``weight_scale``\ s to form a path.
+The ``weight_scale`` is multiplied by the result of :ref:`_compute_cost<class_AStar3D_private_method__compute_cost>` when determining the overall cost of traveling across a segment from a neighboring point to this point. Thus, all else being equal, the algorithm prefers points with lower ``weight_scale``\ s to form a path.
 
 
 .. tabs::
@@ -369,7 +369,7 @@ If you change the 2nd point's weight to 3, then the result will be ``[1, 4, 3]``
 
 :ref:`int<class_int>` **get_point_capacity** **(** **)** |const|
 
-Returns the capacity of the structure backing the points, useful in conjunction with ``reserve_space``.
+Returns the capacity of the structure backing the points, useful in conjunction with :ref:`reserve_space<class_AStar3D_method_reserve_space>`.
 
 .. rst-class:: classref-item-separator
 
@@ -557,7 +557,7 @@ Sets the ``position`` for the point with the given ``id``.
 
 void **set_point_weight_scale** **(** :ref:`int<class_int>` id, :ref:`float<class_float>` weight_scale **)**
 
-Sets the ``weight_scale`` for the point with the given ``id``. The ``weight_scale`` is multiplied by the result of :ref:`_compute_cost<class_AStar3D_method__compute_cost>` when determining the overall cost of traveling across a segment from a neighboring point to this point.
+Sets the ``weight_scale`` for the point with the given ``id``. The ``weight_scale`` is multiplied by the result of :ref:`_compute_cost<class_AStar3D_private_method__compute_cost>` when determining the overall cost of traveling across a segment from a neighboring point to this point.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
@@ -565,3 +565,4 @@ Sets the ``weight_scale`` for the point with the given ``id``. The ``weight_scal
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
