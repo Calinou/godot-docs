@@ -12,14 +12,14 @@ HingeJoint3D
 
 **Inherits:** :ref:`Joint3D<class_Joint3D>` **<** :ref:`Node3D<class_Node3D>` **<** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
 
-A hinge between two 3D PhysicsBodies.
+A physics joint that restricts the rotation of a 3D physics body around an axis relative to another physics body.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-A HingeJoint3D normally uses the Z axis of body A as the hinge axis, another axis can be specified when adding it manually though. See also :ref:`Generic6DOFJoint3D<class_Generic6DOFJoint3D>`.
+A physics joint that restricts the rotation of a 3D physics body around an axis relative to another physics body. For example, Body A can be a :ref:`StaticBody3D<class_StaticBody3D>` representing a door hinge that a :ref:`RigidBody3D<class_RigidBody3D>` rotates around.
 
 .. rst-class:: classref-reftable-group
 
@@ -121,6 +121,10 @@ The speed with which the rotation across the axis perpendicular to the hinge get
 .. rst-class:: classref-enumeration-constant
 
 :ref:`Param<enum_HingeJoint3D_Param>` **PARAM_LIMIT_SOFTNESS** = ``4``
+
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
 
 
 
@@ -426,3 +430,4 @@ Sets the value of the specified parameter.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

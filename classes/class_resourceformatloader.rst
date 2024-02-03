@@ -33,29 +33,29 @@ Methods
 .. table::
    :widths: auto
 
-   +---------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`                           | :ref:`_exists<class_ResourceFormatLoader_method__exists>` **(** :ref:`String<class_String>` path **)** |virtual| |const|                                                                                                                   |
-   +---------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`PackedStringArray<class_PackedStringArray>` | :ref:`_get_classes_used<class_ResourceFormatLoader_method__get_classes_used>` **(** :ref:`String<class_String>` path **)** |virtual| |const|                                                                                               |
-   +---------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`PackedStringArray<class_PackedStringArray>` | :ref:`_get_dependencies<class_ResourceFormatLoader_method__get_dependencies>` **(** :ref:`String<class_String>` path, :ref:`bool<class_bool>` add_types **)** |virtual| |const|                                                            |
-   +---------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`PackedStringArray<class_PackedStringArray>` | :ref:`_get_recognized_extensions<class_ResourceFormatLoader_method__get_recognized_extensions>` **(** **)** |virtual| |const|                                                                                                              |
-   +---------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`String<class_String>`                       | :ref:`_get_resource_script_class<class_ResourceFormatLoader_method__get_resource_script_class>` **(** :ref:`String<class_String>` path **)** |virtual| |const|                                                                             |
-   +---------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`String<class_String>`                       | :ref:`_get_resource_type<class_ResourceFormatLoader_method__get_resource_type>` **(** :ref:`String<class_String>` path **)** |virtual| |const|                                                                                             |
-   +---------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`int<class_int>`                             | :ref:`_get_resource_uid<class_ResourceFormatLoader_method__get_resource_uid>` **(** :ref:`String<class_String>` path **)** |virtual| |const|                                                                                               |
-   +---------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`                           | :ref:`_handles_type<class_ResourceFormatLoader_method__handles_type>` **(** :ref:`StringName<class_StringName>` type **)** |virtual| |const|                                                                                               |
-   +---------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Variant<class_Variant>`                     | :ref:`_load<class_ResourceFormatLoader_method__load>` **(** :ref:`String<class_String>` path, :ref:`String<class_String>` original_path, :ref:`bool<class_bool>` use_sub_threads, :ref:`int<class_int>` cache_mode **)** |virtual| |const| |
-   +---------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`                           | :ref:`_recognize_path<class_ResourceFormatLoader_method__recognize_path>` **(** :ref:`String<class_String>` path, :ref:`StringName<class_StringName>` type **)** |virtual| |const|                                                         |
-   +---------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Error<enum_@GlobalScope_Error>`             | :ref:`_rename_dependencies<class_ResourceFormatLoader_method__rename_dependencies>` **(** :ref:`String<class_String>` path, :ref:`Dictionary<class_Dictionary>` renames **)** |virtual| |const|                                            |
-   +---------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                           | :ref:`_exists<class_ResourceFormatLoader_private_method__exists>` **(** :ref:`String<class_String>` path **)** |virtual| |const|                                                                                                                   |
+   +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`PackedStringArray<class_PackedStringArray>` | :ref:`_get_classes_used<class_ResourceFormatLoader_private_method__get_classes_used>` **(** :ref:`String<class_String>` path **)** |virtual| |const|                                                                                               |
+   +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`PackedStringArray<class_PackedStringArray>` | :ref:`_get_dependencies<class_ResourceFormatLoader_private_method__get_dependencies>` **(** :ref:`String<class_String>` path, :ref:`bool<class_bool>` add_types **)** |virtual| |const|                                                            |
+   +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`PackedStringArray<class_PackedStringArray>` | :ref:`_get_recognized_extensions<class_ResourceFormatLoader_private_method__get_recognized_extensions>` **(** **)** |virtual| |const|                                                                                                              |
+   +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`String<class_String>`                       | :ref:`_get_resource_script_class<class_ResourceFormatLoader_private_method__get_resource_script_class>` **(** :ref:`String<class_String>` path **)** |virtual| |const|                                                                             |
+   +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`String<class_String>`                       | :ref:`_get_resource_type<class_ResourceFormatLoader_private_method__get_resource_type>` **(** :ref:`String<class_String>` path **)** |virtual| |const|                                                                                             |
+   +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`int<class_int>`                             | :ref:`_get_resource_uid<class_ResourceFormatLoader_private_method__get_resource_uid>` **(** :ref:`String<class_String>` path **)** |virtual| |const|                                                                                               |
+   +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                           | :ref:`_handles_type<class_ResourceFormatLoader_private_method__handles_type>` **(** :ref:`StringName<class_StringName>` type **)** |virtual| |const|                                                                                               |
+   +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Variant<class_Variant>`                     | :ref:`_load<class_ResourceFormatLoader_private_method__load>` **(** :ref:`String<class_String>` path, :ref:`String<class_String>` original_path, :ref:`bool<class_bool>` use_sub_threads, :ref:`int<class_int>` cache_mode **)** |virtual| |const| |
+   +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                           | :ref:`_recognize_path<class_ResourceFormatLoader_private_method__recognize_path>` **(** :ref:`String<class_String>` path, :ref:`StringName<class_StringName>` type **)** |virtual| |const|                                                         |
+   +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Error<enum_@GlobalScope_Error>`             | :ref:`_rename_dependencies<class_ResourceFormatLoader_private_method__rename_dependencies>` **(** :ref:`String<class_String>` path, :ref:`Dictionary<class_Dictionary>` renames **)** |virtual| |const|                                            |
+   +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -78,6 +78,10 @@ enum **CacheMode**:
 
 :ref:`CacheMode<enum_ResourceFormatLoader_CacheMode>` **CACHE_MODE_IGNORE** = ``0``
 
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+
 
 
 .. _class_ResourceFormatLoader_constant_CACHE_MODE_REUSE:
@@ -86,6 +90,10 @@ enum **CacheMode**:
 
 :ref:`CacheMode<enum_ResourceFormatLoader_CacheMode>` **CACHE_MODE_REUSE** = ``1``
 
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+
 
 
 .. _class_ResourceFormatLoader_constant_CACHE_MODE_REPLACE:
@@ -93,6 +101,10 @@ enum **CacheMode**:
 .. rst-class:: classref-enumeration-constant
 
 :ref:`CacheMode<enum_ResourceFormatLoader_CacheMode>` **CACHE_MODE_REPLACE** = ``2``
+
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
 
 
 
@@ -105,7 +117,7 @@ enum **CacheMode**:
 Method Descriptions
 -------------------
 
-.. _class_ResourceFormatLoader_method__exists:
+.. _class_ResourceFormatLoader_private_method__exists:
 
 .. rst-class:: classref-method
 
@@ -119,7 +131,7 @@ Method Descriptions
 
 ----
 
-.. _class_ResourceFormatLoader_method__get_classes_used:
+.. _class_ResourceFormatLoader_private_method__get_classes_used:
 
 .. rst-class:: classref-method
 
@@ -133,7 +145,7 @@ Method Descriptions
 
 ----
 
-.. _class_ResourceFormatLoader_method__get_dependencies:
+.. _class_ResourceFormatLoader_private_method__get_dependencies:
 
 .. rst-class:: classref-method
 
@@ -147,7 +159,7 @@ If implemented, gets the dependencies of a given resource. If ``add_types`` is `
 
 ----
 
-.. _class_ResourceFormatLoader_method__get_recognized_extensions:
+.. _class_ResourceFormatLoader_private_method__get_recognized_extensions:
 
 .. rst-class:: classref-method
 
@@ -159,7 +171,7 @@ Gets the list of extensions for files this loader is able to read.
 
 ----
 
-.. _class_ResourceFormatLoader_method__get_resource_script_class:
+.. _class_ResourceFormatLoader_private_method__get_resource_script_class:
 
 .. rst-class:: classref-method
 
@@ -171,7 +183,7 @@ Returns the script class name associated with the :ref:`Resource<class_Resource>
 
 ----
 
-.. _class_ResourceFormatLoader_method__get_resource_type:
+.. _class_ResourceFormatLoader_private_method__get_resource_type:
 
 .. rst-class:: classref-method
 
@@ -185,7 +197,7 @@ Gets the class name of the resource associated with the given path. If the loade
 
 ----
 
-.. _class_ResourceFormatLoader_method__get_resource_uid:
+.. _class_ResourceFormatLoader_private_method__get_resource_uid:
 
 .. rst-class:: classref-method
 
@@ -199,7 +211,7 @@ Gets the class name of the resource associated with the given path. If the loade
 
 ----
 
-.. _class_ResourceFormatLoader_method__handles_type:
+.. _class_ResourceFormatLoader_private_method__handles_type:
 
 .. rst-class:: classref-method
 
@@ -213,7 +225,7 @@ Tells which resource class this loader can load.
 
 ----
 
-.. _class_ResourceFormatLoader_method__load:
+.. _class_ResourceFormatLoader_private_method__load:
 
 .. rst-class:: classref-method
 
@@ -227,7 +239,7 @@ The ``cache_mode`` property defines whether and how the cache should be used or 
 
 ----
 
-.. _class_ResourceFormatLoader_method__recognize_path:
+.. _class_ResourceFormatLoader_private_method__recognize_path:
 
 .. rst-class:: classref-method
 
@@ -235,13 +247,13 @@ The ``cache_mode`` property defines whether and how the cache should be used or 
 
 Tells whether or not this loader should load a resource from its resource path for a given type.
 
-If it is not implemented, the default behavior returns whether the path's extension is within the ones provided by :ref:`_get_recognized_extensions<class_ResourceFormatLoader_method__get_recognized_extensions>`, and if the type is within the ones provided by :ref:`_get_resource_type<class_ResourceFormatLoader_method__get_resource_type>`.
+If it is not implemented, the default behavior returns whether the path's extension is within the ones provided by :ref:`_get_recognized_extensions<class_ResourceFormatLoader_private_method__get_recognized_extensions>`, and if the type is within the ones provided by :ref:`_get_resource_type<class_ResourceFormatLoader_private_method__get_resource_type>`.
 
 .. rst-class:: classref-item-separator
 
 ----
 
-.. _class_ResourceFormatLoader_method__rename_dependencies:
+.. _class_ResourceFormatLoader_private_method__rename_dependencies:
 
 .. rst-class:: classref-method
 
@@ -257,3 +269,4 @@ Returns :ref:`@GlobalScope.OK<class_@GlobalScope_constant_OK>` on success, or an
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

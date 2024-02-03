@@ -36,11 +36,13 @@ Properties
 .. table::
    :widths: auto
 
-   +---------------------------------------+---------------------------------------------------------------------+---------+
-   | :ref:`XRInterface<class_XRInterface>` | :ref:`primary_interface<class_XRServer_property_primary_interface>` |         |
-   +---------------------------------------+---------------------------------------------------------------------+---------+
-   | :ref:`float<class_float>`             | :ref:`world_scale<class_XRServer_property_world_scale>`             | ``1.0`` |
-   +---------------------------------------+---------------------------------------------------------------------+---------+
+   +---------------------------------------+---------------------------------------------------------------------+-----------------------------------------------------+
+   | :ref:`XRInterface<class_XRInterface>` | :ref:`primary_interface<class_XRServer_property_primary_interface>` |                                                     |
+   +---------------------------------------+---------------------------------------------------------------------+-----------------------------------------------------+
+   | :ref:`Transform3D<class_Transform3D>` | :ref:`world_origin<class_XRServer_property_world_origin>`           | ``Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)`` |
+   +---------------------------------------+---------------------------------------------------------------------+-----------------------------------------------------+
+   | :ref:`float<class_float>`             | :ref:`world_scale<class_XRServer_property_world_scale>`             | ``1.0``                                             |
+   +---------------------------------------+---------------------------------------------------------------------+-----------------------------------------------------+
 
 .. rst-class:: classref-reftable-group
 
@@ -56,6 +58,8 @@ Methods
    | void                                                  | :ref:`add_tracker<class_XRServer_method_add_tracker>` **(** :ref:`XRPositionalTracker<class_XRPositionalTracker>` tracker **)**                                          |
    +-------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | void                                                  | :ref:`center_on_hmd<class_XRServer_method_center_on_hmd>` **(** :ref:`RotationMode<enum_XRServer_RotationMode>` rotation_mode, :ref:`bool<class_bool>` keep_height **)** |
+   +-------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Transform3D<class_Transform3D>`                 | :ref:`clear_reference_frame<class_XRServer_method_clear_reference_frame>` **(** **)** |const|                                                                            |
    +-------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`XRInterface<class_XRInterface>`                 | :ref:`find_interface<class_XRServer_method_find_interface>` **(** :ref:`String<class_String>` name **)** |const|                                                         |
    +-------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -274,6 +278,25 @@ The primary :ref:`XRInterface<class_XRInterface>` currently bound to the **XRSer
 
 ----
 
+.. _class_XRServer_property_world_origin:
+
+.. rst-class:: classref-property
+
+:ref:`Transform3D<class_Transform3D>` **world_origin** = ``Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)``
+
+.. rst-class:: classref-property-setget
+
+- void **set_world_origin** **(** :ref:`Transform3D<class_Transform3D>` value **)**
+- :ref:`Transform3D<class_Transform3D>` **get_world_origin** **(** **)**
+
+The current origin of our tracking space in the virtual world. This is used by the renderer to properly position the camera with new tracking data.
+
+\ **Note:** This property is managed by the current :ref:`XROrigin3D<class_XROrigin3D>` node. It is exposed for access from GDExtensions.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_XRServer_property_world_scale:
 
 .. rst-class:: classref-property
@@ -285,7 +308,7 @@ The primary :ref:`XRInterface<class_XRInterface>` currently bound to the **XRSer
 - void **set_world_scale** **(** :ref:`float<class_float>` value **)**
 - :ref:`float<class_float>` **get_world_scale** **(** **)**
 
-Allows you to adjust the scale to your game's units. Most AR/VR platforms assume a scale of 1 game world unit = 1 real world meter.
+The scale of the game world compared to the real world. By default, most AR/VR platforms assume that 1 game unit corresponds to 1 real world meter.
 
 .. rst-class:: classref-section-separator
 
@@ -337,6 +360,18 @@ This method allows you to center your tracker on the location of the HMD. It wil
 For this method to produce usable results, tracking information must be available. This often takes a few frames after starting your game.
 
 You should call this method after a few seconds have passed. For example, when the user requests a realignment of the display holding a designated button on a controller for a short period of time, or when implementing a teleport mechanism.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_XRServer_method_clear_reference_frame:
+
+.. rst-class:: classref-method
+
+:ref:`Transform3D<class_Transform3D>` **clear_reference_frame** **(** **)** |const|
+
+Clears the reference frame that was set by previous calls to :ref:`center_on_hmd<class_XRServer_method_center_on_hmd>`.
 
 .. rst-class:: classref-item-separator
 
@@ -464,3 +499,4 @@ Removes this positional ``tracker``.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

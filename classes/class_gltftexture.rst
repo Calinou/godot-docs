@@ -16,6 +16,13 @@ GLTFTexture
 
 	There is currently no description for this class. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
 
+.. rst-class:: classref-introduction-group
+
+Tutorials
+---------
+
+- :doc:`Runtime file loading and saving <../tutorials/io/runtime_file_loading_and_saving>`
+
 .. rst-class:: classref-reftable-group
 
 Properties
@@ -27,7 +34,7 @@ Properties
    +-----------------------+--------------------------------------------------------+--------+
    | :ref:`int<class_int>` | :ref:`sampler<class_GLTFTexture_property_sampler>`     | ``-1`` |
    +-----------------------+--------------------------------------------------------+--------+
-   | :ref:`int<class_int>` | :ref:`src_image<class_GLTFTexture_property_src_image>` | ``0``  |
+   | :ref:`int<class_int>` | :ref:`src_image<class_GLTFTexture_property_src_image>` | ``-1`` |
    +-----------------------+--------------------------------------------------------+--------+
 
 .. rst-class:: classref-section-separator
@@ -60,16 +67,14 @@ ID of the texture sampler to use when sampling the image. If -1, then the defaul
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **src_image** = ``0``
+:ref:`int<class_int>` **src_image** = ``-1``
 
 .. rst-class:: classref-property-setget
 
 - void **set_src_image** **(** :ref:`int<class_int>` value **)**
 - :ref:`int<class_int>` **get_src_image** **(** **)**
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+The index of the image associated with this texture, see :ref:`GLTFState.get_images<class_GLTFState_method_get_images>`. If -1, then this texture does not have an image assigned.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
@@ -77,3 +82,4 @@ ID of the texture sampler to use when sampling the image. If -1, then the defaul
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

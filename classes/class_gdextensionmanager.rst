@@ -12,9 +12,25 @@ GDExtensionManager
 
 **Inherits:** :ref:`Object<class_Object>`
 
-.. container:: contribute
+Provides access to GDExtension functionality.
 
-	There is currently no description for this class. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+.. rst-class:: classref-introduction-group
+
+Description
+-----------
+
+The GDExtensionManager loads, initializes, and keeps track of all available :ref:`GDExtension<class_GDExtension>` libraries in the project.
+
+\ **Note:** Do not worry about GDExtension unless you know what you are doing.
+
+.. rst-class:: classref-introduction-group
+
+Tutorials
+---------
+
+- :doc:`GDExtension overview <../tutorials/scripting/gdextension/what_is_gdextension>`
+
+- :doc:`GDExtension example in C++ <../tutorials/scripting/gdextension/gdextension_cpp_example>`
 
 .. rst-class:: classref-reftable-group
 
@@ -44,6 +60,23 @@ Methods
 
 .. rst-class:: classref-descriptions-group
 
+Signals
+-------
+
+.. _class_GDExtensionManager_signal_extensions_reloaded:
+
+.. rst-class:: classref-signal
+
+**extensions_reloaded** **(** **)**
+
+Emitted after the editor has finished reloading one or more extensions.
+
+.. rst-class:: classref-section-separator
+
+----
+
+.. rst-class:: classref-descriptions-group
+
 Enumerations
 ------------
 
@@ -59,7 +92,7 @@ enum **LoadStatus**:
 
 :ref:`LoadStatus<enum_GDExtensionManager_LoadStatus>` **LOAD_STATUS_OK** = ``0``
 
-
+The extension has loaded successfully.
 
 .. _class_GDExtensionManager_constant_LOAD_STATUS_FAILED:
 
@@ -67,7 +100,7 @@ enum **LoadStatus**:
 
 :ref:`LoadStatus<enum_GDExtensionManager_LoadStatus>` **LOAD_STATUS_FAILED** = ``1``
 
-
+The extension has failed to load, possibly because it does not exist or has missing dependencies.
 
 .. _class_GDExtensionManager_constant_LOAD_STATUS_ALREADY_LOADED:
 
@@ -75,7 +108,7 @@ enum **LoadStatus**:
 
 :ref:`LoadStatus<enum_GDExtensionManager_LoadStatus>` **LOAD_STATUS_ALREADY_LOADED** = ``2``
 
-
+The extension has already been loaded.
 
 .. _class_GDExtensionManager_constant_LOAD_STATUS_NOT_LOADED:
 
@@ -83,7 +116,7 @@ enum **LoadStatus**:
 
 :ref:`LoadStatus<enum_GDExtensionManager_LoadStatus>` **LOAD_STATUS_NOT_LOADED** = ``3``
 
-
+The extension has not been loaded.
 
 .. _class_GDExtensionManager_constant_LOAD_STATUS_NEEDS_RESTART:
 
@@ -91,7 +124,7 @@ enum **LoadStatus**:
 
 :ref:`LoadStatus<enum_GDExtensionManager_LoadStatus>` **LOAD_STATUS_NEEDS_RESTART** = ``4``
 
-
+The extension requires the application to restart to fully load.
 
 .. rst-class:: classref-section-separator
 
@@ -108,9 +141,7 @@ Method Descriptions
 
 :ref:`GDExtension<class_GDExtension>` **get_extension** **(** :ref:`String<class_String>` path **)**
 
-.. container:: contribute
-
-	There is currently no description for this method. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+Returns the :ref:`GDExtension<class_GDExtension>` at the given file ``path``, or ``null`` if it has not been loaded or does not exist.
 
 .. rst-class:: classref-item-separator
 
@@ -122,9 +153,7 @@ Method Descriptions
 
 :ref:`PackedStringArray<class_PackedStringArray>` **get_loaded_extensions** **(** **)** |const|
 
-.. container:: contribute
-
-	There is currently no description for this method. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+Returns the file paths of all currently loaded extensions.
 
 .. rst-class:: classref-item-separator
 
@@ -136,9 +165,7 @@ Method Descriptions
 
 :ref:`bool<class_bool>` **is_extension_loaded** **(** :ref:`String<class_String>` path **)** |const|
 
-.. container:: contribute
-
-	There is currently no description for this method. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+Returns ``true`` if the extension at the given file ``path`` has already been loaded successfully. See also :ref:`get_loaded_extensions<class_GDExtensionManager_method_get_loaded_extensions>`.
 
 .. rst-class:: classref-item-separator
 
@@ -150,9 +177,7 @@ Method Descriptions
 
 :ref:`LoadStatus<enum_GDExtensionManager_LoadStatus>` **load_extension** **(** :ref:`String<class_String>` path **)**
 
-.. container:: contribute
-
-	There is currently no description for this method. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+Loads an extension by absolute file path. The ``path`` needs to point to a valid :ref:`GDExtension<class_GDExtension>`. Returns :ref:`LOAD_STATUS_OK<class_GDExtensionManager_constant_LOAD_STATUS_OK>` if successful.
 
 .. rst-class:: classref-item-separator
 
@@ -164,9 +189,9 @@ Method Descriptions
 
 :ref:`LoadStatus<enum_GDExtensionManager_LoadStatus>` **reload_extension** **(** :ref:`String<class_String>` path **)**
 
-.. container:: contribute
+Reloads the extension at the given file path. The ``path`` needs to point to a valid :ref:`GDExtension<class_GDExtension>`, otherwise this method may return either :ref:`LOAD_STATUS_NOT_LOADED<class_GDExtensionManager_constant_LOAD_STATUS_NOT_LOADED>` or :ref:`LOAD_STATUS_FAILED<class_GDExtensionManager_constant_LOAD_STATUS_FAILED>`. 
 
-	There is currently no description for this method. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+\ **Note:** You can only reload extensions in the editor. In release builds, this method always fails and returns :ref:`LOAD_STATUS_FAILED<class_GDExtensionManager_constant_LOAD_STATUS_FAILED>`.
 
 .. rst-class:: classref-item-separator
 
@@ -178,9 +203,7 @@ Method Descriptions
 
 :ref:`LoadStatus<enum_GDExtensionManager_LoadStatus>` **unload_extension** **(** :ref:`String<class_String>` path **)**
 
-.. container:: contribute
-
-	There is currently no description for this method. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+Unloads an extension by file path. The ``path`` needs to point to an already loaded :ref:`GDExtension<class_GDExtension>`, otherwise this method returns :ref:`LOAD_STATUS_NOT_LOADED<class_GDExtensionManager_constant_LOAD_STATUS_NOT_LOADED>`.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
@@ -188,3 +211,4 @@ Method Descriptions
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

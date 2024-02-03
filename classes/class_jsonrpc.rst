@@ -66,6 +66,10 @@ enum **ErrorCode**:
 
 :ref:`ErrorCode<enum_JSONRPC_ErrorCode>` **PARSE_ERROR** = ``-32700``
 
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+
 
 
 .. _class_JSONRPC_constant_INVALID_REQUEST:
@@ -73,6 +77,10 @@ enum **ErrorCode**:
 .. rst-class:: classref-enumeration-constant
 
 :ref:`ErrorCode<enum_JSONRPC_ErrorCode>` **INVALID_REQUEST** = ``-32600``
+
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
 
 
 
@@ -90,6 +98,10 @@ A method call was requested but no function of that name existed in the JSONRPC 
 
 :ref:`ErrorCode<enum_JSONRPC_ErrorCode>` **INVALID_PARAMS** = ``-32602``
 
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+
 
 
 .. _class_JSONRPC_constant_INTERNAL_ERROR:
@@ -97,6 +109,10 @@ A method call was requested but no function of that name existed in the JSONRPC 
 .. rst-class:: classref-enumeration-constant
 
 :ref:`ErrorCode<enum_JSONRPC_ErrorCode>` **INTERNAL_ERROR** = ``-32603``
+
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
 
 
 
@@ -223,3 +239,4 @@ void **set_scope** **(** :ref:`String<class_String>` scope, :ref:`Object<class_O
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

@@ -33,17 +33,17 @@ Methods
 .. table::
    :widths: auto
 
-   +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`PackedStringArray<class_PackedStringArray>` | :ref:`_get_extensions<class_EditorSceneFormatImporter_method__get_extensions>` **(** **)** |virtual| |const|                                                                                                                           |
-   +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`int<class_int>`                             | :ref:`_get_import_flags<class_EditorSceneFormatImporter_method__get_import_flags>` **(** **)** |virtual| |const|                                                                                                                       |
-   +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                              | :ref:`_get_import_options<class_EditorSceneFormatImporter_method__get_import_options>` **(** :ref:`String<class_String>` path **)** |virtual|                                                                                          |
-   +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Variant<class_Variant>`                     | :ref:`_get_option_visibility<class_EditorSceneFormatImporter_method__get_option_visibility>` **(** :ref:`String<class_String>` path, :ref:`bool<class_bool>` for_animation, :ref:`String<class_String>` option **)** |virtual| |const| |
-   +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Object<class_Object>`                       | :ref:`_import_scene<class_EditorSceneFormatImporter_method__import_scene>` **(** :ref:`String<class_String>` path, :ref:`int<class_int>` flags, :ref:`Dictionary<class_Dictionary>` options **)** |virtual|                            |
-   +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`PackedStringArray<class_PackedStringArray>` | :ref:`_get_extensions<class_EditorSceneFormatImporter_private_method__get_extensions>` **(** **)** |virtual| |const|                                                                                                                           |
+   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`int<class_int>`                             | :ref:`_get_import_flags<class_EditorSceneFormatImporter_private_method__get_import_flags>` **(** **)** |virtual| |const|                                                                                                                       |
+   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | void                                              | :ref:`_get_import_options<class_EditorSceneFormatImporter_private_method__get_import_options>` **(** :ref:`String<class_String>` path **)** |virtual|                                                                                          |
+   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Variant<class_Variant>`                     | :ref:`_get_option_visibility<class_EditorSceneFormatImporter_private_method__get_option_visibility>` **(** :ref:`String<class_String>` path, :ref:`bool<class_bool>` for_animation, :ref:`String<class_String>` option **)** |virtual| |const| |
+   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Object<class_Object>`                       | :ref:`_import_scene<class_EditorSceneFormatImporter_private_method__import_scene>` **(** :ref:`String<class_String>` path, :ref:`int<class_int>` flags, :ref:`Dictionary<class_Dictionary>` options **)** |virtual|                            |
+   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -60,6 +60,10 @@ Constants
 
 **IMPORT_SCENE** = ``1``
 
+.. container:: contribute
+
+	There is currently no description for this constant. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+
 
 
 .. _class_EditorSceneFormatImporter_constant_IMPORT_ANIMATION:
@@ -67,6 +71,10 @@ Constants
 .. rst-class:: classref-constant
 
 **IMPORT_ANIMATION** = ``2``
+
+.. container:: contribute
+
+	There is currently no description for this constant. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
 
 
 
@@ -76,6 +84,10 @@ Constants
 
 **IMPORT_FAIL_ON_MISSING_DEPENDENCIES** = ``4``
 
+.. container:: contribute
+
+	There is currently no description for this constant. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+
 
 
 .. _class_EditorSceneFormatImporter_constant_IMPORT_GENERATE_TANGENT_ARRAYS:
@@ -83,6 +95,10 @@ Constants
 .. rst-class:: classref-constant
 
 **IMPORT_GENERATE_TANGENT_ARRAYS** = ``8``
+
+.. container:: contribute
+
+	There is currently no description for this constant. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
 
 
 
@@ -92,6 +108,10 @@ Constants
 
 **IMPORT_USE_NAMED_SKIN_BINDS** = ``16``
 
+.. container:: contribute
+
+	There is currently no description for this constant. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+
 
 
 .. _class_EditorSceneFormatImporter_constant_IMPORT_DISCARD_MESHES_AND_MATERIALS:
@@ -99,6 +119,22 @@ Constants
 .. rst-class:: classref-constant
 
 **IMPORT_DISCARD_MESHES_AND_MATERIALS** = ``32``
+
+.. container:: contribute
+
+	There is currently no description for this constant. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+
+
+
+.. _class_EditorSceneFormatImporter_constant_IMPORT_FORCE_DISABLE_MESH_COMPRESSION:
+
+.. rst-class:: classref-constant
+
+**IMPORT_FORCE_DISABLE_MESH_COMPRESSION** = ``64``
+
+.. container:: contribute
+
+	There is currently no description for this constant. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
 
 
 
@@ -111,7 +147,7 @@ Constants
 Method Descriptions
 -------------------
 
-.. _class_EditorSceneFormatImporter_method__get_extensions:
+.. _class_EditorSceneFormatImporter_private_method__get_extensions:
 
 .. rst-class:: classref-method
 
@@ -125,7 +161,7 @@ Method Descriptions
 
 ----
 
-.. _class_EditorSceneFormatImporter_method__get_import_flags:
+.. _class_EditorSceneFormatImporter_private_method__get_import_flags:
 
 .. rst-class:: classref-method
 
@@ -139,7 +175,7 @@ Method Descriptions
 
 ----
 
-.. _class_EditorSceneFormatImporter_method__get_import_options:
+.. _class_EditorSceneFormatImporter_private_method__get_import_options:
 
 .. rst-class:: classref-method
 
@@ -153,7 +189,7 @@ void **_get_import_options** **(** :ref:`String<class_String>` path **)** |virtu
 
 ----
 
-.. _class_EditorSceneFormatImporter_method__get_option_visibility:
+.. _class_EditorSceneFormatImporter_private_method__get_option_visibility:
 
 .. rst-class:: classref-method
 
@@ -167,7 +203,7 @@ void **_get_import_options** **(** :ref:`String<class_String>` path **)** |virtu
 
 ----
 
-.. _class_EditorSceneFormatImporter_method__import_scene:
+.. _class_EditorSceneFormatImporter_private_method__import_scene:
 
 .. rst-class:: classref-method
 
@@ -183,3 +219,4 @@ void **_get_import_options** **(** :ref:`String<class_String>` path **)** |virtu
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
