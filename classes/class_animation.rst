@@ -12,14 +12,14 @@ Animation
 
 **Inherits:** :ref:`Resource<class_Resource>` **<** :ref:`RefCounted<class_RefCounted>` **<** :ref:`Object<class_Object>`
 
-Contains data used to animate everything in the engine.
+Holds data that can be used to animate anything in the engine.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-An Animation resource contains data used to animate everything in the engine. Animations are divided into tracks, and each track must be linked to a node. The state of that node can be changed through time, by adding timed keys (events) to the track.
+This resource holds data that can be used to animate anything in the engine. Animations are divided into tracks and each track must be linked to a node. The state of that node can be changed through time, by adding timed keys (events) to the track.
 
 
 .. tabs::
@@ -27,22 +27,24 @@ An Animation resource contains data used to animate everything in the engine. An
  .. code-tab:: gdscript
 
     # This creates an animation that makes the node "Enemy" move to the right by
-    # 100 pixels in 0.5 seconds.
+    # 100 pixels in 2.0 seconds.
     var animation = Animation.new()
     var track_index = animation.add_track(Animation.TYPE_VALUE)
     animation.track_set_path(track_index, "Enemy:position:x")
     animation.track_insert_key(track_index, 0.0, 0)
-    animation.track_insert_key(track_index, 0.5, 100)
+    animation.track_insert_key(track_index, 2.0, 100)
+    animation.length = 2.0
 
  .. code-tab:: csharp
 
     // This creates an animation that makes the node "Enemy" move to the right by
-    // 100 pixels in 0.5 seconds.
+    // 100 pixels in 2.0 seconds.
     var animation = new Animation();
     int trackIndex = animation.AddTrack(Animation.TrackType.Value);
     animation.TrackSetPath(trackIndex, "Enemy:position:x");
     animation.TrackInsertKey(trackIndex, 0.0f, 0);
-    animation.TrackInsertKey(trackIndex, 0.5f, 100);
+    animation.TrackInsertKey(trackIndex, 2.0f, 100);
+    animation.Length = 2.0f;
 
 
 
@@ -126,6 +128,8 @@ Methods
    +------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`                                      | :ref:`blend_shape_track_insert_key<class_Animation_method_blend_shape_track_insert_key>` **(** :ref:`int<class_int>` track_idx, :ref:`float<class_float>` time, :ref:`float<class_float>` amount **)**                                                                                                     |
    +------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`float<class_float>`                                  | :ref:`blend_shape_track_interpolate<class_Animation_method_blend_shape_track_interpolate>` **(** :ref:`int<class_int>` track_idx, :ref:`float<class_float>` time_sec **)** |const|                                                                                                                         |
+   +------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | void                                                       | :ref:`clear<class_Animation_method_clear>` **(** **)**                                                                                                                                                                                                                                                     |
    +------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | void                                                       | :ref:`compress<class_Animation_method_compress>` **(** :ref:`int<class_int>` page_size=8192, :ref:`int<class_int>` fps=120, :ref:`float<class_float>` split_tolerance=4.0 **)**                                                                                                                            |
@@ -142,11 +146,17 @@ Methods
    +------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`                                      | :ref:`position_track_insert_key<class_Animation_method_position_track_insert_key>` **(** :ref:`int<class_int>` track_idx, :ref:`float<class_float>` time, :ref:`Vector3<class_Vector3>` position **)**                                                                                                     |
    +------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Vector3<class_Vector3>`                              | :ref:`position_track_interpolate<class_Animation_method_position_track_interpolate>` **(** :ref:`int<class_int>` track_idx, :ref:`float<class_float>` time_sec **)** |const|                                                                                                                               |
+   +------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | void                                                       | :ref:`remove_track<class_Animation_method_remove_track>` **(** :ref:`int<class_int>` track_idx **)**                                                                                                                                                                                                       |
    +------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`                                      | :ref:`rotation_track_insert_key<class_Animation_method_rotation_track_insert_key>` **(** :ref:`int<class_int>` track_idx, :ref:`float<class_float>` time, :ref:`Quaternion<class_Quaternion>` rotation **)**                                                                                               |
    +------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Quaternion<class_Quaternion>`                        | :ref:`rotation_track_interpolate<class_Animation_method_rotation_track_interpolate>` **(** :ref:`int<class_int>` track_idx, :ref:`float<class_float>` time_sec **)** |const|                                                                                                                               |
+   +------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`                                      | :ref:`scale_track_insert_key<class_Animation_method_scale_track_insert_key>` **(** :ref:`int<class_int>` track_idx, :ref:`float<class_float>` time, :ref:`Vector3<class_Vector3>` scale **)**                                                                                                              |
+   +------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Vector3<class_Vector3>`                              | :ref:`scale_track_interpolate<class_Animation_method_scale_track_interpolate>` **(** :ref:`int<class_int>` track_idx, :ref:`float<class_float>` time_sec **)** |const|                                                                                                                                     |
    +------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`                                      | :ref:`track_find_key<class_Animation_method_track_find_key>` **(** :ref:`int<class_int>` track_idx, :ref:`float<class_float>` time, :ref:`FindMode<enum_Animation_FindMode>` find_mode=0 **)** |const|                                                                                                     |
    +------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -825,6 +835,18 @@ Inserts a key in a given blend shape track. Returns the key index.
 
 ----
 
+.. _class_Animation_method_blend_shape_track_interpolate:
+
+.. rst-class:: classref-method
+
+:ref:`float<class_float>` **blend_shape_track_interpolate** **(** :ref:`int<class_int>` track_idx, :ref:`float<class_float>` time_sec **)** |const|
+
+Returns the interpolated blend shape value at the given time (in seconds). The ``track_idx`` must be the index of a blend shape track.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_Animation_method_clear:
 
 .. rst-class:: classref-method
@@ -857,7 +879,7 @@ Compress the animation and all its tracks in-place. This will make :ref:`track_i
 
 void **copy_track** **(** :ref:`int<class_int>` track_idx, :ref:`Animation<class_Animation>` to_animation **)**
 
-Adds a new track that is a copy of the given track from ``to_animation``.
+Adds a new track to ``to_animation`` that is a copy of the given track from this animation.
 
 .. rst-class:: classref-item-separator
 
@@ -923,6 +945,18 @@ Inserts a key in a given 3D position track. Returns the key index.
 
 ----
 
+.. _class_Animation_method_position_track_interpolate:
+
+.. rst-class:: classref-method
+
+:ref:`Vector3<class_Vector3>` **position_track_interpolate** **(** :ref:`int<class_int>` track_idx, :ref:`float<class_float>` time_sec **)** |const|
+
+Returns the interpolated position value at the given time (in seconds). The ``track_idx`` must be the index of a 3D position track.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_Animation_method_remove_track:
 
 .. rst-class:: classref-method
@@ -947,6 +981,18 @@ Inserts a key in a given 3D rotation track. Returns the key index.
 
 ----
 
+.. _class_Animation_method_rotation_track_interpolate:
+
+.. rst-class:: classref-method
+
+:ref:`Quaternion<class_Quaternion>` **rotation_track_interpolate** **(** :ref:`int<class_int>` track_idx, :ref:`float<class_float>` time_sec **)** |const|
+
+Returns the interpolated rotation value at the given time (in seconds). The ``track_idx`` must be the index of a 3D rotation track.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_Animation_method_scale_track_insert_key:
 
 .. rst-class:: classref-method
@@ -954,6 +1000,18 @@ Inserts a key in a given 3D rotation track. Returns the key index.
 :ref:`int<class_int>` **scale_track_insert_key** **(** :ref:`int<class_int>` track_idx, :ref:`float<class_float>` time, :ref:`Vector3<class_Vector3>` scale **)**
 
 Inserts a key in a given 3D scale track. Returns the key index.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_Animation_method_scale_track_interpolate:
+
+.. rst-class:: classref-method
+
+:ref:`Vector3<class_Vector3>` **scale_track_interpolate** **(** :ref:`int<class_int>` track_idx, :ref:`float<class_float>` time_sec **)** |const|
+
+Returns the interpolated scale value at the given time (in seconds). The ``track_idx`` must be the index of a 3D scale track.
 
 .. rst-class:: classref-item-separator
 
@@ -1323,3 +1381,4 @@ Sets the update mode (see :ref:`UpdateMode<enum_Animation_UpdateMode>`) of a val
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

@@ -51,11 +51,11 @@ Methods
 .. table::
    :widths: auto
 
-   +---------------------------+--------------------------------------------------------------------------------------------------------+
-   | :ref:`Array<class_Array>` | :ref:`_create_mesh_array<class_PrimitiveMesh_method__create_mesh_array>` **(** **)** |virtual| |const| |
-   +---------------------------+--------------------------------------------------------------------------------------------------------+
-   | :ref:`Array<class_Array>` | :ref:`get_mesh_arrays<class_PrimitiveMesh_method_get_mesh_arrays>` **(** **)** |const|                 |
-   +---------------------------+--------------------------------------------------------------------------------------------------------+
+   +---------------------------+----------------------------------------------------------------------------------------------------------------+
+   | :ref:`Array<class_Array>` | :ref:`_create_mesh_array<class_PrimitiveMesh_private_method__create_mesh_array>` **(** **)** |virtual| |const| |
+   +---------------------------+----------------------------------------------------------------------------------------------------------------+
+   | :ref:`Array<class_Array>` | :ref:`get_mesh_arrays<class_PrimitiveMesh_method_get_mesh_arrays>` **(** **)** |const|                         |
+   +---------------------------+----------------------------------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -160,15 +160,13 @@ If the size of the lightmap texture can't be determined when generating the mesh
 Method Descriptions
 -------------------
 
-.. _class_PrimitiveMesh_method__create_mesh_array:
+.. _class_PrimitiveMesh_private_method__create_mesh_array:
 
 .. rst-class:: classref-method
 
 :ref:`Array<class_Array>` **_create_mesh_array** **(** **)** |virtual| |const|
 
-.. container:: contribute
-
-	There is currently no description for this method. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+Override this method to customize how this primitive mesh should be generated. Should return an :ref:`Array<class_Array>` where each element is another Array of values required for the mesh (see the :ref:`ArrayType<enum_Mesh_ArrayType>` constants).
 
 .. rst-class:: classref-item-separator
 
@@ -205,3 +203,4 @@ Returns mesh arrays used to constitute surface of :ref:`Mesh<class_Mesh>`. The r
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

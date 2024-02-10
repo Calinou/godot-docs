@@ -10,18 +10,16 @@
 Dictionary
 ==========
 
-Dictionary type.
+A built-in data structure that holds key-value pairs.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-Dictionary type. Associative container, which contains values referenced by unique keys. Dictionaries are composed of pairs of keys (which must be unique) and values. Dictionaries will preserve the insertion order when adding new entries. In other programming languages, this data structure is sometimes referred to as a hash map or associative array.
+Dictionaries are associative containers that contain values referenced by unique keys. Dictionaries will preserve the insertion order when adding new entries. In other programming languages, this data structure is often referred to as a hash map or an associative array.
 
-You can define a dictionary by placing a comma-separated list of ``key: value`` pairs in curly braces ``{}``.
-
-\ **Note:** Dictionaries are always passed by reference. To get a copy of a dictionary which can be modified independently of the original dictionary, use :ref:`duplicate<class_Dictionary_method_duplicate>`.
+You can define a dictionary by placing a comma-separated list of ``key: value`` pairs inside curly braces ``{}``.
 
 Creating a dictionary:
 
@@ -187,9 +185,13 @@ The keys of a dictionary can be iterated with the ``for`` keyword:
 
 
 
+\ **Note:** Dictionaries are always passed by reference. To get a copy of a dictionary which can be modified independently of the original dictionary, use :ref:`duplicate<class_Dictionary_method_duplicate>`.
+
 \ **Note:** Erasing elements while iterating over dictionaries is **not** supported and will result in unpredictable behavior.
 
-\ **Note:** When declaring a dictionary with ``const``, the dictionary becomes read-only. A read-only Dictionary's entries cannot be overridden at run-time. This does *not* affect nested :ref:`Array<class_Array>` and **Dictionary** values.
+.. note::
+
+	There are notable differences when using this API with C#. See :ref:`doc_c_sharp_differences` for more information.
 
 .. rst-class:: classref-introduction-group
 
@@ -234,6 +236,8 @@ Methods
    | :ref:`Variant<class_Variant>`       | :ref:`find_key<class_Dictionary_method_find_key>` **(** :ref:`Variant<class_Variant>` value **)** |const|                                       |
    +-------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`Variant<class_Variant>`       | :ref:`get<class_Dictionary_method_get>` **(** :ref:`Variant<class_Variant>` key, :ref:`Variant<class_Variant>` default=null **)** |const|       |
+   +-------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Variant<class_Variant>`       | :ref:`get_or_add<class_Dictionary_method_get_or_add>` **(** :ref:`Variant<class_Variant>` key, :ref:`Variant<class_Variant>` default=null **)** |
    +-------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`             | :ref:`has<class_Dictionary_method_has>` **(** :ref:`Variant<class_Variant>` key **)** |const|                                                   |
    +-------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -372,6 +376,18 @@ Returns the corresponding value for the given ``key`` in the dictionary. If the 
 
 ----
 
+.. _class_Dictionary_method_get_or_add:
+
+.. rst-class:: classref-method
+
+:ref:`Variant<class_Variant>` **get_or_add** **(** :ref:`Variant<class_Variant>` key, :ref:`Variant<class_Variant>` default=null **)**
+
+Gets a value and ensures the key is set. If the ``key`` exists in the dictionary, this behaves like :ref:`get<class_Dictionary_method_get>`. Otherwise, the ``default`` value is inserted into the dictionary and returned.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_Dictionary_method_has:
 
 .. rst-class:: classref-method
@@ -402,9 +418,9 @@ Returns ``true`` if the dictionary contains an entry with the given ``key``.
         { 210, default },
     };
     
-    GD.Print(myDict.Contains("Godot")); // Prints true
-    GD.Print(myDict.Contains(210));     // Prints true
-    GD.Print(myDict.Contains(4));       // Prints false
+    GD.Print(myDict.ContainsKey("Godot")); // Prints true
+    GD.Print(myDict.ContainsKey(210));     // Prints true
+    GD.Print(myDict.ContainsKey(4));       // Prints false
 
 
 
@@ -468,7 +484,7 @@ Returns a hashed 32-bit integer value representing the dictionary contents.
 
 \ **Note:** Dictionaries with the same entries but in a different order will not have the same hash.
 
-\ **Note:** Dictionaries with equal hash values are *not* guaranteed to be the same, because of hash collisions. On the countrary, dictionaries with different hash values are guaranteed to be different.
+\ **Note:** Dictionaries with equal hash values are *not* guaranteed to be the same, because of hash collisions. On the contrary, dictionaries with different hash values are guaranteed to be different.
 
 .. rst-class:: classref-item-separator
 
@@ -529,6 +545,48 @@ Makes the dictionary read-only, i.e. disables modification of the dictionary's c
 void **merge** **(** :ref:`Dictionary<class_Dictionary>` dictionary, :ref:`bool<class_bool>` overwrite=false **)**
 
 Adds entries from ``dictionary`` to this dictionary. By default, duplicate keys are not copied over, unless ``overwrite`` is ``true``.
+
+
+.. tabs::
+
+ .. code-tab:: gdscript
+
+    var dict = { "item": "sword", "quantity": 2 }
+    var other_dict = { "quantity": 15, "color": "silver" }
+    
+    # Overwriting of existing keys is disabled by default.
+    dict.merge(other_dict)
+    print(dict)  # { "item": "sword", "quantity": 2, "color": "silver" }
+    
+    # With overwriting of existing keys enabled.
+    dict.merge(other_dict, true)
+    print(dict)  # { "item": "sword", "quantity": 15, "color": "silver" }
+
+ .. code-tab:: csharp
+
+    var dict = new Godot.Collections.Dictionary
+    {
+        ["item"] = "sword",
+        ["quantity"] = 2,
+    };
+    
+    var otherDict = new Godot.Collections.Dictionary
+    {
+        ["quantity"] = 15,
+        ["color"] = "silver",
+    };
+    
+    // Overwriting of existing keys is disabled by default.
+    dict.Merge(otherDict);
+    GD.Print(dict); // { "item": "sword", "quantity": 2, "color": "silver" }
+    
+    // With overwriting of existing keys enabled.
+    dict.Merge(otherDict, true);
+    GD.Print(dict); // { "item": "sword", "quantity": 15, "color": "silver" }
+
+
+
+\ **Note:** :ref:`merge<class_Dictionary_method_merge>` is *not* recursive. Nested dictionaries are considered as keys that can be overwritten or not depending on the value of ``overwrite``, but they will never be merged together.
 
 .. rst-class:: classref-item-separator
 
@@ -603,3 +661,4 @@ Returns the corresponding value for the given ``key`` in the dictionary. If the 
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

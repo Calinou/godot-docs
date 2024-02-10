@@ -12,9 +12,14 @@ RDPipelineDepthStencilState
 
 **Inherits:** :ref:`RefCounted<class_RefCounted>` **<** :ref:`Object<class_Object>`
 
-.. container:: contribute
+Pipeline depth/stencil state (used by :ref:`RenderingDevice<class_RenderingDevice>`).
 
-	There is currently no description for this class. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+.. rst-class:: classref-introduction-group
+
+Description
+-----------
+
+**RDPipelineDepthStencilState** controls the way depth and stencil comparisons are performed when sampling those values using :ref:`RenderingDevice<class_RenderingDevice>`.
 
 .. rst-class:: classref-reftable-group
 
@@ -88,9 +93,7 @@ Property Descriptions
 - void **set_back_op_compare** **(** :ref:`CompareOperator<enum_RenderingDevice_CompareOperator>` value **)**
 - :ref:`CompareOperator<enum_RenderingDevice_CompareOperator>` **get_back_op_compare** **(** **)**
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+The method used for comparing the previous back stencil value and :ref:`back_op_reference<class_RDPipelineDepthStencilState_property_back_op_reference>`.
 
 .. rst-class:: classref-item-separator
 
@@ -107,9 +110,7 @@ Property Descriptions
 - void **set_back_op_compare_mask** **(** :ref:`int<class_int>` value **)**
 - :ref:`int<class_int>` **get_back_op_compare_mask** **(** **)**
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+Selects which bits from the back stencil value will be compared.
 
 .. rst-class:: classref-item-separator
 
@@ -126,9 +127,7 @@ Property Descriptions
 - void **set_back_op_depth_fail** **(** :ref:`StencilOperation<enum_RenderingDevice_StencilOperation>` value **)**
 - :ref:`StencilOperation<enum_RenderingDevice_StencilOperation>` **get_back_op_depth_fail** **(** **)**
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+The operation to perform on the stencil buffer for back pixels that pass the stencil test but fail the depth test.
 
 .. rst-class:: classref-item-separator
 
@@ -145,9 +144,7 @@ Property Descriptions
 - void **set_back_op_fail** **(** :ref:`StencilOperation<enum_RenderingDevice_StencilOperation>` value **)**
 - :ref:`StencilOperation<enum_RenderingDevice_StencilOperation>` **get_back_op_fail** **(** **)**
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+The operation to perform on the stencil buffer for back pixels that fail the stencil test
 
 .. rst-class:: classref-item-separator
 
@@ -164,9 +161,7 @@ Property Descriptions
 - void **set_back_op_pass** **(** :ref:`StencilOperation<enum_RenderingDevice_StencilOperation>` value **)**
 - :ref:`StencilOperation<enum_RenderingDevice_StencilOperation>` **get_back_op_pass** **(** **)**
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+The operation to perform on the stencil buffer for back pixels that pass the stencil test.
 
 .. rst-class:: classref-item-separator
 
@@ -183,9 +178,7 @@ Property Descriptions
 - void **set_back_op_reference** **(** :ref:`int<class_int>` value **)**
 - :ref:`int<class_int>` **get_back_op_reference** **(** **)**
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+The value the previous back stencil value will be compared to.
 
 .. rst-class:: classref-item-separator
 
@@ -202,9 +195,7 @@ Property Descriptions
 - void **set_back_op_write_mask** **(** :ref:`int<class_int>` value **)**
 - :ref:`int<class_int>` **get_back_op_write_mask** **(** **)**
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+Selects which bits from the back stencil value will be changed.
 
 .. rst-class:: classref-item-separator
 
@@ -221,9 +212,7 @@ Property Descriptions
 - void **set_depth_compare_operator** **(** :ref:`CompareOperator<enum_RenderingDevice_CompareOperator>` value **)**
 - :ref:`CompareOperator<enum_RenderingDevice_CompareOperator>` **get_depth_compare_operator** **(** **)**
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+The method used for comparing the previous and current depth values.
 
 .. rst-class:: classref-item-separator
 
@@ -240,9 +229,7 @@ Property Descriptions
 - void **set_depth_range_max** **(** :ref:`float<class_float>` value **)**
 - :ref:`float<class_float>` **get_depth_range_max** **(** **)**
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+The maximum depth that returns true for :ref:`enable_depth_range<class_RDPipelineDepthStencilState_property_enable_depth_range>`.
 
 .. rst-class:: classref-item-separator
 
@@ -259,9 +246,7 @@ Property Descriptions
 - void **set_depth_range_min** **(** :ref:`float<class_float>` value **)**
 - :ref:`float<class_float>` **get_depth_range_min** **(** **)**
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+The minimum depth that returns true for :ref:`enable_depth_range<class_RDPipelineDepthStencilState_property_enable_depth_range>`.
 
 .. rst-class:: classref-item-separator
 
@@ -278,9 +263,7 @@ Property Descriptions
 - void **set_enable_depth_range** **(** :ref:`bool<class_bool>` value **)**
 - :ref:`bool<class_bool>` **get_enable_depth_range** **(** **)**
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+If ``true``, each depth value will be tested to see if it is between :ref:`depth_range_min<class_RDPipelineDepthStencilState_property_depth_range_min>` and :ref:`depth_range_max<class_RDPipelineDepthStencilState_property_depth_range_max>`. If it is outside of these values, it is discarded.
 
 .. rst-class:: classref-item-separator
 
@@ -297,9 +280,7 @@ Property Descriptions
 - void **set_enable_depth_test** **(** :ref:`bool<class_bool>` value **)**
 - :ref:`bool<class_bool>` **get_enable_depth_test** **(** **)**
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+If ``true``, enables depth testing which allows objects to be automatically occluded by other objects based on their depth. This also allows objects to be partially occluded by other objects. If ``false``, objects will appear in the order they were drawn (like in Godot's 2D renderer).
 
 .. rst-class:: classref-item-separator
 
@@ -316,9 +297,7 @@ Property Descriptions
 - void **set_enable_depth_write** **(** :ref:`bool<class_bool>` value **)**
 - :ref:`bool<class_bool>` **get_enable_depth_write** **(** **)**
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+If ``true``, writes to the depth buffer whenever the depth test returns true. Only works when enable_depth_test is also true.
 
 .. rst-class:: classref-item-separator
 
@@ -335,9 +314,7 @@ Property Descriptions
 - void **set_enable_stencil** **(** :ref:`bool<class_bool>` value **)**
 - :ref:`bool<class_bool>` **get_enable_stencil** **(** **)**
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+If ``true``, enables stencil testing. There are separate stencil buffers for front-facing triangles and back-facing triangles. See properties that begin with "front_op" and properties with "back_op" for each.
 
 .. rst-class:: classref-item-separator
 
@@ -354,9 +331,7 @@ Property Descriptions
 - void **set_front_op_compare** **(** :ref:`CompareOperator<enum_RenderingDevice_CompareOperator>` value **)**
 - :ref:`CompareOperator<enum_RenderingDevice_CompareOperator>` **get_front_op_compare** **(** **)**
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+The method used for comparing the previous front stencil value and :ref:`front_op_reference<class_RDPipelineDepthStencilState_property_front_op_reference>`.
 
 .. rst-class:: classref-item-separator
 
@@ -373,9 +348,7 @@ Property Descriptions
 - void **set_front_op_compare_mask** **(** :ref:`int<class_int>` value **)**
 - :ref:`int<class_int>` **get_front_op_compare_mask** **(** **)**
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+Selects which bits from the front stencil value will be compared.
 
 .. rst-class:: classref-item-separator
 
@@ -392,9 +365,7 @@ Property Descriptions
 - void **set_front_op_depth_fail** **(** :ref:`StencilOperation<enum_RenderingDevice_StencilOperation>` value **)**
 - :ref:`StencilOperation<enum_RenderingDevice_StencilOperation>` **get_front_op_depth_fail** **(** **)**
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+The operation to perform on the stencil buffer for front pixels that pass the stencil test but fail the depth test.
 
 .. rst-class:: classref-item-separator
 
@@ -411,9 +382,7 @@ Property Descriptions
 - void **set_front_op_fail** **(** :ref:`StencilOperation<enum_RenderingDevice_StencilOperation>` value **)**
 - :ref:`StencilOperation<enum_RenderingDevice_StencilOperation>` **get_front_op_fail** **(** **)**
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+The operation to perform on the stencil buffer for front pixels that fail the stencil test.
 
 .. rst-class:: classref-item-separator
 
@@ -430,9 +399,7 @@ Property Descriptions
 - void **set_front_op_pass** **(** :ref:`StencilOperation<enum_RenderingDevice_StencilOperation>` value **)**
 - :ref:`StencilOperation<enum_RenderingDevice_StencilOperation>` **get_front_op_pass** **(** **)**
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+The operation to perform on the stencil buffer for front pixels that pass the stencil test.
 
 .. rst-class:: classref-item-separator
 
@@ -449,9 +416,7 @@ Property Descriptions
 - void **set_front_op_reference** **(** :ref:`int<class_int>` value **)**
 - :ref:`int<class_int>` **get_front_op_reference** **(** **)**
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+The value the previous front stencil value will be compared to.
 
 .. rst-class:: classref-item-separator
 
@@ -468,9 +433,7 @@ Property Descriptions
 - void **set_front_op_write_mask** **(** :ref:`int<class_int>` value **)**
 - :ref:`int<class_int>` **get_front_op_write_mask** **(** **)**
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+Selects which bits from the front stencil value will be changed.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
@@ -478,3 +441,4 @@ Property Descriptions
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

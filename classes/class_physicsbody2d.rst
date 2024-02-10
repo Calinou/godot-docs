@@ -14,14 +14,14 @@ PhysicsBody2D
 
 **Inherited By:** :ref:`CharacterBody2D<class_CharacterBody2D>`, :ref:`RigidBody2D<class_RigidBody2D>`, :ref:`StaticBody2D<class_StaticBody2D>`
 
-Base class for all objects affected by physics in 2D space.
+Abstract base class for 2D game objects affected by physics.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-PhysicsBody2D is an abstract base class for implementing a physics body. All \*Body2D types inherit from it.
+**PhysicsBody2D** is an abstract base class for 2D game objects affected by physics. All 2D physics bodies inherit from it.
 
 .. rst-class:: classref-introduction-group
 
@@ -54,6 +54,8 @@ Methods
    | void                                                    | :ref:`add_collision_exception_with<class_PhysicsBody2D_method_add_collision_exception_with>` **(** :ref:`Node<class_Node>` body **)**                                                                                                                                                                                        |
    +---------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`PhysicsBody2D[]<class_PhysicsBody2D>`             | :ref:`get_collision_exceptions<class_PhysicsBody2D_method_get_collision_exceptions>` **(** **)**                                                                                                                                                                                                                             |
+   +---------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Vector2<class_Vector2>`                           | :ref:`get_gravity<class_PhysicsBody2D_method_get_gravity>` **(** **)** |const|                                                                                                                                                                                                                                               |
    +---------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`KinematicCollision2D<class_KinematicCollision2D>` | :ref:`move_and_collide<class_PhysicsBody2D_method_move_and_collide>` **(** :ref:`Vector2<class_Vector2>` motion, :ref:`bool<class_bool>` test_only=false, :ref:`float<class_float>` safe_margin=0.08, :ref:`bool<class_bool>` recovery_as_collision=false **)**                                                              |
    +---------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -95,13 +97,25 @@ Returns an array of nodes that were added as collision exceptions for this body.
 
 ----
 
+.. _class_PhysicsBody2D_method_get_gravity:
+
+.. rst-class:: classref-method
+
+:ref:`Vector2<class_Vector2>` **get_gravity** **(** **)** |const|
+
+Returns the gravity vector computed from all sources that can affect the body, including all gravity overrides from :ref:`Area2D<class_Area2D>` nodes and the global world gravity.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_PhysicsBody2D_method_move_and_collide:
 
 .. rst-class:: classref-method
 
 :ref:`KinematicCollision2D<class_KinematicCollision2D>` **move_and_collide** **(** :ref:`Vector2<class_Vector2>` motion, :ref:`bool<class_bool>` test_only=false, :ref:`float<class_float>` safe_margin=0.08, :ref:`bool<class_bool>` recovery_as_collision=false **)**
 
-Moves the body along the vector ``motion``. In order to be frame rate independent in :ref:`Node._physics_process<class_Node_method__physics_process>` or :ref:`Node._process<class_Node_method__process>`, ``motion`` should be computed using ``delta``.
+Moves the body along the vector ``motion``. In order to be frame rate independent in :ref:`Node._physics_process<class_Node_private_method__physics_process>` or :ref:`Node._process<class_Node_private_method__process>`, ``motion`` should be computed using ``delta``.
 
 Returns a :ref:`KinematicCollision2D<class_KinematicCollision2D>`, which contains information about the collision when stopped, or when touching another body along the motion.
 
@@ -133,7 +147,7 @@ Removes a body from the list of bodies that this body can't collide with.
 
 :ref:`bool<class_bool>` **test_move** **(** :ref:`Transform2D<class_Transform2D>` from, :ref:`Vector2<class_Vector2>` motion, :ref:`KinematicCollision2D<class_KinematicCollision2D>` collision=null, :ref:`float<class_float>` safe_margin=0.08, :ref:`bool<class_bool>` recovery_as_collision=false **)**
 
-Checks for collisions without moving the body. In order to be frame rate independent in :ref:`Node._physics_process<class_Node_method__physics_process>` or :ref:`Node._process<class_Node_method__process>`, ``motion`` should be computed using ``delta``.
+Checks for collisions without moving the body. In order to be frame rate independent in :ref:`Node._physics_process<class_Node_private_method__physics_process>` or :ref:`Node._process<class_Node_private_method__process>`, ``motion`` should be computed using ``delta``.
 
 Virtually sets the node's position, scale and rotation to that of the given :ref:`Transform2D<class_Transform2D>`, then tries to move the body along the vector ``motion``. Returns ``true`` if a collision would stop the body from moving along the whole path.
 
@@ -149,3 +163,4 @@ If ``recovery_as_collision`` is ``true``, any depenetration from the recovery ph
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
