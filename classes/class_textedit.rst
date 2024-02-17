@@ -14,14 +14,14 @@ TextEdit
 
 **Inherited By:** :ref:`CodeEdit<class_CodeEdit>`
 
-Multiline text editing control.
+A multiline text editor.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-TextEdit is meant for editing large, multiline text. It also has facilities for editing code, such as syntax highlighting support and multiple levels of undo/redo.
+A multiline text editor. It also has limited facilities for editing code, such as syntax highlighting support. For more advanced facilities for editing code, see :ref:`CodeEdit<class_CodeEdit>`.
 
 \ **Note:** Most viewport, caret and edit methods contain a ``caret_index`` argument for :ref:`caret_multiple<class_TextEdit_property_caret_multiple>` support. The argument should be one of the following: ``-1`` for all carets, ``0`` for the main caret, or greater than ``0`` for secondary carets.
 
@@ -36,11 +36,15 @@ Properties
    :widths: auto
 
    +-------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+
+   | :ref:`AutowrapMode<enum_TextServer_AutowrapMode>`                 | :ref:`autowrap_mode<class_TextEdit_property_autowrap_mode>`                                                 | ``3``                                                                               |
+   +-------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                                           | :ref:`caret_blink<class_TextEdit_property_caret_blink>`                                                     | ``false``                                                                           |
    +-------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+
    | :ref:`float<class_float>`                                         | :ref:`caret_blink_interval<class_TextEdit_property_caret_blink_interval>`                                   | ``0.65``                                                                            |
    +-------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`                                           | :ref:`caret_mid_grapheme<class_TextEdit_property_caret_mid_grapheme>`                                       | ``true``                                                                            |
+   | :ref:`bool<class_bool>`                                           | :ref:`caret_draw_when_editable_disabled<class_TextEdit_property_caret_draw_when_editable_disabled>`         | ``false``                                                                           |
+   +-------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                                           | :ref:`caret_mid_grapheme<class_TextEdit_property_caret_mid_grapheme>`                                       | ``false``                                                                           |
    +-------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                                           | :ref:`caret_move_on_right_click<class_TextEdit_property_caret_move_on_right_click>`                         | ``true``                                                                            |
    +-------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+
@@ -120,17 +124,17 @@ Methods
    :widths: auto
 
    +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                              | :ref:`_backspace<class_TextEdit_method__backspace>` **(** :ref:`int<class_int>` caret_index **)** |virtual|                                                                                                                                                           |
+   | void                                              | :ref:`_backspace<class_TextEdit_private_method__backspace>` **(** :ref:`int<class_int>` caret_index **)** |virtual|                                                                                                                                                   |
    +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                              | :ref:`_copy<class_TextEdit_method__copy>` **(** :ref:`int<class_int>` caret_index **)** |virtual|                                                                                                                                                                     |
+   | void                                              | :ref:`_copy<class_TextEdit_private_method__copy>` **(** :ref:`int<class_int>` caret_index **)** |virtual|                                                                                                                                                             |
    +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                              | :ref:`_cut<class_TextEdit_method__cut>` **(** :ref:`int<class_int>` caret_index **)** |virtual|                                                                                                                                                                       |
+   | void                                              | :ref:`_cut<class_TextEdit_private_method__cut>` **(** :ref:`int<class_int>` caret_index **)** |virtual|                                                                                                                                                               |
    +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                              | :ref:`_handle_unicode_input<class_TextEdit_method__handle_unicode_input>` **(** :ref:`int<class_int>` unicode_char, :ref:`int<class_int>` caret_index **)** |virtual|                                                                                                 |
+   | void                                              | :ref:`_handle_unicode_input<class_TextEdit_private_method__handle_unicode_input>` **(** :ref:`int<class_int>` unicode_char, :ref:`int<class_int>` caret_index **)** |virtual|                                                                                         |
    +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                              | :ref:`_paste<class_TextEdit_method__paste>` **(** :ref:`int<class_int>` caret_index **)** |virtual|                                                                                                                                                                   |
+   | void                                              | :ref:`_paste<class_TextEdit_private_method__paste>` **(** :ref:`int<class_int>` caret_index **)** |virtual|                                                                                                                                                           |
    +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                              | :ref:`_paste_primary_clipboard<class_TextEdit_method__paste_primary_clipboard>` **(** :ref:`int<class_int>` caret_index **)** |virtual|                                                                                                                               |
+   | void                                              | :ref:`_paste_primary_clipboard<class_TextEdit_private_method__paste_primary_clipboard>` **(** :ref:`int<class_int>` caret_index **)** |virtual|                                                                                                                       |
    +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`                             | :ref:`add_caret<class_TextEdit_method_add_caret>` **(** :ref:`int<class_int>` line, :ref:`int<class_int>` col **)**                                                                                                                                                   |
    +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -144,9 +148,13 @@ Methods
    +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | void                                              | :ref:`adjust_viewport_to_caret<class_TextEdit_method_adjust_viewport_to_caret>` **(** :ref:`int<class_int>` caret_index=0 **)**                                                                                                                                       |
    +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | void                                              | :ref:`apply_ime<class_TextEdit_method_apply_ime>` **(** **)**                                                                                                                                                                                                         |
+   +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | void                                              | :ref:`backspace<class_TextEdit_method_backspace>` **(** :ref:`int<class_int>` caret_index=-1 **)**                                                                                                                                                                    |
    +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | void                                              | :ref:`begin_complex_operation<class_TextEdit_method_begin_complex_operation>` **(** **)**                                                                                                                                                                             |
+   +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | void                                              | :ref:`cancel_ime<class_TextEdit_method_cancel_ime>` **(** **)**                                                                                                                                                                                                       |
    +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | void                                              | :ref:`center_viewport_to_caret<class_TextEdit_method_center_viewport_to_caret>` **(** :ref:`int<class_int>` caret_index=0 **)**                                                                                                                                       |
    +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -520,7 +528,7 @@ Emitted when a gutter is removed.
 
 Emitted immediately when the text changes.
 
-When text is added ``from_line`` will be less then ``to_line``. On a remove ``to_line`` will be less then ``from_line``.
+When text is added ``from_line`` will be less than ``to_line``. On a remove ``to_line`` will be less than ``from_line``.
 
 .. rst-class:: classref-item-separator
 
@@ -959,7 +967,7 @@ Select whole words as if the user double clicked.
 
 :ref:`SelectionMode<enum_TextEdit_SelectionMode>` **SELECTION_MODE_LINE** = ``4``
 
-Select whole lines as if the user tripped clicked.
+Select whole lines as if the user triple clicked.
 
 .. rst-class:: classref-item-separator
 
@@ -1030,6 +1038,23 @@ Custom draw.
 Property Descriptions
 ---------------------
 
+.. _class_TextEdit_property_autowrap_mode:
+
+.. rst-class:: classref-property
+
+:ref:`AutowrapMode<enum_TextServer_AutowrapMode>` **autowrap_mode** = ``3``
+
+.. rst-class:: classref-property-setget
+
+- void **set_autowrap_mode** **(** :ref:`AutowrapMode<enum_TextServer_AutowrapMode>` value **)**
+- :ref:`AutowrapMode<enum_TextServer_AutowrapMode>` **get_autowrap_mode** **(** **)**
+
+If :ref:`wrap_mode<class_TextEdit_property_wrap_mode>` is set to :ref:`LINE_WRAPPING_BOUNDARY<class_TextEdit_constant_LINE_WRAPPING_BOUNDARY>`, sets text wrapping mode. To see how each mode behaves, see :ref:`AutowrapMode<enum_TextServer_AutowrapMode>`.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_TextEdit_property_caret_blink:
 
 .. rst-class:: classref-property
@@ -1041,7 +1066,7 @@ Property Descriptions
 - void **set_caret_blink_enabled** **(** :ref:`bool<class_bool>` value **)**
 - :ref:`bool<class_bool>` **is_caret_blink_enabled** **(** **)**
 
-Sets if the caret should blink.
+If ``true``, makes the caret blink.
 
 .. rst-class:: classref-item-separator
 
@@ -1058,7 +1083,24 @@ Sets if the caret should blink.
 - void **set_caret_blink_interval** **(** :ref:`float<class_float>` value **)**
 - :ref:`float<class_float>` **get_caret_blink_interval** **(** **)**
 
-Duration (in seconds) of a caret's blinking cycle.
+The interval at which the caret blinks (in seconds).
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_TextEdit_property_caret_draw_when_editable_disabled:
+
+.. rst-class:: classref-property
+
+:ref:`bool<class_bool>` **caret_draw_when_editable_disabled** = ``false``
+
+.. rst-class:: classref-property-setget
+
+- void **set_draw_caret_when_editable_disabled** **(** :ref:`bool<class_bool>` value **)**
+- :ref:`bool<class_bool>` **is_drawing_caret_when_editable_disabled** **(** **)**
+
+If ``true``, caret will be visible when :ref:`editable<class_TextEdit_property_editable>` is disabled.
 
 .. rst-class:: classref-item-separator
 
@@ -1068,7 +1110,7 @@ Duration (in seconds) of a caret's blinking cycle.
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **caret_mid_grapheme** = ``true``
+:ref:`bool<class_bool>` **caret_mid_grapheme** = ``false``
 
 .. rst-class:: classref-property-setget
 
@@ -1096,7 +1138,7 @@ Allow moving caret, selecting and removing the individual composite character co
 
 If ``true``, a right-click moves the caret at the mouse position before displaying the context menu.
 
-If ``false``, the context menu disregards mouse location.
+If ``false``, the context menu ignores mouse location.
 
 .. rst-class:: classref-item-separator
 
@@ -1438,7 +1480,7 @@ Allow scrolling past the last line into "virtual" space.
 - void **set_smooth_scroll_enabled** **(** :ref:`bool<class_bool>` value **)**
 - :ref:`bool<class_bool>` **is_smooth_scroll_enabled** **(** **)**
 
-Scroll smoothly over the text rather then jumping to the next location.
+Scroll smoothly over the text rather than jumping to the next location.
 
 .. rst-class:: classref-item-separator
 
@@ -1638,7 +1680,7 @@ Sets the line wrapping mode to use.
 Method Descriptions
 -------------------
 
-.. _class_TextEdit_method__backspace:
+.. _class_TextEdit_private_method__backspace:
 
 .. rst-class:: classref-method
 
@@ -1650,7 +1692,7 @@ Override this method to define what happens when the user presses the backspace 
 
 ----
 
-.. _class_TextEdit_method__copy:
+.. _class_TextEdit_private_method__copy:
 
 .. rst-class:: classref-method
 
@@ -1662,7 +1704,7 @@ Override this method to define what happens when the user performs a copy operat
 
 ----
 
-.. _class_TextEdit_method__cut:
+.. _class_TextEdit_private_method__cut:
 
 .. rst-class:: classref-method
 
@@ -1674,7 +1716,7 @@ Override this method to define what happens when the user performs a cut operati
 
 ----
 
-.. _class_TextEdit_method__handle_unicode_input:
+.. _class_TextEdit_private_method__handle_unicode_input:
 
 .. rst-class:: classref-method
 
@@ -1686,7 +1728,7 @@ Override this method to define what happens when the user types in the provided 
 
 ----
 
-.. _class_TextEdit_method__paste:
+.. _class_TextEdit_private_method__paste:
 
 .. rst-class:: classref-method
 
@@ -1698,7 +1740,7 @@ Override this method to define what happens when the user performs a paste opera
 
 ----
 
-.. _class_TextEdit_method__paste_primary_clipboard:
+.. _class_TextEdit_private_method__paste_primary_clipboard:
 
 .. rst-class:: classref-method
 
@@ -1784,13 +1826,25 @@ Adjust the viewport so the caret is visible.
 
 ----
 
+.. _class_TextEdit_method_apply_ime:
+
+.. rst-class:: classref-method
+
+void **apply_ime** **(** **)**
+
+Applies text from the `Input Method Editor <https://en.wikipedia.org/wiki/Input_method>`__ (IME) to each caret and closes the IME if it is open.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_TextEdit_method_backspace:
 
 .. rst-class:: classref-method
 
 void **backspace** **(** :ref:`int<class_int>` caret_index=-1 **)**
 
-Called when the user presses the backspace key. Can be overridden with :ref:`_backspace<class_TextEdit_method__backspace>`.
+Called when the user presses the backspace key. Can be overridden with :ref:`_backspace<class_TextEdit_private_method__backspace>`.
 
 .. rst-class:: classref-item-separator
 
@@ -1803,6 +1857,18 @@ Called when the user presses the backspace key. Can be overridden with :ref:`_ba
 void **begin_complex_operation** **(** **)**
 
 Starts a multipart edit. All edits will be treated as one action until :ref:`end_complex_operation<class_TextEdit_method_end_complex_operation>` is called.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_TextEdit_method_cancel_ime:
+
+.. rst-class:: classref-method
+
+void **cancel_ime** **(** **)**
+
+Closes the `Input Method Editor <https://en.wikipedia.org/wiki/Input_method>`__ (IME) if it is open. Any text in the IME will be lost.
 
 .. rst-class:: classref-item-separator
 
@@ -1850,7 +1916,7 @@ Clears the undo history.
 
 void **copy** **(** :ref:`int<class_int>` caret_index=-1 **)**
 
-Copies the current text selection. Can be overridden with :ref:`_copy<class_TextEdit_method__copy>`.
+Copies the current text selection. Can be overridden with :ref:`_copy<class_TextEdit_private_method__copy>`.
 
 .. rst-class:: classref-item-separator
 
@@ -1862,7 +1928,7 @@ Copies the current text selection. Can be overridden with :ref:`_copy<class_Text
 
 void **cut** **(** :ref:`int<class_int>` caret_index=-1 **)**
 
-Cut's the current selection. Can be overridden with :ref:`_cut<class_TextEdit_method__cut>`.
+Cut's the current selection. Can be overridden with :ref:`_cut<class_TextEdit_private_method__cut>`.
 
 .. rst-class:: classref-item-separator
 
@@ -2222,7 +2288,9 @@ Returns the text currently in ``gutter`` at ``line``.
 
 :ref:`int<class_int>` **get_line_height** **(** **)** |const|
 
-Returns the height of a largest line.
+Returns the maximum value of the line height among all lines.
+
+\ **Note:** The return value is influenced by :ref:`line_spacing<class_TextEdit_theme_constant_line_spacing>` and :ref:`font_size<class_TextEdit_theme_font_size_font_size>`. And it will not be less than ``1``.
 
 .. rst-class:: classref-item-separator
 
@@ -2453,7 +2521,7 @@ Returns the scroll position for ``wrap_index`` of ``line``.
 
 :ref:`String<class_String>` **get_selected_text** **(** :ref:`int<class_int>` caret_index=-1 **)**
 
-Returns the text inside the selection.
+Returns the text inside the selection of a caret, or all the carets if ``caret_index`` is its default value ``-1``.
 
 .. rst-class:: classref-item-separator
 
@@ -2657,7 +2725,7 @@ Returns a :ref:`String<class_String>` text with the word under the caret's locat
 
 :ref:`bool<class_bool>` **has_ime_text** **(** **)** |const|
 
-Returns if the user has IME text.
+Returns ``true`` if the user has text in the `Input Method Editor <https://en.wikipedia.org/wiki/Input_method>`__ (IME).
 
 .. rst-class:: classref-item-separator
 
@@ -2887,7 +2955,7 @@ Merges any overlapping carets. Will favor the newest caret, or the caret with a 
 
 void **paste** **(** :ref:`int<class_int>` caret_index=-1 **)**
 
-Paste at the current location. Can be overridden with :ref:`_paste<class_TextEdit_method__paste>`.
+Paste at the current location. Can be overridden with :ref:`_paste<class_TextEdit_private_method__paste>`.
 
 .. rst-class:: classref-item-separator
 
@@ -3659,7 +3727,7 @@ Sets a custom :ref:`Texture2D<class_Texture2D>` for tab text characters.
 
 :ref:`StyleBox<class_StyleBox>` **focus**
 
-Sets the :ref:`StyleBox<class_StyleBox>` when in focus. The ``focus`` :ref:`StyleBox<class_StyleBox>` is displayed *over* the base :ref:`StyleBox<class_StyleBox>`, so a partially transparent :ref:`StyleBox<class_StyleBox>` should be used to ensure the base :ref:`StyleBox<class_StyleBox>` remains visible. A :ref:`StyleBox<class_StyleBox>` that represents an outline or an underline works well for this purpose. To disable the focus visual effect, assign a :ref:`StyleBoxEmpty<class_StyleBoxEmpty>` resource. Note that disabling the focus visual effect will harm keyboard/controller navigation usability, so this is not recommended for accessibility reasons.
+Sets the :ref:`StyleBox<class_StyleBox>` when in focus. The :ref:`focus<class_TextEdit_theme_style_focus>` :ref:`StyleBox<class_StyleBox>` is displayed *over* the base :ref:`StyleBox<class_StyleBox>`, so a partially transparent :ref:`StyleBox<class_StyleBox>` should be used to ensure the base :ref:`StyleBox<class_StyleBox>` remains visible. A :ref:`StyleBox<class_StyleBox>` that represents an outline or an underline works well for this purpose. To disable the focus visual effect, assign a :ref:`StyleBoxEmpty<class_StyleBoxEmpty>` resource. Note that disabling the focus visual effect will harm keyboard/controller navigation usability, so this is not recommended for accessibility reasons.
 
 .. rst-class:: classref-item-separator
 
@@ -3691,3 +3759,4 @@ Sets the :ref:`StyleBox<class_StyleBox>` of this **TextEdit** when :ref:`editabl
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

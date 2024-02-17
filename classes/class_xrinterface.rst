@@ -40,13 +40,15 @@ Properties
 .. table::
    :widths: auto
 
-   +----------------------------------------------------+--------------------------------------------------------------------------------------------------+-----------+
-   | :ref:`bool<class_bool>`                            | :ref:`ar_is_anchor_detection_enabled<class_XRInterface_property_ar_is_anchor_detection_enabled>` | ``false`` |
-   +----------------------------------------------------+--------------------------------------------------------------------------------------------------+-----------+
-   | :ref:`bool<class_bool>`                            | :ref:`interface_is_primary<class_XRInterface_property_interface_is_primary>`                     | ``false`` |
-   +----------------------------------------------------+--------------------------------------------------------------------------------------------------+-----------+
-   | :ref:`PlayAreaMode<enum_XRInterface_PlayAreaMode>` | :ref:`xr_play_area_mode<class_XRInterface_property_xr_play_area_mode>`                           | ``0``     |
-   +----------------------------------------------------+--------------------------------------------------------------------------------------------------+-----------+
+   +--------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+-----------+
+   | :ref:`bool<class_bool>`                                            | :ref:`ar_is_anchor_detection_enabled<class_XRInterface_property_ar_is_anchor_detection_enabled>` | ``false`` |
+   +--------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+-----------+
+   | :ref:`EnvironmentBlendMode<enum_XRInterface_EnvironmentBlendMode>` | :ref:`environment_blend_mode<class_XRInterface_property_environment_blend_mode>`                 | ``0``     |
+   +--------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+-----------+
+   | :ref:`bool<class_bool>`                                            | :ref:`interface_is_primary<class_XRInterface_property_interface_is_primary>`                     | ``false`` |
+   +--------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+-----------+
+   | :ref:`PlayAreaMode<enum_XRInterface_PlayAreaMode>`                 | :ref:`xr_play_area_mode<class_XRInterface_property_xr_play_area_mode>`                           | ``0``     |
+   +--------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+-----------+
 
 .. rst-class:: classref-reftable-group
 
@@ -70,6 +72,8 @@ Methods
    | :ref:`Vector2<class_Vector2>`                          | :ref:`get_render_target_size<class_XRInterface_method_get_render_target_size>` **(** **)**                                                                                                                                                                                                                                              |
    +--------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`Array<class_Array>`                              | :ref:`get_supported_environment_blend_modes<class_XRInterface_method_get_supported_environment_blend_modes>` **(** **)**                                                                                                                                                                                                                |
+   +--------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Dictionary<class_Dictionary>`                    | :ref:`get_system_info<class_XRInterface_method_get_system_info>` **(** **)**                                                                                                                                                                                                                                                            |
    +--------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`TrackingStatus<enum_XRInterface_TrackingStatus>` | :ref:`get_tracking_status<class_XRInterface_method_get_tracking_status>` **(** **)** |const|                                                                                                                                                                                                                                            |
    +--------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -286,7 +290,7 @@ Player is free to move around, full positional tracking.
 
 :ref:`PlayAreaMode<enum_XRInterface_PlayAreaMode>` **XR_PLAY_AREA_STAGE** = ``4``
 
-Same as roomscale but origin point is fixed to the center of the physical space, XRServer.center_on_hmd disabled.
+Same as :ref:`XR_PLAY_AREA_ROOMSCALE<class_XRInterface_constant_XR_PLAY_AREA_ROOMSCALE>` but origin point is fixed to the center of the physical space. In this mode, system-level recentering may be disabled, requiring the use of :ref:`XRServer.center_on_hmd<class_XRServer_method_center_on_hmd>`.
 
 .. rst-class:: classref-item-separator
 
@@ -343,6 +347,23 @@ Property Descriptions
 - :ref:`bool<class_bool>` **get_anchor_detection_is_enabled** **(** **)**
 
 On an AR interface, ``true`` if anchor detection is enabled.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_XRInterface_property_environment_blend_mode:
+
+.. rst-class:: classref-property
+
+:ref:`EnvironmentBlendMode<enum_XRInterface_EnvironmentBlendMode>` **environment_blend_mode** = ``0``
+
+.. rst-class:: classref-property-setget
+
+- :ref:`bool<class_bool>` **set_environment_blend_mode** **(** :ref:`EnvironmentBlendMode<enum_XRInterface_EnvironmentBlendMode>` mode **)**
+- :ref:`EnvironmentBlendMode<enum_XRInterface_EnvironmentBlendMode>` **get_environment_blend_mode** **(** **)**
+
+Specify how XR should blend in the environment. This is specific to certain AR and passthrough devices where camera images are blended in by the XR compositor.
 
 .. rst-class:: classref-item-separator
 
@@ -471,6 +492,20 @@ Returns the an array of supported environment blend modes, see :ref:`Environment
 
 ----
 
+.. _class_XRInterface_method_get_system_info:
+
+.. rst-class:: classref-method
+
+:ref:`Dictionary<class_Dictionary>` **get_system_info** **(** **)**
+
+Returns a :ref:`Dictionary<class_Dictionary>` with extra system info. Interfaces are expected to return ``XRRuntimeName`` and ``XRRuntimeVersion`` providing info about the used XR runtime. Additional entries may be provided specific to an interface.
+
+\ **Note:**\ This information may only be available after :ref:`initialize<class_XRInterface_method_initialize>` was successfully called.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_XRInterface_method_get_tracking_status:
 
 .. rst-class:: classref-method
@@ -493,7 +528,7 @@ Returns the transform for a view/eye.
 
 \ ``view`` is the view/eye index.
 
-\ ``cam_transform`` is the transform that maps device coordinates to scene coordinates, typically the global_transform of the current XROrigin3D.
+\ ``cam_transform`` is the transform that maps device coordinates to scene coordinates, typically the :ref:`Node3D.global_transform<class_Node3D_property_global_transform>` of the current XROrigin3D.
 
 .. rst-class:: classref-item-separator
 
@@ -549,6 +584,8 @@ Is ``true`` if this interface has been initialized.
 
 :ref:`bool<class_bool>` **is_passthrough_enabled** **(** **)**
 
+**Deprecated:** Check if :ref:`environment_blend_mode<class_XRInterface_property_environment_blend_mode>` is :ref:`XR_ENV_BLEND_MODE_ALPHA_BLEND<class_XRInterface_constant_XR_ENV_BLEND_MODE_ALPHA_BLEND>`, instead.
+
 Is ``true`` if passthrough is enabled.
 
 .. rst-class:: classref-item-separator
@@ -560,6 +597,8 @@ Is ``true`` if passthrough is enabled.
 .. rst-class:: classref-method
 
 :ref:`bool<class_bool>` **is_passthrough_supported** **(** **)**
+
+**Deprecated:** Check that :ref:`XR_ENV_BLEND_MODE_ALPHA_BLEND<class_XRInterface_constant_XR_ENV_BLEND_MODE_ALPHA_BLEND>` is supported using :ref:`get_supported_environment_blend_modes<class_XRInterface_method_get_supported_environment_blend_modes>`, instead.
 
 Is ``true`` if this interface supports passthrough.
 
@@ -575,16 +614,16 @@ Is ``true`` if this interface supports passthrough.
 
 Sets the active environment blend mode.
 
-\ ``mode`` is the :ref:`EnvironmentBlendMode<enum_XRInterface_EnvironmentBlendMode>` starting with the next frame.
+\ ``mode`` is the environment blend mode starting with the next frame.
 
 \ **Note:** Not all runtimes support all environment blend modes, so it is important to check this at startup. For example:
 
 ::
 
                     func _ready():
-                        var xr_interface : XRInterface = XRServer.find_interface("OpenXR")
+                        var xr_interface: XRInterface = XRServer.find_interface("OpenXR")
                         if xr_interface and xr_interface.is_initialized():
-                            var vp : Viewport = get_viewport()
+                            var vp: Viewport = get_viewport()
                             vp.use_xr = true
                             var acceptable_modes = [ XRInterface.XR_ENV_BLEND_MODE_OPAQUE, XRInterface.XR_ENV_BLEND_MODE_ADDITIVE ]
                             var modes = xr_interface.get_supported_environment_blend_modes()
@@ -605,6 +644,8 @@ Sets the active environment blend mode.
 
 Sets the active play area mode, will return ``false`` if the mode can't be used with this interface.
 
+\ **Note:** Changing this after the interface has already been initialized can be jarring for the player, so it's recommended to recenter on the HMD with :ref:`XRServer.center_on_hmd<class_XRServer_method_center_on_hmd>` (if switching to :ref:`XR_PLAY_AREA_STAGE<class_XRInterface_constant_XR_PLAY_AREA_STAGE>`) or make the switch during a scene change.
+
 .. rst-class:: classref-item-separator
 
 ----
@@ -614,6 +655,8 @@ Sets the active play area mode, will return ``false`` if the mode can't be used 
 .. rst-class:: classref-method
 
 :ref:`bool<class_bool>` **start_passthrough** **(** **)**
+
+**Deprecated:** Set the :ref:`environment_blend_mode<class_XRInterface_property_environment_blend_mode>` to :ref:`XR_ENV_BLEND_MODE_ALPHA_BLEND<class_XRInterface_constant_XR_ENV_BLEND_MODE_ALPHA_BLEND>`, instead.
 
 Starts passthrough, will return ``false`` if passthrough couldn't be started.
 
@@ -628,6 +671,8 @@ Starts passthrough, will return ``false`` if passthrough couldn't be started.
 .. rst-class:: classref-method
 
 void **stop_passthrough** **(** **)**
+
+**Deprecated:** Set the :ref:`environment_blend_mode<class_XRInterface_property_environment_blend_mode>` to :ref:`XR_ENV_BLEND_MODE_OPAQUE<class_XRInterface_constant_XR_ENV_BLEND_MODE_OPAQUE>`, instead.
 
 Stops passthrough.
 
@@ -677,3 +722,4 @@ Turns the interface off.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

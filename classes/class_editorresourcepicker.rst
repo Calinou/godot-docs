@@ -51,15 +51,15 @@ Methods
 .. table::
    :widths: auto
 
-   +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`                           | :ref:`_handle_menu_selected<class_EditorResourcePicker_method__handle_menu_selected>` **(** :ref:`int<class_int>` id **)** |virtual|          |
-   +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                              | :ref:`_set_create_options<class_EditorResourcePicker_method__set_create_options>` **(** :ref:`Object<class_Object>` menu_node **)** |virtual| |
-   +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`PackedStringArray<class_PackedStringArray>` | :ref:`get_allowed_types<class_EditorResourcePicker_method_get_allowed_types>` **(** **)** |const|                                             |
-   +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                              | :ref:`set_toggle_pressed<class_EditorResourcePicker_method_set_toggle_pressed>` **(** :ref:`bool<class_bool>` pressed **)**                   |
-   +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------+
+   +---------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                           | :ref:`_handle_menu_selected<class_EditorResourcePicker_private_method__handle_menu_selected>` **(** :ref:`int<class_int>` id **)** |virtual|          |
+   +---------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | void                                              | :ref:`_set_create_options<class_EditorResourcePicker_private_method__set_create_options>` **(** :ref:`Object<class_Object>` menu_node **)** |virtual| |
+   +---------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`PackedStringArray<class_PackedStringArray>` | :ref:`get_allowed_types<class_EditorResourcePicker_method_get_allowed_types>` **(** **)** |const|                                                     |
+   +---------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | void                                              | :ref:`set_toggle_pressed<class_EditorResourcePicker_method_set_toggle_pressed>` **(** :ref:`bool<class_bool>` pressed **)**                           |
+   +---------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -172,19 +172,19 @@ If ``true``, the main button with the resource preview works in the toggle mode.
 Method Descriptions
 -------------------
 
-.. _class_EditorResourcePicker_method__handle_menu_selected:
+.. _class_EditorResourcePicker_private_method__handle_menu_selected:
 
 .. rst-class:: classref-method
 
 :ref:`bool<class_bool>` **_handle_menu_selected** **(** :ref:`int<class_int>` id **)** |virtual|
 
-This virtual method can be implemented to handle context menu items not handled by default. See :ref:`_set_create_options<class_EditorResourcePicker_method__set_create_options>`.
+This virtual method can be implemented to handle context menu items not handled by default. See :ref:`_set_create_options<class_EditorResourcePicker_private_method__set_create_options>`.
 
 .. rst-class:: classref-item-separator
 
 ----
 
-.. _class_EditorResourcePicker_method__set_create_options:
+.. _class_EditorResourcePicker_private_method__set_create_options:
 
 .. rst-class:: classref-method
 
@@ -192,7 +192,7 @@ void **_set_create_options** **(** :ref:`Object<class_Object>` menu_node **)** |
 
 This virtual method is called when updating the context menu of **EditorResourcePicker**. Implement this method to override the "New ..." items with your own options. ``menu_node`` is a reference to the :ref:`PopupMenu<class_PopupMenu>` node.
 
-\ **Note:** Implement :ref:`_handle_menu_selected<class_EditorResourcePicker_method__handle_menu_selected>` to handle these custom items.
+\ **Note:** Implement :ref:`_handle_menu_selected<class_EditorResourcePicker_private_method__handle_menu_selected>` to handle these custom items.
 
 .. rst-class:: classref-item-separator
 
@@ -224,3 +224,4 @@ Sets the toggle mode state for the main button. Works only if :ref:`toggle_mode<
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

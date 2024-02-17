@@ -10,6 +10,8 @@
 SkeletonModification2DPhysicalBones
 ===================================
 
+**Experimental:** This class may be changed or removed in future versions.
+
 **Inherits:** :ref:`SkeletonModification2D<class_SkeletonModification2D>` **<** :ref:`Resource<class_Resource>` **<** :ref:`RefCounted<class_RefCounted>` **<** :ref:`Object<class_Object>`
 
 A modification that applies the transforms of :ref:`PhysicalBone2D<class_PhysicalBone2D>` nodes to :ref:`Bone2D<class_Bone2D>` nodes.
@@ -92,7 +94,7 @@ Method Descriptions
 
 void **fetch_physical_bones** **(** **)**
 
-Empties the list of :ref:`PhysicalBone2D<class_PhysicalBone2D>` nodes and populates it will all :ref:`PhysicalBone2D<class_PhysicalBone2D>` nodes that are children of the :ref:`Skeleton2D<class_Skeleton2D>`.
+Empties the list of :ref:`PhysicalBone2D<class_PhysicalBone2D>` nodes and populates it with all :ref:`PhysicalBone2D<class_PhysicalBone2D>` nodes that are children of the :ref:`Skeleton2D<class_Skeleton2D>`.
 
 .. rst-class:: classref-item-separator
 
@@ -154,3 +156,4 @@ Optionally, an array of bone names can be passed to this function, and that will
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

@@ -12,9 +12,14 @@ RDUniform
 
 **Inherits:** :ref:`RefCounted<class_RefCounted>` **<** :ref:`Object<class_Object>`
 
-.. container:: contribute
+Shader uniform (used by :ref:`RenderingDevice<class_RenderingDevice>`).
 
-	There is currently no description for this class. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+.. rst-class:: classref-introduction-group
+
+Description
+-----------
+
+This object is used by :ref:`RenderingDevice<class_RenderingDevice>`.
 
 .. rst-class:: classref-reftable-group
 
@@ -66,9 +71,7 @@ Property Descriptions
 - void **set_binding** **(** :ref:`int<class_int>` value **)**
 - :ref:`int<class_int>` **get_binding** **(** **)**
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+The uniform's binding.
 
 .. rst-class:: classref-item-separator
 
@@ -85,9 +88,7 @@ Property Descriptions
 - void **set_uniform_type** **(** :ref:`UniformType<enum_RenderingDevice_UniformType>` value **)**
 - :ref:`UniformType<enum_RenderingDevice_UniformType>` **get_uniform_type** **(** **)**
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+The uniform's data type.
 
 .. rst-class:: classref-section-separator
 
@@ -104,9 +105,7 @@ Method Descriptions
 
 void **add_id** **(** :ref:`RID<class_RID>` id **)**
 
-.. container:: contribute
-
-	There is currently no description for this method. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+Binds the given id to the uniform. The data associated with the id is then used when the uniform is passed to a shader.
 
 .. rst-class:: classref-item-separator
 
@@ -118,9 +117,7 @@ void **add_id** **(** :ref:`RID<class_RID>` id **)**
 
 void **clear_ids** **(** **)**
 
-.. container:: contribute
-
-	There is currently no description for this method. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+Unbinds all ids currently bound to the uniform.
 
 .. rst-class:: classref-item-separator
 
@@ -132,9 +129,7 @@ void **clear_ids** **(** **)**
 
 :ref:`RID[]<class_RID>` **get_ids** **(** **)** |const|
 
-.. container:: contribute
-
-	There is currently no description for this method. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+Returns an array of all ids currently bound to the uniform.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
@@ -142,3 +137,4 @@ void **clear_ids** **(** **)**
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

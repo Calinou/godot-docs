@@ -10,11 +10,13 @@
 SkeletonModification2D
 ======================
 
+**Experimental:** This class may be changed or removed in future versions.
+
 **Inherits:** :ref:`Resource<class_Resource>` **<** :ref:`RefCounted<class_RefCounted>` **<** :ref:`Object<class_Object>`
 
 **Inherited By:** :ref:`SkeletonModification2DCCDIK<class_SkeletonModification2DCCDIK>`, :ref:`SkeletonModification2DFABRIK<class_SkeletonModification2DFABRIK>`, :ref:`SkeletonModification2DJiggle<class_SkeletonModification2DJiggle>`, :ref:`SkeletonModification2DLookAt<class_SkeletonModification2DLookAt>`, :ref:`SkeletonModification2DPhysicalBones<class_SkeletonModification2DPhysicalBones>`, :ref:`SkeletonModification2DStackHolder<class_SkeletonModification2DStackHolder>`, :ref:`SkeletonModification2DTwoBoneIK<class_SkeletonModification2DTwoBoneIK>`
 
-A resource that operates on :ref:`Bone2D<class_Bone2D>` nodes in a :ref:`Skeleton2D<class_Skeleton2D>`.
+Base class for resources that operate on :ref:`Bone2D<class_Bone2D>`\ s in a :ref:`Skeleton2D<class_Skeleton2D>`.
 
 .. rst-class:: classref-introduction-group
 
@@ -48,11 +50,11 @@ Methods
    :widths: auto
 
    +-----------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                                                  | :ref:`_draw_editor_gizmo<class_SkeletonModification2D_method__draw_editor_gizmo>` **(** **)** |virtual|                                                                                                       |
+   | void                                                                  | :ref:`_draw_editor_gizmo<class_SkeletonModification2D_private_method__draw_editor_gizmo>` **(** **)** |virtual|                                                                                               |
    +-----------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                                                  | :ref:`_execute<class_SkeletonModification2D_method__execute>` **(** :ref:`float<class_float>` delta **)** |virtual|                                                                                           |
+   | void                                                                  | :ref:`_execute<class_SkeletonModification2D_private_method__execute>` **(** :ref:`float<class_float>` delta **)** |virtual|                                                                                   |
    +-----------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                                                  | :ref:`_setup_modification<class_SkeletonModification2D_method__setup_modification>` **(** :ref:`SkeletonModificationStack2D<class_SkeletonModificationStack2D>` modification_stack **)** |virtual|            |
+   | void                                                                  | :ref:`_setup_modification<class_SkeletonModification2D_private_method__setup_modification>` **(** :ref:`SkeletonModificationStack2D<class_SkeletonModificationStack2D>` modification_stack **)** |virtual|    |
    +-----------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`float<class_float>`                                             | :ref:`clamp_angle<class_SkeletonModification2D_method_clamp_angle>` **(** :ref:`float<class_float>` angle, :ref:`float<class_float>` min, :ref:`float<class_float>` max, :ref:`bool<class_bool>` invert **)** |
    +-----------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -87,7 +89,7 @@ Property Descriptions
 - void **set_enabled** **(** :ref:`bool<class_bool>` value **)**
 - :ref:`bool<class_bool>` **get_enabled** **(** **)**
 
-If ``true``, the modification's :ref:`_execute<class_SkeletonModification2D_method__execute>` function will be called by the :ref:`SkeletonModificationStack2D<class_SkeletonModificationStack2D>`.
+If ``true``, the modification's :ref:`_execute<class_SkeletonModification2D_private_method__execute>` function will be called by the :ref:`SkeletonModificationStack2D<class_SkeletonModificationStack2D>`.
 
 .. rst-class:: classref-item-separator
 
@@ -115,7 +117,7 @@ The execution mode for the modification. This tells the modification stack when 
 Method Descriptions
 -------------------
 
-.. _class_SkeletonModification2D_method__draw_editor_gizmo:
+.. _class_SkeletonModification2D_private_method__draw_editor_gizmo:
 
 .. rst-class:: classref-method
 
@@ -129,7 +131,7 @@ Used for drawing **editor-only** modification gizmos. This function will only be
 
 ----
 
-.. _class_SkeletonModification2D_method__execute:
+.. _class_SkeletonModification2D_private_method__execute:
 
 .. rst-class:: classref-method
 
@@ -141,7 +143,7 @@ Executes the given modification. This is where the modification performs whateve
 
 ----
 
-.. _class_SkeletonModification2D_method__setup_modification:
+.. _class_SkeletonModification2D_private_method__setup_modification:
 
 .. rst-class:: classref-method
 
@@ -159,7 +161,7 @@ Called when the modification is setup. This is where the modification performs i
 
 :ref:`float<class_float>` **clamp_angle** **(** :ref:`float<class_float>` angle, :ref:`float<class_float>` min, :ref:`float<class_float>` max, :ref:`bool<class_bool>` invert **)**
 
-Takes a angle and clamps it so it is within the passed-in ``min`` and ``max`` range. ``invert`` will inversely clamp the angle, clamping it to the range outside of the given bounds.
+Takes an angle and clamps it so it is within the passed-in ``min`` and ``max`` range. ``invert`` will inversely clamp the angle, clamping it to the range outside of the given bounds.
 
 .. rst-class:: classref-item-separator
 
@@ -171,7 +173,7 @@ Takes a angle and clamps it so it is within the passed-in ``min`` and ``max`` ra
 
 :ref:`bool<class_bool>` **get_editor_draw_gizmo** **(** **)** |const|
 
-Returns whether this modification will call :ref:`_draw_editor_gizmo<class_SkeletonModification2D_method__draw_editor_gizmo>` in the Godot editor to draw modification-specific gizmos.
+Returns whether this modification will call :ref:`_draw_editor_gizmo<class_SkeletonModification2D_private_method__draw_editor_gizmo>` in the Godot editor to draw modification-specific gizmos.
 
 .. rst-class:: classref-item-separator
 
@@ -207,7 +209,7 @@ Returns the :ref:`SkeletonModificationStack2D<class_SkeletonModificationStack2D>
 
 void **set_editor_draw_gizmo** **(** :ref:`bool<class_bool>` draw_gizmo **)**
 
-Sets whether this modification will call :ref:`_draw_editor_gizmo<class_SkeletonModification2D_method__draw_editor_gizmo>` in the Godot editor to draw modification-specific gizmos.
+Sets whether this modification will call :ref:`_draw_editor_gizmo<class_SkeletonModification2D_private_method__draw_editor_gizmo>` in the Godot editor to draw modification-specific gizmos.
 
 .. rst-class:: classref-item-separator
 
@@ -227,3 +229,4 @@ Manually allows you to set the setup state of the modification. This function sh
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

@@ -10,6 +10,8 @@
 SkeletonModification2DLookAt
 ============================
 
+**Experimental:** This class may be changed or removed in future versions.
+
 **Inherits:** :ref:`SkeletonModification2D<class_SkeletonModification2D>` **<** :ref:`Resource<class_Resource>` **<** :ref:`RefCounted<class_RefCounted>` **<** :ref:`Object<class_Object>`
 
 A modification that rotates a :ref:`Bone2D<class_Bone2D>` node to look at a target.
@@ -104,7 +106,7 @@ The :ref:`Bone2D<class_Bone2D>` node that the modification will operate on.
 - void **set_bone_index** **(** :ref:`int<class_int>` value **)**
 - :ref:`int<class_int>` **get_bone_index** **(** **)**
 
-The index of the :ref:`Bone2D<class_Bone2D>` node that the modification will oeprate on.
+The index of the :ref:`Bone2D<class_Bone2D>` node that the modification will operate on.
 
 .. rst-class:: classref-item-separator
 
@@ -256,3 +258,4 @@ Sets whether this modification will use constraints or not. When ``true``, const
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

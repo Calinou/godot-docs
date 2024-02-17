@@ -320,6 +320,8 @@ The direction in which the front of the texture faces.
 
 The billboard mode to use for the sprite. See :ref:`BillboardMode<enum_BaseMaterial3D_BillboardMode>` for possible values.
 
+\ **Note:** When billboarding is enabled and the material also casts shadows, billboards will face **the** camera in the scene when rendering shadows. In scenes with multiple cameras, the intended shadow cannot be determined and this will result in undefined behavior. See `GitHub Pull Request #72638 <https://github.com/godotengine/godot/pull/72638>`__ for details.
+
 .. rst-class:: classref-item-separator
 
 ----
@@ -420,7 +422,9 @@ If ``true``, texture is flipped vertically.
 - void **set_modulate** **(** :ref:`Color<class_Color>` value **)**
 - :ref:`Color<class_Color>` **get_modulate** **(** **)**
 
-A color value used to *multiply* the texture's colors. Can be used for mood-coloring or to simulate the color of light.
+A color value used to *multiply* the texture's colors. Can be used for mood-coloring or to simulate the color of ambient light.
+
+\ **Note:** Unlike :ref:`CanvasItem.modulate<class_CanvasItem_property_modulate>` for 2D, colors with values above ``1.0`` (overbright) are not supported.
 
 \ **Note:** If a :ref:`GeometryInstance3D.material_override<class_GeometryInstance3D_property_material_override>` is defined on the **SpriteBase3D**, the material override must be configured to take vertex colors into account for albedo. Otherwise, the color defined in :ref:`modulate<class_SpriteBase3D_property_modulate>` will be ignored. For a :ref:`BaseMaterial3D<class_BaseMaterial3D>`, :ref:`BaseMaterial3D.vertex_color_use_as_albedo<class_BaseMaterial3D_property_vertex_color_use_as_albedo>` must be ``true``. For a :ref:`ShaderMaterial<class_ShaderMaterial>`, ``ALBEDO *= COLOR.rgb;`` must be inserted in the shader's ``fragment()`` function.
 
@@ -530,6 +534,8 @@ If ``true``, the :ref:`Light3D<class_Light3D>` in the :ref:`Environment<class_En
 
 Filter flags for the texture. See :ref:`TextureFilter<enum_BaseMaterial3D_TextureFilter>` for options.
 
+\ **Note:** Linear filtering may cause artifacts around the edges, which are especially noticeable on opaque textures. To prevent this, use textures with transparent or identical colors around the edges.
+
 .. rst-class:: classref-item-separator
 
 ----
@@ -606,3 +612,4 @@ If ``true``, the specified flag will be enabled. See :ref:`DrawFlags<enum_Sprite
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`

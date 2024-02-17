@@ -12,14 +12,14 @@ TextureRect
 
 **Inherits:** :ref:`Control<class_Control>` **<** :ref:`CanvasItem<class_CanvasItem>` **<** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
 
-Control for drawing textures.
+A control that displays a texture.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-Used to draw icons and sprites in a user interface. The texture's placement can be controlled with the :ref:`stretch_mode<class_TextureRect_property_stretch_mode>` property. It can scale, tile, or stay centered inside its bounding rectangle.
+A control that displays a texture, for example an icon inside a GUI. The texture's placement can be controlled with the :ref:`stretch_mode<class_TextureRect_property_stretch_mode>` property. It can scale, tile, or stay centered inside its bounding rectangle.
 
 .. rst-class:: classref-introduction-group
 
@@ -199,6 +199,8 @@ Property Descriptions
 - void **set_expand_mode** **(** :ref:`ExpandMode<enum_TextureRect_ExpandMode>` value **)**
 - :ref:`ExpandMode<enum_TextureRect_ExpandMode>` **get_expand_mode** **(** **)**
 
+**Experimental:** This property may be changed or removed in future versions.
+
 Defines how minimum size is determined based on the texture's size. See :ref:`ExpandMode<enum_TextureRect_ExpandMode>` for options.
 
 \ **Note:** Using :ref:`EXPAND_FIT_WIDTH<class_TextureRect_constant_EXPAND_FIT_WIDTH>`, :ref:`EXPAND_FIT_WIDTH_PROPORTIONAL<class_TextureRect_constant_EXPAND_FIT_WIDTH_PROPORTIONAL>`, :ref:`EXPAND_FIT_HEIGHT<class_TextureRect_constant_EXPAND_FIT_HEIGHT>` or :ref:`EXPAND_FIT_HEIGHT_PROPORTIONAL<class_TextureRect_constant_EXPAND_FIT_HEIGHT_PROPORTIONAL>` may result in unstable behavior in some containers. This functionality is being re-evaluated and will change in the future.
@@ -277,3 +279,4 @@ The node's :ref:`Texture2D<class_Texture2D>` resource.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
