@@ -12,21 +12,21 @@ AnimationNodeAnimation
 
 **Inherits:** :ref:`AnimationRootNode<class_AnimationRootNode>` **<** :ref:`AnimationNode<class_AnimationNode>` **<** :ref:`Resource<class_Resource>` **<** :ref:`RefCounted<class_RefCounted>` **<** :ref:`Object<class_Object>`
 
-Input animation to use in an :ref:`AnimationNodeBlendTree<class_AnimationNodeBlendTree>`.
+An input animation for an :ref:`AnimationNodeBlendTree<class_AnimationNodeBlendTree>`.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-A resource to add to an :ref:`AnimationNodeBlendTree<class_AnimationNodeBlendTree>`. Only features one output set using the :ref:`animation<class_AnimationNodeAnimation_property_animation>` property. Use it as an input for :ref:`AnimationNode<class_AnimationNode>` that blend animations together.
+A resource to add to an :ref:`AnimationNodeBlendTree<class_AnimationNodeBlendTree>`. Only has one output port using the :ref:`animation<class_AnimationNodeAnimation_property_animation>` property. Used as an input for :ref:`AnimationNode<class_AnimationNode>`\ s that blend animations together.
 
 .. rst-class:: classref-introduction-group
 
 Tutorials
 ---------
 
-- :doc:`AnimationTree <../tutorials/animation/animation_tree>`
+- :doc:`Using AnimationTree <../tutorials/animation/animation_tree>`
 
 - `3D Platformer Demo <https://godotengine.org/asset-library/asset/125>`__
 
@@ -94,8 +94,8 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_animation** **(** :ref:`StringName<class_StringName>` value **)**
-- :ref:`StringName<class_StringName>` **get_animation** **(** **)**
+- |void| **set_animation**\ (\ value\: :ref:`StringName<class_StringName>`\ )
+- :ref:`StringName<class_StringName>` **get_animation**\ (\ )
 
 Animation to use as an output. It is one of the animations provided by :ref:`AnimationTree.anim_player<class_AnimationTree_property_anim_player>`.
 
@@ -111,8 +111,8 @@ Animation to use as an output. It is one of the animations provided by :ref:`Ani
 
 .. rst-class:: classref-property-setget
 
-- void **set_play_mode** **(** :ref:`PlayMode<enum_AnimationNodeAnimation_PlayMode>` value **)**
-- :ref:`PlayMode<enum_AnimationNodeAnimation_PlayMode>` **get_play_mode** **(** **)**
+- |void| **set_play_mode**\ (\ value\: :ref:`PlayMode<enum_AnimationNodeAnimation_PlayMode>`\ )
+- :ref:`PlayMode<enum_AnimationNodeAnimation_PlayMode>` **get_play_mode**\ (\ )
 
 Determines the playback direction of the animation.
 
@@ -122,3 +122,5 @@ Determines the playback direction of the animation.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`

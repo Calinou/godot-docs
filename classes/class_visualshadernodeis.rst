@@ -89,8 +89,8 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_function** **(** :ref:`Function<enum_VisualShaderNodeIs_Function>` value **)**
-- :ref:`Function<enum_VisualShaderNodeIs_Function>` **get_function** **(** **)**
+- |void| **set_function**\ (\ value\: :ref:`Function<enum_VisualShaderNodeIs_Function>`\ )
+- :ref:`Function<enum_VisualShaderNodeIs_Function>` **get_function**\ (\ )
 
 The comparison function. See :ref:`Function<enum_VisualShaderNodeIs_Function>` for options.
 
@@ -100,3 +100,5 @@ The comparison function. See :ref:`Function<enum_VisualShaderNodeIs_Function>` f
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`

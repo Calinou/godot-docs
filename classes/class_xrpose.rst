@@ -23,6 +23,13 @@ XR runtimes often identify multiple locations on devices such as controllers tha
 
 Orientation, location, linear velocity and angular velocity are all provided for each pose by the XR runtime. This object contains this state of a pose.
 
+.. rst-class:: classref-introduction-group
+
+Tutorials
+---------
+
+- :doc:`XR documentation index <../tutorials/xr/index>`
+
 .. rst-class:: classref-reftable-group
 
 Properties
@@ -53,9 +60,9 @@ Methods
 .. table::
    :widths: auto
 
-   +---------------------------------------+-----------------------------------------------------------------------------------------------+
-   | :ref:`Transform3D<class_Transform3D>` | :ref:`get_adjusted_transform<class_XRPose_method_get_adjusted_transform>` **(** **)** |const| |
-   +---------------------------------------+-----------------------------------------------------------------------------------------------+
+   +---------------------------------------+-----------------------------------------------------------------------------------------+
+   | :ref:`Transform3D<class_Transform3D>` | :ref:`get_adjusted_transform<class_XRPose_method_get_adjusted_transform>`\ (\ ) |const| |
+   +---------------------------------------+-----------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -113,8 +120,8 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_angular_velocity** **(** :ref:`Vector3<class_Vector3>` value **)**
-- :ref:`Vector3<class_Vector3>` **get_angular_velocity** **(** **)**
+- |void| **set_angular_velocity**\ (\ value\: :ref:`Vector3<class_Vector3>`\ )
+- :ref:`Vector3<class_Vector3>` **get_angular_velocity**\ (\ )
 
 The angular velocity for this pose.
 
@@ -130,8 +137,8 @@ The angular velocity for this pose.
 
 .. rst-class:: classref-property-setget
 
-- void **set_has_tracking_data** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **get_has_tracking_data** **(** **)**
+- |void| **set_has_tracking_data**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **get_has_tracking_data**\ (\ )
 
 If ``true`` our tracking data is up to date. If ``false`` we're no longer receiving new tracking data and our state is whatever that last valid state was.
 
@@ -147,8 +154,8 @@ If ``true`` our tracking data is up to date. If ``false`` we're no longer receiv
 
 .. rst-class:: classref-property-setget
 
-- void **set_linear_velocity** **(** :ref:`Vector3<class_Vector3>` value **)**
-- :ref:`Vector3<class_Vector3>` **get_linear_velocity** **(** **)**
+- |void| **set_linear_velocity**\ (\ value\: :ref:`Vector3<class_Vector3>`\ )
+- :ref:`Vector3<class_Vector3>` **get_linear_velocity**\ (\ )
 
 The linear velocity of this pose.
 
@@ -164,8 +171,8 @@ The linear velocity of this pose.
 
 .. rst-class:: classref-property-setget
 
-- void **set_name** **(** :ref:`StringName<class_StringName>` value **)**
-- :ref:`StringName<class_StringName>` **get_name** **(** **)**
+- |void| **set_name**\ (\ value\: :ref:`StringName<class_StringName>`\ )
+- :ref:`StringName<class_StringName>` **get_name**\ (\ )
 
 The name of this pose. Pose names are often driven by an action map setup by the user. Godot does suggest a number of pose names that it expects :ref:`XRInterface<class_XRInterface>`\ s to implement:
 
@@ -189,8 +196,8 @@ The name of this pose. Pose names are often driven by an action map setup by the
 
 .. rst-class:: classref-property-setget
 
-- void **set_tracking_confidence** **(** :ref:`TrackingConfidence<enum_XRPose_TrackingConfidence>` value **)**
-- :ref:`TrackingConfidence<enum_XRPose_TrackingConfidence>` **get_tracking_confidence** **(** **)**
+- |void| **set_tracking_confidence**\ (\ value\: :ref:`TrackingConfidence<enum_XRPose_TrackingConfidence>`\ )
+- :ref:`TrackingConfidence<enum_XRPose_TrackingConfidence>` **get_tracking_confidence**\ (\ )
 
 The tracking confidence for this pose, provides insight on how accurate the spatial positioning of this record is.
 
@@ -206,8 +213,8 @@ The tracking confidence for this pose, provides insight on how accurate the spat
 
 .. rst-class:: classref-property-setget
 
-- void **set_transform** **(** :ref:`Transform3D<class_Transform3D>` value **)**
-- :ref:`Transform3D<class_Transform3D>` **get_transform** **(** **)**
+- |void| **set_transform**\ (\ value\: :ref:`Transform3D<class_Transform3D>`\ )
+- :ref:`Transform3D<class_Transform3D>` **get_transform**\ (\ )
 
 The transform containing the original and transform as reported by the XR runtime.
 
@@ -224,7 +231,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`Transform3D<class_Transform3D>` **get_adjusted_transform** **(** **)** |const|
+:ref:`Transform3D<class_Transform3D>` **get_adjusted_transform**\ (\ ) |const|
 
 Returns the :ref:`transform<class_XRPose_property_transform>` with world scale and our reference frame applied. This is the transform used to position :ref:`XRNode3D<class_XRNode3D>` objects.
 
@@ -234,3 +241,5 @@ Returns the :ref:`transform<class_XRPose_property_transform>` with world scale a
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`

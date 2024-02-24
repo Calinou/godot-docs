@@ -10,7 +10,7 @@
 Object
 ======
 
-**Inherited By:** :ref:`AudioServer<class_AudioServer>`, :ref:`CameraServer<class_CameraServer>`, :ref:`ClassDB<class_ClassDB>`, :ref:`DisplayServer<class_DisplayServer>`, :ref:`EditorFileSystemDirectory<class_EditorFileSystemDirectory>`, :ref:`EditorPaths<class_EditorPaths>`, :ref:`EditorSelection<class_EditorSelection>`, :ref:`EditorUndoRedoManager<class_EditorUndoRedoManager>`, :ref:`EditorVCSInterface<class_EditorVCSInterface>`, :ref:`Engine<class_Engine>`, :ref:`EngineDebugger<class_EngineDebugger>`, :ref:`GDExtensionManager<class_GDExtensionManager>`, :ref:`Geometry2D<class_Geometry2D>`, :ref:`Geometry3D<class_Geometry3D>`, :ref:`GodotSharp<class_GodotSharp>`, :ref:`Input<class_Input>`, :ref:`InputMap<class_InputMap>`, :ref:`IP<class_IP>`, :ref:`JavaClassWrapper<class_JavaClassWrapper>`, :ref:`JavaScriptBridge<class_JavaScriptBridge>`, :ref:`JNISingleton<class_JNISingleton>`, :ref:`JSONRPC<class_JSONRPC>`, :ref:`MainLoop<class_MainLoop>`, :ref:`Marshalls<class_Marshalls>`, :ref:`MovieWriter<class_MovieWriter>`, :ref:`NavigationMeshGenerator<class_NavigationMeshGenerator>`, :ref:`NavigationServer2D<class_NavigationServer2D>`, :ref:`NavigationServer3D<class_NavigationServer3D>`, :ref:`Node<class_Node>`, :ref:`OS<class_OS>`, :ref:`Performance<class_Performance>`, :ref:`PhysicsDirectBodyState2D<class_PhysicsDirectBodyState2D>`, :ref:`PhysicsDirectBodyState3D<class_PhysicsDirectBodyState3D>`, :ref:`PhysicsDirectSpaceState2D<class_PhysicsDirectSpaceState2D>`, :ref:`PhysicsDirectSpaceState3D<class_PhysicsDirectSpaceState3D>`, :ref:`PhysicsServer2D<class_PhysicsServer2D>`, :ref:`PhysicsServer2DManager<class_PhysicsServer2DManager>`, :ref:`PhysicsServer3D<class_PhysicsServer3D>`, :ref:`PhysicsServer3DManager<class_PhysicsServer3DManager>`, :ref:`PhysicsServer3DRenderingServerHandler<class_PhysicsServer3DRenderingServerHandler>`, :ref:`ProjectSettings<class_ProjectSettings>`, :ref:`RefCounted<class_RefCounted>`, :ref:`RenderingDevice<class_RenderingDevice>`, :ref:`RenderingServer<class_RenderingServer>`, :ref:`ResourceLoader<class_ResourceLoader>`, :ref:`ResourceSaver<class_ResourceSaver>`, :ref:`ResourceUID<class_ResourceUID>`, :ref:`ScriptLanguage<class_ScriptLanguage>`, :ref:`TextServerManager<class_TextServerManager>`, :ref:`ThemeDB<class_ThemeDB>`, :ref:`TileData<class_TileData>`, :ref:`Time<class_Time>`, :ref:`TranslationServer<class_TranslationServer>`, :ref:`TreeItem<class_TreeItem>`, :ref:`UndoRedo<class_UndoRedo>`, :ref:`WorkerThreadPool<class_WorkerThreadPool>`, :ref:`XRServer<class_XRServer>`
+**Inherited By:** :ref:`AudioServer<class_AudioServer>`, :ref:`CameraServer<class_CameraServer>`, :ref:`ClassDB<class_ClassDB>`, :ref:`DisplayServer<class_DisplayServer>`, :ref:`EditorFileSystemDirectory<class_EditorFileSystemDirectory>`, :ref:`EditorInterface<class_EditorInterface>`, :ref:`EditorPaths<class_EditorPaths>`, :ref:`EditorSelection<class_EditorSelection>`, :ref:`EditorUndoRedoManager<class_EditorUndoRedoManager>`, :ref:`EditorVCSInterface<class_EditorVCSInterface>`, :ref:`Engine<class_Engine>`, :ref:`EngineDebugger<class_EngineDebugger>`, :ref:`FramebufferCacheRD<class_FramebufferCacheRD>`, :ref:`GDExtensionManager<class_GDExtensionManager>`, :ref:`Geometry2D<class_Geometry2D>`, :ref:`Geometry3D<class_Geometry3D>`, :ref:`GodotSharp<class_GodotSharp>`, :ref:`Input<class_Input>`, :ref:`InputMap<class_InputMap>`, :ref:`IP<class_IP>`, :ref:`JavaClassWrapper<class_JavaClassWrapper>`, :ref:`JavaScriptBridge<class_JavaScriptBridge>`, :ref:`JNISingleton<class_JNISingleton>`, :ref:`JSONRPC<class_JSONRPC>`, :ref:`MainLoop<class_MainLoop>`, :ref:`Marshalls<class_Marshalls>`, :ref:`MovieWriter<class_MovieWriter>`, :ref:`NavigationMeshGenerator<class_NavigationMeshGenerator>`, :ref:`NavigationServer2D<class_NavigationServer2D>`, :ref:`NavigationServer3D<class_NavigationServer3D>`, :ref:`Node<class_Node>`, :ref:`OpenXRExtensionWrapperExtension<class_OpenXRExtensionWrapperExtension>`, :ref:`OpenXRInteractionProfileMetadata<class_OpenXRInteractionProfileMetadata>`, :ref:`OS<class_OS>`, :ref:`Performance<class_Performance>`, :ref:`PhysicsDirectBodyState2D<class_PhysicsDirectBodyState2D>`, :ref:`PhysicsDirectBodyState3D<class_PhysicsDirectBodyState3D>`, :ref:`PhysicsDirectSpaceState2D<class_PhysicsDirectSpaceState2D>`, :ref:`PhysicsDirectSpaceState3D<class_PhysicsDirectSpaceState3D>`, :ref:`PhysicsServer2D<class_PhysicsServer2D>`, :ref:`PhysicsServer2DManager<class_PhysicsServer2DManager>`, :ref:`PhysicsServer3D<class_PhysicsServer3D>`, :ref:`PhysicsServer3DManager<class_PhysicsServer3DManager>`, :ref:`PhysicsServer3DRenderingServerHandler<class_PhysicsServer3DRenderingServerHandler>`, :ref:`ProjectSettings<class_ProjectSettings>`, :ref:`RefCounted<class_RefCounted>`, :ref:`RenderData<class_RenderData>`, :ref:`RenderingDevice<class_RenderingDevice>`, :ref:`RenderingServer<class_RenderingServer>`, :ref:`RenderSceneData<class_RenderSceneData>`, :ref:`ResourceLoader<class_ResourceLoader>`, :ref:`ResourceSaver<class_ResourceSaver>`, :ref:`ResourceUID<class_ResourceUID>`, :ref:`ScriptLanguage<class_ScriptLanguage>`, :ref:`TextServerManager<class_TextServerManager>`, :ref:`ThemeDB<class_ThemeDB>`, :ref:`TileData<class_TileData>`, :ref:`Time<class_Time>`, :ref:`TranslationServer<class_TranslationServer>`, :ref:`TreeItem<class_TreeItem>`, :ref:`UndoRedo<class_UndoRedo>`, :ref:`UniformSetCacheRD<class_UniformSetCacheRD>`, :ref:`WorkerThreadPool<class_WorkerThreadPool>`, :ref:`XRServer<class_XRServer>`
 
 Base class for all other classes in the engine.
 
@@ -21,13 +21,13 @@ Description
 
 An advanced :ref:`Variant<class_Variant>` type. All classes in the engine inherit from Object. Each class may define new properties, methods or signals, which are available to all inheriting classes. For example, a :ref:`Sprite2D<class_Sprite2D>` instance is able to call :ref:`Node.add_child<class_Node_method_add_child>` because it inherits from :ref:`Node<class_Node>`.
 
-You can create new instances, using ``Object.new()`` in GDScript, or ``new Object`` in C#.
+You can create new instances, using ``Object.new()`` in GDScript, or ``new GodotObject`` in C#.
 
 To delete an Object instance, call :ref:`free<class_Object_method_free>`. This is necessary for most classes inheriting Object, because they do not manage memory on their own, and will otherwise cause memory leaks when no longer in use. There are a few classes that perform memory management. For example, :ref:`RefCounted<class_RefCounted>` (and by extension :ref:`Resource<class_Resource>`) deletes itself when no longer referenced, and :ref:`Node<class_Node>` deletes its children when freed.
 
 Objects can have a :ref:`Script<class_Script>` attached to them. Once the :ref:`Script<class_Script>` is instantiated, it effectively acts as an extension to the base class, allowing it to define and inherit new properties, methods and signals.
 
-Inside a :ref:`Script<class_Script>`, :ref:`_get_property_list<class_Object_method__get_property_list>` may be overridden to customize properties in several ways. This allows them to be available to the editor, display as lists of options, sub-divide into groups, save on disk, etc. Scripting languages offer easier ways to customize properties, such as with the :ref:`@GDScript.@export<class_@GDScript_annotation_@export>` annotation.
+Inside a :ref:`Script<class_Script>`, :ref:`_get_property_list<class_Object_private_method__get_property_list>` may be overridden to customize properties in several ways. This allows them to be available to the editor, display as lists of options, sub-divide into groups, save on disk, etc. Scripting languages offer easier ways to customize properties, such as with the :ref:`@GDScript.@export<class_@GDScript_annotation_@export>` annotation.
 
 Godot is very dynamic. An object's script, and therefore its properties, methods and signals, can be changed at run-time. Because of this, there can be occasions where, for example, a property required by a method may not exist. To prevent run-time errors, see methods such as :ref:`set<class_Object_method_set>`, :ref:`get<class_Object_method_get>`, :ref:`call<class_Object_method_call>`, :ref:`has_method<class_Object_method_has_method>`, :ref:`has_signal<class_Object_method_has_signal>`, etc. Note that these methods are **much** slower than direct references.
 
@@ -41,7 +41,7 @@ In GDScript, you can also check if a given property, method, or signal name exis
     print("tree_entered" in node) # Prints true
     print("unknown" in node)      # Prints false
 
-Notifications are :ref:`int<class_int>` constants commonly sent and received by objects. For example, on every rendered frame, the :ref:`SceneTree<class_SceneTree>` notifies nodes inside the tree with a :ref:`Node.NOTIFICATION_PROCESS<class_Node_constant_NOTIFICATION_PROCESS>`. The nodes receive it and may call :ref:`Node._process<class_Node_method__process>` to update. To make use of notifications, see :ref:`notification<class_Object_method_notification>` and :ref:`_notification<class_Object_method__notification>`.
+Notifications are :ref:`int<class_int>` constants commonly sent and received by objects. For example, on every rendered frame, the :ref:`SceneTree<class_SceneTree>` notifies nodes inside the tree with a :ref:`Node.NOTIFICATION_PROCESS<class_Node_constant_NOTIFICATION_PROCESS>`. The nodes receive it and may call :ref:`Node._process<class_Node_private_method__process>` to update. To make use of notifications, see :ref:`notification<class_Object_method_notification>` and :ref:`_notification<class_Object_private_method__notification>`.
 
 Lastly, every object can also contain metadata (data about data). :ref:`set_meta<class_Object_method_set_meta>` can be useful to store information that the object itself does not depend on. To keep your code clean, making excessive use of metadata is discouraged.
 
@@ -68,111 +68,115 @@ Methods
 .. table::
    :widths: auto
 
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Variant<class_Variant>`                     | :ref:`_get<class_Object_method__get>` **(** :ref:`StringName<class_StringName>` property **)** |virtual|                                                                                                                           |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Dictionary[]<class_Dictionary>`             | :ref:`_get_property_list<class_Object_method__get_property_list>` **(** **)** |virtual|                                                                                                                                            |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                              | :ref:`_init<class_Object_method__init>` **(** **)** |virtual|                                                                                                                                                                      |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                              | :ref:`_notification<class_Object_method__notification>` **(** :ref:`int<class_int>` what **)** |virtual|                                                                                                                           |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`                           | :ref:`_property_can_revert<class_Object_method__property_can_revert>` **(** :ref:`StringName<class_StringName>` property **)** |virtual|                                                                                           |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Variant<class_Variant>`                     | :ref:`_property_get_revert<class_Object_method__property_get_revert>` **(** :ref:`StringName<class_StringName>` property **)** |virtual|                                                                                           |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`                           | :ref:`_set<class_Object_method__set>` **(** :ref:`StringName<class_StringName>` property, :ref:`Variant<class_Variant>` value **)** |virtual|                                                                                      |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`String<class_String>`                       | :ref:`_to_string<class_Object_method__to_string>` **(** **)** |virtual|                                                                                                                                                            |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                              | :ref:`add_user_signal<class_Object_method_add_user_signal>` **(** :ref:`String<class_String>` signal, :ref:`Array<class_Array>` arguments=[] **)**                                                                                 |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Variant<class_Variant>`                     | :ref:`call<class_Object_method_call>` **(** :ref:`StringName<class_StringName>` method, ... **)** |vararg|                                                                                                                         |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Variant<class_Variant>`                     | :ref:`call_deferred<class_Object_method_call_deferred>` **(** :ref:`StringName<class_StringName>` method, ... **)** |vararg|                                                                                                       |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Variant<class_Variant>`                     | :ref:`callv<class_Object_method_callv>` **(** :ref:`StringName<class_StringName>` method, :ref:`Array<class_Array>` arg_array **)**                                                                                                |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`                           | :ref:`can_translate_messages<class_Object_method_can_translate_messages>` **(** **)** |const|                                                                                                                                      |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Error<enum_@GlobalScope_Error>`             | :ref:`connect<class_Object_method_connect>` **(** :ref:`StringName<class_StringName>` signal, :ref:`Callable<class_Callable>` callable, :ref:`int<class_int>` flags=0 **)**                                                        |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                              | :ref:`disconnect<class_Object_method_disconnect>` **(** :ref:`StringName<class_StringName>` signal, :ref:`Callable<class_Callable>` callable **)**                                                                                 |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Error<enum_@GlobalScope_Error>`             | :ref:`emit_signal<class_Object_method_emit_signal>` **(** :ref:`StringName<class_StringName>` signal, ... **)** |vararg|                                                                                                           |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                              | :ref:`free<class_Object_method_free>` **(** **)**                                                                                                                                                                                  |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Variant<class_Variant>`                     | :ref:`get<class_Object_method_get>` **(** :ref:`StringName<class_StringName>` property **)** |const|                                                                                                                               |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`String<class_String>`                       | :ref:`get_class<class_Object_method_get_class>` **(** **)** |const|                                                                                                                                                                |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Dictionary[]<class_Dictionary>`             | :ref:`get_incoming_connections<class_Object_method_get_incoming_connections>` **(** **)** |const|                                                                                                                                  |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Variant<class_Variant>`                     | :ref:`get_indexed<class_Object_method_get_indexed>` **(** :ref:`NodePath<class_NodePath>` property_path **)** |const|                                                                                                              |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`int<class_int>`                             | :ref:`get_instance_id<class_Object_method_get_instance_id>` **(** **)** |const|                                                                                                                                                    |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Variant<class_Variant>`                     | :ref:`get_meta<class_Object_method_get_meta>` **(** :ref:`StringName<class_StringName>` name, :ref:`Variant<class_Variant>` default=null **)** |const|                                                                             |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`PackedStringArray<class_PackedStringArray>` | :ref:`get_meta_list<class_Object_method_get_meta_list>` **(** **)** |const|                                                                                                                                                        |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Dictionary[]<class_Dictionary>`             | :ref:`get_method_list<class_Object_method_get_method_list>` **(** **)** |const|                                                                                                                                                    |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Dictionary[]<class_Dictionary>`             | :ref:`get_property_list<class_Object_method_get_property_list>` **(** **)** |const|                                                                                                                                                |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Variant<class_Variant>`                     | :ref:`get_script<class_Object_method_get_script>` **(** **)** |const|                                                                                                                                                              |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Dictionary[]<class_Dictionary>`             | :ref:`get_signal_connection_list<class_Object_method_get_signal_connection_list>` **(** :ref:`StringName<class_StringName>` signal **)** |const|                                                                                   |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Dictionary[]<class_Dictionary>`             | :ref:`get_signal_list<class_Object_method_get_signal_list>` **(** **)** |const|                                                                                                                                                    |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`                           | :ref:`has_meta<class_Object_method_has_meta>` **(** :ref:`StringName<class_StringName>` name **)** |const|                                                                                                                         |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`                           | :ref:`has_method<class_Object_method_has_method>` **(** :ref:`StringName<class_StringName>` method **)** |const|                                                                                                                   |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`                           | :ref:`has_signal<class_Object_method_has_signal>` **(** :ref:`StringName<class_StringName>` signal **)** |const|                                                                                                                   |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`                           | :ref:`has_user_signal<class_Object_method_has_user_signal>` **(** :ref:`StringName<class_StringName>` signal **)** |const|                                                                                                         |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`                           | :ref:`is_blocking_signals<class_Object_method_is_blocking_signals>` **(** **)** |const|                                                                                                                                            |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`                           | :ref:`is_class<class_Object_method_is_class>` **(** :ref:`String<class_String>` class **)** |const|                                                                                                                                |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`                           | :ref:`is_connected<class_Object_method_is_connected>` **(** :ref:`StringName<class_StringName>` signal, :ref:`Callable<class_Callable>` callable **)** |const|                                                                     |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`                           | :ref:`is_queued_for_deletion<class_Object_method_is_queued_for_deletion>` **(** **)** |const|                                                                                                                                      |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                              | :ref:`notification<class_Object_method_notification>` **(** :ref:`int<class_int>` what, :ref:`bool<class_bool>` reversed=false **)**                                                                                               |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                              | :ref:`notify_property_list_changed<class_Object_method_notify_property_list_changed>` **(** **)**                                                                                                                                  |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`                           | :ref:`property_can_revert<class_Object_method_property_can_revert>` **(** :ref:`StringName<class_StringName>` property **)** |const|                                                                                               |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Variant<class_Variant>`                     | :ref:`property_get_revert<class_Object_method_property_get_revert>` **(** :ref:`StringName<class_StringName>` property **)** |const|                                                                                               |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                              | :ref:`remove_meta<class_Object_method_remove_meta>` **(** :ref:`StringName<class_StringName>` name **)**                                                                                                                           |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                              | :ref:`set<class_Object_method_set>` **(** :ref:`StringName<class_StringName>` property, :ref:`Variant<class_Variant>` value **)**                                                                                                  |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                              | :ref:`set_block_signals<class_Object_method_set_block_signals>` **(** :ref:`bool<class_bool>` enable **)**                                                                                                                         |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                              | :ref:`set_deferred<class_Object_method_set_deferred>` **(** :ref:`StringName<class_StringName>` property, :ref:`Variant<class_Variant>` value **)**                                                                                |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                              | :ref:`set_indexed<class_Object_method_set_indexed>` **(** :ref:`NodePath<class_NodePath>` property_path, :ref:`Variant<class_Variant>` value **)**                                                                                 |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                              | :ref:`set_message_translation<class_Object_method_set_message_translation>` **(** :ref:`bool<class_bool>` enable **)**                                                                                                             |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                              | :ref:`set_meta<class_Object_method_set_meta>` **(** :ref:`StringName<class_StringName>` name, :ref:`Variant<class_Variant>` value **)**                                                                                            |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                              | :ref:`set_script<class_Object_method_set_script>` **(** :ref:`Variant<class_Variant>` script **)**                                                                                                                                 |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`String<class_String>`                       | :ref:`to_string<class_Object_method_to_string>` **(** **)**                                                                                                                                                                        |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`String<class_String>`                       | :ref:`tr<class_Object_method_tr>` **(** :ref:`StringName<class_StringName>` message, :ref:`StringName<class_StringName>` context="" **)** |const|                                                                                  |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`String<class_String>`                       | :ref:`tr_n<class_Object_method_tr_n>` **(** :ref:`StringName<class_StringName>` message, :ref:`StringName<class_StringName>` plural_message, :ref:`int<class_int>` n, :ref:`StringName<class_StringName>` context="" **)** |const| |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Variant<class_Variant>`                                    | :ref:`_get<class_Object_private_method__get>`\ (\ property\: :ref:`StringName<class_StringName>`\ ) |virtual|                                                                                                                            |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Array<class_Array>`\[:ref:`Dictionary<class_Dictionary>`\] | :ref:`_get_property_list<class_Object_private_method__get_property_list>`\ (\ ) |virtual|                                                                                                                                                |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                                           | :ref:`_init<class_Object_private_method__init>`\ (\ ) |virtual|                                                                                                                                                                          |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                                           | :ref:`_notification<class_Object_private_method__notification>`\ (\ what\: :ref:`int<class_int>`\ ) |virtual|                                                                                                                            |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                                          | :ref:`_property_can_revert<class_Object_private_method__property_can_revert>`\ (\ property\: :ref:`StringName<class_StringName>`\ ) |virtual|                                                                                            |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Variant<class_Variant>`                                    | :ref:`_property_get_revert<class_Object_private_method__property_get_revert>`\ (\ property\: :ref:`StringName<class_StringName>`\ ) |virtual|                                                                                            |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                                          | :ref:`_set<class_Object_private_method__set>`\ (\ property\: :ref:`StringName<class_StringName>`, value\: :ref:`Variant<class_Variant>`\ ) |virtual|                                                                                     |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`String<class_String>`                                      | :ref:`_to_string<class_Object_private_method__to_string>`\ (\ ) |virtual|                                                                                                                                                                |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                                           | :ref:`_validate_property<class_Object_private_method__validate_property>`\ (\ property\: :ref:`Dictionary<class_Dictionary>`\ ) |virtual|                                                                                                |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                                           | :ref:`add_user_signal<class_Object_method_add_user_signal>`\ (\ signal\: :ref:`String<class_String>`, arguments\: :ref:`Array<class_Array>` = []\ )                                                                                      |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Variant<class_Variant>`                                    | :ref:`call<class_Object_method_call>`\ (\ method\: :ref:`StringName<class_StringName>`, ...\ ) |vararg|                                                                                                                                  |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Variant<class_Variant>`                                    | :ref:`call_deferred<class_Object_method_call_deferred>`\ (\ method\: :ref:`StringName<class_StringName>`, ...\ ) |vararg|                                                                                                                |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Variant<class_Variant>`                                    | :ref:`callv<class_Object_method_callv>`\ (\ method\: :ref:`StringName<class_StringName>`, arg_array\: :ref:`Array<class_Array>`\ )                                                                                                       |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                                          | :ref:`can_translate_messages<class_Object_method_can_translate_messages>`\ (\ ) |const|                                                                                                                                                  |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                                           | :ref:`cancel_free<class_Object_method_cancel_free>`\ (\ )                                                                                                                                                                                |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Error<enum_@GlobalScope_Error>`                            | :ref:`connect<class_Object_method_connect>`\ (\ signal\: :ref:`StringName<class_StringName>`, callable\: :ref:`Callable<class_Callable>`, flags\: :ref:`int<class_int>` = 0\ )                                                           |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                                           | :ref:`disconnect<class_Object_method_disconnect>`\ (\ signal\: :ref:`StringName<class_StringName>`, callable\: :ref:`Callable<class_Callable>`\ )                                                                                        |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Error<enum_@GlobalScope_Error>`                            | :ref:`emit_signal<class_Object_method_emit_signal>`\ (\ signal\: :ref:`StringName<class_StringName>`, ...\ ) |vararg|                                                                                                                    |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                                           | :ref:`free<class_Object_method_free>`\ (\ )                                                                                                                                                                                              |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Variant<class_Variant>`                                    | :ref:`get<class_Object_method_get>`\ (\ property\: :ref:`StringName<class_StringName>`\ ) |const|                                                                                                                                        |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`String<class_String>`                                      | :ref:`get_class<class_Object_method_get_class>`\ (\ ) |const|                                                                                                                                                                            |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Array<class_Array>`\[:ref:`Dictionary<class_Dictionary>`\] | :ref:`get_incoming_connections<class_Object_method_get_incoming_connections>`\ (\ ) |const|                                                                                                                                              |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Variant<class_Variant>`                                    | :ref:`get_indexed<class_Object_method_get_indexed>`\ (\ property_path\: :ref:`NodePath<class_NodePath>`\ ) |const|                                                                                                                       |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`int<class_int>`                                            | :ref:`get_instance_id<class_Object_method_get_instance_id>`\ (\ ) |const|                                                                                                                                                                |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Variant<class_Variant>`                                    | :ref:`get_meta<class_Object_method_get_meta>`\ (\ name\: :ref:`StringName<class_StringName>`, default\: :ref:`Variant<class_Variant>` = null\ ) |const|                                                                                  |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Array<class_Array>`\[:ref:`StringName<class_StringName>`\] | :ref:`get_meta_list<class_Object_method_get_meta_list>`\ (\ ) |const|                                                                                                                                                                    |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Array<class_Array>`\[:ref:`Dictionary<class_Dictionary>`\] | :ref:`get_method_list<class_Object_method_get_method_list>`\ (\ ) |const|                                                                                                                                                                |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Array<class_Array>`\[:ref:`Dictionary<class_Dictionary>`\] | :ref:`get_property_list<class_Object_method_get_property_list>`\ (\ ) |const|                                                                                                                                                            |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Variant<class_Variant>`                                    | :ref:`get_script<class_Object_method_get_script>`\ (\ ) |const|                                                                                                                                                                          |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Array<class_Array>`\[:ref:`Dictionary<class_Dictionary>`\] | :ref:`get_signal_connection_list<class_Object_method_get_signal_connection_list>`\ (\ signal\: :ref:`StringName<class_StringName>`\ ) |const|                                                                                            |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Array<class_Array>`\[:ref:`Dictionary<class_Dictionary>`\] | :ref:`get_signal_list<class_Object_method_get_signal_list>`\ (\ ) |const|                                                                                                                                                                |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                                          | :ref:`has_meta<class_Object_method_has_meta>`\ (\ name\: :ref:`StringName<class_StringName>`\ ) |const|                                                                                                                                  |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                                          | :ref:`has_method<class_Object_method_has_method>`\ (\ method\: :ref:`StringName<class_StringName>`\ ) |const|                                                                                                                            |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                                          | :ref:`has_signal<class_Object_method_has_signal>`\ (\ signal\: :ref:`StringName<class_StringName>`\ ) |const|                                                                                                                            |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                                          | :ref:`has_user_signal<class_Object_method_has_user_signal>`\ (\ signal\: :ref:`StringName<class_StringName>`\ ) |const|                                                                                                                  |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                                          | :ref:`is_blocking_signals<class_Object_method_is_blocking_signals>`\ (\ ) |const|                                                                                                                                                        |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                                          | :ref:`is_class<class_Object_method_is_class>`\ (\ class\: :ref:`String<class_String>`\ ) |const|                                                                                                                                         |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                                          | :ref:`is_connected<class_Object_method_is_connected>`\ (\ signal\: :ref:`StringName<class_StringName>`, callable\: :ref:`Callable<class_Callable>`\ ) |const|                                                                            |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                                          | :ref:`is_queued_for_deletion<class_Object_method_is_queued_for_deletion>`\ (\ ) |const|                                                                                                                                                  |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                                           | :ref:`notification<class_Object_method_notification>`\ (\ what\: :ref:`int<class_int>`, reversed\: :ref:`bool<class_bool>` = false\ )                                                                                                    |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                                           | :ref:`notify_property_list_changed<class_Object_method_notify_property_list_changed>`\ (\ )                                                                                                                                              |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                                          | :ref:`property_can_revert<class_Object_method_property_can_revert>`\ (\ property\: :ref:`StringName<class_StringName>`\ ) |const|                                                                                                        |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Variant<class_Variant>`                                    | :ref:`property_get_revert<class_Object_method_property_get_revert>`\ (\ property\: :ref:`StringName<class_StringName>`\ ) |const|                                                                                                        |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                                           | :ref:`remove_meta<class_Object_method_remove_meta>`\ (\ name\: :ref:`StringName<class_StringName>`\ )                                                                                                                                    |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                                           | :ref:`set<class_Object_method_set>`\ (\ property\: :ref:`StringName<class_StringName>`, value\: :ref:`Variant<class_Variant>`\ )                                                                                                         |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                                           | :ref:`set_block_signals<class_Object_method_set_block_signals>`\ (\ enable\: :ref:`bool<class_bool>`\ )                                                                                                                                  |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                                           | :ref:`set_deferred<class_Object_method_set_deferred>`\ (\ property\: :ref:`StringName<class_StringName>`, value\: :ref:`Variant<class_Variant>`\ )                                                                                       |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                                           | :ref:`set_indexed<class_Object_method_set_indexed>`\ (\ property_path\: :ref:`NodePath<class_NodePath>`, value\: :ref:`Variant<class_Variant>`\ )                                                                                        |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                                           | :ref:`set_message_translation<class_Object_method_set_message_translation>`\ (\ enable\: :ref:`bool<class_bool>`\ )                                                                                                                      |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                                           | :ref:`set_meta<class_Object_method_set_meta>`\ (\ name\: :ref:`StringName<class_StringName>`, value\: :ref:`Variant<class_Variant>`\ )                                                                                                   |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                                           | :ref:`set_script<class_Object_method_set_script>`\ (\ script\: :ref:`Variant<class_Variant>`\ )                                                                                                                                          |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`String<class_String>`                                      | :ref:`to_string<class_Object_method_to_string>`\ (\ )                                                                                                                                                                                    |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`String<class_String>`                                      | :ref:`tr<class_Object_method_tr>`\ (\ message\: :ref:`StringName<class_StringName>`, context\: :ref:`StringName<class_StringName>` = &""\ ) |const|                                                                                      |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`String<class_String>`                                      | :ref:`tr_n<class_Object_method_tr_n>`\ (\ message\: :ref:`StringName<class_StringName>`, plural_message\: :ref:`StringName<class_StringName>`, n\: :ref:`int<class_int>`, context\: :ref:`StringName<class_StringName>` = &""\ ) |const| |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -187,7 +191,7 @@ Signals
 
 .. rst-class:: classref-signal
 
-**property_list_changed** **(** **)**
+**property_list_changed**\ (\ )
 
 Emitted when :ref:`notify_property_list_changed<class_Object_method_notify_property_list_changed>` is called.
 
@@ -199,7 +203,7 @@ Emitted when :ref:`notify_property_list_changed<class_Object_method_notify_prope
 
 .. rst-class:: classref-signal
 
-**script_changed** **(** **)**
+**script_changed**\ (\ )
 
 Emitted when the object's script is changed.
 
@@ -226,7 +230,7 @@ enum **ConnectFlags**:
 
 :ref:`ConnectFlags<enum_Object_ConnectFlags>` **CONNECT_DEFERRED** = ``1``
 
-Deferred connections trigger their :ref:`Callable<class_Callable>`\ s on idle time, rather than instantly.
+Deferred connections trigger their :ref:`Callable<class_Callable>`\ s on idle time (at the end of the frame), rather than instantly.
 
 .. _class_Object_constant_CONNECT_PERSIST:
 
@@ -277,6 +281,14 @@ Notification received when the object is initialized, before its script is attac
 
 Notification received when the object is about to be deleted. Can act as the deconstructor of some programming languages.
 
+.. _class_Object_constant_NOTIFICATION_EXTENSION_RELOADED:
+
+.. rst-class:: classref-constant
+
+**NOTIFICATION_EXTENSION_RELOADED** = ``2``
+
+Notification received when the object finishes hot reloading. This notification is only sent for extensions classes and derived.
+
 .. rst-class:: classref-section-separator
 
 ----
@@ -286,15 +298,15 @@ Notification received when the object is about to be deleted. Can act as the dec
 Method Descriptions
 -------------------
 
-.. _class_Object_method__get:
+.. _class_Object_private_method__get:
 
 .. rst-class:: classref-method
 
-:ref:`Variant<class_Variant>` **_get** **(** :ref:`StringName<class_StringName>` property **)** |virtual|
+:ref:`Variant<class_Variant>` **_get**\ (\ property\: :ref:`StringName<class_StringName>`\ ) |virtual|
 
 Override this method to customize the behavior of :ref:`get<class_Object_method_get>`. Should return the given ``property``'s value, or ``null`` if the ``property`` should be handled normally.
 
-Combined with :ref:`_set<class_Object_method__set>` and :ref:`_get_property_list<class_Object_method__get_property_list>`, this method allows defining custom properties, which is particularly useful for editor plugins. Note that a property must be present in :ref:`get_property_list<class_Object_method_get_property_list>`, otherwise this method will not be called.
+Combined with :ref:`_set<class_Object_private_method__set>` and :ref:`_get_property_list<class_Object_private_method__get_property_list>`, this method allows defining custom properties, which is particularly useful for editor plugins. Note that a property must be present in :ref:`get_property_list<class_Object_method_get_property_list>`, otherwise this method will not be called.
 
 
 .. tabs::
@@ -302,7 +314,7 @@ Combined with :ref:`_set<class_Object_method__set>` and :ref:`_get_property_list
  .. code-tab:: gdscript
 
     func _get(property):
-        if (property == "fake_property"):
+        if property == "fake_property":
             print("Getting my property!")
             return 4
     
@@ -341,17 +353,19 @@ Combined with :ref:`_set<class_Object_method__set>` and :ref:`_get_property_list
 
 ----
 
-.. _class_Object_method__get_property_list:
+.. _class_Object_private_method__get_property_list:
 
 .. rst-class:: classref-method
 
-:ref:`Dictionary[]<class_Dictionary>` **_get_property_list** **(** **)** |virtual|
+:ref:`Array<class_Array>`\[:ref:`Dictionary<class_Dictionary>`\] **_get_property_list**\ (\ ) |virtual|
 
-Override this method to customize how script properties should be handled by the engine.
+Override this method to provide a custom list of additional properties to handle by the engine.
 
 Should return a property list, as an :ref:`Array<class_Array>` of dictionaries. The result is added to the array of :ref:`get_property_list<class_Object_method_get_property_list>`, and should be formatted in the same way. Each :ref:`Dictionary<class_Dictionary>` must at least contain the ``name`` and ``type`` entries.
 
-The example below displays ``hammer_type`` in the Inspector dock, only if ``holding_hammer`` is ``true``:
+You can use :ref:`_property_can_revert<class_Object_private_method__property_can_revert>` and :ref:`_property_get_revert<class_Object_private_method__property_get_revert>` to customize the default values of the properties added by this method.
+
+The example below displays a list of numbers shown as words going from ``ZERO`` to ``FIVE``, with ``number_count`` controlling the size of the list:
 
 
 .. tabs::
@@ -359,79 +373,107 @@ The example below displays ``hammer_type`` in the Inspector dock, only if ``hold
  .. code-tab:: gdscript
 
     @tool
-    extends Node2D
+    extends Node
     
-    @export var holding_hammer = false:
-        set(value):
-            holding_hammer = value
+    @export var number_count = 3:
+        set(nc):
+            number_count = nc
+            numbers.resize(number_count)
             notify_property_list_changed()
-    var hammer_type = 0
+    
+    var numbers = PackedInt32Array([0, 0, 0])
     
     func _get_property_list():
-        # By default, `hammer_type` is not visible in the editor.
-        var property_usage = PROPERTY_USAGE_NO_EDITOR
-    
-        if holding_hammer:
-            property_usage = PROPERTY_USAGE_DEFAULT
-    
         var properties = []
-        properties.append({
-            "name": "hammer_type",
-            "type": TYPE_INT,
-            "usage": property_usage, # See above assignment.
-            "hint": PROPERTY_HINT_ENUM,
-            "hint_string": "Wooden,Iron,Golden,Enchanted"
-        })
+    
+        for i in range(number_count):
+            properties.append({
+                "name": "number_%d" % i,
+                "type": TYPE_INT,
+                "hint": PROPERTY_HINT_ENUM,
+                "hint_string": "ZERO,ONE,TWO,THREE,FOUR,FIVE",
+            })
     
         return properties
+    
+    func _get(property):
+        if property.begins_with("number_"):
+            var index = property.get_slice("_", 1).to_int()
+            return numbers[index]
+    
+    func _set(property, value):
+        if property.begins_with("number_"):
+            var index = property.get_slice("_", 1).to_int()
+            numbers[index] = value
+            return true
+        return false
 
  .. code-tab:: csharp
 
     [Tool]
-    public partial class MyNode2D : Node2D
+    public partial class MyNode : Node
     {
-        private bool _holdingHammer;
+        private int _numberCount;
     
         [Export]
-        public bool HoldingHammer
+        public int NumberCount
         {
-            get => _holdingHammer;
+            get => _numberCount;
             set
             {
-                _holdingHammer = value;
+                _numberCount = value;
+                _numbers.Resize(_numberCount);
                 NotifyPropertyListChanged();
             }
         }
     
-        public int HammerType { get; set; }
+        private List<int> _numbers = new();
     
         public override Godot.Collections.Array<Godot.Collections.Dictionary> _GetPropertyList()
         {
-            // By default, `HammerType` is not visible in the editor.
-            var propertyUsage = PropertyUsageFlags.NoEditor;
+            var properties = new Godot.Collections.Array<Godot.Collections.Dictionary>();
     
-            if (HoldingHammer)
+            for (int i = 0; i < _numberCount; i++)
             {
-                propertyUsage = PropertyUsageFlags.Default;
+                properties.Add(new Godot.Collections.Dictionary()
+                {
+                    { "name", $"number_{i}" },
+                    { "type", (int)Variant.Type.Int },
+                    { "hint", (int)PropertyHint.Enum },
+                    { "hint_string", "Zero,One,Two,Three,Four,Five" },
+                });
             }
     
-            var properties = new Godot.Collections.Array<Godot.Collections.Dictionary>();
-            properties.Add(new Godot.Collections.Dictionary()
-            {
-                { "name", "HammerType" },
-                { "type", (int)Variant.Type.Int },
-                { "usage", (int)propertyUsage }, // See above assignment.
-                { "hint", (int)PropertyHint.Enum },
-                { "hint_string", "Wooden,Iron,Golden,Enchanted" }
-            });
-    
             return properties;
+        }
+    
+        public override Variant _Get(StringName property)
+        {
+            string propertyName = property.ToString();
+            if (propertyName.StartsWith("number_"))
+            {
+                int index = int.Parse(propertyName.Substring("number_".Length));
+                return _numbers[index];
+            }
+            return default;
+        }
+    
+        public override bool _Set(StringName property, Variant value)
+        {
+            string propertyName = property.ToString();
+            if (propertyName.StartsWith("number_"))
+            {
+                int index = int.Parse(propertyName.Substring("number_".Length));
+                numbers[index] = value.As<int>();
+                return true;
+            }
+            return false;
         }
     }
 
 
 
-\ **Note:** This method is intended for advanced purposes. For most common use cases, the scripting languages offer easier ways to handle properties. See :ref:`@GDScript.@export<class_@GDScript_annotation_@export>`, :ref:`@GDScript.@export_enum<class_@GDScript_annotation_@export_enum>`, :ref:`@GDScript.@export_group<class_@GDScript_annotation_@export_group>`, etc.
+\ **Note:** This method is intended for advanced purposes. For most common use cases, the scripting languages offer easier ways to handle properties. See :ref:`@GDScript.@export<class_@GDScript_annotation_@export>`, :ref:`@GDScript.@export_enum<class_@GDScript_annotation_@export_enum>`, :ref:`@GDScript.@export_group<class_@GDScript_annotation_@export_group>`, etc. If you want to customize exported properties, use :ref:`_validate_property<class_Object_private_method__validate_property>`.
 
 \ **Note:** If the object's script is not :ref:`@GDScript.@tool<class_@GDScript_annotation_@tool>`, this method will not be called in the editor.
 
@@ -439,25 +481,25 @@ The example below displays ``hammer_type`` in the Inspector dock, only if ``hold
 
 ----
 
-.. _class_Object_method__init:
+.. _class_Object_private_method__init:
 
 .. rst-class:: classref-method
 
-void **_init** **(** **)** |virtual|
+|void| **_init**\ (\ ) |virtual|
 
-Called when the object's script is instantiated, oftentimes after the object is initialized in memory (through ``Object.new()`` in GDScript, or ``new Object`` in C#). It can be also defined to take in parameters. This method is similar to a constructor in most programming languages.
+Called when the object's script is instantiated, oftentimes after the object is initialized in memory (through ``Object.new()`` in GDScript, or ``new GodotObject`` in C#). It can be also defined to take in parameters. This method is similar to a constructor in most programming languages.
 
-\ **Note:** If :ref:`_init<class_Object_method__init>` is defined with *required* parameters, the Object with script may only be created directly. If any other means (such as :ref:`PackedScene.instantiate<class_PackedScene_method_instantiate>` or :ref:`Node.duplicate<class_Node_method_duplicate>`) are used, the script's initialization will fail.
+\ **Note:** If :ref:`_init<class_Object_private_method__init>` is defined with *required* parameters, the Object with script may only be created directly. If any other means (such as :ref:`PackedScene.instantiate<class_PackedScene_method_instantiate>` or :ref:`Node.duplicate<class_Node_method_duplicate>`) are used, the script's initialization will fail.
 
 .. rst-class:: classref-item-separator
 
 ----
 
-.. _class_Object_method__notification:
+.. _class_Object_private_method__notification:
 
 .. rst-class:: classref-method
 
-void **_notification** **(** :ref:`int<class_int>` what **)** |virtual|
+|void| **_notification**\ (\ what\: :ref:`int<class_int>`\ ) |virtual|
 
 Called when the object receives a notification, which can be identified in ``what`` by comparing it with a constant. See also :ref:`notification<class_Object_method_notification>`.
 
@@ -472,7 +514,7 @@ Called when the object receives a notification, which can be identified in ``wha
 
  .. code-tab:: csharp
 
-    public override void _Notification(long what)
+    public override void _Notification(int what)
     {
         if (what == NotificationPredelete)
         {
@@ -488,13 +530,13 @@ Called when the object receives a notification, which can be identified in ``wha
 
 ----
 
-.. _class_Object_method__property_can_revert:
+.. _class_Object_private_method__property_can_revert:
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **_property_can_revert** **(** :ref:`StringName<class_StringName>` property **)** |virtual|
+:ref:`bool<class_bool>` **_property_can_revert**\ (\ property\: :ref:`StringName<class_StringName>`\ ) |virtual|
 
-Override this method to customize the given ``property``'s revert behavior. Should return ``true`` if the ``property`` can be reverted in the Inspector dock. Use :ref:`_property_get_revert<class_Object_method__property_get_revert>` to specify the ``property``'s default value.
+Override this method to customize the given ``property``'s revert behavior. Should return ``true`` if the ``property`` has a custom default value and is revertible in the Inspector dock. Use :ref:`_property_get_revert<class_Object_private_method__property_get_revert>` to specify the ``property``'s default value.
 
 \ **Note:** This method must return consistently, regardless of the current value of the ``property``.
 
@@ -502,38 +544,43 @@ Override this method to customize the given ``property``'s revert behavior. Shou
 
 ----
 
-.. _class_Object_method__property_get_revert:
+.. _class_Object_private_method__property_get_revert:
 
 .. rst-class:: classref-method
 
-:ref:`Variant<class_Variant>` **_property_get_revert** **(** :ref:`StringName<class_StringName>` property **)** |virtual|
+:ref:`Variant<class_Variant>` **_property_get_revert**\ (\ property\: :ref:`StringName<class_StringName>`\ ) |virtual|
 
 Override this method to customize the given ``property``'s revert behavior. Should return the default value for the ``property``. If the default value differs from the ``property``'s current value, a revert icon is displayed in the Inspector dock.
 
-\ **Note:** :ref:`_property_can_revert<class_Object_method__property_can_revert>` must also be overridden for this method to be called.
+\ **Note:** :ref:`_property_can_revert<class_Object_private_method__property_can_revert>` must also be overridden for this method to be called.
 
 .. rst-class:: classref-item-separator
 
 ----
 
-.. _class_Object_method__set:
+.. _class_Object_private_method__set:
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **_set** **(** :ref:`StringName<class_StringName>` property, :ref:`Variant<class_Variant>` value **)** |virtual|
+:ref:`bool<class_bool>` **_set**\ (\ property\: :ref:`StringName<class_StringName>`, value\: :ref:`Variant<class_Variant>`\ ) |virtual|
 
 Override this method to customize the behavior of :ref:`set<class_Object_method_set>`. Should set the ``property`` to ``value`` and return ``true``, or ``false`` if the ``property`` should be handled normally. The *exact* way to set the ``property`` is up to this method's implementation.
 
-Combined with :ref:`_get<class_Object_method__get>` and :ref:`_get_property_list<class_Object_method__get_property_list>`, this method allows defining custom properties, which is particularly useful for editor plugins. Note that a property *must* be present in :ref:`get_property_list<class_Object_method_get_property_list>`, otherwise this method will not be called.
+Combined with :ref:`_get<class_Object_private_method__get>` and :ref:`_get_property_list<class_Object_private_method__get_property_list>`, this method allows defining custom properties, which is particularly useful for editor plugins. Note that a property *must* be present in :ref:`get_property_list<class_Object_method_get_property_list>`, otherwise this method will not be called.
 
 
 .. tabs::
 
  .. code-tab:: gdscript
 
+    var internal_data = {}
+    
     func _set(property, value):
-        if (property == "fake_property"):
-            print("Setting my property to ", value)
+        if property == "fake_property":
+            # Storing the value in the fake property.
+            internal_data["fake_property"] = value
+            return true
+        return false
     
     func _get_property_list():
         return [
@@ -542,11 +589,14 @@ Combined with :ref:`_get<class_Object_method__get>` and :ref:`_get_property_list
 
  .. code-tab:: csharp
 
-    public override void _Set(StringName property, Variant value)
+    private Godot.Collections.Dictionary _internalData = new Godot.Collections.Dictionary();
+    
+    public override bool _Set(StringName property, Variant value)
     {
         if (property == "FakeProperty")
         {
-            GD.Print($"Setting my property to {value}");
+            // Storing the value in the fake property.
+            _internalData["FakeProperty"] = value;
             return true;
         }
     
@@ -571,11 +621,11 @@ Combined with :ref:`_get<class_Object_method__get>` and :ref:`_get_property_list
 
 ----
 
-.. _class_Object_method__to_string:
+.. _class_Object_private_method__to_string:
 
 .. rst-class:: classref-method
 
-:ref:`String<class_String>` **_to_string** **(** **)** |virtual|
+:ref:`String<class_String>` **_to_string**\ (\ ) |virtual|
 
 Override this method to customize the return value of :ref:`to_string<class_Object_method_to_string>`, and therefore the object's representation as a :ref:`String<class_String>`.
 
@@ -592,11 +642,74 @@ Override this method to customize the return value of :ref:`to_string<class_Obje
 
 ----
 
+.. _class_Object_private_method__validate_property:
+
+.. rst-class:: classref-method
+
+|void| **_validate_property**\ (\ property\: :ref:`Dictionary<class_Dictionary>`\ ) |virtual|
+
+Override this method to customize existing properties. Every property info goes through this method, except properties added with :ref:`_get_property_list<class_Object_private_method__get_property_list>`. The dictionary contents is the same as in :ref:`_get_property_list<class_Object_private_method__get_property_list>`.
+
+
+.. tabs::
+
+ .. code-tab:: gdscript
+
+    @tool
+    extends Node
+    
+    @export var is_number_editable: bool:
+        set(value):
+            is_number_editable = value
+            notify_property_list_changed()
+    @export var number: int
+    
+    func _validate_property(property: Dictionary):
+        if property.name == "number" and not is_number_editable:
+            property.usage |= PROPERTY_USAGE_READ_ONLY
+
+ .. code-tab:: csharp
+
+    [Tool]
+    public partial class MyNode : Node
+    {
+        private bool _isNumberEditable;
+    
+        [Export]
+        public bool IsNumberEditable
+        {
+            get => _isNumberEditable;
+            set
+            {
+                _isNumberEditable = value;
+                NotifyPropertyListChanged();
+            }
+        }
+    
+        [Export]
+        public int Number { get; set; }
+    
+        public override void _ValidateProperty(Godot.Collections.Dictionary property)
+        {
+            if (property["name"].AsStringName() == PropertyName.Number && IsNumberEditable)
+            {
+                var usage = property["usage"].As<PropertyUsageFlags>() | PropertyUsageFlags.ReadOnly;
+                property["usage"] = (int)usage;
+            }
+        }
+    }
+
+
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_Object_method_add_user_signal:
 
 .. rst-class:: classref-method
 
-void **add_user_signal** **(** :ref:`String<class_String>` signal, :ref:`Array<class_Array>` arguments=[] **)**
+|void| **add_user_signal**\ (\ signal\: :ref:`String<class_String>`, arguments\: :ref:`Array<class_Array>` = []\ )
 
 Adds a user-defined ``signal``. Optional arguments for the signal can be added as an :ref:`Array<class_Array>` of dictionaries, each defining a ``name`` :ref:`String<class_String>` and a ``type`` :ref:`int<class_int>` (see :ref:`Variant.Type<enum_@GlobalScope_Variant.Type>`). See also :ref:`has_user_signal<class_Object_method_has_user_signal>`.
 
@@ -636,7 +749,7 @@ Adds a user-defined ``signal``. Optional arguments for the signal can be added a
 
 .. rst-class:: classref-method
 
-:ref:`Variant<class_Variant>` **call** **(** :ref:`StringName<class_StringName>` method, ... **)** |vararg|
+:ref:`Variant<class_Variant>` **call**\ (\ method\: :ref:`StringName<class_StringName>`, ...\ ) |vararg|
 
 Calls the ``method`` on the object and returns the result. This method supports a variable number of arguments, so parameters can be passed as a comma separated list.
 
@@ -665,9 +778,13 @@ Calls the ``method`` on the object and returns the result. This method supports 
 
 .. rst-class:: classref-method
 
-:ref:`Variant<class_Variant>` **call_deferred** **(** :ref:`StringName<class_StringName>` method, ... **)** |vararg|
+:ref:`Variant<class_Variant>` **call_deferred**\ (\ method\: :ref:`StringName<class_StringName>`, ...\ ) |vararg|
 
-Calls the ``method`` on the object during idle time. This method supports a variable number of arguments, so parameters can be passed as a comma separated list.
+Calls the ``method`` on the object during idle time. Always returns null, **not** the method's result.
+
+Idle time happens mainly at the end of process and physics frames. In it, deferred calls will be run until there are none left, which means you can defer calls from other deferred calls and they'll still be run in the current idle time cycle. If not done carefully, this can result in infinite recursion without causing a stack overflow, which will hang the game similarly to an infinite loop.
+
+This method supports a variable number of arguments, so parameters can be passed as a comma separated list.
 
 
 .. tabs::
@@ -684,7 +801,20 @@ Calls the ``method`` on the object during idle time. This method supports a vari
 
 
 
+See also :ref:`Callable.call_deferred<class_Callable_method_call_deferred>`.
+
 \ **Note:** In C#, ``method`` must be in snake_case when referring to built-in Godot methods. Prefer using the names exposed in the ``MethodName`` class to avoid allocating a new :ref:`StringName<class_StringName>` on each call.
+
+\ **Note:** If you're looking to delay the function call by a frame, refer to the :ref:`SceneTree.process_frame<class_SceneTree_signal_process_frame>` and :ref:`SceneTree.physics_frame<class_SceneTree_signal_physics_frame>` signals.
+
+::
+
+    var node = Node3D.new()
+    # Make a Callable and bind the arguments to the node's rotate() call.
+    var callable = node.rotate.bind(Vector3(1.0, 0.0, 0.0), 1.571)
+    # Connect the callable to the process_frame signal, so it gets called in the next process frame.
+    # CONNECT_ONE_SHOT makes sure it only gets called once instead of every frame.
+    get_tree().process_frame.connect(callable, CONNECT_ONE_SHOT)
 
 .. rst-class:: classref-item-separator
 
@@ -694,7 +824,7 @@ Calls the ``method`` on the object during idle time. This method supports a vari
 
 .. rst-class:: classref-method
 
-:ref:`Variant<class_Variant>` **callv** **(** :ref:`StringName<class_StringName>` method, :ref:`Array<class_Array>` arg_array **)**
+:ref:`Variant<class_Variant>` **callv**\ (\ method\: :ref:`StringName<class_StringName>`, arg_array\: :ref:`Array<class_Array>`\ )
 
 Calls the ``method`` on the object and returns the result. Unlike :ref:`call<class_Object_method_call>`, this method expects all parameters to be contained inside ``arg_array``.
 
@@ -723,9 +853,21 @@ Calls the ``method`` on the object and returns the result. Unlike :ref:`call<cla
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **can_translate_messages** **(** **)** |const|
+:ref:`bool<class_bool>` **can_translate_messages**\ (\ ) |const|
 
 Returns ``true`` if the object is allowed to translate messages with :ref:`tr<class_Object_method_tr>` and :ref:`tr_n<class_Object_method_tr_n>`. See also :ref:`set_message_translation<class_Object_method_set_message_translation>`.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_Object_method_cancel_free:
+
+.. rst-class:: classref-method
+
+|void| **cancel_free**\ (\ )
+
+If this method is called during :ref:`NOTIFICATION_PREDELETE<class_Object_constant_NOTIFICATION_PREDELETE>`, this object will reject being freed and will remain allocated. This is mostly an internal function used for error handling to avoid the user from freeing objects when they are not intended to.
 
 .. rst-class:: classref-item-separator
 
@@ -735,7 +877,7 @@ Returns ``true`` if the object is allowed to translate messages with :ref:`tr<cl
 
 .. rst-class:: classref-method
 
-:ref:`Error<enum_@GlobalScope_Error>` **connect** **(** :ref:`StringName<class_StringName>` signal, :ref:`Callable<class_Callable>` callable, :ref:`int<class_int>` flags=0 **)**
+:ref:`Error<enum_@GlobalScope_Error>` **connect**\ (\ signal\: :ref:`StringName<class_StringName>`, callable\: :ref:`Callable<class_Callable>`, flags\: :ref:`int<class_int>` = 0\ )
 
 Connects a ``signal`` by name to a ``callable``. Optional ``flags`` can be also added to configure the connection's behavior (see :ref:`ConnectFlags<enum_Object_ConnectFlags>` constants).
 
@@ -897,7 +1039,7 @@ When calling :ref:`emit_signal<class_Object_method_emit_signal>`, the signal par
 
 .. rst-class:: classref-method
 
-void **disconnect** **(** :ref:`StringName<class_StringName>` signal, :ref:`Callable<class_Callable>` callable **)**
+|void| **disconnect**\ (\ signal\: :ref:`StringName<class_StringName>`, callable\: :ref:`Callable<class_Callable>`\ )
 
 Disconnects a ``signal`` by name from a given ``callable``. If the connection does not exist, generates an error. Use :ref:`is_connected<class_Object_method_is_connected>` to make sure that the connection exists.
 
@@ -909,7 +1051,7 @@ Disconnects a ``signal`` by name from a given ``callable``. If the connection do
 
 .. rst-class:: classref-method
 
-:ref:`Error<enum_@GlobalScope_Error>` **emit_signal** **(** :ref:`StringName<class_StringName>` signal, ... **)** |vararg|
+:ref:`Error<enum_@GlobalScope_Error>` **emit_signal**\ (\ signal\: :ref:`StringName<class_StringName>`, ...\ ) |vararg|
 
 Emits the given ``signal`` by name. The signal must exist, so it should be a built-in signal of this class or one of its inherited classes, or a user-defined signal (see :ref:`add_user_signal<class_Object_method_add_user_signal>`). This method supports a variable number of arguments, so parameters can be passed as a comma separated list.
 
@@ -940,7 +1082,7 @@ Returns :ref:`@GlobalScope.ERR_UNAVAILABLE<class_@GlobalScope_constant_ERR_UNAVA
 
 .. rst-class:: classref-method
 
-void **free** **(** **)**
+|void| **free**\ (\ )
 
 Deletes the object from memory. Pre-existing references to the object become invalid, and any attempt to access them will result in a run-time error. Checking the references with :ref:`@GlobalScope.is_instance_valid<class_@GlobalScope_method_is_instance_valid>` will return ``false``.
 
@@ -952,7 +1094,7 @@ Deletes the object from memory. Pre-existing references to the object become inv
 
 .. rst-class:: classref-method
 
-:ref:`Variant<class_Variant>` **get** **(** :ref:`StringName<class_StringName>` property **)** |const|
+:ref:`Variant<class_Variant>` **get**\ (\ property\: :ref:`StringName<class_StringName>`\ ) |const|
 
 Returns the :ref:`Variant<class_Variant>` value of the given ``property``. If the ``property`` does not exist, this method returns ``null``.
 
@@ -983,7 +1125,7 @@ Returns the :ref:`Variant<class_Variant>` value of the given ``property``. If th
 
 .. rst-class:: classref-method
 
-:ref:`String<class_String>` **get_class** **(** **)** |const|
+:ref:`String<class_String>` **get_class**\ (\ ) |const|
 
 Returns the object's built-in class name, as a :ref:`String<class_String>`. See also :ref:`is_class<class_Object_method_is_class>`.
 
@@ -997,7 +1139,7 @@ Returns the object's built-in class name, as a :ref:`String<class_String>`. See 
 
 .. rst-class:: classref-method
 
-:ref:`Dictionary[]<class_Dictionary>` **get_incoming_connections** **(** **)** |const|
+:ref:`Array<class_Array>`\[:ref:`Dictionary<class_Dictionary>`\] **get_incoming_connections**\ (\ ) |const|
 
 Returns an :ref:`Array<class_Array>` of signal connections received by this object. Each connection is represented as a :ref:`Dictionary<class_Dictionary>` that contains three entries:
 
@@ -1015,7 +1157,7 @@ Returns an :ref:`Array<class_Array>` of signal connections received by this obje
 
 .. rst-class:: classref-method
 
-:ref:`Variant<class_Variant>` **get_indexed** **(** :ref:`NodePath<class_NodePath>` property_path **)** |const|
+:ref:`Variant<class_Variant>` **get_indexed**\ (\ property_path\: :ref:`NodePath<class_NodePath>`\ ) |const|
 
 Gets the object's property indexed by the given ``property_path``. The path should be a :ref:`NodePath<class_NodePath>` relative to the current object and can use the colon character (``:``) to access nested properties.
 
@@ -1052,7 +1194,7 @@ Gets the object's property indexed by the given ``property_path``. The path shou
 
 .. rst-class:: classref-method
 
-:ref:`int<class_int>` **get_instance_id** **(** **)** |const|
+:ref:`int<class_int>` **get_instance_id**\ (\ ) |const|
 
 Returns the object's unique instance ID. This ID can be saved in :ref:`EncodedObjectAsID<class_EncodedObjectAsID>`, and can be used to retrieve this object instance with :ref:`@GlobalScope.instance_from_id<class_@GlobalScope_method_instance_from_id>`.
 
@@ -1064,11 +1206,13 @@ Returns the object's unique instance ID. This ID can be saved in :ref:`EncodedOb
 
 .. rst-class:: classref-method
 
-:ref:`Variant<class_Variant>` **get_meta** **(** :ref:`StringName<class_StringName>` name, :ref:`Variant<class_Variant>` default=null **)** |const|
+:ref:`Variant<class_Variant>` **get_meta**\ (\ name\: :ref:`StringName<class_StringName>`, default\: :ref:`Variant<class_Variant>` = null\ ) |const|
 
 Returns the object's metadata value for the given entry ``name``. If the entry does not exist, returns ``default``. If ``default`` is ``null``, an error is also generated.
 
-\ **Note:** Metadata that has a ``name`` starting with an underscore (``_``) is considered editor-only. Editor-only metadata is not displayed in the Inspector dock and should not be edited.
+\ **Note:** A metadata's name must be a valid identifier as per :ref:`StringName.is_valid_identifier<class_StringName_method_is_valid_identifier>` method.
+
+\ **Note:** Metadata that has a name starting with an underscore (``_``) is considered editor-only. Editor-only metadata is not displayed in the Inspector and should not be edited, although it can still be found by this method.
 
 .. rst-class:: classref-item-separator
 
@@ -1078,7 +1222,7 @@ Returns the object's metadata value for the given entry ``name``. If the entry d
 
 .. rst-class:: classref-method
 
-:ref:`PackedStringArray<class_PackedStringArray>` **get_meta_list** **(** **)** |const|
+:ref:`Array<class_Array>`\[:ref:`StringName<class_StringName>`\] **get_meta_list**\ (\ ) |const|
 
 Returns the object's metadata entry names as a :ref:`PackedStringArray<class_PackedStringArray>`.
 
@@ -1090,7 +1234,7 @@ Returns the object's metadata entry names as a :ref:`PackedStringArray<class_Pac
 
 .. rst-class:: classref-method
 
-:ref:`Dictionary[]<class_Dictionary>` **get_method_list** **(** **)** |const|
+:ref:`Array<class_Array>`\[:ref:`Dictionary<class_Dictionary>`\] **get_method_list**\ (\ ) |const|
 
 Returns this object's methods and their signatures as an :ref:`Array<class_Array>` of dictionaries. Each :ref:`Dictionary<class_Dictionary>` contains the following entries:
 
@@ -1116,7 +1260,7 @@ Returns this object's methods and their signatures as an :ref:`Array<class_Array
 
 .. rst-class:: classref-method
 
-:ref:`Dictionary[]<class_Dictionary>` **get_property_list** **(** **)** |const|
+:ref:`Array<class_Array>`\[:ref:`Dictionary<class_Dictionary>`\] **get_property_list**\ (\ ) |const|
 
 Returns the object's property list as an :ref:`Array<class_Array>` of dictionaries. Each :ref:`Dictionary<class_Dictionary>` contains the following entries:
 
@@ -1132,6 +1276,8 @@ Returns the object's property list as an :ref:`Array<class_Array>` of dictionari
 
 - ``usage`` is a combination of :ref:`PropertyUsageFlags<enum_@GlobalScope_PropertyUsageFlags>`.
 
+\ **Note:** In GDScript, all class members are treated as properties. In C# and GDExtension, it may be necessary to explicitly mark class members as Godot properties using decorators or attributes.
+
 .. rst-class:: classref-item-separator
 
 ----
@@ -1140,7 +1286,7 @@ Returns the object's property list as an :ref:`Array<class_Array>` of dictionari
 
 .. rst-class:: classref-method
 
-:ref:`Variant<class_Variant>` **get_script** **(** **)** |const|
+:ref:`Variant<class_Variant>` **get_script**\ (\ ) |const|
 
 Returns the object's :ref:`Script<class_Script>` instance, or ``null`` if no script is attached.
 
@@ -1152,7 +1298,7 @@ Returns the object's :ref:`Script<class_Script>` instance, or ``null`` if no scr
 
 .. rst-class:: classref-method
 
-:ref:`Dictionary[]<class_Dictionary>` **get_signal_connection_list** **(** :ref:`StringName<class_StringName>` signal **)** |const|
+:ref:`Array<class_Array>`\[:ref:`Dictionary<class_Dictionary>`\] **get_signal_connection_list**\ (\ signal\: :ref:`StringName<class_StringName>`\ ) |const|
 
 Returns an :ref:`Array<class_Array>` of connections for the given ``signal`` name. Each connection is represented as a :ref:`Dictionary<class_Dictionary>` that contains three entries:
 
@@ -1170,7 +1316,7 @@ Returns an :ref:`Array<class_Array>` of connections for the given ``signal`` nam
 
 .. rst-class:: classref-method
 
-:ref:`Dictionary[]<class_Dictionary>` **get_signal_list** **(** **)** |const|
+:ref:`Array<class_Array>`\[:ref:`Dictionary<class_Dictionary>`\] **get_signal_list**\ (\ ) |const|
 
 Returns the list of existing signals as an :ref:`Array<class_Array>` of dictionaries.
 
@@ -1184,11 +1330,13 @@ Returns the list of existing signals as an :ref:`Array<class_Array>` of dictiona
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **has_meta** **(** :ref:`StringName<class_StringName>` name **)** |const|
+:ref:`bool<class_bool>` **has_meta**\ (\ name\: :ref:`StringName<class_StringName>`\ ) |const|
 
 Returns ``true`` if a metadata entry is found with the given ``name``. See also :ref:`get_meta<class_Object_method_get_meta>`, :ref:`set_meta<class_Object_method_set_meta>` and :ref:`remove_meta<class_Object_method_remove_meta>`.
 
-\ **Note:** Metadata that has a ``name`` starting with an underscore (``_``) is considered editor-only. Editor-only metadata is not displayed in the Inspector and should not be edited, although it can still be found by this method.
+\ **Note:** A metadata's name must be a valid identifier as per :ref:`StringName.is_valid_identifier<class_StringName_method_is_valid_identifier>` method.
+
+\ **Note:** Metadata that has a name starting with an underscore (``_``) is considered editor-only. Editor-only metadata is not displayed in the Inspector and should not be edited, although it can still be found by this method.
 
 .. rst-class:: classref-item-separator
 
@@ -1198,9 +1346,9 @@ Returns ``true`` if a metadata entry is found with the given ``name``. See also 
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **has_method** **(** :ref:`StringName<class_StringName>` method **)** |const|
+:ref:`bool<class_bool>` **has_method**\ (\ method\: :ref:`StringName<class_StringName>`\ ) |const|
 
-Returns ``true`` if the the given ``method`` name exists in the object.
+Returns ``true`` if the given ``method`` name exists in the object.
 
 \ **Note:** In C#, ``method`` must be in snake_case when referring to built-in Godot methods. Prefer using the names exposed in the ``MethodName`` class to avoid allocating a new :ref:`StringName<class_StringName>` on each call.
 
@@ -1212,7 +1360,7 @@ Returns ``true`` if the the given ``method`` name exists in the object.
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **has_signal** **(** :ref:`StringName<class_StringName>` signal **)** |const|
+:ref:`bool<class_bool>` **has_signal**\ (\ signal\: :ref:`StringName<class_StringName>`\ ) |const|
 
 Returns ``true`` if the given ``signal`` name exists in the object.
 
@@ -1226,7 +1374,7 @@ Returns ``true`` if the given ``signal`` name exists in the object.
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **has_user_signal** **(** :ref:`StringName<class_StringName>` signal **)** |const|
+:ref:`bool<class_bool>` **has_user_signal**\ (\ signal\: :ref:`StringName<class_StringName>`\ ) |const|
 
 Returns ``true`` if the given user-defined ``signal`` name exists. Only signals added with :ref:`add_user_signal<class_Object_method_add_user_signal>` are included.
 
@@ -1238,7 +1386,7 @@ Returns ``true`` if the given user-defined ``signal`` name exists. Only signals 
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **is_blocking_signals** **(** **)** |const|
+:ref:`bool<class_bool>` **is_blocking_signals**\ (\ ) |const|
 
 Returns ``true`` if the object is blocking its signals from being emitted. See :ref:`set_block_signals<class_Object_method_set_block_signals>`.
 
@@ -1250,7 +1398,7 @@ Returns ``true`` if the object is blocking its signals from being emitted. See :
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **is_class** **(** :ref:`String<class_String>` class **)** |const|
+:ref:`bool<class_bool>` **is_class**\ (\ class\: :ref:`String<class_String>`\ ) |const|
 
 Returns ``true`` if the object inherits from the given ``class``. See also :ref:`get_class<class_Object_method_get_class>`.
 
@@ -1283,7 +1431,7 @@ Returns ``true`` if the object inherits from the given ``class``. See also :ref:
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **is_connected** **(** :ref:`StringName<class_StringName>` signal, :ref:`Callable<class_Callable>` callable **)** |const|
+:ref:`bool<class_bool>` **is_connected**\ (\ signal\: :ref:`StringName<class_StringName>`, callable\: :ref:`Callable<class_Callable>`\ ) |const|
 
 Returns ``true`` if a connection exists between the given ``signal`` name and ``callable``.
 
@@ -1297,7 +1445,7 @@ Returns ``true`` if a connection exists between the given ``signal`` name and ``
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **is_queued_for_deletion** **(** **)** |const|
+:ref:`bool<class_bool>` **is_queued_for_deletion**\ (\ ) |const|
 
 Returns ``true`` if the :ref:`Node.queue_free<class_Node_method_queue_free>` method was called for the object.
 
@@ -1309,9 +1457,9 @@ Returns ``true`` if the :ref:`Node.queue_free<class_Node_method_queue_free>` met
 
 .. rst-class:: classref-method
 
-void **notification** **(** :ref:`int<class_int>` what, :ref:`bool<class_bool>` reversed=false **)**
+|void| **notification**\ (\ what\: :ref:`int<class_int>`, reversed\: :ref:`bool<class_bool>` = false\ )
 
-Sends the given ``what`` notification to all classes inherited by the object, triggering calls to :ref:`_notification<class_Object_method__notification>`, starting from the highest ancestor (the **Object** class) and going down to the object's script.
+Sends the given ``what`` notification to all classes inherited by the object, triggering calls to :ref:`_notification<class_Object_private_method__notification>`, starting from the highest ancestor (the **Object** class) and going down to the object's script.
 
 If ``reversed`` is ``true``, the call order is reversed.
 
@@ -1350,7 +1498,7 @@ If ``reversed`` is ``true``, the call order is reversed.
 
 .. rst-class:: classref-method
 
-void **notify_property_list_changed** **(** **)**
+|void| **notify_property_list_changed**\ (\ )
 
 Emits the :ref:`property_list_changed<class_Object_signal_property_list_changed>` signal. This is mainly used to refresh the editor, so that the Inspector and editor plugins are properly updated.
 
@@ -1362,11 +1510,11 @@ Emits the :ref:`property_list_changed<class_Object_signal_property_list_changed>
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **property_can_revert** **(** :ref:`StringName<class_StringName>` property **)** |const|
+:ref:`bool<class_bool>` **property_can_revert**\ (\ property\: :ref:`StringName<class_StringName>`\ ) |const|
 
 Returns ``true`` if the given ``property`` has a custom default value. Use :ref:`property_get_revert<class_Object_method_property_get_revert>` to get the ``property``'s default value.
 
-\ **Note:** This method is used by the Inspector dock to display a revert icon. The object must implement :ref:`_property_can_revert<class_Object_method__property_can_revert>` to customize the default value. If :ref:`_property_can_revert<class_Object_method__property_can_revert>` is not implemented, this method returns ``false``.
+\ **Note:** This method is used by the Inspector dock to display a revert icon. The object must implement :ref:`_property_can_revert<class_Object_private_method__property_can_revert>` to customize the default value. If :ref:`_property_can_revert<class_Object_private_method__property_can_revert>` is not implemented, this method returns ``false``.
 
 .. rst-class:: classref-item-separator
 
@@ -1376,11 +1524,11 @@ Returns ``true`` if the given ``property`` has a custom default value. Use :ref:
 
 .. rst-class:: classref-method
 
-:ref:`Variant<class_Variant>` **property_get_revert** **(** :ref:`StringName<class_StringName>` property **)** |const|
+:ref:`Variant<class_Variant>` **property_get_revert**\ (\ property\: :ref:`StringName<class_StringName>`\ ) |const|
 
 Returns the custom default value of the given ``property``. Use :ref:`property_can_revert<class_Object_method_property_can_revert>` to check if the ``property`` has a custom default value.
 
-\ **Note:** This method is used by the Inspector dock to display a revert icon. The object must implement :ref:`_property_get_revert<class_Object_method__property_get_revert>` to customize the default value. If :ref:`_property_get_revert<class_Object_method__property_get_revert>` is not implemented, this method returns ``null``.
+\ **Note:** This method is used by the Inspector dock to display a revert icon. The object must implement :ref:`_property_get_revert<class_Object_private_method__property_get_revert>` to customize the default value. If :ref:`_property_get_revert<class_Object_private_method__property_get_revert>` is not implemented, this method returns ``null``.
 
 .. rst-class:: classref-item-separator
 
@@ -1390,11 +1538,13 @@ Returns the custom default value of the given ``property``. Use :ref:`property_c
 
 .. rst-class:: classref-method
 
-void **remove_meta** **(** :ref:`StringName<class_StringName>` name **)**
+|void| **remove_meta**\ (\ name\: :ref:`StringName<class_StringName>`\ )
 
 Removes the given entry ``name`` from the object's metadata. See also :ref:`has_meta<class_Object_method_has_meta>`, :ref:`get_meta<class_Object_method_get_meta>` and :ref:`set_meta<class_Object_method_set_meta>`.
 
-\ **Note:** Metadata that has a ``name`` starting with an underscore (``_``) is considered editor-only. Editor-only metadata is not displayed in the Inspector and should not be edited.
+\ **Note:** A metadata's name must be a valid identifier as per :ref:`StringName.is_valid_identifier<class_StringName_method_is_valid_identifier>` method.
+
+\ **Note:** Metadata that has a name starting with an underscore (``_``) is considered editor-only. Editor-only metadata is not displayed in the Inspector and should not be edited, although it can still be found by this method.
 
 .. rst-class:: classref-item-separator
 
@@ -1404,7 +1554,7 @@ Removes the given entry ``name`` from the object's metadata. See also :ref:`has_
 
 .. rst-class:: classref-method
 
-void **set** **(** :ref:`StringName<class_StringName>` property, :ref:`Variant<class_Variant>` value **)**
+|void| **set**\ (\ property\: :ref:`StringName<class_StringName>`, value\: :ref:`Variant<class_Variant>`\ )
 
 Assigns ``value`` to the given ``property``. If the property does not exist or the given ``value``'s type doesn't match, nothing happens.
 
@@ -1435,7 +1585,7 @@ Assigns ``value`` to the given ``property``. If the property does not exist or t
 
 .. rst-class:: classref-method
 
-void **set_block_signals** **(** :ref:`bool<class_bool>` enable **)**
+|void| **set_block_signals**\ (\ enable\: :ref:`bool<class_bool>`\ )
 
 If set to ``true``, the object becomes unable to emit signals. As such, :ref:`emit_signal<class_Object_method_emit_signal>` and signal connections will not work, until it is set to ``false``.
 
@@ -1447,9 +1597,9 @@ If set to ``true``, the object becomes unable to emit signals. As such, :ref:`em
 
 .. rst-class:: classref-method
 
-void **set_deferred** **(** :ref:`StringName<class_StringName>` property, :ref:`Variant<class_Variant>` value **)**
+|void| **set_deferred**\ (\ property\: :ref:`StringName<class_StringName>`, value\: :ref:`Variant<class_Variant>`\ )
 
-Assigns ``value`` to the given ``property``, after the current frame's physics step. This is equivalent to calling :ref:`set<class_Object_method_set>` through :ref:`call_deferred<class_Object_method_call_deferred>`.
+Assigns ``value`` to the given ``property``, at the end of the current frame. This is equivalent to calling :ref:`set<class_Object_method_set>` through :ref:`call_deferred<class_Object_method_call_deferred>`.
 
 
 .. tabs::
@@ -1488,7 +1638,7 @@ Assigns ``value`` to the given ``property``, after the current frame's physics s
 
 .. rst-class:: classref-method
 
-void **set_indexed** **(** :ref:`NodePath<class_NodePath>` property_path, :ref:`Variant<class_Variant>` value **)**
+|void| **set_indexed**\ (\ property_path\: :ref:`NodePath<class_NodePath>`, value\: :ref:`Variant<class_Variant>`\ )
 
 Assigns a new ``value`` to the property identified by the ``property_path``. The path should be a :ref:`NodePath<class_NodePath>` relative to this object, and can use the colon character (``:``) to access nested properties.
 
@@ -1521,7 +1671,7 @@ Assigns a new ``value`` to the property identified by the ``property_path``. The
 
 .. rst-class:: classref-method
 
-void **set_message_translation** **(** :ref:`bool<class_bool>` enable **)**
+|void| **set_message_translation**\ (\ enable\: :ref:`bool<class_bool>`\ )
 
 If set to ``true``, allows the object to translate messages with :ref:`tr<class_Object_method_tr>` and :ref:`tr_n<class_Object_method_tr_n>`. Enabled by default. See also :ref:`can_translate_messages<class_Object_method_can_translate_messages>`.
 
@@ -1533,13 +1683,15 @@ If set to ``true``, allows the object to translate messages with :ref:`tr<class_
 
 .. rst-class:: classref-method
 
-void **set_meta** **(** :ref:`StringName<class_StringName>` name, :ref:`Variant<class_Variant>` value **)**
+|void| **set_meta**\ (\ name\: :ref:`StringName<class_StringName>`, value\: :ref:`Variant<class_Variant>`\ )
 
 Adds or changes the entry ``name`` inside the object's metadata. The metadata ``value`` can be any :ref:`Variant<class_Variant>`, although some types cannot be serialized correctly.
 
 If ``value`` is ``null``, the entry is removed. This is the equivalent of using :ref:`remove_meta<class_Object_method_remove_meta>`. See also :ref:`has_meta<class_Object_method_has_meta>` and :ref:`get_meta<class_Object_method_get_meta>`.
 
-\ **Note:** Metadata that has a ``name`` starting with an underscore (``_``) is considered editor-only. Editor-only metadata is not displayed in the Inspector dock and should not be edited.
+\ **Note:** A metadata's name must be a valid identifier as per :ref:`StringName.is_valid_identifier<class_StringName_method_is_valid_identifier>` method.
+
+\ **Note:** Metadata that has a name starting with an underscore (``_``) is considered editor-only. Editor-only metadata is not displayed in the Inspector and should not be edited, although it can still be found by this method.
 
 .. rst-class:: classref-item-separator
 
@@ -1549,9 +1701,9 @@ If ``value`` is ``null``, the entry is removed. This is the equivalent of using 
 
 .. rst-class:: classref-method
 
-void **set_script** **(** :ref:`Variant<class_Variant>` script **)**
+|void| **set_script**\ (\ script\: :ref:`Variant<class_Variant>`\ )
 
-Attaches ``script`` to the object, and instantiates it. As a result, the script's :ref:`_init<class_Object_method__init>` is called. A :ref:`Script<class_Script>` is used to extend the object's functionality.
+Attaches ``script`` to the object, and instantiates it. As a result, the script's :ref:`_init<class_Object_private_method__init>` is called. A :ref:`Script<class_Script>` is used to extend the object's functionality.
 
 If a script already exists, its instance is detached, and its property values and state are lost. Built-in property values are still kept.
 
@@ -1563,9 +1715,9 @@ If a script already exists, its instance is detached, and its property values an
 
 .. rst-class:: classref-method
 
-:ref:`String<class_String>` **to_string** **(** **)**
+:ref:`String<class_String>` **to_string**\ (\ )
 
-Returns a :ref:`String<class_String>` representing the object. Defaults to ``"<ClassName#RID>"``. Override :ref:`_to_string<class_Object_method__to_string>` to customize the string representation of the object.
+Returns a :ref:`String<class_String>` representing the object. Defaults to ``"<ClassName#RID>"``. Override :ref:`_to_string<class_Object_private_method__to_string>` to customize the string representation of the object.
 
 .. rst-class:: classref-item-separator
 
@@ -1575,7 +1727,7 @@ Returns a :ref:`String<class_String>` representing the object. Defaults to ``"<C
 
 .. rst-class:: classref-method
 
-:ref:`String<class_String>` **tr** **(** :ref:`StringName<class_StringName>` message, :ref:`StringName<class_StringName>` context="" **)** |const|
+:ref:`String<class_String>` **tr**\ (\ message\: :ref:`StringName<class_StringName>`, context\: :ref:`StringName<class_StringName>` = &""\ ) |const|
 
 Translates a ``message``, using the translation catalogs configured in the Project Settings. Further ``context`` can be specified to help with the translation.
 
@@ -1591,7 +1743,7 @@ For detailed examples, see :doc:`Internationalizing games <../tutorials/i18n/int
 
 .. rst-class:: classref-method
 
-:ref:`String<class_String>` **tr_n** **(** :ref:`StringName<class_StringName>` message, :ref:`StringName<class_StringName>` plural_message, :ref:`int<class_int>` n, :ref:`StringName<class_StringName>` context="" **)** |const|
+:ref:`String<class_String>` **tr_n**\ (\ message\: :ref:`StringName<class_StringName>`, plural_message\: :ref:`StringName<class_StringName>`, n\: :ref:`int<class_int>`, context\: :ref:`StringName<class_StringName>` = &""\ ) |const|
 
 Translates a ``message`` or ``plural_message``, using the translation catalogs configured in the Project Settings. Further ``context`` can be specified to help with the translation.
 
@@ -1601,7 +1753,7 @@ The ``n`` is the number, or amount, of the message's subject. It is used by the 
 
 For detailed examples, see :doc:`Localization using gettext <../tutorials/i18n/localization_using_gettext>`.
 
-\ **Note:** Negative and :ref:`float<class_float>` numbers may not properly apply to some countable subjects. It's recommended handling these cases with :ref:`tr<class_Object_method_tr>`.
+\ **Note:** Negative and :ref:`float<class_float>` numbers may not properly apply to some countable subjects. It's recommended to handle these cases with :ref:`tr<class_Object_method_tr>`.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
@@ -1609,3 +1761,5 @@ For detailed examples, see :doc:`Localization using gettext <../tutorials/i18n/l
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`

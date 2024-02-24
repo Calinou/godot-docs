@@ -80,13 +80,17 @@ This action provides a float value between ``0.0`` and ``1.0`` for any analog in
 
 :ref:`ActionType<enum_OpenXRAction_ActionType>` **OPENXR_ACTION_VECTOR2** = ``2``
 
-This action provides a vector2 value and can be bound to embedded trackpads and joysticks
+This action provides a :ref:`Vector2<class_Vector2>` value and can be bound to embedded trackpads and joysticks.
 
 .. _class_OpenXRAction_constant_OPENXR_ACTION_POSE:
 
 .. rst-class:: classref-enumeration-constant
 
 :ref:`ActionType<enum_OpenXRAction_ActionType>` **OPENXR_ACTION_POSE** = ``3``
+
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
 
 
 
@@ -107,8 +111,8 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_action_type** **(** :ref:`ActionType<enum_OpenXRAction_ActionType>` value **)**
-- :ref:`ActionType<enum_OpenXRAction_ActionType>` **get_action_type** **(** **)**
+- |void| **set_action_type**\ (\ value\: :ref:`ActionType<enum_OpenXRAction_ActionType>`\ )
+- :ref:`ActionType<enum_OpenXRAction_ActionType>` **get_action_type**\ (\ )
 
 The type of action.
 
@@ -124,8 +128,8 @@ The type of action.
 
 .. rst-class:: classref-property-setget
 
-- void **set_localized_name** **(** :ref:`String<class_String>` value **)**
-- :ref:`String<class_String>` **get_localized_name** **(** **)**
+- |void| **set_localized_name**\ (\ value\: :ref:`String<class_String>`\ )
+- :ref:`String<class_String>` **get_localized_name**\ (\ )
 
 The localized description of this action.
 
@@ -141,8 +145,8 @@ The localized description of this action.
 
 .. rst-class:: classref-property-setget
 
-- void **set_toplevel_paths** **(** :ref:`PackedStringArray<class_PackedStringArray>` value **)**
-- :ref:`PackedStringArray<class_PackedStringArray>` **get_toplevel_paths** **(** **)**
+- |void| **set_toplevel_paths**\ (\ value\: :ref:`PackedStringArray<class_PackedStringArray>`\ )
+- :ref:`PackedStringArray<class_PackedStringArray>` **get_toplevel_paths**\ (\ )
 
 A collections of toplevel paths to which this action can be bound.
 
@@ -152,3 +156,5 @@ A collections of toplevel paths to which this action can be bound.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`

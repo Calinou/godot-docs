@@ -14,7 +14,21 @@ InputEventGesture
 
 **Inherited By:** :ref:`InputEventMagnifyGesture<class_InputEventMagnifyGesture>`, :ref:`InputEventPanGesture<class_InputEventPanGesture>`
 
-Base class for touch control gestures.
+Abstract base class for touch gestures.
+
+.. rst-class:: classref-introduction-group
+
+Description
+-----------
+
+InputEventGestures are sent when a user performs a supported gesture on a touch screen. Gestures can't be emulated using mouse, because they typically require multi-touch.
+
+.. rst-class:: classref-introduction-group
+
+Tutorials
+---------
+
+- :doc:`Using InputEvent <../tutorials/inputs/inputevent>`
 
 .. rst-class:: classref-reftable-group
 
@@ -45,10 +59,10 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_position** **(** :ref:`Vector2<class_Vector2>` value **)**
-- :ref:`Vector2<class_Vector2>` **get_position** **(** **)**
+- |void| **set_position**\ (\ value\: :ref:`Vector2<class_Vector2>`\ )
+- :ref:`Vector2<class_Vector2>` **get_position**\ (\ )
 
-The local gesture position relative to the :ref:`Viewport<class_Viewport>`. If used in :ref:`Control._gui_input<class_Control_method__gui_input>`, the position is relative to the current :ref:`Control<class_Control>` that received this gesture.
+The local gesture position relative to the :ref:`Viewport<class_Viewport>`. If used in :ref:`Control._gui_input<class_Control_private_method__gui_input>`, the position is relative to the current :ref:`Control<class_Control>` that received this gesture.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
@@ -56,3 +70,5 @@ The local gesture position relative to the :ref:`Viewport<class_Viewport>`. If u
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`

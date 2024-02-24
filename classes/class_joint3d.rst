@@ -14,14 +14,14 @@ Joint3D
 
 **Inherited By:** :ref:`ConeTwistJoint3D<class_ConeTwistJoint3D>`, :ref:`Generic6DOFJoint3D<class_Generic6DOFJoint3D>`, :ref:`HingeJoint3D<class_HingeJoint3D>`, :ref:`PinJoint3D<class_PinJoint3D>`, :ref:`SliderJoint3D<class_SliderJoint3D>`
 
-Base class for all 3D joints.
+Abstract base class for all 3D physics joints.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-Joints are used to bind together two physics bodies. They have a solver priority and can define if the bodies of the two attached nodes should be able to collide with each other. See also :ref:`Generic6DOFJoint3D<class_Generic6DOFJoint3D>`.
+Abstract base class for all joints in 3D physics. 3D joints bind together two physics bodies and apply a constraint.
 
 .. rst-class:: classref-introduction-group
 
@@ -48,6 +48,18 @@ Properties
    | :ref:`int<class_int>`           | :ref:`solver_priority<class_Joint3D_property_solver_priority>`                           | ``1``            |
    +---------------------------------+------------------------------------------------------------------------------------------+------------------+
 
+.. rst-class:: classref-reftable-group
+
+Methods
+-------
+
+.. table::
+   :widths: auto
+
+   +-----------------------+------------------------------------------------------------+
+   | :ref:`RID<class_RID>` | :ref:`get_rid<class_Joint3D_method_get_rid>`\ (\ ) |const| |
+   +-----------------------+------------------------------------------------------------+
+
 .. rst-class:: classref-section-separator
 
 ----
@@ -65,8 +77,8 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_exclude_nodes_from_collision** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **get_exclude_nodes_from_collision** **(** **)**
+- |void| **set_exclude_nodes_from_collision**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **get_exclude_nodes_from_collision**\ (\ )
 
 If ``true``, the two bodies of the nodes are not able to collide with each other.
 
@@ -82,8 +94,8 @@ If ``true``, the two bodies of the nodes are not able to collide with each other
 
 .. rst-class:: classref-property-setget
 
-- void **set_node_a** **(** :ref:`NodePath<class_NodePath>` value **)**
-- :ref:`NodePath<class_NodePath>` **get_node_a** **(** **)**
+- |void| **set_node_a**\ (\ value\: :ref:`NodePath<class_NodePath>`\ )
+- :ref:`NodePath<class_NodePath>` **get_node_a**\ (\ )
 
 The node attached to the first side (A) of the joint.
 
@@ -99,8 +111,8 @@ The node attached to the first side (A) of the joint.
 
 .. rst-class:: classref-property-setget
 
-- void **set_node_b** **(** :ref:`NodePath<class_NodePath>` value **)**
-- :ref:`NodePath<class_NodePath>` **get_node_b** **(** **)**
+- |void| **set_node_b**\ (\ value\: :ref:`NodePath<class_NodePath>`\ )
+- :ref:`NodePath<class_NodePath>` **get_node_b**\ (\ )
 
 The node attached to the second side (B) of the joint.
 
@@ -116,10 +128,27 @@ The node attached to the second side (B) of the joint.
 
 .. rst-class:: classref-property-setget
 
-- void **set_solver_priority** **(** :ref:`int<class_int>` value **)**
-- :ref:`int<class_int>` **get_solver_priority** **(** **)**
+- |void| **set_solver_priority**\ (\ value\: :ref:`int<class_int>`\ )
+- :ref:`int<class_int>` **get_solver_priority**\ (\ )
 
 The priority used to define which solver is executed first for multiple joints. The lower the value, the higher the priority.
+
+.. rst-class:: classref-section-separator
+
+----
+
+.. rst-class:: classref-descriptions-group
+
+Method Descriptions
+-------------------
+
+.. _class_Joint3D_method_get_rid:
+
+.. rst-class:: classref-method
+
+:ref:`RID<class_RID>` **get_rid**\ (\ ) |const|
+
+Returns the joint's :ref:`RID<class_RID>`.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
@@ -127,3 +156,5 @@ The priority used to define which solver is executed first for multiple joints. 
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`

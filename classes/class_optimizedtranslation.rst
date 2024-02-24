@@ -12,14 +12,14 @@ OptimizedTranslation
 
 **Inherits:** :ref:`Translation<class_Translation>` **<** :ref:`Resource<class_Resource>` **<** :ref:`RefCounted<class_RefCounted>` **<** :ref:`Object<class_Object>`
 
-Optimized translation.
+An optimized translation, used by default for CSV Translations.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-Optimized translation. Uses real-time compressed translations, which results in very small dictionaries.
+An optimized translation, used by default for CSV Translations. Uses real-time compressed translations, which results in very small dictionaries.
 
 .. rst-class:: classref-reftable-group
 
@@ -29,9 +29,9 @@ Methods
 .. table::
    :widths: auto
 
-   +------+--------------------------------------------------------------------------------------------------------------------+
-   | void | :ref:`generate<class_OptimizedTranslation_method_generate>` **(** :ref:`Translation<class_Translation>` from **)** |
-   +------+--------------------------------------------------------------------------------------------------------------------+
+   +--------+-----------------------------------------------------------------------------------------------------------------+
+   | |void| | :ref:`generate<class_OptimizedTranslation_method_generate>`\ (\ from\: :ref:`Translation<class_Translation>`\ ) |
+   +--------+-----------------------------------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -46,7 +46,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-void **generate** **(** :ref:`Translation<class_Translation>` from **)**
+|void| **generate**\ (\ from\: :ref:`Translation<class_Translation>`\ )
 
 Generates and sets an optimized translation from the given :ref:`Translation<class_Translation>` resource.
 
@@ -56,3 +56,5 @@ Generates and sets an optimized translation from the given :ref:`Translation<cla
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`

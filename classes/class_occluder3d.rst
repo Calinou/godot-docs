@@ -25,6 +25,13 @@ Description
 
 See :ref:`OccluderInstance3D<class_OccluderInstance3D>`'s documentation for instructions on setting up occlusion culling.
 
+.. rst-class:: classref-introduction-group
+
+Tutorials
+---------
+
+- :doc:`Occlusion culling <../tutorials/3d/occlusion_culling>`
+
 .. rst-class:: classref-reftable-group
 
 Methods
@@ -33,11 +40,11 @@ Methods
 .. table::
    :widths: auto
 
-   +-----------------------------------------------------+-------------------------------------------------------------------------------+
-   | :ref:`PackedInt32Array<class_PackedInt32Array>`     | :ref:`get_indices<class_Occluder3D_method_get_indices>` **(** **)** |const|   |
-   +-----------------------------------------------------+-------------------------------------------------------------------------------+
-   | :ref:`PackedVector3Array<class_PackedVector3Array>` | :ref:`get_vertices<class_Occluder3D_method_get_vertices>` **(** **)** |const| |
-   +-----------------------------------------------------+-------------------------------------------------------------------------------+
+   +-----------------------------------------------------+-------------------------------------------------------------------------+
+   | :ref:`PackedInt32Array<class_PackedInt32Array>`     | :ref:`get_indices<class_Occluder3D_method_get_indices>`\ (\ ) |const|   |
+   +-----------------------------------------------------+-------------------------------------------------------------------------+
+   | :ref:`PackedVector3Array<class_PackedVector3Array>` | :ref:`get_vertices<class_Occluder3D_method_get_vertices>`\ (\ ) |const| |
+   +-----------------------------------------------------+-------------------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -52,7 +59,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`PackedInt32Array<class_PackedInt32Array>` **get_indices** **(** **)** |const|
+:ref:`PackedInt32Array<class_PackedInt32Array>` **get_indices**\ (\ ) |const|
 
 Returns the occluder shape's vertex indices.
 
@@ -64,7 +71,7 @@ Returns the occluder shape's vertex indices.
 
 .. rst-class:: classref-method
 
-:ref:`PackedVector3Array<class_PackedVector3Array>` **get_vertices** **(** **)** |const|
+:ref:`PackedVector3Array<class_PackedVector3Array>` **get_vertices**\ (\ ) |const|
 
 Returns the occluder shape's vertex positions.
 
@@ -74,3 +81,5 @@ Returns the occluder shape's vertex positions.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`
