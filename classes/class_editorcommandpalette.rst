@@ -28,14 +28,14 @@ Command key names use slash delimiters to distinguish sections, for example: ``"
 
  .. code-tab:: gdscript
 
-    var command_palette = get_editor_interface().get_command_palette()
+    var command_palette = EditorInterface.get_command_palette()
     # external_command is a function that will be called with the command is executed.
     var command_callable = Callable(self, "external_command").bind(arguments)
     command_palette.add_command("command", "test/command",command_callable)
 
  .. code-tab:: csharp
 
-    EditorCommandPalette commandPalette = GetEditorInterface().GetCommandPalette();
+    EditorCommandPalette commandPalette = EditorInterface.Singleton.GetCommandPalette();
     // ExternalCommand is a function that will be called with the command is executed.
     Callable commandCallable = new Callable(this, MethodName.ExternalCommand);
     commandPalette.AddCommand("command", "test/command", commandCallable)
@@ -64,11 +64,11 @@ Methods
 .. table::
    :widths: auto
 
-   +------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void | :ref:`add_command<class_EditorCommandPalette_method_add_command>` **(** :ref:`String<class_String>` command_name, :ref:`String<class_String>` key_name, :ref:`Callable<class_Callable>` binded_callable, :ref:`String<class_String>` shortcut_text="None" **)** |
-   +------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void | :ref:`remove_command<class_EditorCommandPalette_method_remove_command>` **(** :ref:`String<class_String>` key_name **)**                                                                                                                                        |
-   +------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   +--------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void| | :ref:`add_command<class_EditorCommandPalette_method_add_command>`\ (\ command_name\: :ref:`String<class_String>`, key_name\: :ref:`String<class_String>`, binded_callable\: :ref:`Callable<class_Callable>`, shortcut_text\: :ref:`String<class_String>` = "None"\ ) |
+   +--------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void| | :ref:`remove_command<class_EditorCommandPalette_method_remove_command>`\ (\ key_name\: :ref:`String<class_String>`\ )                                                                                                                                                |
+   +--------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -83,7 +83,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-void **add_command** **(** :ref:`String<class_String>` command_name, :ref:`String<class_String>` key_name, :ref:`Callable<class_Callable>` binded_callable, :ref:`String<class_String>` shortcut_text="None" **)**
+|void| **add_command**\ (\ command_name\: :ref:`String<class_String>`, key_name\: :ref:`String<class_String>`, binded_callable\: :ref:`Callable<class_Callable>`, shortcut_text\: :ref:`String<class_String>` = "None"\ )
 
 Adds a custom command to EditorCommandPalette.
 
@@ -103,7 +103,7 @@ Adds a custom command to EditorCommandPalette.
 
 .. rst-class:: classref-method
 
-void **remove_command** **(** :ref:`String<class_String>` key_name **)**
+|void| **remove_command**\ (\ key_name\: :ref:`String<class_String>`\ )
 
 Removes the custom command from EditorCommandPalette.
 
@@ -115,3 +115,5 @@ Removes the custom command from EditorCommandPalette.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`

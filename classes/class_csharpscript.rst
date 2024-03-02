@@ -12,7 +12,7 @@ CSharpScript
 
 **Inherits:** :ref:`Script<class_Script>` **<** :ref:`Resource<class_Resource>` **<** :ref:`RefCounted<class_RefCounted>` **<** :ref:`Object<class_Object>`
 
-A script implemented in the C# programming language (Mono-enabled builds only).
+A script implemented in the C# programming language, saved with the ``.cs`` extension (Mono-enabled builds only).
 
 .. rst-class:: classref-introduction-group
 
@@ -38,9 +38,9 @@ Methods
 .. table::
    :widths: auto
 
-   +-------------------------------+--------------------------------------------------------------------+
-   | :ref:`Variant<class_Variant>` | :ref:`new<class_CSharpScript_method_new>` **(** ... **)** |vararg| |
-   +-------------------------------+--------------------------------------------------------------------+
+   +-------------------------------+---------------------------------------------------------------+
+   | :ref:`Variant<class_Variant>` | :ref:`new<class_CSharpScript_method_new>`\ (\ ...\ ) |vararg| |
+   +-------------------------------+---------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -55,7 +55,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`Variant<class_Variant>` **new** **(** ... **)** |vararg|
+:ref:`Variant<class_Variant>` **new**\ (\ ...\ ) |vararg|
 
 Returns a new instance of the script.
 
@@ -65,3 +65,5 @@ Returns a new instance of the script.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`

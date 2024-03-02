@@ -26,6 +26,8 @@ KHR_materials_pbrSpecularGlossiness is an archived GLTF extension. This means th
 Tutorials
 ---------
 
+- :doc:`Runtime file loading and saving <../tutorials/io/runtime_file_loading_and_saving>`
+
 - `KHR_materials_pbrSpecularGlossiness GLTF extension spec <https://github.com/KhronosGroup/glTF/blob/main/extensions/2.0/Archived/KHR_materials_pbrSpecularGlossiness>`__
 
 .. rst-class:: classref-reftable-group
@@ -65,8 +67,8 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_diffuse_factor** **(** :ref:`Color<class_Color>` value **)**
-- :ref:`Color<class_Color>` **get_diffuse_factor** **(** **)**
+- |void| **set_diffuse_factor**\ (\ value\: :ref:`Color<class_Color>`\ )
+- :ref:`Color<class_Color>` **get_diffuse_factor**\ (\ )
 
 The reflected diffuse factor of the material.
 
@@ -82,8 +84,8 @@ The reflected diffuse factor of the material.
 
 .. rst-class:: classref-property-setget
 
-- void **set_diffuse_img** **(** :ref:`Image<class_Image>` value **)**
-- :ref:`Image<class_Image>` **get_diffuse_img** **(** **)**
+- |void| **set_diffuse_img**\ (\ value\: :ref:`Image<class_Image>`\ )
+- :ref:`Image<class_Image>` **get_diffuse_img**\ (\ )
 
 The diffuse texture.
 
@@ -99,8 +101,8 @@ The diffuse texture.
 
 .. rst-class:: classref-property-setget
 
-- void **set_gloss_factor** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_gloss_factor** **(** **)**
+- |void| **set_gloss_factor**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_gloss_factor**\ (\ )
 
 The glossiness or smoothness of the material.
 
@@ -116,8 +118,8 @@ The glossiness or smoothness of the material.
 
 .. rst-class:: classref-property-setget
 
-- void **set_spec_gloss_img** **(** :ref:`Image<class_Image>` value **)**
-- :ref:`Image<class_Image>` **get_spec_gloss_img** **(** **)**
+- |void| **set_spec_gloss_img**\ (\ value\: :ref:`Image<class_Image>`\ )
+- :ref:`Image<class_Image>` **get_spec_gloss_img**\ (\ )
 
 The specular-glossiness texture.
 
@@ -133,8 +135,8 @@ The specular-glossiness texture.
 
 .. rst-class:: classref-property-setget
 
-- void **set_specular_factor** **(** :ref:`Color<class_Color>` value **)**
-- :ref:`Color<class_Color>` **get_specular_factor** **(** **)**
+- |void| **set_specular_factor**\ (\ value\: :ref:`Color<class_Color>`\ )
+- :ref:`Color<class_Color>` **get_specular_factor**\ (\ )
 
 The specular RGB color of the material. The alpha channel is unused.
 
@@ -144,3 +146,5 @@ The specular RGB color of the material. The alpha channel is unused.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`

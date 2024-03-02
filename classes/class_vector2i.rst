@@ -10,14 +10,14 @@
 Vector2i
 ========
 
-Vector used for 2D math using integer coordinates.
+A 2D vector using integer coordinates.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-2-element structure that can be used to represent positions in 2D space or any other pair of numeric values.
+A 2-element structure that can be used to represent 2D grid coordinates or any other pair of integers.
 
 It uses integer coordinates and is therefore preferable to :ref:`Vector2<class_Vector2>` when exact precision is required. Note that the values are limited to 32 bits, and unlike :ref:`Vector2<class_Vector2>` this cannot be configured with an engine build option. Use :ref:`int<class_int>` or :ref:`PackedInt64Array<class_PackedInt64Array>` if 64-bit values are needed.
 
@@ -56,15 +56,15 @@ Constructors
 .. table::
    :widths: auto
 
-   +---------------------------------+-------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Vector2i<class_Vector2i>` | :ref:`Vector2i<class_Vector2i_constructor_Vector2i>` **(** **)**                                                  |
-   +---------------------------------+-------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Vector2i<class_Vector2i>` | :ref:`Vector2i<class_Vector2i_constructor_Vector2i>` **(** :ref:`Vector2i<class_Vector2i>` from **)**             |
-   +---------------------------------+-------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Vector2i<class_Vector2i>` | :ref:`Vector2i<class_Vector2i_constructor_Vector2i>` **(** :ref:`Vector2<class_Vector2>` from **)**               |
-   +---------------------------------+-------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Vector2i<class_Vector2i>` | :ref:`Vector2i<class_Vector2i_constructor_Vector2i>` **(** :ref:`int<class_int>` x, :ref:`int<class_int>` y **)** |
-   +---------------------------------+-------------------------------------------------------------------------------------------------------------------+
+   +---------------------------------+------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Vector2i<class_Vector2i>` | :ref:`Vector2i<class_Vector2i_constructor_Vector2i>`\ (\ )                                                       |
+   +---------------------------------+------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Vector2i<class_Vector2i>` | :ref:`Vector2i<class_Vector2i_constructor_Vector2i>`\ (\ from\: :ref:`Vector2i<class_Vector2i>`\ )               |
+   +---------------------------------+------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Vector2i<class_Vector2i>` | :ref:`Vector2i<class_Vector2i_constructor_Vector2i>`\ (\ from\: :ref:`Vector2<class_Vector2>`\ )                 |
+   +---------------------------------+------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Vector2i<class_Vector2i>` | :ref:`Vector2i<class_Vector2i_constructor_Vector2i>`\ (\ x\: :ref:`int<class_int>`, y\: :ref:`int<class_int>`\ ) |
+   +---------------------------------+------------------------------------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-reftable-group
 
@@ -74,25 +74,29 @@ Methods
 .. table::
    :widths: auto
 
-   +---------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Vector2i<class_Vector2i>` | :ref:`abs<class_Vector2i_method_abs>` **(** **)** |const|                                                                              |
-   +---------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`float<class_float>`       | :ref:`aspect<class_Vector2i_method_aspect>` **(** **)** |const|                                                                        |
-   +---------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Vector2i<class_Vector2i>` | :ref:`clamp<class_Vector2i_method_clamp>` **(** :ref:`Vector2i<class_Vector2i>` min, :ref:`Vector2i<class_Vector2i>` max **)** |const| |
-   +---------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`float<class_float>`       | :ref:`length<class_Vector2i_method_length>` **(** **)** |const|                                                                        |
-   +---------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`int<class_int>`           | :ref:`length_squared<class_Vector2i_method_length_squared>` **(** **)** |const|                                                        |
-   +---------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`int<class_int>`           | :ref:`max_axis_index<class_Vector2i_method_max_axis_index>` **(** **)** |const|                                                        |
-   +---------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`int<class_int>`           | :ref:`min_axis_index<class_Vector2i_method_min_axis_index>` **(** **)** |const|                                                        |
-   +---------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Vector2i<class_Vector2i>` | :ref:`sign<class_Vector2i_method_sign>` **(** **)** |const|                                                                            |
-   +---------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Vector2i<class_Vector2i>` | :ref:`snapped<class_Vector2i_method_snapped>` **(** :ref:`Vector2i<class_Vector2i>` step **)** |const|                                 |
-   +---------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
+   +---------------------------------+---------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Vector2i<class_Vector2i>` | :ref:`abs<class_Vector2i_method_abs>`\ (\ ) |const|                                                                                   |
+   +---------------------------------+---------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`float<class_float>`       | :ref:`aspect<class_Vector2i_method_aspect>`\ (\ ) |const|                                                                             |
+   +---------------------------------+---------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Vector2i<class_Vector2i>` | :ref:`clamp<class_Vector2i_method_clamp>`\ (\ min\: :ref:`Vector2i<class_Vector2i>`, max\: :ref:`Vector2i<class_Vector2i>`\ ) |const| |
+   +---------------------------------+---------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`int<class_int>`           | :ref:`distance_squared_to<class_Vector2i_method_distance_squared_to>`\ (\ to\: :ref:`Vector2i<class_Vector2i>`\ ) |const|             |
+   +---------------------------------+---------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`float<class_float>`       | :ref:`distance_to<class_Vector2i_method_distance_to>`\ (\ to\: :ref:`Vector2i<class_Vector2i>`\ ) |const|                             |
+   +---------------------------------+---------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`float<class_float>`       | :ref:`length<class_Vector2i_method_length>`\ (\ ) |const|                                                                             |
+   +---------------------------------+---------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`int<class_int>`           | :ref:`length_squared<class_Vector2i_method_length_squared>`\ (\ ) |const|                                                             |
+   +---------------------------------+---------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`int<class_int>`           | :ref:`max_axis_index<class_Vector2i_method_max_axis_index>`\ (\ ) |const|                                                             |
+   +---------------------------------+---------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`int<class_int>`           | :ref:`min_axis_index<class_Vector2i_method_min_axis_index>`\ (\ ) |const|                                                             |
+   +---------------------------------+---------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Vector2i<class_Vector2i>` | :ref:`sign<class_Vector2i_method_sign>`\ (\ ) |const|                                                                                 |
+   +---------------------------------+---------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Vector2i<class_Vector2i>` | :ref:`snapped<class_Vector2i_method_snapped>`\ (\ step\: :ref:`Vector2i<class_Vector2i>`\ ) |const|                                   |
+   +---------------------------------+---------------------------------------------------------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-reftable-group
 
@@ -102,45 +106,45 @@ Operators
 .. table::
    :widths: auto
 
-   +---------------------------------+-------------------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`         | :ref:`operator !=<class_Vector2i_operator_neq_Vector2i>` **(** :ref:`Vector2i<class_Vector2i>` right **)**  |
-   +---------------------------------+-------------------------------------------------------------------------------------------------------------+
-   | :ref:`Vector2i<class_Vector2i>` | :ref:`operator %<class_Vector2i_operator_mod_Vector2i>` **(** :ref:`Vector2i<class_Vector2i>` right **)**   |
-   +---------------------------------+-------------------------------------------------------------------------------------------------------------+
-   | :ref:`Vector2i<class_Vector2i>` | :ref:`operator %<class_Vector2i_operator_mod_int>` **(** :ref:`int<class_int>` right **)**                  |
-   +---------------------------------+-------------------------------------------------------------------------------------------------------------+
-   | :ref:`Vector2i<class_Vector2i>` | :ref:`operator *<class_Vector2i_operator_mul_Vector2i>` **(** :ref:`Vector2i<class_Vector2i>` right **)**   |
-   +---------------------------------+-------------------------------------------------------------------------------------------------------------+
-   | :ref:`Vector2<class_Vector2>`   | :ref:`operator *<class_Vector2i_operator_mul_float>` **(** :ref:`float<class_float>` right **)**            |
-   +---------------------------------+-------------------------------------------------------------------------------------------------------------+
-   | :ref:`Vector2i<class_Vector2i>` | :ref:`operator *<class_Vector2i_operator_mul_int>` **(** :ref:`int<class_int>` right **)**                  |
-   +---------------------------------+-------------------------------------------------------------------------------------------------------------+
-   | :ref:`Vector2i<class_Vector2i>` | :ref:`operator +<class_Vector2i_operator_sum_Vector2i>` **(** :ref:`Vector2i<class_Vector2i>` right **)**   |
-   +---------------------------------+-------------------------------------------------------------------------------------------------------------+
-   | :ref:`Vector2i<class_Vector2i>` | :ref:`operator -<class_Vector2i_operator_dif_Vector2i>` **(** :ref:`Vector2i<class_Vector2i>` right **)**   |
-   +---------------------------------+-------------------------------------------------------------------------------------------------------------+
-   | :ref:`Vector2i<class_Vector2i>` | :ref:`operator /<class_Vector2i_operator_div_Vector2i>` **(** :ref:`Vector2i<class_Vector2i>` right **)**   |
-   +---------------------------------+-------------------------------------------------------------------------------------------------------------+
-   | :ref:`Vector2<class_Vector2>`   | :ref:`operator /<class_Vector2i_operator_div_float>` **(** :ref:`float<class_float>` right **)**            |
-   +---------------------------------+-------------------------------------------------------------------------------------------------------------+
-   | :ref:`Vector2i<class_Vector2i>` | :ref:`operator /<class_Vector2i_operator_div_int>` **(** :ref:`int<class_int>` right **)**                  |
-   +---------------------------------+-------------------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`         | :ref:`operator \<<class_Vector2i_operator_lt_Vector2i>` **(** :ref:`Vector2i<class_Vector2i>` right **)**   |
-   +---------------------------------+-------------------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`         | :ref:`operator \<=<class_Vector2i_operator_lte_Vector2i>` **(** :ref:`Vector2i<class_Vector2i>` right **)** |
-   +---------------------------------+-------------------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`         | :ref:`operator ==<class_Vector2i_operator_eq_Vector2i>` **(** :ref:`Vector2i<class_Vector2i>` right **)**   |
-   +---------------------------------+-------------------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`         | :ref:`operator ><class_Vector2i_operator_gt_Vector2i>` **(** :ref:`Vector2i<class_Vector2i>` right **)**    |
-   +---------------------------------+-------------------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`         | :ref:`operator >=<class_Vector2i_operator_gte_Vector2i>` **(** :ref:`Vector2i<class_Vector2i>` right **)**  |
-   +---------------------------------+-------------------------------------------------------------------------------------------------------------+
-   | :ref:`int<class_int>`           | :ref:`operator []<class_Vector2i_operator_idx_int>` **(** :ref:`int<class_int>` index **)**                 |
-   +---------------------------------+-------------------------------------------------------------------------------------------------------------+
-   | :ref:`Vector2i<class_Vector2i>` | :ref:`operator unary+<class_Vector2i_operator_unplus>` **(** **)**                                          |
-   +---------------------------------+-------------------------------------------------------------------------------------------------------------+
-   | :ref:`Vector2i<class_Vector2i>` | :ref:`operator unary-<class_Vector2i_operator_unminus>` **(** **)**                                         |
-   +---------------------------------+-------------------------------------------------------------------------------------------------------------+
+   +---------------------------------+----------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`         | :ref:`operator !=<class_Vector2i_operator_neq_Vector2i>`\ (\ right\: :ref:`Vector2i<class_Vector2i>`\ )  |
+   +---------------------------------+----------------------------------------------------------------------------------------------------------+
+   | :ref:`Vector2i<class_Vector2i>` | :ref:`operator %<class_Vector2i_operator_mod_Vector2i>`\ (\ right\: :ref:`Vector2i<class_Vector2i>`\ )   |
+   +---------------------------------+----------------------------------------------------------------------------------------------------------+
+   | :ref:`Vector2i<class_Vector2i>` | :ref:`operator %<class_Vector2i_operator_mod_int>`\ (\ right\: :ref:`int<class_int>`\ )                  |
+   +---------------------------------+----------------------------------------------------------------------------------------------------------+
+   | :ref:`Vector2i<class_Vector2i>` | :ref:`operator *<class_Vector2i_operator_mul_Vector2i>`\ (\ right\: :ref:`Vector2i<class_Vector2i>`\ )   |
+   +---------------------------------+----------------------------------------------------------------------------------------------------------+
+   | :ref:`Vector2<class_Vector2>`   | :ref:`operator *<class_Vector2i_operator_mul_float>`\ (\ right\: :ref:`float<class_float>`\ )            |
+   +---------------------------------+----------------------------------------------------------------------------------------------------------+
+   | :ref:`Vector2i<class_Vector2i>` | :ref:`operator *<class_Vector2i_operator_mul_int>`\ (\ right\: :ref:`int<class_int>`\ )                  |
+   +---------------------------------+----------------------------------------------------------------------------------------------------------+
+   | :ref:`Vector2i<class_Vector2i>` | :ref:`operator +<class_Vector2i_operator_sum_Vector2i>`\ (\ right\: :ref:`Vector2i<class_Vector2i>`\ )   |
+   +---------------------------------+----------------------------------------------------------------------------------------------------------+
+   | :ref:`Vector2i<class_Vector2i>` | :ref:`operator -<class_Vector2i_operator_dif_Vector2i>`\ (\ right\: :ref:`Vector2i<class_Vector2i>`\ )   |
+   +---------------------------------+----------------------------------------------------------------------------------------------------------+
+   | :ref:`Vector2i<class_Vector2i>` | :ref:`operator /<class_Vector2i_operator_div_Vector2i>`\ (\ right\: :ref:`Vector2i<class_Vector2i>`\ )   |
+   +---------------------------------+----------------------------------------------------------------------------------------------------------+
+   | :ref:`Vector2<class_Vector2>`   | :ref:`operator /<class_Vector2i_operator_div_float>`\ (\ right\: :ref:`float<class_float>`\ )            |
+   +---------------------------------+----------------------------------------------------------------------------------------------------------+
+   | :ref:`Vector2i<class_Vector2i>` | :ref:`operator /<class_Vector2i_operator_div_int>`\ (\ right\: :ref:`int<class_int>`\ )                  |
+   +---------------------------------+----------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`         | :ref:`operator \<<class_Vector2i_operator_lt_Vector2i>`\ (\ right\: :ref:`Vector2i<class_Vector2i>`\ )   |
+   +---------------------------------+----------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`         | :ref:`operator \<=<class_Vector2i_operator_lte_Vector2i>`\ (\ right\: :ref:`Vector2i<class_Vector2i>`\ ) |
+   +---------------------------------+----------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`         | :ref:`operator ==<class_Vector2i_operator_eq_Vector2i>`\ (\ right\: :ref:`Vector2i<class_Vector2i>`\ )   |
+   +---------------------------------+----------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`         | :ref:`operator ><class_Vector2i_operator_gt_Vector2i>`\ (\ right\: :ref:`Vector2i<class_Vector2i>`\ )    |
+   +---------------------------------+----------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`         | :ref:`operator >=<class_Vector2i_operator_gte_Vector2i>`\ (\ right\: :ref:`Vector2i<class_Vector2i>`\ )  |
+   +---------------------------------+----------------------------------------------------------------------------------------------------------+
+   | :ref:`int<class_int>`           | :ref:`operator []<class_Vector2i_operator_idx_int>`\ (\ index\: :ref:`int<class_int>`\ )                 |
+   +---------------------------------+----------------------------------------------------------------------------------------------------------+
+   | :ref:`Vector2i<class_Vector2i>` | :ref:`operator unary+<class_Vector2i_operator_unplus>`\ (\ )                                             |
+   +---------------------------------+----------------------------------------------------------------------------------------------------------+
+   | :ref:`Vector2i<class_Vector2i>` | :ref:`operator unary-<class_Vector2i_operator_unminus>`\ (\ )                                            |
+   +---------------------------------+----------------------------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -182,6 +186,22 @@ Zero vector, a vector with all components set to ``0``.
 **ONE** = ``Vector2i(1, 1)``
 
 One vector, a vector with all components set to ``1``.
+
+.. _class_Vector2i_constant_MIN:
+
+.. rst-class:: classref-constant
+
+**MIN** = ``Vector2i(-2147483648, -2147483648)``
+
+Min vector, a vector with all components equal to ``INT32_MIN``. Can be used as a negative integer equivalent of :ref:`Vector2.INF<class_Vector2_constant_INF>`.
+
+.. _class_Vector2i_constant_MAX:
+
+.. rst-class:: classref-constant
+
+**MAX** = ``Vector2i(2147483647, 2147483647)``
+
+Max vector, a vector with all components equal to ``INT32_MAX``. Can be used as an integer equivalent of :ref:`Vector2.INF<class_Vector2_constant_INF>`.
 
 .. _class_Vector2i_constant_LEFT:
 
@@ -257,7 +277,7 @@ Constructor Descriptions
 
 .. rst-class:: classref-constructor
 
-:ref:`Vector2i<class_Vector2i>` **Vector2i** **(** **)**
+:ref:`Vector2i<class_Vector2i>` **Vector2i**\ (\ )
 
 Constructs a default-initialized **Vector2i** with all components set to ``0``.
 
@@ -267,7 +287,7 @@ Constructs a default-initialized **Vector2i** with all components set to ``0``.
 
 .. rst-class:: classref-constructor
 
-:ref:`Vector2i<class_Vector2i>` **Vector2i** **(** :ref:`Vector2i<class_Vector2i>` from **)**
+:ref:`Vector2i<class_Vector2i>` **Vector2i**\ (\ from\: :ref:`Vector2i<class_Vector2i>`\ )
 
 Constructs a **Vector2i** as a copy of the given **Vector2i**.
 
@@ -277,9 +297,9 @@ Constructs a **Vector2i** as a copy of the given **Vector2i**.
 
 .. rst-class:: classref-constructor
 
-:ref:`Vector2i<class_Vector2i>` **Vector2i** **(** :ref:`Vector2<class_Vector2>` from **)**
+:ref:`Vector2i<class_Vector2i>` **Vector2i**\ (\ from\: :ref:`Vector2<class_Vector2>`\ )
 
-Constructs a new **Vector2i** from :ref:`Vector2<class_Vector2>`. The floating point coordinates will be truncated.
+Constructs a new **Vector2i** from the given :ref:`Vector2<class_Vector2>` by truncating components' fractional parts (rounding towards zero). For a different behavior consider passing the result of :ref:`Vector2.ceil<class_Vector2_method_ceil>`, :ref:`Vector2.floor<class_Vector2_method_floor>` or :ref:`Vector2.round<class_Vector2_method_round>` to this constructor instead.
 
 .. rst-class:: classref-item-separator
 
@@ -287,7 +307,7 @@ Constructs a new **Vector2i** from :ref:`Vector2<class_Vector2>`. The floating p
 
 .. rst-class:: classref-constructor
 
-:ref:`Vector2i<class_Vector2i>` **Vector2i** **(** :ref:`int<class_int>` x, :ref:`int<class_int>` y **)**
+:ref:`Vector2i<class_Vector2i>` **Vector2i**\ (\ x\: :ref:`int<class_int>`, y\: :ref:`int<class_int>`\ )
 
 Constructs a new **Vector2i** from the given ``x`` and ``y``.
 
@@ -304,7 +324,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`Vector2i<class_Vector2i>` **abs** **(** **)** |const|
+:ref:`Vector2i<class_Vector2i>` **abs**\ (\ ) |const|
 
 Returns a new vector with all components in absolute values (i.e. positive).
 
@@ -316,7 +336,7 @@ Returns a new vector with all components in absolute values (i.e. positive).
 
 .. rst-class:: classref-method
 
-:ref:`float<class_float>` **aspect** **(** **)** |const|
+:ref:`float<class_float>` **aspect**\ (\ ) |const|
 
 Returns the aspect ratio of this vector, the ratio of :ref:`x<class_Vector2i_property_x>` to :ref:`y<class_Vector2i_property_y>`.
 
@@ -328,9 +348,35 @@ Returns the aspect ratio of this vector, the ratio of :ref:`x<class_Vector2i_pro
 
 .. rst-class:: classref-method
 
-:ref:`Vector2i<class_Vector2i>` **clamp** **(** :ref:`Vector2i<class_Vector2i>` min, :ref:`Vector2i<class_Vector2i>` max **)** |const|
+:ref:`Vector2i<class_Vector2i>` **clamp**\ (\ min\: :ref:`Vector2i<class_Vector2i>`, max\: :ref:`Vector2i<class_Vector2i>`\ ) |const|
 
 Returns a new vector with all components clamped between the components of ``min`` and ``max``, by running :ref:`@GlobalScope.clamp<class_@GlobalScope_method_clamp>` on each component.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_Vector2i_method_distance_squared_to:
+
+.. rst-class:: classref-method
+
+:ref:`int<class_int>` **distance_squared_to**\ (\ to\: :ref:`Vector2i<class_Vector2i>`\ ) |const|
+
+Returns the squared distance between this vector and ``to``.
+
+This method runs faster than :ref:`distance_to<class_Vector2i_method_distance_to>`, so prefer it if you need to compare vectors or need the squared distance for some formula.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_Vector2i_method_distance_to:
+
+.. rst-class:: classref-method
+
+:ref:`float<class_float>` **distance_to**\ (\ to\: :ref:`Vector2i<class_Vector2i>`\ ) |const|
+
+Returns the distance between this vector and ``to``.
 
 .. rst-class:: classref-item-separator
 
@@ -340,7 +386,7 @@ Returns a new vector with all components clamped between the components of ``min
 
 .. rst-class:: classref-method
 
-:ref:`float<class_float>` **length** **(** **)** |const|
+:ref:`float<class_float>` **length**\ (\ ) |const|
 
 Returns the length (magnitude) of this vector.
 
@@ -352,7 +398,7 @@ Returns the length (magnitude) of this vector.
 
 .. rst-class:: classref-method
 
-:ref:`int<class_int>` **length_squared** **(** **)** |const|
+:ref:`int<class_int>` **length_squared**\ (\ ) |const|
 
 Returns the squared length (squared magnitude) of this vector.
 
@@ -366,7 +412,7 @@ This method runs faster than :ref:`length<class_Vector2i_method_length>`, so pre
 
 .. rst-class:: classref-method
 
-:ref:`int<class_int>` **max_axis_index** **(** **)** |const|
+:ref:`int<class_int>` **max_axis_index**\ (\ ) |const|
 
 Returns the axis of the vector's highest value. See ``AXIS_*`` constants. If all components are equal, this method returns :ref:`AXIS_X<class_Vector2i_constant_AXIS_X>`.
 
@@ -378,7 +424,7 @@ Returns the axis of the vector's highest value. See ``AXIS_*`` constants. If all
 
 .. rst-class:: classref-method
 
-:ref:`int<class_int>` **min_axis_index** **(** **)** |const|
+:ref:`int<class_int>` **min_axis_index**\ (\ ) |const|
 
 Returns the axis of the vector's lowest value. See ``AXIS_*`` constants. If all components are equal, this method returns :ref:`AXIS_Y<class_Vector2i_constant_AXIS_Y>`.
 
@@ -390,7 +436,7 @@ Returns the axis of the vector's lowest value. See ``AXIS_*`` constants. If all 
 
 .. rst-class:: classref-method
 
-:ref:`Vector2i<class_Vector2i>` **sign** **(** **)** |const|
+:ref:`Vector2i<class_Vector2i>` **sign**\ (\ ) |const|
 
 Returns a new vector with each component set to ``1`` if it's positive, ``-1`` if it's negative, and ``0`` if it's zero. The result is identical to calling :ref:`@GlobalScope.sign<class_@GlobalScope_method_sign>` on each component.
 
@@ -402,7 +448,7 @@ Returns a new vector with each component set to ``1`` if it's positive, ``-1`` i
 
 .. rst-class:: classref-method
 
-:ref:`Vector2i<class_Vector2i>` **snapped** **(** :ref:`Vector2i<class_Vector2i>` step **)** |const|
+:ref:`Vector2i<class_Vector2i>` **snapped**\ (\ step\: :ref:`Vector2i<class_Vector2i>`\ ) |const|
 
 Returns a new vector with each component snapped to the closest multiple of the corresponding component in ``step``.
 
@@ -419,7 +465,7 @@ Operator Descriptions
 
 .. rst-class:: classref-operator
 
-:ref:`bool<class_bool>` **operator !=** **(** :ref:`Vector2i<class_Vector2i>` right **)**
+:ref:`bool<class_bool>` **operator !=**\ (\ right\: :ref:`Vector2i<class_Vector2i>`\ )
 
 Returns ``true`` if the vectors are not equal.
 
@@ -431,7 +477,7 @@ Returns ``true`` if the vectors are not equal.
 
 .. rst-class:: classref-operator
 
-:ref:`Vector2i<class_Vector2i>` **operator %** **(** :ref:`Vector2i<class_Vector2i>` right **)**
+:ref:`Vector2i<class_Vector2i>` **operator %**\ (\ right\: :ref:`Vector2i<class_Vector2i>`\ )
 
 Gets the remainder of each component of the **Vector2i** with the components of the given **Vector2i**. This operation uses truncated division, which is often not desired as it does not work well with negative numbers. Consider using :ref:`@GlobalScope.posmod<class_@GlobalScope_method_posmod>` instead if you want to handle negative numbers.
 
@@ -447,9 +493,9 @@ Gets the remainder of each component of the **Vector2i** with the components of 
 
 .. rst-class:: classref-operator
 
-:ref:`Vector2i<class_Vector2i>` **operator %** **(** :ref:`int<class_int>` right **)**
+:ref:`Vector2i<class_Vector2i>` **operator %**\ (\ right\: :ref:`int<class_int>`\ )
 
-Gets the remainder of each component of the **Vector2i** with the the given :ref:`int<class_int>`. This operation uses truncated division, which is often not desired as it does not work well with negative numbers. Consider using :ref:`@GlobalScope.posmod<class_@GlobalScope_method_posmod>` instead if you want to handle negative numbers.
+Gets the remainder of each component of the **Vector2i** with the given :ref:`int<class_int>`. This operation uses truncated division, which is often not desired as it does not work well with negative numbers. Consider using :ref:`@GlobalScope.posmod<class_@GlobalScope_method_posmod>` instead if you want to handle negative numbers.
 
 ::
 
@@ -463,7 +509,7 @@ Gets the remainder of each component of the **Vector2i** with the the given :ref
 
 .. rst-class:: classref-operator
 
-:ref:`Vector2i<class_Vector2i>` **operator *** **(** :ref:`Vector2i<class_Vector2i>` right **)**
+:ref:`Vector2i<class_Vector2i>` **operator ***\ (\ right\: :ref:`Vector2i<class_Vector2i>`\ )
 
 Multiplies each component of the **Vector2i** by the components of the given **Vector2i**.
 
@@ -479,7 +525,7 @@ Multiplies each component of the **Vector2i** by the components of the given **V
 
 .. rst-class:: classref-operator
 
-:ref:`Vector2<class_Vector2>` **operator *** **(** :ref:`float<class_float>` right **)**
+:ref:`Vector2<class_Vector2>` **operator ***\ (\ right\: :ref:`float<class_float>`\ )
 
 Multiplies each component of the **Vector2i** by the given :ref:`float<class_float>`. Returns a :ref:`Vector2<class_Vector2>`.
 
@@ -495,7 +541,7 @@ Multiplies each component of the **Vector2i** by the given :ref:`float<class_flo
 
 .. rst-class:: classref-operator
 
-:ref:`Vector2i<class_Vector2i>` **operator *** **(** :ref:`int<class_int>` right **)**
+:ref:`Vector2i<class_Vector2i>` **operator ***\ (\ right\: :ref:`int<class_int>`\ )
 
 Multiplies each component of the **Vector2i** by the given :ref:`int<class_int>`.
 
@@ -507,7 +553,7 @@ Multiplies each component of the **Vector2i** by the given :ref:`int<class_int>`
 
 .. rst-class:: classref-operator
 
-:ref:`Vector2i<class_Vector2i>` **operator +** **(** :ref:`Vector2i<class_Vector2i>` right **)**
+:ref:`Vector2i<class_Vector2i>` **operator +**\ (\ right\: :ref:`Vector2i<class_Vector2i>`\ )
 
 Adds each component of the **Vector2i** by the components of the given **Vector2i**.
 
@@ -523,7 +569,7 @@ Adds each component of the **Vector2i** by the components of the given **Vector2
 
 .. rst-class:: classref-operator
 
-:ref:`Vector2i<class_Vector2i>` **operator -** **(** :ref:`Vector2i<class_Vector2i>` right **)**
+:ref:`Vector2i<class_Vector2i>` **operator -**\ (\ right\: :ref:`Vector2i<class_Vector2i>`\ )
 
 Subtracts each component of the **Vector2i** by the components of the given **Vector2i**.
 
@@ -539,7 +585,7 @@ Subtracts each component of the **Vector2i** by the components of the given **Ve
 
 .. rst-class:: classref-operator
 
-:ref:`Vector2i<class_Vector2i>` **operator /** **(** :ref:`Vector2i<class_Vector2i>` right **)**
+:ref:`Vector2i<class_Vector2i>` **operator /**\ (\ right\: :ref:`Vector2i<class_Vector2i>`\ )
 
 Divides each component of the **Vector2i** by the components of the given **Vector2i**.
 
@@ -555,7 +601,7 @@ Divides each component of the **Vector2i** by the components of the given **Vect
 
 .. rst-class:: classref-operator
 
-:ref:`Vector2<class_Vector2>` **operator /** **(** :ref:`float<class_float>` right **)**
+:ref:`Vector2<class_Vector2>` **operator /**\ (\ right\: :ref:`float<class_float>`\ )
 
 Divides each component of the **Vector2i** by the given :ref:`float<class_float>`. Returns a :ref:`Vector2<class_Vector2>`.
 
@@ -571,7 +617,7 @@ Divides each component of the **Vector2i** by the given :ref:`float<class_float>
 
 .. rst-class:: classref-operator
 
-:ref:`Vector2i<class_Vector2i>` **operator /** **(** :ref:`int<class_int>` right **)**
+:ref:`Vector2i<class_Vector2i>` **operator /**\ (\ right\: :ref:`int<class_int>`\ )
 
 Divides each component of the **Vector2i** by the given :ref:`int<class_int>`.
 
@@ -583,7 +629,7 @@ Divides each component of the **Vector2i** by the given :ref:`int<class_int>`.
 
 .. rst-class:: classref-operator
 
-:ref:`bool<class_bool>` **operator <** **(** :ref:`Vector2i<class_Vector2i>` right **)**
+:ref:`bool<class_bool>` **operator <**\ (\ right\: :ref:`Vector2i<class_Vector2i>`\ )
 
 Compares two **Vector2i** vectors by first checking if the X value of the left vector is less than the X value of the ``right`` vector. If the X values are exactly equal, then it repeats this check with the Y values of the two vectors. This operator is useful for sorting vectors.
 
@@ -595,7 +641,7 @@ Compares two **Vector2i** vectors by first checking if the X value of the left v
 
 .. rst-class:: classref-operator
 
-:ref:`bool<class_bool>` **operator <=** **(** :ref:`Vector2i<class_Vector2i>` right **)**
+:ref:`bool<class_bool>` **operator <=**\ (\ right\: :ref:`Vector2i<class_Vector2i>`\ )
 
 Compares two **Vector2i** vectors by first checking if the X value of the left vector is less than or equal to the X value of the ``right`` vector. If the X values are exactly equal, then it repeats this check with the Y values of the two vectors. This operator is useful for sorting vectors.
 
@@ -607,7 +653,7 @@ Compares two **Vector2i** vectors by first checking if the X value of the left v
 
 .. rst-class:: classref-operator
 
-:ref:`bool<class_bool>` **operator ==** **(** :ref:`Vector2i<class_Vector2i>` right **)**
+:ref:`bool<class_bool>` **operator ==**\ (\ right\: :ref:`Vector2i<class_Vector2i>`\ )
 
 Returns ``true`` if the vectors are equal.
 
@@ -619,7 +665,7 @@ Returns ``true`` if the vectors are equal.
 
 .. rst-class:: classref-operator
 
-:ref:`bool<class_bool>` **operator >** **(** :ref:`Vector2i<class_Vector2i>` right **)**
+:ref:`bool<class_bool>` **operator >**\ (\ right\: :ref:`Vector2i<class_Vector2i>`\ )
 
 Compares two **Vector2i** vectors by first checking if the X value of the left vector is greater than the X value of the ``right`` vector. If the X values are exactly equal, then it repeats this check with the Y values of the two vectors. This operator is useful for sorting vectors.
 
@@ -631,7 +677,7 @@ Compares two **Vector2i** vectors by first checking if the X value of the left v
 
 .. rst-class:: classref-operator
 
-:ref:`bool<class_bool>` **operator >=** **(** :ref:`Vector2i<class_Vector2i>` right **)**
+:ref:`bool<class_bool>` **operator >=**\ (\ right\: :ref:`Vector2i<class_Vector2i>`\ )
 
 Compares two **Vector2i** vectors by first checking if the X value of the left vector is greater than or equal to the X value of the ``right`` vector. If the X values are exactly equal, then it repeats this check with the Y values of the two vectors. This operator is useful for sorting vectors.
 
@@ -643,7 +689,7 @@ Compares two **Vector2i** vectors by first checking if the X value of the left v
 
 .. rst-class:: classref-operator
 
-:ref:`int<class_int>` **operator []** **(** :ref:`int<class_int>` index **)**
+:ref:`int<class_int>` **operator []**\ (\ index\: :ref:`int<class_int>`\ )
 
 Access vector components using their ``index``. ``v[0]`` is equivalent to ``v.x``, and ``v[1]`` is equivalent to ``v.y``.
 
@@ -655,7 +701,7 @@ Access vector components using their ``index``. ``v[0]`` is equivalent to ``v.x`
 
 .. rst-class:: classref-operator
 
-:ref:`Vector2i<class_Vector2i>` **operator unary+** **(** **)**
+:ref:`Vector2i<class_Vector2i>` **operator unary+**\ (\ )
 
 Returns the same value as if the ``+`` was not there. Unary ``+`` does nothing, but sometimes it can make your code more readable.
 
@@ -667,7 +713,7 @@ Returns the same value as if the ``+`` was not there. Unary ``+`` does nothing, 
 
 .. rst-class:: classref-operator
 
-:ref:`Vector2i<class_Vector2i>` **operator unary-** **(** **)**
+:ref:`Vector2i<class_Vector2i>` **operator unary-**\ (\ )
 
 Returns the negative value of the **Vector2i**. This is the same as writing ``Vector2i(-v.x, -v.y)``. This operation flips the direction of the vector while keeping the same magnitude.
 
@@ -677,3 +723,5 @@ Returns the negative value of the **Vector2i**. This is the same as writing ``Ve
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`
