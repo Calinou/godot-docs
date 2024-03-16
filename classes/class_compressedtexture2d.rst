@@ -21,13 +21,15 @@ Description
 
 A texture that is loaded from a ``.ctex`` file. This file format is internal to Godot; it is created by importing other image formats with the import system. **CompressedTexture2D** can use one of 4 compression methods (including a lack of any compression):
 
-- Uncompressed (uncompressed on the GPU)
-
 - Lossless (WebP or PNG, uncompressed on the GPU)
 
 - Lossy (WebP, uncompressed on the GPU)
 
 - VRAM Compressed (compressed on the GPU)
+
+- VRAM Uncompressed (uncompressed on the GPU)
+
+- Basis Universal (compressed on the GPU. Lower file sizes than VRAM Compressed, but slower to compress and lower quality than VRAM Compressed)
 
 Only **VRAM Compressed** actually reduces the memory usage on the GPU. The **Lossless** and **Lossy** compression methods will reduce the required storage on disk, but they will not reduce memory usage on the GPU as the texture is sent to the GPU uncompressed.
 
@@ -55,9 +57,9 @@ Methods
 .. table::
    :widths: auto
 
-   +---------------------------------------+-------------------------------------------------------------------------------------------------+
-   | :ref:`Error<enum_@GlobalScope_Error>` | :ref:`load<class_CompressedTexture2D_method_load>` **(** :ref:`String<class_String>` path **)** |
-   +---------------------------------------+-------------------------------------------------------------------------------------------------+
+   +---------------------------------------+----------------------------------------------------------------------------------------------+
+   | :ref:`Error<enum_@GlobalScope_Error>` | :ref:`load<class_CompressedTexture2D_method_load>`\ (\ path\: :ref:`String<class_String>`\ ) |
+   +---------------------------------------+----------------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -76,8 +78,8 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- :ref:`Error<enum_@GlobalScope_Error>` **load** **(** :ref:`String<class_String>` path **)**
-- :ref:`String<class_String>` **get_load_path** **(** **)**
+- :ref:`Error<enum_@GlobalScope_Error>` **load**\ (\ path\: :ref:`String<class_String>`\ )
+- :ref:`String<class_String>` **get_load_path**\ (\ )
 
 The **CompressedTexture2D**'s file path to a ``.ctex`` file.
 
@@ -94,7 +96,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`Error<enum_@GlobalScope_Error>` **load** **(** :ref:`String<class_String>` path **)**
+:ref:`Error<enum_@GlobalScope_Error>` **load**\ (\ path\: :ref:`String<class_String>`\ )
 
 Loads the texture from the specified ``path``.
 
@@ -104,3 +106,5 @@ Loads the texture from the specified ``path``.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`

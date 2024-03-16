@@ -12,18 +12,14 @@ ConeTwistJoint3D
 
 **Inherits:** :ref:`Joint3D<class_Joint3D>` **<** :ref:`Node3D<class_Node3D>` **<** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
 
-A twist joint between two 3D PhysicsBodies.
+A physics joint that connects two 3D physics bodies in a way that simulates a ball-and-socket joint.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-The joint can rotate the bodies across an axis defined by the local x-axes of the :ref:`Joint3D<class_Joint3D>`.
-
-The twist axis is initiated as the X axis of the :ref:`Joint3D<class_Joint3D>`.
-
-Once the Bodies swing, the twist axis is calculated as the middle of the x-axes of the Joint3D in the local space of the two Bodies. See also :ref:`Generic6DOFJoint3D<class_Generic6DOFJoint3D>`.
+A physics joint that connects two 3D physics bodies in a way that simulates a ball-and-socket joint. The twist axis is initiated as the X axis of the **ConeTwistJoint3D**. Once the physics bodies swing, the twist axis is calculated as the middle of the X axes of the joint in the local space of the two physics bodies. Useful for limbs like shoulders and hips, lamps hanging off a ceiling, etc.
 
 .. rst-class:: classref-reftable-group
 
@@ -53,11 +49,11 @@ Methods
 .. table::
    :widths: auto
 
-   +---------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`float<class_float>` | :ref:`get_param<class_ConeTwistJoint3D_method_get_param>` **(** :ref:`Param<enum_ConeTwistJoint3D_Param>` param **)** |const|                          |
-   +---------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                      | :ref:`set_param<class_ConeTwistJoint3D_method_set_param>` **(** :ref:`Param<enum_ConeTwistJoint3D_Param>` param, :ref:`float<class_float>` value **)** |
-   +---------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
+   +---------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`float<class_float>` | :ref:`get_param<class_ConeTwistJoint3D_method_get_param>`\ (\ param\: :ref:`Param<enum_ConeTwistJoint3D_Param>`\ ) |const|                            |
+   +---------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                    | :ref:`set_param<class_ConeTwistJoint3D_method_set_param>`\ (\ param\: :ref:`Param<enum_ConeTwistJoint3D_Param>`, value\: :ref:`float<class_float>`\ ) |
+   +---------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -149,8 +145,8 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_param** **(** :ref:`Param<enum_ConeTwistJoint3D_Param>` param, :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_param** **(** :ref:`Param<enum_ConeTwistJoint3D_Param>` param **)** |const|
+- |void| **set_param**\ (\ param\: :ref:`Param<enum_ConeTwistJoint3D_Param>`, value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_param**\ (\ param\: :ref:`Param<enum_ConeTwistJoint3D_Param>`\ ) |const|
 
 The speed with which the swing or twist will take place.
 
@@ -168,8 +164,8 @@ The higher, the faster.
 
 .. rst-class:: classref-property-setget
 
-- void **set_param** **(** :ref:`Param<enum_ConeTwistJoint3D_Param>` param, :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_param** **(** :ref:`Param<enum_ConeTwistJoint3D_Param>` param **)** |const|
+- |void| **set_param**\ (\ param\: :ref:`Param<enum_ConeTwistJoint3D_Param>`, value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_param**\ (\ param\: :ref:`Param<enum_ConeTwistJoint3D_Param>`\ ) |const|
 
 Defines, how fast the swing- and twist-speed-difference on both sides gets synced.
 
@@ -185,8 +181,8 @@ Defines, how fast the swing- and twist-speed-difference on both sides gets synce
 
 .. rst-class:: classref-property-setget
 
-- void **set_param** **(** :ref:`Param<enum_ConeTwistJoint3D_Param>` param, :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_param** **(** :ref:`Param<enum_ConeTwistJoint3D_Param>` param **)** |const|
+- |void| **set_param**\ (\ param\: :ref:`Param<enum_ConeTwistJoint3D_Param>`, value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_param**\ (\ param\: :ref:`Param<enum_ConeTwistJoint3D_Param>`\ ) |const|
 
 The ease with which the joint starts to twist. If it's too low, it takes more force to start twisting the joint.
 
@@ -202,8 +198,8 @@ The ease with which the joint starts to twist. If it's too low, it takes more fo
 
 .. rst-class:: classref-property-setget
 
-- void **set_param** **(** :ref:`Param<enum_ConeTwistJoint3D_Param>` param, :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_param** **(** :ref:`Param<enum_ConeTwistJoint3D_Param>` param **)** |const|
+- |void| **set_param**\ (\ param\: :ref:`Param<enum_ConeTwistJoint3D_Param>`, value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_param**\ (\ param\: :ref:`Param<enum_ConeTwistJoint3D_Param>`\ ) |const|
 
 Swing is rotation from side to side, around the axis perpendicular to the twist axis.
 
@@ -225,8 +221,8 @@ If below 0.05, this behavior is locked.
 
 .. rst-class:: classref-property-setget
 
-- void **set_param** **(** :ref:`Param<enum_ConeTwistJoint3D_Param>` param, :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_param** **(** :ref:`Param<enum_ConeTwistJoint3D_Param>` param **)** |const|
+- |void| **set_param**\ (\ param\: :ref:`Param<enum_ConeTwistJoint3D_Param>`, value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_param**\ (\ param\: :ref:`Param<enum_ConeTwistJoint3D_Param>`\ ) |const|
 
 Twist is the rotation around the twist axis, this value defined how far the joint can twist.
 
@@ -245,11 +241,9 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`float<class_float>` **get_param** **(** :ref:`Param<enum_ConeTwistJoint3D_Param>` param **)** |const|
+:ref:`float<class_float>` **get_param**\ (\ param\: :ref:`Param<enum_ConeTwistJoint3D_Param>`\ ) |const|
 
-.. container:: contribute
-
-	There is currently no description for this method. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+Returns the value of the specified parameter.
 
 .. rst-class:: classref-item-separator
 
@@ -259,11 +253,9 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-void **set_param** **(** :ref:`Param<enum_ConeTwistJoint3D_Param>` param, :ref:`float<class_float>` value **)**
+|void| **set_param**\ (\ param\: :ref:`Param<enum_ConeTwistJoint3D_Param>`, value\: :ref:`float<class_float>`\ )
 
-.. container:: contribute
-
-	There is currently no description for this method. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+Sets the value of the specified parameter.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
@@ -271,3 +263,5 @@ void **set_param** **(** :ref:`Param<enum_ConeTwistJoint3D_Param>` param, :ref:`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`

@@ -12,16 +12,16 @@ ColorPicker
 
 **Inherits:** :ref:`VBoxContainer<class_VBoxContainer>` **<** :ref:`BoxContainer<class_BoxContainer>` **<** :ref:`Container<class_Container>` **<** :ref:`Control<class_Control>` **<** :ref:`CanvasItem<class_CanvasItem>` **<** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
 
-Color picker control.
+A widget that provides an interface for selecting or modifying a color.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-Displays a color picker widget. Useful for selecting a color from an RGB/RGBA colorspace.
+A widget that provides an interface for selecting or modifying a color. It can optionally provide functionalities like a color sampler (eyedropper), color modes, and presets.
 
-\ **Note:** This control is the color picker widget itself. You can use a :ref:`ColorPickerButton<class_ColorPickerButton>` instead if you need a button that brings up a **ColorPicker** in a pop-up.
+\ **Note:** This control is the color picker widget itself. You can use a :ref:`ColorPickerButton<class_ColorPickerButton>` instead if you need a button that brings up a **ColorPicker** in a popup.
 
 .. rst-class:: classref-introduction-group
 
@@ -70,19 +70,19 @@ Methods
 .. table::
    :widths: auto
 
-   +-------------------------------------------------+----------------------------------------------------------------------------------------------------------------------+
-   | void                                            | :ref:`add_preset<class_ColorPicker_method_add_preset>` **(** :ref:`Color<class_Color>` color **)**                   |
-   +-------------------------------------------------+----------------------------------------------------------------------------------------------------------------------+
-   | void                                            | :ref:`add_recent_preset<class_ColorPicker_method_add_recent_preset>` **(** :ref:`Color<class_Color>` color **)**     |
-   +-------------------------------------------------+----------------------------------------------------------------------------------------------------------------------+
-   | void                                            | :ref:`erase_preset<class_ColorPicker_method_erase_preset>` **(** :ref:`Color<class_Color>` color **)**               |
-   +-------------------------------------------------+----------------------------------------------------------------------------------------------------------------------+
-   | void                                            | :ref:`erase_recent_preset<class_ColorPicker_method_erase_recent_preset>` **(** :ref:`Color<class_Color>` color **)** |
-   +-------------------------------------------------+----------------------------------------------------------------------------------------------------------------------+
-   | :ref:`PackedColorArray<class_PackedColorArray>` | :ref:`get_presets<class_ColorPicker_method_get_presets>` **(** **)** |const|                                         |
-   +-------------------------------------------------+----------------------------------------------------------------------------------------------------------------------+
-   | :ref:`PackedColorArray<class_PackedColorArray>` | :ref:`get_recent_presets<class_ColorPicker_method_get_recent_presets>` **(** **)** |const|                           |
-   +-------------------------------------------------+----------------------------------------------------------------------------------------------------------------------+
+   +-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------+
+   | |void|                                          | :ref:`add_preset<class_ColorPicker_method_add_preset>`\ (\ color\: :ref:`Color<class_Color>`\ )                   |
+   +-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------+
+   | |void|                                          | :ref:`add_recent_preset<class_ColorPicker_method_add_recent_preset>`\ (\ color\: :ref:`Color<class_Color>`\ )     |
+   +-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------+
+   | |void|                                          | :ref:`erase_preset<class_ColorPicker_method_erase_preset>`\ (\ color\: :ref:`Color<class_Color>`\ )               |
+   +-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------+
+   | |void|                                          | :ref:`erase_recent_preset<class_ColorPicker_method_erase_recent_preset>`\ (\ color\: :ref:`Color<class_Color>`\ ) |
+   +-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------+
+   | :ref:`PackedColorArray<class_PackedColorArray>` | :ref:`get_presets<class_ColorPicker_method_get_presets>`\ (\ ) |const|                                            |
+   +-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------+
+   | :ref:`PackedColorArray<class_PackedColorArray>` | :ref:`get_recent_presets<class_ColorPicker_method_get_recent_presets>`\ (\ ) |const|                              |
+   +-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-reftable-group
 
@@ -92,43 +92,47 @@ Theme Properties
 .. table::
    :widths: auto
 
-   +-----------------------------------+--------------------------------------------------------------------------------+---------+
-   | :ref:`int<class_int>`             | :ref:`h_width<class_ColorPicker_theme_constant_h_width>`                       | ``30``  |
-   +-----------------------------------+--------------------------------------------------------------------------------+---------+
-   | :ref:`int<class_int>`             | :ref:`label_width<class_ColorPicker_theme_constant_label_width>`               | ``10``  |
-   +-----------------------------------+--------------------------------------------------------------------------------+---------+
-   | :ref:`int<class_int>`             | :ref:`margin<class_ColorPicker_theme_constant_margin>`                         | ``4``   |
-   +-----------------------------------+--------------------------------------------------------------------------------+---------+
-   | :ref:`int<class_int>`             | :ref:`sv_height<class_ColorPicker_theme_constant_sv_height>`                   | ``256`` |
-   +-----------------------------------+--------------------------------------------------------------------------------+---------+
-   | :ref:`int<class_int>`             | :ref:`sv_width<class_ColorPicker_theme_constant_sv_width>`                     | ``256`` |
-   +-----------------------------------+--------------------------------------------------------------------------------+---------+
-   | :ref:`Texture2D<class_Texture2D>` | :ref:`add_preset<class_ColorPicker_theme_icon_add_preset>`                     |         |
-   +-----------------------------------+--------------------------------------------------------------------------------+---------+
-   | :ref:`Texture2D<class_Texture2D>` | :ref:`bar_arrow<class_ColorPicker_theme_icon_bar_arrow>`                       |         |
-   +-----------------------------------+--------------------------------------------------------------------------------+---------+
-   | :ref:`Texture2D<class_Texture2D>` | :ref:`color_hue<class_ColorPicker_theme_icon_color_hue>`                       |         |
-   +-----------------------------------+--------------------------------------------------------------------------------+---------+
-   | :ref:`Texture2D<class_Texture2D>` | :ref:`color_okhsl_hue<class_ColorPicker_theme_icon_color_okhsl_hue>`           |         |
-   +-----------------------------------+--------------------------------------------------------------------------------+---------+
-   | :ref:`Texture2D<class_Texture2D>` | :ref:`expanded_arrow<class_ColorPicker_theme_icon_expanded_arrow>`             |         |
-   +-----------------------------------+--------------------------------------------------------------------------------+---------+
-   | :ref:`Texture2D<class_Texture2D>` | :ref:`folded_arrow<class_ColorPicker_theme_icon_folded_arrow>`                 |         |
-   +-----------------------------------+--------------------------------------------------------------------------------+---------+
-   | :ref:`Texture2D<class_Texture2D>` | :ref:`overbright_indicator<class_ColorPicker_theme_icon_overbright_indicator>` |         |
-   +-----------------------------------+--------------------------------------------------------------------------------+---------+
-   | :ref:`Texture2D<class_Texture2D>` | :ref:`picker_cursor<class_ColorPicker_theme_icon_picker_cursor>`               |         |
-   +-----------------------------------+--------------------------------------------------------------------------------+---------+
-   | :ref:`Texture2D<class_Texture2D>` | :ref:`sample_bg<class_ColorPicker_theme_icon_sample_bg>`                       |         |
-   +-----------------------------------+--------------------------------------------------------------------------------+---------+
-   | :ref:`Texture2D<class_Texture2D>` | :ref:`screen_picker<class_ColorPicker_theme_icon_screen_picker>`               |         |
-   +-----------------------------------+--------------------------------------------------------------------------------+---------+
-   | :ref:`Texture2D<class_Texture2D>` | :ref:`shape_circle<class_ColorPicker_theme_icon_shape_circle>`                 |         |
-   +-----------------------------------+--------------------------------------------------------------------------------+---------+
-   | :ref:`Texture2D<class_Texture2D>` | :ref:`shape_rect<class_ColorPicker_theme_icon_shape_rect>`                     |         |
-   +-----------------------------------+--------------------------------------------------------------------------------+---------+
-   | :ref:`Texture2D<class_Texture2D>` | :ref:`shape_rect_wheel<class_ColorPicker_theme_icon_shape_rect_wheel>`         |         |
-   +-----------------------------------+--------------------------------------------------------------------------------+---------+
+   +-----------------------------------+----------------------------------------------------------------------------------------+---------+
+   | :ref:`int<class_int>`             | :ref:`center_slider_grabbers<class_ColorPicker_theme_constant_center_slider_grabbers>` | ``1``   |
+   +-----------------------------------+----------------------------------------------------------------------------------------+---------+
+   | :ref:`int<class_int>`             | :ref:`h_width<class_ColorPicker_theme_constant_h_width>`                               | ``30``  |
+   +-----------------------------------+----------------------------------------------------------------------------------------+---------+
+   | :ref:`int<class_int>`             | :ref:`label_width<class_ColorPicker_theme_constant_label_width>`                       | ``10``  |
+   +-----------------------------------+----------------------------------------------------------------------------------------+---------+
+   | :ref:`int<class_int>`             | :ref:`margin<class_ColorPicker_theme_constant_margin>`                                 | ``4``   |
+   +-----------------------------------+----------------------------------------------------------------------------------------+---------+
+   | :ref:`int<class_int>`             | :ref:`sv_height<class_ColorPicker_theme_constant_sv_height>`                           | ``256`` |
+   +-----------------------------------+----------------------------------------------------------------------------------------+---------+
+   | :ref:`int<class_int>`             | :ref:`sv_width<class_ColorPicker_theme_constant_sv_width>`                             | ``256`` |
+   +-----------------------------------+----------------------------------------------------------------------------------------+---------+
+   | :ref:`Texture2D<class_Texture2D>` | :ref:`add_preset<class_ColorPicker_theme_icon_add_preset>`                             |         |
+   +-----------------------------------+----------------------------------------------------------------------------------------+---------+
+   | :ref:`Texture2D<class_Texture2D>` | :ref:`bar_arrow<class_ColorPicker_theme_icon_bar_arrow>`                               |         |
+   +-----------------------------------+----------------------------------------------------------------------------------------+---------+
+   | :ref:`Texture2D<class_Texture2D>` | :ref:`color_hue<class_ColorPicker_theme_icon_color_hue>`                               |         |
+   +-----------------------------------+----------------------------------------------------------------------------------------+---------+
+   | :ref:`Texture2D<class_Texture2D>` | :ref:`color_okhsl_hue<class_ColorPicker_theme_icon_color_okhsl_hue>`                   |         |
+   +-----------------------------------+----------------------------------------------------------------------------------------+---------+
+   | :ref:`Texture2D<class_Texture2D>` | :ref:`expanded_arrow<class_ColorPicker_theme_icon_expanded_arrow>`                     |         |
+   +-----------------------------------+----------------------------------------------------------------------------------------+---------+
+   | :ref:`Texture2D<class_Texture2D>` | :ref:`folded_arrow<class_ColorPicker_theme_icon_folded_arrow>`                         |         |
+   +-----------------------------------+----------------------------------------------------------------------------------------+---------+
+   | :ref:`Texture2D<class_Texture2D>` | :ref:`overbright_indicator<class_ColorPicker_theme_icon_overbright_indicator>`         |         |
+   +-----------------------------------+----------------------------------------------------------------------------------------+---------+
+   | :ref:`Texture2D<class_Texture2D>` | :ref:`picker_cursor<class_ColorPicker_theme_icon_picker_cursor>`                       |         |
+   +-----------------------------------+----------------------------------------------------------------------------------------+---------+
+   | :ref:`Texture2D<class_Texture2D>` | :ref:`sample_bg<class_ColorPicker_theme_icon_sample_bg>`                               |         |
+   +-----------------------------------+----------------------------------------------------------------------------------------+---------+
+   | :ref:`Texture2D<class_Texture2D>` | :ref:`sample_revert<class_ColorPicker_theme_icon_sample_revert>`                       |         |
+   +-----------------------------------+----------------------------------------------------------------------------------------+---------+
+   | :ref:`Texture2D<class_Texture2D>` | :ref:`screen_picker<class_ColorPicker_theme_icon_screen_picker>`                       |         |
+   +-----------------------------------+----------------------------------------------------------------------------------------+---------+
+   | :ref:`Texture2D<class_Texture2D>` | :ref:`shape_circle<class_ColorPicker_theme_icon_shape_circle>`                         |         |
+   +-----------------------------------+----------------------------------------------------------------------------------------+---------+
+   | :ref:`Texture2D<class_Texture2D>` | :ref:`shape_rect<class_ColorPicker_theme_icon_shape_rect>`                             |         |
+   +-----------------------------------+----------------------------------------------------------------------------------------+---------+
+   | :ref:`Texture2D<class_Texture2D>` | :ref:`shape_rect_wheel<class_ColorPicker_theme_icon_shape_rect_wheel>`                 |         |
+   +-----------------------------------+----------------------------------------------------------------------------------------+---------+
 
 .. rst-class:: classref-section-separator
 
@@ -143,7 +147,7 @@ Signals
 
 .. rst-class:: classref-signal
 
-**color_changed** **(** :ref:`Color<class_Color>` color **)**
+**color_changed**\ (\ color\: :ref:`Color<class_Color>`\ )
 
 Emitted when the color is changed.
 
@@ -155,7 +159,7 @@ Emitted when the color is changed.
 
 .. rst-class:: classref-signal
 
-**preset_added** **(** :ref:`Color<class_Color>` color **)**
+**preset_added**\ (\ color\: :ref:`Color<class_Color>`\ )
 
 Emitted when a preset is added.
 
@@ -167,7 +171,7 @@ Emitted when a preset is added.
 
 .. rst-class:: classref-signal
 
-**preset_removed** **(** :ref:`Color<class_Color>` color **)**
+**preset_removed**\ (\ color\: :ref:`Color<class_Color>`\ )
 
 Emitted when a preset is removed.
 
@@ -289,8 +293,8 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_can_add_swatches** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **are_swatches_enabled** **(** **)**
+- |void| **set_can_add_swatches**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **are_swatches_enabled**\ (\ )
 
 If ``true``, it's possible to add presets under Swatches. If ``false``, the button to add presets is disabled.
 
@@ -306,8 +310,8 @@ If ``true``, it's possible to add presets under Swatches. If ``false``, the butt
 
 .. rst-class:: classref-property-setget
 
-- void **set_pick_color** **(** :ref:`Color<class_Color>` value **)**
-- :ref:`Color<class_Color>` **get_pick_color** **(** **)**
+- |void| **set_pick_color**\ (\ value\: :ref:`Color<class_Color>`\ )
+- :ref:`Color<class_Color>` **get_pick_color**\ (\ )
 
 The currently selected color.
 
@@ -323,8 +327,8 @@ The currently selected color.
 
 .. rst-class:: classref-property-setget
 
-- void **set_color_mode** **(** :ref:`ColorModeType<enum_ColorPicker_ColorModeType>` value **)**
-- :ref:`ColorModeType<enum_ColorPicker_ColorModeType>` **get_color_mode** **(** **)**
+- |void| **set_color_mode**\ (\ value\: :ref:`ColorModeType<enum_ColorPicker_ColorModeType>`\ )
+- :ref:`ColorModeType<enum_ColorPicker_ColorModeType>` **get_color_mode**\ (\ )
 
 The currently selected color mode. See :ref:`ColorModeType<enum_ColorPicker_ColorModeType>`.
 
@@ -340,8 +344,8 @@ The currently selected color mode. See :ref:`ColorModeType<enum_ColorPicker_Colo
 
 .. rst-class:: classref-property-setget
 
-- void **set_modes_visible** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **are_modes_visible** **(** **)**
+- |void| **set_modes_visible**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **are_modes_visible**\ (\ )
 
 If ``true``, the color mode buttons are visible.
 
@@ -357,8 +361,8 @@ If ``true``, the color mode buttons are visible.
 
 .. rst-class:: classref-property-setget
 
-- void **set_deferred_mode** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **is_deferred_mode** **(** **)**
+- |void| **set_deferred_mode**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **is_deferred_mode**\ (\ )
 
 If ``true``, the color will apply only after the user releases the mouse button, otherwise it will apply immediately even in mouse motion event (which can cause performance issues).
 
@@ -374,8 +378,8 @@ If ``true``, the color will apply only after the user releases the mouse button,
 
 .. rst-class:: classref-property-setget
 
-- void **set_edit_alpha** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **is_editing_alpha** **(** **)**
+- |void| **set_edit_alpha**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **is_editing_alpha**\ (\ )
 
 If ``true``, shows an alpha channel slider (opacity).
 
@@ -391,8 +395,8 @@ If ``true``, shows an alpha channel slider (opacity).
 
 .. rst-class:: classref-property-setget
 
-- void **set_hex_visible** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **is_hex_visible** **(** **)**
+- |void| **set_hex_visible**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **is_hex_visible**\ (\ )
 
 If ``true``, the hex color code input field is visible.
 
@@ -408,8 +412,8 @@ If ``true``, the hex color code input field is visible.
 
 .. rst-class:: classref-property-setget
 
-- void **set_picker_shape** **(** :ref:`PickerShapeType<enum_ColorPicker_PickerShapeType>` value **)**
-- :ref:`PickerShapeType<enum_ColorPicker_PickerShapeType>` **get_picker_shape** **(** **)**
+- |void| **set_picker_shape**\ (\ value\: :ref:`PickerShapeType<enum_ColorPicker_PickerShapeType>`\ )
+- :ref:`PickerShapeType<enum_ColorPicker_PickerShapeType>` **get_picker_shape**\ (\ )
 
 The shape of the color space view. See :ref:`PickerShapeType<enum_ColorPicker_PickerShapeType>`.
 
@@ -425,8 +429,8 @@ The shape of the color space view. See :ref:`PickerShapeType<enum_ColorPicker_Pi
 
 .. rst-class:: classref-property-setget
 
-- void **set_presets_visible** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **are_presets_visible** **(** **)**
+- |void| **set_presets_visible**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **are_presets_visible**\ (\ )
 
 If ``true``, the Swatches and Recent Colors presets are visible.
 
@@ -442,8 +446,8 @@ If ``true``, the Swatches and Recent Colors presets are visible.
 
 .. rst-class:: classref-property-setget
 
-- void **set_sampler_visible** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **is_sampler_visible** **(** **)**
+- |void| **set_sampler_visible**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **is_sampler_visible**\ (\ )
 
 If ``true``, the color sampler and color preview are visible.
 
@@ -459,8 +463,8 @@ If ``true``, the color sampler and color preview are visible.
 
 .. rst-class:: classref-property-setget
 
-- void **set_sliders_visible** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **are_sliders_visible** **(** **)**
+- |void| **set_sliders_visible**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **are_sliders_visible**\ (\ )
 
 If ``true``, the color sliders are visible.
 
@@ -477,7 +481,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-void **add_preset** **(** :ref:`Color<class_Color>` color **)**
+|void| **add_preset**\ (\ color\: :ref:`Color<class_Color>`\ )
 
 Adds the given color to a list of color presets. The presets are displayed in the color picker and the user will be able to select them.
 
@@ -491,7 +495,7 @@ Adds the given color to a list of color presets. The presets are displayed in th
 
 .. rst-class:: classref-method
 
-void **add_recent_preset** **(** :ref:`Color<class_Color>` color **)**
+|void| **add_recent_preset**\ (\ color\: :ref:`Color<class_Color>`\ )
 
 Adds the given color to a list of color recent presets so that it can be picked later. Recent presets are the colors that were picked recently, a new preset is automatically created and added to recent presets when you pick a new color.
 
@@ -505,7 +509,7 @@ Adds the given color to a list of color recent presets so that it can be picked 
 
 .. rst-class:: classref-method
 
-void **erase_preset** **(** :ref:`Color<class_Color>` color **)**
+|void| **erase_preset**\ (\ color\: :ref:`Color<class_Color>`\ )
 
 Removes the given color from the list of color presets of this color picker.
 
@@ -517,7 +521,7 @@ Removes the given color from the list of color presets of this color picker.
 
 .. rst-class:: classref-method
 
-void **erase_recent_preset** **(** :ref:`Color<class_Color>` color **)**
+|void| **erase_recent_preset**\ (\ color\: :ref:`Color<class_Color>`\ )
 
 Removes the given color from the list of color recent presets of this color picker.
 
@@ -529,7 +533,7 @@ Removes the given color from the list of color recent presets of this color pick
 
 .. rst-class:: classref-method
 
-:ref:`PackedColorArray<class_PackedColorArray>` **get_presets** **(** **)** |const|
+:ref:`PackedColorArray<class_PackedColorArray>` **get_presets**\ (\ ) |const|
 
 Returns the list of colors in the presets of the color picker.
 
@@ -541,7 +545,7 @@ Returns the list of colors in the presets of the color picker.
 
 .. rst-class:: classref-method
 
-:ref:`PackedColorArray<class_PackedColorArray>` **get_recent_presets** **(** **)** |const|
+:ref:`PackedColorArray<class_PackedColorArray>` **get_recent_presets**\ (\ ) |const|
 
 Returns the list of colors in the recent presets of the color picker.
 
@@ -553,6 +557,18 @@ Returns the list of colors in the recent presets of the color picker.
 
 Theme Property Descriptions
 ---------------------------
+
+.. _class_ColorPicker_theme_constant_center_slider_grabbers:
+
+.. rst-class:: classref-themeproperty
+
+:ref:`int<class_int>` **center_slider_grabbers** = ``1``
+
+Overrides the :ref:`Slider.center_grabber<class_Slider_theme_constant_center_grabber>` theme property of the sliders.
+
+.. rst-class:: classref-item-separator
+
+----
 
 .. _class_ColorPicker_theme_constant_h_width:
 
@@ -722,6 +738,18 @@ Background panel for the color preview box (visible when the color is translucen
 
 ----
 
+.. _class_ColorPicker_theme_icon_sample_revert:
+
+.. rst-class:: classref-themeproperty
+
+:ref:`Texture2D<class_Texture2D>` **sample_revert**
+
+The icon for the revert button (visible on the middle of the "old" color when it differs from the currently selected color). This icon is modulated with a dark color if the "old" color is bright enough, so the icon should be bright to ensure visibility in both scenarios.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_ColorPicker_theme_icon_screen_picker:
 
 .. rst-class:: classref-themeproperty
@@ -772,3 +800,5 @@ The icon for rectangular wheel picker shapes.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`
