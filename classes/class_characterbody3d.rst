@@ -12,20 +12,16 @@ CharacterBody3D
 
 **Inherits:** :ref:`PhysicsBody3D<class_PhysicsBody3D>` **<** :ref:`CollisionObject3D<class_CollisionObject3D>` **<** :ref:`Node3D<class_Node3D>` **<** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
 
-Specialized 3D physics body node for characters moved by script.
+A 3D physics body specialized for characters moved by script.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-Character bodies are special types of bodies that are meant to be user-controlled. They are not affected by physics at all; to other types of bodies, such as a rigid body, these are the same as a :ref:`AnimatableBody3D<class_AnimatableBody3D>`. However, they have two main uses:
+**CharacterBody3D** is a specialized class for physics bodies that are meant to be user-controlled. They are not affected by physics at all, but they affect other physics bodies in their path. They are mainly used to provide high-level API to move objects with wall and slope detection (:ref:`move_and_slide<class_CharacterBody3D_method_move_and_slide>` method) in addition to the general collision detection provided by :ref:`PhysicsBody3D.move_and_collide<class_PhysicsBody3D_method_move_and_collide>`. This makes it useful for highly configurable physics bodies that must move in specific ways and collide with the world, as is often the case with user-controlled characters.
 
-\ *Kinematic characters:* Character bodies have an API for moving objects with walls and slopes detection (:ref:`move_and_slide<class_CharacterBody3D_method_move_and_slide>` method), in addition to collision detection (also done with :ref:`PhysicsBody3D.move_and_collide<class_PhysicsBody3D_method_move_and_collide>`). This makes them really useful to implement characters that move in specific ways and collide with the world, but don't require advanced physics.
-
-\ *Kinematic motion:* Character bodies can also be used for kinematic motion (same functionality as :ref:`AnimatableBody3D<class_AnimatableBody3D>`), which allows them to be moved by code and push other bodies on their path.
-
-\ **Warning:** With a non-uniform scale this node will probably not function as expected. Please make sure to keep its scale uniform (i.e. the same on all axes), and change the size(s) of its collision shape(s) instead.
+For game objects that don't require complex movement or collision detection, such as moving platforms, :ref:`AnimatableBody3D<class_AnimatableBody3D>` is simpler to configure.
 
 .. rst-class:: classref-introduction-group
 
@@ -90,43 +86,45 @@ Methods
 .. table::
    :widths: auto
 
-   +---------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`float<class_float>`                               | :ref:`get_floor_angle<class_CharacterBody3D_method_get_floor_angle>` **(** :ref:`Vector3<class_Vector3>` up_direction=Vector3(0, 1, 0) **)** |const| |
-   +---------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Vector3<class_Vector3>`                           | :ref:`get_floor_normal<class_CharacterBody3D_method_get_floor_normal>` **(** **)** |const|                                                           |
-   +---------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Vector3<class_Vector3>`                           | :ref:`get_last_motion<class_CharacterBody3D_method_get_last_motion>` **(** **)** |const|                                                             |
-   +---------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`KinematicCollision3D<class_KinematicCollision3D>` | :ref:`get_last_slide_collision<class_CharacterBody3D_method_get_last_slide_collision>` **(** **)**                                                   |
-   +---------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Vector3<class_Vector3>`                           | :ref:`get_platform_angular_velocity<class_CharacterBody3D_method_get_platform_angular_velocity>` **(** **)** |const|                                 |
-   +---------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Vector3<class_Vector3>`                           | :ref:`get_platform_velocity<class_CharacterBody3D_method_get_platform_velocity>` **(** **)** |const|                                                 |
-   +---------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Vector3<class_Vector3>`                           | :ref:`get_position_delta<class_CharacterBody3D_method_get_position_delta>` **(** **)** |const|                                                       |
-   +---------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Vector3<class_Vector3>`                           | :ref:`get_real_velocity<class_CharacterBody3D_method_get_real_velocity>` **(** **)** |const|                                                         |
-   +---------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`KinematicCollision3D<class_KinematicCollision3D>` | :ref:`get_slide_collision<class_CharacterBody3D_method_get_slide_collision>` **(** :ref:`int<class_int>` slide_idx **)**                             |
-   +---------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`int<class_int>`                                   | :ref:`get_slide_collision_count<class_CharacterBody3D_method_get_slide_collision_count>` **(** **)** |const|                                         |
-   +---------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Vector3<class_Vector3>`                           | :ref:`get_wall_normal<class_CharacterBody3D_method_get_wall_normal>` **(** **)** |const|                                                             |
-   +---------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`                                 | :ref:`is_on_ceiling<class_CharacterBody3D_method_is_on_ceiling>` **(** **)** |const|                                                                 |
-   +---------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`                                 | :ref:`is_on_ceiling_only<class_CharacterBody3D_method_is_on_ceiling_only>` **(** **)** |const|                                                       |
-   +---------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`                                 | :ref:`is_on_floor<class_CharacterBody3D_method_is_on_floor>` **(** **)** |const|                                                                     |
-   +---------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`                                 | :ref:`is_on_floor_only<class_CharacterBody3D_method_is_on_floor_only>` **(** **)** |const|                                                           |
-   +---------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`                                 | :ref:`is_on_wall<class_CharacterBody3D_method_is_on_wall>` **(** **)** |const|                                                                       |
-   +---------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`                                 | :ref:`is_on_wall_only<class_CharacterBody3D_method_is_on_wall_only>` **(** **)** |const|                                                             |
-   +---------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`                                 | :ref:`move_and_slide<class_CharacterBody3D_method_move_and_slide>` **(** **)**                                                                       |
-   +---------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+   +---------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                                  | :ref:`apply_floor_snap<class_CharacterBody3D_method_apply_floor_snap>`\ (\ )                                                                        |
+   +---------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`float<class_float>`                               | :ref:`get_floor_angle<class_CharacterBody3D_method_get_floor_angle>`\ (\ up_direction\: :ref:`Vector3<class_Vector3>` = Vector3(0, 1, 0)\ ) |const| |
+   +---------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Vector3<class_Vector3>`                           | :ref:`get_floor_normal<class_CharacterBody3D_method_get_floor_normal>`\ (\ ) |const|                                                                |
+   +---------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Vector3<class_Vector3>`                           | :ref:`get_last_motion<class_CharacterBody3D_method_get_last_motion>`\ (\ ) |const|                                                                  |
+   +---------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`KinematicCollision3D<class_KinematicCollision3D>` | :ref:`get_last_slide_collision<class_CharacterBody3D_method_get_last_slide_collision>`\ (\ )                                                        |
+   +---------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Vector3<class_Vector3>`                           | :ref:`get_platform_angular_velocity<class_CharacterBody3D_method_get_platform_angular_velocity>`\ (\ ) |const|                                      |
+   +---------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Vector3<class_Vector3>`                           | :ref:`get_platform_velocity<class_CharacterBody3D_method_get_platform_velocity>`\ (\ ) |const|                                                      |
+   +---------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Vector3<class_Vector3>`                           | :ref:`get_position_delta<class_CharacterBody3D_method_get_position_delta>`\ (\ ) |const|                                                            |
+   +---------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Vector3<class_Vector3>`                           | :ref:`get_real_velocity<class_CharacterBody3D_method_get_real_velocity>`\ (\ ) |const|                                                              |
+   +---------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`KinematicCollision3D<class_KinematicCollision3D>` | :ref:`get_slide_collision<class_CharacterBody3D_method_get_slide_collision>`\ (\ slide_idx\: :ref:`int<class_int>`\ )                               |
+   +---------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`int<class_int>`                                   | :ref:`get_slide_collision_count<class_CharacterBody3D_method_get_slide_collision_count>`\ (\ ) |const|                                              |
+   +---------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Vector3<class_Vector3>`                           | :ref:`get_wall_normal<class_CharacterBody3D_method_get_wall_normal>`\ (\ ) |const|                                                                  |
+   +---------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                                 | :ref:`is_on_ceiling<class_CharacterBody3D_method_is_on_ceiling>`\ (\ ) |const|                                                                      |
+   +---------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                                 | :ref:`is_on_ceiling_only<class_CharacterBody3D_method_is_on_ceiling_only>`\ (\ ) |const|                                                            |
+   +---------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                                 | :ref:`is_on_floor<class_CharacterBody3D_method_is_on_floor>`\ (\ ) |const|                                                                          |
+   +---------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                                 | :ref:`is_on_floor_only<class_CharacterBody3D_method_is_on_floor_only>`\ (\ ) |const|                                                                |
+   +---------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                                 | :ref:`is_on_wall<class_CharacterBody3D_method_is_on_wall>`\ (\ ) |const|                                                                            |
+   +---------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                                 | :ref:`is_on_wall_only<class_CharacterBody3D_method_is_on_wall_only>`\ (\ ) |const|                                                                  |
+   +---------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                                 | :ref:`move_and_slide<class_CharacterBody3D_method_move_and_slide>`\ (\ )                                                                            |
+   +---------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -210,8 +208,8 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_floor_block_on_wall_enabled** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **is_floor_block_on_wall_enabled** **(** **)**
+- |void| **set_floor_block_on_wall_enabled**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **is_floor_block_on_wall_enabled**\ (\ )
 
 If ``true``, the body will be able to move on the floor only. This option avoids to be able to walk on walls, it will however allow to slide down along them.
 
@@ -227,8 +225,8 @@ If ``true``, the body will be able to move on the floor only. This option avoids
 
 .. rst-class:: classref-property-setget
 
-- void **set_floor_constant_speed_enabled** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **is_floor_constant_speed_enabled** **(** **)**
+- |void| **set_floor_constant_speed_enabled**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **is_floor_constant_speed_enabled**\ (\ )
 
 If ``false`` (by default), the body will move faster on downward slopes and slower on upward slopes.
 
@@ -246,8 +244,8 @@ If ``true``, the body will always move at the same speed on the ground no matter
 
 .. rst-class:: classref-property-setget
 
-- void **set_floor_max_angle** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_floor_max_angle** **(** **)**
+- |void| **set_floor_max_angle**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_floor_max_angle**\ (\ )
 
 Maximum angle (in radians) where a slope is still considered a floor (or a ceiling), rather than a wall, when calling :ref:`move_and_slide<class_CharacterBody3D_method_move_and_slide>`. The default value equals 45 degrees.
 
@@ -263,12 +261,12 @@ Maximum angle (in radians) where a slope is still considered a floor (or a ceili
 
 .. rst-class:: classref-property-setget
 
-- void **set_floor_snap_length** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_floor_snap_length** **(** **)**
+- |void| **set_floor_snap_length**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_floor_snap_length**\ (\ )
 
 Sets a snapping distance. When set to a value different from ``0.0``, the body is kept attached to slopes when calling :ref:`move_and_slide<class_CharacterBody3D_method_move_and_slide>`. The snapping vector is determined by the given distance along the opposite direction of the :ref:`up_direction<class_CharacterBody3D_property_up_direction>`.
 
-As long as the snapping vector is in contact with the ground and the body moves against :ref:`up_direction<class_CharacterBody3D_property_up_direction>`, the body will remain attached to the surface. Snapping is not applied if the body moves along :ref:`up_direction<class_CharacterBody3D_property_up_direction>`, so it will be able to detach from the ground when jumping.
+As long as the snapping vector is in contact with the ground and the body moves against :ref:`up_direction<class_CharacterBody3D_property_up_direction>`, the body will remain attached to the surface. Snapping is not applied if the body moves along :ref:`up_direction<class_CharacterBody3D_property_up_direction>`, meaning it contains vertical rising velocity, so it will be able to detach from the ground when jumping or when the body is pushed up by something. If you want to apply a snap without taking into account the velocity, use :ref:`apply_floor_snap<class_CharacterBody3D_method_apply_floor_snap>`.
 
 .. rst-class:: classref-item-separator
 
@@ -282,8 +280,8 @@ As long as the snapping vector is in contact with the ground and the body moves 
 
 .. rst-class:: classref-property-setget
 
-- void **set_floor_stop_on_slope_enabled** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **is_floor_stop_on_slope_enabled** **(** **)**
+- |void| **set_floor_stop_on_slope_enabled**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **is_floor_stop_on_slope_enabled**\ (\ )
 
 If ``true``, the body will not slide on slopes when calling :ref:`move_and_slide<class_CharacterBody3D_method_move_and_slide>` when the body is standing still.
 
@@ -301,8 +299,8 @@ If ``false``, the body will slide on floor's slopes when :ref:`velocity<class_Ch
 
 .. rst-class:: classref-property-setget
 
-- void **set_max_slides** **(** :ref:`int<class_int>` value **)**
-- :ref:`int<class_int>` **get_max_slides** **(** **)**
+- |void| **set_max_slides**\ (\ value\: :ref:`int<class_int>`\ )
+- :ref:`int<class_int>` **get_max_slides**\ (\ )
 
 Maximum number of times the body can change direction before it stops when calling :ref:`move_and_slide<class_CharacterBody3D_method_move_and_slide>`.
 
@@ -318,8 +316,8 @@ Maximum number of times the body can change direction before it stops when calli
 
 .. rst-class:: classref-property-setget
 
-- void **set_motion_mode** **(** :ref:`MotionMode<enum_CharacterBody3D_MotionMode>` value **)**
-- :ref:`MotionMode<enum_CharacterBody3D_MotionMode>` **get_motion_mode** **(** **)**
+- |void| **set_motion_mode**\ (\ value\: :ref:`MotionMode<enum_CharacterBody3D_MotionMode>`\ )
+- :ref:`MotionMode<enum_CharacterBody3D_MotionMode>` **get_motion_mode**\ (\ )
 
 Sets the motion mode which defines the behavior of :ref:`move_and_slide<class_CharacterBody3D_method_move_and_slide>`. See :ref:`MotionMode<enum_CharacterBody3D_MotionMode>` constants for available modes.
 
@@ -335,8 +333,8 @@ Sets the motion mode which defines the behavior of :ref:`move_and_slide<class_Ch
 
 .. rst-class:: classref-property-setget
 
-- void **set_platform_floor_layers** **(** :ref:`int<class_int>` value **)**
-- :ref:`int<class_int>` **get_platform_floor_layers** **(** **)**
+- |void| **set_platform_floor_layers**\ (\ value\: :ref:`int<class_int>`\ )
+- :ref:`int<class_int>` **get_platform_floor_layers**\ (\ )
 
 Collision layers that will be included for detecting floor bodies that will act as moving platforms to be followed by the **CharacterBody3D**. By default, all floor bodies are detected and propagate their velocity.
 
@@ -352,8 +350,8 @@ Collision layers that will be included for detecting floor bodies that will act 
 
 .. rst-class:: classref-property-setget
 
-- void **set_platform_on_leave** **(** :ref:`PlatformOnLeave<enum_CharacterBody3D_PlatformOnLeave>` value **)**
-- :ref:`PlatformOnLeave<enum_CharacterBody3D_PlatformOnLeave>` **get_platform_on_leave** **(** **)**
+- |void| **set_platform_on_leave**\ (\ value\: :ref:`PlatformOnLeave<enum_CharacterBody3D_PlatformOnLeave>`\ )
+- :ref:`PlatformOnLeave<enum_CharacterBody3D_PlatformOnLeave>` **get_platform_on_leave**\ (\ )
 
 Sets the behavior to apply when you leave a moving platform. By default, to be physically accurate, when you leave the last platform velocity is applied. See :ref:`PlatformOnLeave<enum_CharacterBody3D_PlatformOnLeave>` constants for available behavior.
 
@@ -369,8 +367,8 @@ Sets the behavior to apply when you leave a moving platform. By default, to be p
 
 .. rst-class:: classref-property-setget
 
-- void **set_platform_wall_layers** **(** :ref:`int<class_int>` value **)**
-- :ref:`int<class_int>` **get_platform_wall_layers** **(** **)**
+- |void| **set_platform_wall_layers**\ (\ value\: :ref:`int<class_int>`\ )
+- :ref:`int<class_int>` **get_platform_wall_layers**\ (\ )
 
 Collision layers that will be included for detecting wall bodies that will act as moving platforms to be followed by the **CharacterBody3D**. By default, all wall bodies are ignored.
 
@@ -386,8 +384,8 @@ Collision layers that will be included for detecting wall bodies that will act a
 
 .. rst-class:: classref-property-setget
 
-- void **set_safe_margin** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_safe_margin** **(** **)**
+- |void| **set_safe_margin**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_safe_margin**\ (\ )
 
 Extra margin used for collision recovery when calling :ref:`move_and_slide<class_CharacterBody3D_method_move_and_slide>`.
 
@@ -409,8 +407,8 @@ A lower value forces the collision algorithm to use more exact detection, so it 
 
 .. rst-class:: classref-property-setget
 
-- void **set_slide_on_ceiling_enabled** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **is_slide_on_ceiling_enabled** **(** **)**
+- |void| **set_slide_on_ceiling_enabled**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **is_slide_on_ceiling_enabled**\ (\ )
 
 If ``true``, during a jump against the ceiling, the body will slide, if ``false`` it will be stopped and will fall vertically.
 
@@ -426,10 +424,10 @@ If ``true``, during a jump against the ceiling, the body will slide, if ``false`
 
 .. rst-class:: classref-property-setget
 
-- void **set_up_direction** **(** :ref:`Vector3<class_Vector3>` value **)**
-- :ref:`Vector3<class_Vector3>` **get_up_direction** **(** **)**
+- |void| **set_up_direction**\ (\ value\: :ref:`Vector3<class_Vector3>`\ )
+- :ref:`Vector3<class_Vector3>` **get_up_direction**\ (\ )
 
-Vector pointing upwards, used to determine what is a wall and what is a floor (or a ceiling) when calling :ref:`move_and_slide<class_CharacterBody3D_method_move_and_slide>`. Defaults to ``Vector3.UP``. As the vector will be normalized it can't be equal to :ref:`Vector3.ZERO<class_Vector3_constant_ZERO>`, if you want all collisions to be reported as walls, consider using :ref:`MOTION_MODE_FLOATING<class_CharacterBody3D_constant_MOTION_MODE_FLOATING>` as :ref:`motion_mode<class_CharacterBody3D_property_motion_mode>`.
+Vector pointing upwards, used to determine what is a wall and what is a floor (or a ceiling) when calling :ref:`move_and_slide<class_CharacterBody3D_method_move_and_slide>`. Defaults to :ref:`Vector3.UP<class_Vector3_constant_UP>`. As the vector will be normalized it can't be equal to :ref:`Vector3.ZERO<class_Vector3_constant_ZERO>`, if you want all collisions to be reported as walls, consider using :ref:`MOTION_MODE_FLOATING<class_CharacterBody3D_constant_MOTION_MODE_FLOATING>` as :ref:`motion_mode<class_CharacterBody3D_property_motion_mode>`.
 
 .. rst-class:: classref-item-separator
 
@@ -443,8 +441,8 @@ Vector pointing upwards, used to determine what is a wall and what is a floor (o
 
 .. rst-class:: classref-property-setget
 
-- void **set_velocity** **(** :ref:`Vector3<class_Vector3>` value **)**
-- :ref:`Vector3<class_Vector3>` **get_velocity** **(** **)**
+- |void| **set_velocity**\ (\ value\: :ref:`Vector3<class_Vector3>`\ )
+- :ref:`Vector3<class_Vector3>` **get_velocity**\ (\ )
 
 Current velocity vector (typically meters per second), used and modified during calls to :ref:`move_and_slide<class_CharacterBody3D_method_move_and_slide>`.
 
@@ -460,8 +458,8 @@ Current velocity vector (typically meters per second), used and modified during 
 
 .. rst-class:: classref-property-setget
 
-- void **set_wall_min_slide_angle** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_wall_min_slide_angle** **(** **)**
+- |void| **set_wall_min_slide_angle**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_wall_min_slide_angle**\ (\ )
 
 Minimum angle (in radians) where the body is allowed to slide when it encounters a slope. The default value equals 15 degrees. When :ref:`motion_mode<class_CharacterBody3D_property_motion_mode>` is :ref:`MOTION_MODE_GROUNDED<class_CharacterBody3D_constant_MOTION_MODE_GROUNDED>`, it only affects movement if :ref:`floor_block_on_wall<class_CharacterBody3D_property_floor_block_on_wall>` is ``true``.
 
@@ -474,13 +472,25 @@ Minimum angle (in radians) where the body is allowed to slide when it encounters
 Method Descriptions
 -------------------
 
+.. _class_CharacterBody3D_method_apply_floor_snap:
+
+.. rst-class:: classref-method
+
+|void| **apply_floor_snap**\ (\ )
+
+Allows to manually apply a snap to the floor regardless of the body's velocity. This function does nothing when :ref:`is_on_floor<class_CharacterBody3D_method_is_on_floor>` returns ``true``.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_CharacterBody3D_method_get_floor_angle:
 
 .. rst-class:: classref-method
 
-:ref:`float<class_float>` **get_floor_angle** **(** :ref:`Vector3<class_Vector3>` up_direction=Vector3(0, 1, 0) **)** |const|
+:ref:`float<class_float>` **get_floor_angle**\ (\ up_direction\: :ref:`Vector3<class_Vector3>` = Vector3(0, 1, 0)\ ) |const|
 
-Returns the floor's collision angle at the last collision point according to ``up_direction``, which is ``Vector3.UP`` by default. This value is always positive and only valid after calling :ref:`move_and_slide<class_CharacterBody3D_method_move_and_slide>` and when :ref:`is_on_floor<class_CharacterBody3D_method_is_on_floor>` returns ``true``.
+Returns the floor's collision angle at the last collision point according to ``up_direction``, which is :ref:`Vector3.UP<class_Vector3_constant_UP>` by default. This value is always positive and only valid after calling :ref:`move_and_slide<class_CharacterBody3D_method_move_and_slide>` and when :ref:`is_on_floor<class_CharacterBody3D_method_is_on_floor>` returns ``true``.
 
 .. rst-class:: classref-item-separator
 
@@ -490,7 +500,7 @@ Returns the floor's collision angle at the last collision point according to ``u
 
 .. rst-class:: classref-method
 
-:ref:`Vector3<class_Vector3>` **get_floor_normal** **(** **)** |const|
+:ref:`Vector3<class_Vector3>` **get_floor_normal**\ (\ ) |const|
 
 Returns the surface normal of the floor at the last collision point. Only valid after calling :ref:`move_and_slide<class_CharacterBody3D_method_move_and_slide>` and when :ref:`is_on_floor<class_CharacterBody3D_method_is_on_floor>` returns ``true``.
 
@@ -502,7 +512,7 @@ Returns the surface normal of the floor at the last collision point. Only valid 
 
 .. rst-class:: classref-method
 
-:ref:`Vector3<class_Vector3>` **get_last_motion** **(** **)** |const|
+:ref:`Vector3<class_Vector3>` **get_last_motion**\ (\ ) |const|
 
 Returns the last motion applied to the **CharacterBody3D** during the last call to :ref:`move_and_slide<class_CharacterBody3D_method_move_and_slide>`. The movement can be split into multiple motions when sliding occurs, and this method return the last one, which is useful to retrieve the current direction of the movement.
 
@@ -514,7 +524,7 @@ Returns the last motion applied to the **CharacterBody3D** during the last call 
 
 .. rst-class:: classref-method
 
-:ref:`KinematicCollision3D<class_KinematicCollision3D>` **get_last_slide_collision** **(** **)**
+:ref:`KinematicCollision3D<class_KinematicCollision3D>` **get_last_slide_collision**\ (\ )
 
 Returns a :ref:`KinematicCollision3D<class_KinematicCollision3D>`, which contains information about the latest collision that occurred during the last call to :ref:`move_and_slide<class_CharacterBody3D_method_move_and_slide>`.
 
@@ -526,7 +536,7 @@ Returns a :ref:`KinematicCollision3D<class_KinematicCollision3D>`, which contain
 
 .. rst-class:: classref-method
 
-:ref:`Vector3<class_Vector3>` **get_platform_angular_velocity** **(** **)** |const|
+:ref:`Vector3<class_Vector3>` **get_platform_angular_velocity**\ (\ ) |const|
 
 Returns the angular velocity of the platform at the last collision point. Only valid after calling :ref:`move_and_slide<class_CharacterBody3D_method_move_and_slide>`.
 
@@ -538,7 +548,7 @@ Returns the angular velocity of the platform at the last collision point. Only v
 
 .. rst-class:: classref-method
 
-:ref:`Vector3<class_Vector3>` **get_platform_velocity** **(** **)** |const|
+:ref:`Vector3<class_Vector3>` **get_platform_velocity**\ (\ ) |const|
 
 Returns the linear velocity of the platform at the last collision point. Only valid after calling :ref:`move_and_slide<class_CharacterBody3D_method_move_and_slide>`.
 
@@ -550,7 +560,7 @@ Returns the linear velocity of the platform at the last collision point. Only va
 
 .. rst-class:: classref-method
 
-:ref:`Vector3<class_Vector3>` **get_position_delta** **(** **)** |const|
+:ref:`Vector3<class_Vector3>` **get_position_delta**\ (\ ) |const|
 
 Returns the travel (position delta) that occurred during the last call to :ref:`move_and_slide<class_CharacterBody3D_method_move_and_slide>`.
 
@@ -562,7 +572,7 @@ Returns the travel (position delta) that occurred during the last call to :ref:`
 
 .. rst-class:: classref-method
 
-:ref:`Vector3<class_Vector3>` **get_real_velocity** **(** **)** |const|
+:ref:`Vector3<class_Vector3>` **get_real_velocity**\ (\ ) |const|
 
 Returns the current real velocity since the last call to :ref:`move_and_slide<class_CharacterBody3D_method_move_and_slide>`. For example, when you climb a slope, you will move diagonally even though the velocity is horizontal. This method returns the diagonal movement, as opposed to :ref:`velocity<class_CharacterBody3D_property_velocity>` which returns the requested velocity.
 
@@ -574,7 +584,7 @@ Returns the current real velocity since the last call to :ref:`move_and_slide<cl
 
 .. rst-class:: classref-method
 
-:ref:`KinematicCollision3D<class_KinematicCollision3D>` **get_slide_collision** **(** :ref:`int<class_int>` slide_idx **)**
+:ref:`KinematicCollision3D<class_KinematicCollision3D>` **get_slide_collision**\ (\ slide_idx\: :ref:`int<class_int>`\ )
 
 Returns a :ref:`KinematicCollision3D<class_KinematicCollision3D>`, which contains information about a collision that occurred during the last call to :ref:`move_and_slide<class_CharacterBody3D_method_move_and_slide>`. Since the body can collide several times in a single call to :ref:`move_and_slide<class_CharacterBody3D_method_move_and_slide>`, you must specify the index of the collision in the range 0 to (:ref:`get_slide_collision_count<class_CharacterBody3D_method_get_slide_collision_count>` - 1).
 
@@ -586,7 +596,7 @@ Returns a :ref:`KinematicCollision3D<class_KinematicCollision3D>`, which contain
 
 .. rst-class:: classref-method
 
-:ref:`int<class_int>` **get_slide_collision_count** **(** **)** |const|
+:ref:`int<class_int>` **get_slide_collision_count**\ (\ ) |const|
 
 Returns the number of times the body collided and changed direction during the last call to :ref:`move_and_slide<class_CharacterBody3D_method_move_and_slide>`.
 
@@ -598,7 +608,7 @@ Returns the number of times the body collided and changed direction during the l
 
 .. rst-class:: classref-method
 
-:ref:`Vector3<class_Vector3>` **get_wall_normal** **(** **)** |const|
+:ref:`Vector3<class_Vector3>` **get_wall_normal**\ (\ ) |const|
 
 Returns the surface normal of the wall at the last collision point. Only valid after calling :ref:`move_and_slide<class_CharacterBody3D_method_move_and_slide>` and when :ref:`is_on_wall<class_CharacterBody3D_method_is_on_wall>` returns ``true``.
 
@@ -610,7 +620,7 @@ Returns the surface normal of the wall at the last collision point. Only valid a
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **is_on_ceiling** **(** **)** |const|
+:ref:`bool<class_bool>` **is_on_ceiling**\ (\ ) |const|
 
 Returns ``true`` if the body collided with the ceiling on the last call of :ref:`move_and_slide<class_CharacterBody3D_method_move_and_slide>`. Otherwise, returns ``false``. The :ref:`up_direction<class_CharacterBody3D_property_up_direction>` and :ref:`floor_max_angle<class_CharacterBody3D_property_floor_max_angle>` are used to determine whether a surface is "ceiling" or not.
 
@@ -622,7 +632,7 @@ Returns ``true`` if the body collided with the ceiling on the last call of :ref:
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **is_on_ceiling_only** **(** **)** |const|
+:ref:`bool<class_bool>` **is_on_ceiling_only**\ (\ ) |const|
 
 Returns ``true`` if the body collided only with the ceiling on the last call of :ref:`move_and_slide<class_CharacterBody3D_method_move_and_slide>`. Otherwise, returns ``false``. The :ref:`up_direction<class_CharacterBody3D_property_up_direction>` and :ref:`floor_max_angle<class_CharacterBody3D_property_floor_max_angle>` are used to determine whether a surface is "ceiling" or not.
 
@@ -634,7 +644,7 @@ Returns ``true`` if the body collided only with the ceiling on the last call of 
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **is_on_floor** **(** **)** |const|
+:ref:`bool<class_bool>` **is_on_floor**\ (\ ) |const|
 
 Returns ``true`` if the body collided with the floor on the last call of :ref:`move_and_slide<class_CharacterBody3D_method_move_and_slide>`. Otherwise, returns ``false``. The :ref:`up_direction<class_CharacterBody3D_property_up_direction>` and :ref:`floor_max_angle<class_CharacterBody3D_property_floor_max_angle>` are used to determine whether a surface is "floor" or not.
 
@@ -646,7 +656,7 @@ Returns ``true`` if the body collided with the floor on the last call of :ref:`m
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **is_on_floor_only** **(** **)** |const|
+:ref:`bool<class_bool>` **is_on_floor_only**\ (\ ) |const|
 
 Returns ``true`` if the body collided only with the floor on the last call of :ref:`move_and_slide<class_CharacterBody3D_method_move_and_slide>`. Otherwise, returns ``false``. The :ref:`up_direction<class_CharacterBody3D_property_up_direction>` and :ref:`floor_max_angle<class_CharacterBody3D_property_floor_max_angle>` are used to determine whether a surface is "floor" or not.
 
@@ -658,7 +668,7 @@ Returns ``true`` if the body collided only with the floor on the last call of :r
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **is_on_wall** **(** **)** |const|
+:ref:`bool<class_bool>` **is_on_wall**\ (\ ) |const|
 
 Returns ``true`` if the body collided with a wall on the last call of :ref:`move_and_slide<class_CharacterBody3D_method_move_and_slide>`. Otherwise, returns ``false``. The :ref:`up_direction<class_CharacterBody3D_property_up_direction>` and :ref:`floor_max_angle<class_CharacterBody3D_property_floor_max_angle>` are used to determine whether a surface is "wall" or not.
 
@@ -670,7 +680,7 @@ Returns ``true`` if the body collided with a wall on the last call of :ref:`move
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **is_on_wall_only** **(** **)** |const|
+:ref:`bool<class_bool>` **is_on_wall_only**\ (\ ) |const|
 
 Returns ``true`` if the body collided only with a wall on the last call of :ref:`move_and_slide<class_CharacterBody3D_method_move_and_slide>`. Otherwise, returns ``false``. The :ref:`up_direction<class_CharacterBody3D_property_up_direction>` and :ref:`floor_max_angle<class_CharacterBody3D_property_floor_max_angle>` are used to determine whether a surface is "wall" or not.
 
@@ -682,7 +692,7 @@ Returns ``true`` if the body collided only with a wall on the last call of :ref:
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **move_and_slide** **(** **)**
+:ref:`bool<class_bool>` **move_and_slide**\ (\ )
 
 Moves the body based on :ref:`velocity<class_CharacterBody3D_property_velocity>`. If the body collides with another, it will slide along the other body rather than stop immediately. If the other body is a **CharacterBody3D** or :ref:`RigidBody3D<class_RigidBody3D>`, it will also be affected by the motion of the other body. You can use this to make moving and rotating platforms, or to make nodes push other nodes.
 
@@ -698,3 +708,5 @@ Returns ``true`` if the body collided, otherwise, returns ``false``.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`

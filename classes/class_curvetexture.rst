@@ -12,14 +12,14 @@ CurveTexture
 
 **Inherits:** :ref:`Texture2D<class_Texture2D>` **<** :ref:`Texture<class_Texture>` **<** :ref:`Resource<class_Resource>` **<** :ref:`RefCounted<class_RefCounted>` **<** :ref:`Object<class_Object>`
 
-A texture that shows a curve.
+A 1D texture where pixel brightness corresponds to points on a curve.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-Renders a given :ref:`Curve<class_Curve>` provided to it. Simplifies the task of drawing curves and/or saving them as image files.
+A 1D texture where pixel brightness corresponds to points on a :ref:`Curve<class_Curve>` resource, either in grayscale or in red. This visual representation simplifies the task of saving curves as image files.
 
 If you need to store up to 3 curves within a single texture, use :ref:`CurveXYZTexture<class_CurveXYZTexture>` instead. See also :ref:`GradientTexture1D<class_GradientTexture1D>` and :ref:`GradientTexture2D<class_GradientTexture2D>`.
 
@@ -89,8 +89,8 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_curve** **(** :ref:`Curve<class_Curve>` value **)**
-- :ref:`Curve<class_Curve>` **get_curve** **(** **)**
+- |void| **set_curve**\ (\ value\: :ref:`Curve<class_Curve>`\ )
+- :ref:`Curve<class_Curve>` **get_curve**\ (\ )
 
 The :ref:`Curve<class_Curve>` that is rendered onto the texture.
 
@@ -106,10 +106,10 @@ The :ref:`Curve<class_Curve>` that is rendered onto the texture.
 
 .. rst-class:: classref-property-setget
 
-- void **set_texture_mode** **(** :ref:`TextureMode<enum_CurveTexture_TextureMode>` value **)**
-- :ref:`TextureMode<enum_CurveTexture_TextureMode>` **get_texture_mode** **(** **)**
+- |void| **set_texture_mode**\ (\ value\: :ref:`TextureMode<enum_CurveTexture_TextureMode>`\ )
+- :ref:`TextureMode<enum_CurveTexture_TextureMode>` **get_texture_mode**\ (\ )
 
-The format the texture should be generated with. When passing a CurveTexture as a input to a :ref:`Shader<class_Shader>`, this may need to be adjusted.
+The format the texture should be generated with. When passing a CurveTexture as an input to a :ref:`Shader<class_Shader>`, this may need to be adjusted.
 
 .. rst-class:: classref-item-separator
 
@@ -123,8 +123,8 @@ The format the texture should be generated with. When passing a CurveTexture as 
 
 .. rst-class:: classref-property-setget
 
-- void **set_width** **(** :ref:`int<class_int>` value **)**
-- :ref:`int<class_int>` **get_width** **(** **)**
+- |void| **set_width**\ (\ value\: :ref:`int<class_int>`\ )
+- :ref:`int<class_int>` **get_width**\ (\ )
 
 The width of the texture (in pixels). Higher values make it possible to represent high-frequency data better (such as sudden direction changes), at the cost of increased generation time and memory usage.
 
@@ -134,3 +134,5 @@ The width of the texture (in pixels). Higher values make it possible to represen
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`

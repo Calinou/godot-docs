@@ -12,16 +12,16 @@ HeightMapShape3D
 
 **Inherits:** :ref:`Shape3D<class_Shape3D>` **<** :ref:`Resource<class_Resource>` **<** :ref:`RefCounted<class_RefCounted>` **<** :ref:`Object<class_Object>`
 
-Height map shape resource for 3D physics.
+A 3D height map shape used for physics collision.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-Height map shape resource, which can be added to a :ref:`PhysicsBody3D<class_PhysicsBody3D>` or :ref:`Area3D<class_Area3D>`. Heightmap collision is typically used for colliding with terrains. However, since heightmaps cannot store overhangs, collisions with other structures (such as buildings) must be done with other collision shapes such as :ref:`ConcavePolygonShape3D<class_ConcavePolygonShape3D>`. If needed, "holes" can be created in an **HeightMapShape3D** by assigning very low points (like ``-100000``) in the desired area.
+A 3D heightmap shape, intended for use in physics. Usually used to provide a shape for a :ref:`CollisionShape3D<class_CollisionShape3D>`. This is useful for terrain, but it is limited as overhangs (such as caves) cannot be stored. Holes in a **HeightMapShape3D** are created by assigning very low values to points in the desired area.
 
-\ **Performance:** **HeightMapShape3D** is faster to check collisions against compared to :ref:`ConcavePolygonShape3D<class_ConcavePolygonShape3D>`, but it is slower than primitive collision shapes such as :ref:`SphereShape3D<class_SphereShape3D>` or :ref:`BoxShape3D<class_BoxShape3D>`.
+\ **Performance:** **HeightMapShape3D** is faster to check collisions against than :ref:`ConcavePolygonShape3D<class_ConcavePolygonShape3D>`, but it is significantly slower than primitive shapes like :ref:`BoxShape3D<class_BoxShape3D>`.
 
 .. rst-class:: classref-reftable-group
 
@@ -38,6 +38,20 @@ Properties
    +-----------------------------------------------------+-------------------------------------------------------------+------------------------------------+
    | :ref:`int<class_int>`                               | :ref:`map_width<class_HeightMapShape3D_property_map_width>` | ``2``                              |
    +-----------------------------------------------------+-------------------------------------------------------------+------------------------------------+
+
+.. rst-class:: classref-reftable-group
+
+Methods
+-------
+
+.. table::
+   :widths: auto
+
+   +---------------------------+-----------------------------------------------------------------------------------+
+   | :ref:`float<class_float>` | :ref:`get_max_height<class_HeightMapShape3D_method_get_max_height>`\ (\ ) |const| |
+   +---------------------------+-----------------------------------------------------------------------------------+
+   | :ref:`float<class_float>` | :ref:`get_min_height<class_HeightMapShape3D_method_get_min_height>`\ (\ ) |const| |
+   +---------------------------+-----------------------------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -56,10 +70,10 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_map_data** **(** :ref:`PackedFloat32Array<class_PackedFloat32Array>` value **)**
-- :ref:`PackedFloat32Array<class_PackedFloat32Array>` **get_map_data** **(** **)**
+- |void| **set_map_data**\ (\ value\: :ref:`PackedFloat32Array<class_PackedFloat32Array>`\ )
+- :ref:`PackedFloat32Array<class_PackedFloat32Array>` **get_map_data**\ (\ )
 
-Height map data, pool array must be of :ref:`map_width<class_HeightMapShape3D_property_map_width>` \* :ref:`map_depth<class_HeightMapShape3D_property_map_depth>` size.
+Height map data. The array's size must be equal to :ref:`map_width<class_HeightMapShape3D_property_map_width>` multiplied by :ref:`map_depth<class_HeightMapShape3D_property_map_depth>`.
 
 .. rst-class:: classref-item-separator
 
@@ -73,8 +87,8 @@ Height map data, pool array must be of :ref:`map_width<class_HeightMapShape3D_pr
 
 .. rst-class:: classref-property-setget
 
-- void **set_map_depth** **(** :ref:`int<class_int>` value **)**
-- :ref:`int<class_int>` **get_map_depth** **(** **)**
+- |void| **set_map_depth**\ (\ value\: :ref:`int<class_int>`\ )
+- :ref:`int<class_int>` **get_map_depth**\ (\ )
 
 Number of vertices in the depth of the height map. Changing this will resize the :ref:`map_data<class_HeightMapShape3D_property_map_data>`.
 
@@ -90,10 +104,39 @@ Number of vertices in the depth of the height map. Changing this will resize the
 
 .. rst-class:: classref-property-setget
 
-- void **set_map_width** **(** :ref:`int<class_int>` value **)**
-- :ref:`int<class_int>` **get_map_width** **(** **)**
+- |void| **set_map_width**\ (\ value\: :ref:`int<class_int>`\ )
+- :ref:`int<class_int>` **get_map_width**\ (\ )
 
 Number of vertices in the width of the height map. Changing this will resize the :ref:`map_data<class_HeightMapShape3D_property_map_data>`.
+
+.. rst-class:: classref-section-separator
+
+----
+
+.. rst-class:: classref-descriptions-group
+
+Method Descriptions
+-------------------
+
+.. _class_HeightMapShape3D_method_get_max_height:
+
+.. rst-class:: classref-method
+
+:ref:`float<class_float>` **get_max_height**\ (\ ) |const|
+
+Returns the largest height value found in :ref:`map_data<class_HeightMapShape3D_property_map_data>`. Recalculates only when :ref:`map_data<class_HeightMapShape3D_property_map_data>` changes.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_HeightMapShape3D_method_get_min_height:
+
+.. rst-class:: classref-method
+
+:ref:`float<class_float>` **get_min_height**\ (\ ) |const|
+
+Returns the smallest height value found in :ref:`map_data<class_HeightMapShape3D_property_map_data>`. Recalculates only when :ref:`map_data<class_HeightMapShape3D_property_map_data>` changes.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
@@ -101,3 +144,5 @@ Number of vertices in the width of the height map. Changing this will resize the
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`

@@ -26,6 +26,8 @@ Represents a camera as defined by the base GLTF spec.
 Tutorials
 ---------
 
+- :doc:`Runtime file loading and saving <../tutorials/io/runtime_file_loading_and_saving>`
+
 - `GLTF camera detailed specification <https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html#reference-camera>`__
 
 - `GLTF camera spec and example file <https://github.com/KhronosGroup/glTF-Tutorials/blob/master/gltfTutorial/gltfTutorial_015_SimpleCameras.md>`__
@@ -58,15 +60,15 @@ Methods
 .. table::
    :widths: auto
 
-   +-------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`GLTFCamera<class_GLTFCamera>` | :ref:`from_dictionary<class_GLTFCamera_method_from_dictionary>` **(** :ref:`Dictionary<class_Dictionary>` dictionary **)** |static| |
-   +-------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`GLTFCamera<class_GLTFCamera>` | :ref:`from_node<class_GLTFCamera_method_from_node>` **(** :ref:`Camera3D<class_Camera3D>` camera_node **)** |static|                |
-   +-------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Dictionary<class_Dictionary>` | :ref:`to_dictionary<class_GLTFCamera_method_to_dictionary>` **(** **)** |const|                                                     |
-   +-------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Camera3D<class_Camera3D>`     | :ref:`to_node<class_GLTFCamera_method_to_node>` **(** **)** |const|                                                                 |
-   +-------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------+
+   +-------------------------------------+----------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`GLTFCamera<class_GLTFCamera>` | :ref:`from_dictionary<class_GLTFCamera_method_from_dictionary>`\ (\ dictionary\: :ref:`Dictionary<class_Dictionary>`\ ) |static| |
+   +-------------------------------------+----------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`GLTFCamera<class_GLTFCamera>` | :ref:`from_node<class_GLTFCamera_method_from_node>`\ (\ camera_node\: :ref:`Camera3D<class_Camera3D>`\ ) |static|                |
+   +-------------------------------------+----------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Dictionary<class_Dictionary>` | :ref:`to_dictionary<class_GLTFCamera_method_to_dictionary>`\ (\ ) |const|                                                        |
+   +-------------------------------------+----------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Camera3D<class_Camera3D>`     | :ref:`to_node<class_GLTFCamera_method_to_node>`\ (\ ) |const|                                                                    |
+   +-------------------------------------+----------------------------------------------------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -85,8 +87,8 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_depth_far** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_depth_far** **(** **)**
+- |void| **set_depth_far**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_depth_far**\ (\ )
 
 The distance to the far culling boundary for this camera relative to its local Z axis, in meters. This maps to GLTF's ``zfar`` property.
 
@@ -102,8 +104,8 @@ The distance to the far culling boundary for this camera relative to its local Z
 
 .. rst-class:: classref-property-setget
 
-- void **set_depth_near** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_depth_near** **(** **)**
+- |void| **set_depth_near**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_depth_near**\ (\ )
 
 The distance to the near culling boundary for this camera relative to its local Z axis, in meters. This maps to GLTF's ``znear`` property.
 
@@ -119,8 +121,8 @@ The distance to the near culling boundary for this camera relative to its local 
 
 .. rst-class:: classref-property-setget
 
-- void **set_fov** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_fov** **(** **)**
+- |void| **set_fov**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_fov**\ (\ )
 
 The FOV of the camera. This class and GLTF define the camera FOV in radians, while Godot uses degrees. This maps to GLTF's ``yfov`` property. This value is only used for perspective cameras, when :ref:`perspective<class_GLTFCamera_property_perspective>` is true.
 
@@ -136,8 +138,8 @@ The FOV of the camera. This class and GLTF define the camera FOV in radians, whi
 
 .. rst-class:: classref-property-setget
 
-- void **set_perspective** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **get_perspective** **(** **)**
+- |void| **set_perspective**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **get_perspective**\ (\ )
 
 Whether or not the camera is in perspective mode. If false, the camera is in orthographic/orthogonal mode. This maps to GLTF's camera ``type`` property. See :ref:`Camera3D.projection<class_Camera3D_property_projection>` and the GLTF spec for more information.
 
@@ -153,8 +155,8 @@ Whether or not the camera is in perspective mode. If false, the camera is in ort
 
 .. rst-class:: classref-property-setget
 
-- void **set_size_mag** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_size_mag** **(** **)**
+- |void| **set_size_mag**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_size_mag**\ (\ )
 
 The size of the camera. This class and GLTF define the camera size magnitude as a radius in meters, while Godot defines it as a diameter in meters. This maps to GLTF's ``ymag`` property. This value is only used for orthographic/orthogonal cameras, when :ref:`perspective<class_GLTFCamera_property_perspective>` is false.
 
@@ -171,7 +173,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`GLTFCamera<class_GLTFCamera>` **from_dictionary** **(** :ref:`Dictionary<class_Dictionary>` dictionary **)** |static|
+:ref:`GLTFCamera<class_GLTFCamera>` **from_dictionary**\ (\ dictionary\: :ref:`Dictionary<class_Dictionary>`\ ) |static|
 
 Creates a new GLTFCamera instance by parsing the given :ref:`Dictionary<class_Dictionary>`.
 
@@ -183,7 +185,7 @@ Creates a new GLTFCamera instance by parsing the given :ref:`Dictionary<class_Di
 
 .. rst-class:: classref-method
 
-:ref:`GLTFCamera<class_GLTFCamera>` **from_node** **(** :ref:`Camera3D<class_Camera3D>` camera_node **)** |static|
+:ref:`GLTFCamera<class_GLTFCamera>` **from_node**\ (\ camera_node\: :ref:`Camera3D<class_Camera3D>`\ ) |static|
 
 Create a new GLTFCamera instance from the given Godot :ref:`Camera3D<class_Camera3D>` node.
 
@@ -195,7 +197,7 @@ Create a new GLTFCamera instance from the given Godot :ref:`Camera3D<class_Camer
 
 .. rst-class:: classref-method
 
-:ref:`Dictionary<class_Dictionary>` **to_dictionary** **(** **)** |const|
+:ref:`Dictionary<class_Dictionary>` **to_dictionary**\ (\ ) |const|
 
 Serializes this GLTFCamera instance into a :ref:`Dictionary<class_Dictionary>`.
 
@@ -207,7 +209,7 @@ Serializes this GLTFCamera instance into a :ref:`Dictionary<class_Dictionary>`.
 
 .. rst-class:: classref-method
 
-:ref:`Camera3D<class_Camera3D>` **to_node** **(** **)** |const|
+:ref:`Camera3D<class_Camera3D>` **to_node**\ (\ ) |const|
 
 Converts this GLTFCamera instance into a Godot :ref:`Camera3D<class_Camera3D>` node.
 
@@ -217,3 +219,5 @@ Converts this GLTFCamera instance into a Godot :ref:`Camera3D<class_Camera3D>` n
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`
