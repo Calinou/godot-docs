@@ -14,18 +14,16 @@ SyntaxHighlighter
 
 **Inherited By:** :ref:`CodeHighlighter<class_CodeHighlighter>`, :ref:`EditorSyntaxHighlighter<class_EditorSyntaxHighlighter>`
 
-Base Syntax highlighter resource for :ref:`TextEdit<class_TextEdit>`.
+Base class for syntax highlighters. Provides syntax highlighting data to a :ref:`TextEdit<class_TextEdit>`.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-Base syntax highlighter resource all syntax highlighters extend from, provides syntax highlighting data to :ref:`TextEdit<class_TextEdit>`.
+Base class for syntax highlighters. Provides syntax highlighting data to a :ref:`TextEdit<class_TextEdit>`. The associated :ref:`TextEdit<class_TextEdit>` will call into the **SyntaxHighlighter** on an as-needed basis.
 
-The associated :ref:`TextEdit<class_TextEdit>` node will call into the **SyntaxHighlighter** on a as needed basis.
-
-\ **Note:** Each Syntax highlighter instance should not be shared across multiple :ref:`TextEdit<class_TextEdit>` nodes.
+\ **Note:** A **SyntaxHighlighter** instance should not be used across multiple :ref:`TextEdit<class_TextEdit>` nodes.
 
 .. rst-class:: classref-reftable-group
 
@@ -35,21 +33,21 @@ Methods
 .. table::
    :widths: auto
 
-   +-------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                | :ref:`_clear_highlighting_cache<class_SyntaxHighlighter_method__clear_highlighting_cache>` **(** **)** |virtual|                                            |
-   +-------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Dictionary<class_Dictionary>` | :ref:`_get_line_syntax_highlighting<class_SyntaxHighlighter_method__get_line_syntax_highlighting>` **(** :ref:`int<class_int>` line **)** |virtual| |const| |
-   +-------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                | :ref:`_update_cache<class_SyntaxHighlighter_method__update_cache>` **(** **)** |virtual|                                                                    |
-   +-------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                | :ref:`clear_highlighting_cache<class_SyntaxHighlighter_method_clear_highlighting_cache>` **(** **)**                                                        |
-   +-------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Dictionary<class_Dictionary>` | :ref:`get_line_syntax_highlighting<class_SyntaxHighlighter_method_get_line_syntax_highlighting>` **(** :ref:`int<class_int>` line **)**                     |
-   +-------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`TextEdit<class_TextEdit>`     | :ref:`get_text_edit<class_SyntaxHighlighter_method_get_text_edit>` **(** **)**                                                                              |
-   +-------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                | :ref:`update_cache<class_SyntaxHighlighter_method_update_cache>` **(** **)**                                                                                |
-   +-------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   +-------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                              | :ref:`_clear_highlighting_cache<class_SyntaxHighlighter_private_method__clear_highlighting_cache>`\ (\ ) |virtual|                                               |
+   +-------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Dictionary<class_Dictionary>` | :ref:`_get_line_syntax_highlighting<class_SyntaxHighlighter_private_method__get_line_syntax_highlighting>`\ (\ line\: :ref:`int<class_int>`\ ) |virtual| |const| |
+   +-------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                              | :ref:`_update_cache<class_SyntaxHighlighter_private_method__update_cache>`\ (\ ) |virtual|                                                                       |
+   +-------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                              | :ref:`clear_highlighting_cache<class_SyntaxHighlighter_method_clear_highlighting_cache>`\ (\ )                                                                   |
+   +-------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Dictionary<class_Dictionary>` | :ref:`get_line_syntax_highlighting<class_SyntaxHighlighter_method_get_line_syntax_highlighting>`\ (\ line\: :ref:`int<class_int>`\ )                             |
+   +-------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`TextEdit<class_TextEdit>`     | :ref:`get_text_edit<class_SyntaxHighlighter_method_get_text_edit>`\ (\ ) |const|                                                                                 |
+   +-------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                              | :ref:`update_cache<class_SyntaxHighlighter_method_update_cache>`\ (\ )                                                                                           |
+   +-------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -60,11 +58,11 @@ Methods
 Method Descriptions
 -------------------
 
-.. _class_SyntaxHighlighter_method__clear_highlighting_cache:
+.. _class_SyntaxHighlighter_private_method__clear_highlighting_cache:
 
 .. rst-class:: classref-method
 
-void **_clear_highlighting_cache** **(** **)** |virtual|
+|void| **_clear_highlighting_cache**\ (\ ) |virtual|
 
 Virtual method which can be overridden to clear any local caches.
 
@@ -72,11 +70,11 @@ Virtual method which can be overridden to clear any local caches.
 
 ----
 
-.. _class_SyntaxHighlighter_method__get_line_syntax_highlighting:
+.. _class_SyntaxHighlighter_private_method__get_line_syntax_highlighting:
 
 .. rst-class:: classref-method
 
-:ref:`Dictionary<class_Dictionary>` **_get_line_syntax_highlighting** **(** :ref:`int<class_int>` line **)** |virtual| |const|
+:ref:`Dictionary<class_Dictionary>` **_get_line_syntax_highlighting**\ (\ line\: :ref:`int<class_int>`\ ) |virtual| |const|
 
 Virtual method which can be overridden to return syntax highlighting data.
 
@@ -86,11 +84,11 @@ See :ref:`get_line_syntax_highlighting<class_SyntaxHighlighter_method_get_line_s
 
 ----
 
-.. _class_SyntaxHighlighter_method__update_cache:
+.. _class_SyntaxHighlighter_private_method__update_cache:
 
 .. rst-class:: classref-method
 
-void **_update_cache** **(** **)** |virtual|
+|void| **_update_cache**\ (\ ) |virtual|
 
 Virtual method which can be overridden to update any local caches.
 
@@ -102,11 +100,11 @@ Virtual method which can be overridden to update any local caches.
 
 .. rst-class:: classref-method
 
-void **clear_highlighting_cache** **(** **)**
+|void| **clear_highlighting_cache**\ (\ )
 
 Clears all cached syntax highlighting data.
 
-Then calls overridable method :ref:`_clear_highlighting_cache<class_SyntaxHighlighter_method__clear_highlighting_cache>`.
+Then calls overridable method :ref:`_clear_highlighting_cache<class_SyntaxHighlighter_private_method__clear_highlighting_cache>`.
 
 .. rst-class:: classref-item-separator
 
@@ -116,9 +114,9 @@ Then calls overridable method :ref:`_clear_highlighting_cache<class_SyntaxHighli
 
 .. rst-class:: classref-method
 
-:ref:`Dictionary<class_Dictionary>` **get_line_syntax_highlighting** **(** :ref:`int<class_int>` line **)**
+:ref:`Dictionary<class_Dictionary>` **get_line_syntax_highlighting**\ (\ line\: :ref:`int<class_int>`\ )
 
-Returns syntax highlighting data for a single line. If the line is not cached, calls :ref:`_get_line_syntax_highlighting<class_SyntaxHighlighter_method__get_line_syntax_highlighting>` to calculate the data.
+Returns syntax highlighting data for a single line. If the line is not cached, calls :ref:`_get_line_syntax_highlighting<class_SyntaxHighlighter_private_method__get_line_syntax_highlighting>` to calculate the data.
 
 The return :ref:`Dictionary<class_Dictionary>` is column number to :ref:`Dictionary<class_Dictionary>`. The column number notes the start of a region, the region will end if another region is found, or at the end of the line. The nested :ref:`Dictionary<class_Dictionary>` contains the data for that region, currently only the key "color" is supported.
 
@@ -145,7 +143,7 @@ This will color columns 0-4 red, and columns 5-eol in green.
 
 .. rst-class:: classref-method
 
-:ref:`TextEdit<class_TextEdit>` **get_text_edit** **(** **)**
+:ref:`TextEdit<class_TextEdit>` **get_text_edit**\ (\ ) |const|
 
 Returns the associated :ref:`TextEdit<class_TextEdit>` node.
 
@@ -157,9 +155,9 @@ Returns the associated :ref:`TextEdit<class_TextEdit>` node.
 
 .. rst-class:: classref-method
 
-void **update_cache** **(** **)**
+|void| **update_cache**\ (\ )
 
-Clears then updates the **SyntaxHighlighter** caches. Override :ref:`_update_cache<class_SyntaxHighlighter_method__update_cache>` for a callback.
+Clears then updates the **SyntaxHighlighter** caches. Override :ref:`_update_cache<class_SyntaxHighlighter_private_method__update_cache>` for a callback.
 
 \ **Note:** This is called automatically when the associated :ref:`TextEdit<class_TextEdit>` node, updates its own cache.
 
@@ -169,3 +167,5 @@ Clears then updates the **SyntaxHighlighter** caches. Override :ref:`_update_cac
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`

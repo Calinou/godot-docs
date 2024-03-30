@@ -97,8 +97,8 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_mode** **(** :ref:`Mode<enum_VisualShaderNodeParticleAccelerator_Mode>` value **)**
-- :ref:`Mode<enum_VisualShaderNodeParticleAccelerator_Mode>` **get_mode** **(** **)**
+- |void| **set_mode**\ (\ value\: :ref:`Mode<enum_VisualShaderNodeParticleAccelerator_Mode>`\ )
+- :ref:`Mode<enum_VisualShaderNodeParticleAccelerator_Mode>` **get_mode**\ (\ )
 
 Defines in what manner the particles will be accelerated.
 
@@ -108,3 +108,5 @@ Defines in what manner the particles will be accelerated.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`

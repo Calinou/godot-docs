@@ -23,6 +23,13 @@ Description
 
 See :ref:`OccluderInstance3D<class_OccluderInstance3D>`'s documentation for instructions on setting up occlusion culling.
 
+.. rst-class:: classref-introduction-group
+
+Tutorials
+---------
+
+- :doc:`Occlusion culling <../tutorials/3d/occlusion_culling>`
+
 .. rst-class:: classref-reftable-group
 
 Properties
@@ -52,8 +59,8 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_polygon** **(** :ref:`PackedVector2Array<class_PackedVector2Array>` value **)**
-- :ref:`PackedVector2Array<class_PackedVector2Array>` **get_polygon** **(** **)**
+- |void| **set_polygon**\ (\ value\: :ref:`PackedVector2Array<class_PackedVector2Array>`\ )
+- :ref:`PackedVector2Array<class_PackedVector2Array>` **get_polygon**\ (\ )
 
 The polygon to use for occlusion culling. The polygon can be convex or concave, but it should have as few points as possible to maximize performance.
 
@@ -65,3 +72,5 @@ The polygon must *not* have intersecting lines. Otherwise, triangulation will fa
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`

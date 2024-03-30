@@ -14,16 +14,14 @@ Slider
 
 **Inherited By:** :ref:`HSlider<class_HSlider>`, :ref:`VSlider<class_VSlider>`
 
-Base class for GUI sliders.
+Abstract base class for sliders.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-Base class for GUI sliders.
-
-\ **Note:** The :ref:`Range.changed<class_Range_signal_changed>` and :ref:`Range.value_changed<class_Range_signal_value_changed>` signals are part of the :ref:`Range<class_Range>` class which this class inherits from.
+Abstract base class for sliders, used to adjust a value by moving a grabber along a horizontal or vertical axis. Sliders are :ref:`Range<class_Range>`-based controls.
 
 .. rst-class:: classref-reftable-group
 
@@ -47,6 +45,34 @@ Properties
    | :ref:`bool<class_bool>`                  | :ref:`ticks_on_borders<class_Slider_property_ticks_on_borders>` | ``false``                                                           |
    +------------------------------------------+-----------------------------------------------------------------+---------------------------------------------------------------------+
 
+.. rst-class:: classref-reftable-group
+
+Theme Properties
+----------------
+
+.. table::
+   :widths: auto
+
+   +-----------------------------------+--------------------------------------------------------------------------------+-------+
+   | :ref:`int<class_int>`             | :ref:`center_grabber<class_Slider_theme_constant_center_grabber>`              | ``0`` |
+   +-----------------------------------+--------------------------------------------------------------------------------+-------+
+   | :ref:`int<class_int>`             | :ref:`grabber_offset<class_Slider_theme_constant_grabber_offset>`              | ``0`` |
+   +-----------------------------------+--------------------------------------------------------------------------------+-------+
+   | :ref:`Texture2D<class_Texture2D>` | :ref:`grabber<class_Slider_theme_icon_grabber>`                                |       |
+   +-----------------------------------+--------------------------------------------------------------------------------+-------+
+   | :ref:`Texture2D<class_Texture2D>` | :ref:`grabber_disabled<class_Slider_theme_icon_grabber_disabled>`              |       |
+   +-----------------------------------+--------------------------------------------------------------------------------+-------+
+   | :ref:`Texture2D<class_Texture2D>` | :ref:`grabber_highlight<class_Slider_theme_icon_grabber_highlight>`            |       |
+   +-----------------------------------+--------------------------------------------------------------------------------+-------+
+   | :ref:`Texture2D<class_Texture2D>` | :ref:`tick<class_Slider_theme_icon_tick>`                                      |       |
+   +-----------------------------------+--------------------------------------------------------------------------------+-------+
+   | :ref:`StyleBox<class_StyleBox>`   | :ref:`grabber_area<class_Slider_theme_style_grabber_area>`                     |       |
+   +-----------------------------------+--------------------------------------------------------------------------------+-------+
+   | :ref:`StyleBox<class_StyleBox>`   | :ref:`grabber_area_highlight<class_Slider_theme_style_grabber_area_highlight>` |       |
+   +-----------------------------------+--------------------------------------------------------------------------------+-------+
+   | :ref:`StyleBox<class_StyleBox>`   | :ref:`slider<class_Slider_theme_style_slider>`                                 |       |
+   +-----------------------------------+--------------------------------------------------------------------------------+-------+
+
 .. rst-class:: classref-section-separator
 
 ----
@@ -60,7 +86,7 @@ Signals
 
 .. rst-class:: classref-signal
 
-**drag_ended** **(** :ref:`bool<class_bool>` value_changed **)**
+**drag_ended**\ (\ value_changed\: :ref:`bool<class_bool>`\ )
 
 Emitted when dragging stops. If ``value_changed`` is true, :ref:`Range.value<class_Range_property_value>` is different from the value when you started the dragging.
 
@@ -72,9 +98,9 @@ Emitted when dragging stops. If ``value_changed`` is true, :ref:`Range.value<cla
 
 .. rst-class:: classref-signal
 
-**drag_started** **(** **)**
+**drag_started**\ (\ )
 
-Emitted when dragging is started.
+Emitted when dragging is started. This is emitted before the corresponding :ref:`Range.value_changed<class_Range_signal_value_changed>` signal.
 
 .. rst-class:: classref-section-separator
 
@@ -93,8 +119,8 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_editable** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **is_editable** **(** **)**
+- |void| **set_editable**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **is_editable**\ (\ )
 
 If ``true``, the slider can be interacted with. If ``false``, the value can be changed only by code.
 
@@ -110,8 +136,8 @@ If ``true``, the slider can be interacted with. If ``false``, the value can be c
 
 .. rst-class:: classref-property-setget
 
-- void **set_scrollable** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **is_scrollable** **(** **)**
+- |void| **set_scrollable**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **is_scrollable**\ (\ )
 
 If ``true``, the value can be changed using the mouse wheel.
 
@@ -127,8 +153,8 @@ If ``true``, the value can be changed using the mouse wheel.
 
 .. rst-class:: classref-property-setget
 
-- void **set_ticks** **(** :ref:`int<class_int>` value **)**
-- :ref:`int<class_int>` **get_ticks** **(** **)**
+- |void| **set_ticks**\ (\ value\: :ref:`int<class_int>`\ )
+- :ref:`int<class_int>` **get_ticks**\ (\ )
 
 Number of ticks displayed on the slider, including border ticks. Ticks are uniformly-distributed value markers.
 
@@ -144,10 +170,123 @@ Number of ticks displayed on the slider, including border ticks. Ticks are unifo
 
 .. rst-class:: classref-property-setget
 
-- void **set_ticks_on_borders** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **get_ticks_on_borders** **(** **)**
+- |void| **set_ticks_on_borders**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **get_ticks_on_borders**\ (\ )
 
 If ``true``, the slider will display ticks for minimum and maximum values.
+
+.. rst-class:: classref-section-separator
+
+----
+
+.. rst-class:: classref-descriptions-group
+
+Theme Property Descriptions
+---------------------------
+
+.. _class_Slider_theme_constant_center_grabber:
+
+.. rst-class:: classref-themeproperty
+
+:ref:`int<class_int>` **center_grabber** = ``0``
+
+Boolean constant. If ``1``, the grabber texture size will be ignored and it will fit within slider's bounds based only on its center position.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_Slider_theme_constant_grabber_offset:
+
+.. rst-class:: classref-themeproperty
+
+:ref:`int<class_int>` **grabber_offset** = ``0``
+
+Vertical or horizontal offset of the grabber.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_Slider_theme_icon_grabber:
+
+.. rst-class:: classref-themeproperty
+
+:ref:`Texture2D<class_Texture2D>` **grabber**
+
+The texture for the grabber (the draggable element).
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_Slider_theme_icon_grabber_disabled:
+
+.. rst-class:: classref-themeproperty
+
+:ref:`Texture2D<class_Texture2D>` **grabber_disabled**
+
+The texture for the grabber when it's disabled.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_Slider_theme_icon_grabber_highlight:
+
+.. rst-class:: classref-themeproperty
+
+:ref:`Texture2D<class_Texture2D>` **grabber_highlight**
+
+The texture for the grabber when it's focused.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_Slider_theme_icon_tick:
+
+.. rst-class:: classref-themeproperty
+
+:ref:`Texture2D<class_Texture2D>` **tick**
+
+The texture for the ticks, visible when :ref:`tick_count<class_Slider_property_tick_count>` is greater than 0.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_Slider_theme_style_grabber_area:
+
+.. rst-class:: classref-themeproperty
+
+:ref:`StyleBox<class_StyleBox>` **grabber_area**
+
+The background of the area to the left or bottom of the grabber.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_Slider_theme_style_grabber_area_highlight:
+
+.. rst-class:: classref-themeproperty
+
+:ref:`StyleBox<class_StyleBox>` **grabber_area_highlight**
+
+The background of the area to the left or bottom of the grabber that displays when it's being hovered or focused.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_Slider_theme_style_slider:
+
+.. rst-class:: classref-themeproperty
+
+:ref:`StyleBox<class_StyleBox>` **slider**
+
+The background for the whole slider. Affects the height or width of the :ref:`grabber_area<class_Slider_theme_style_grabber_area>`.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
@@ -155,3 +294,5 @@ If ``true``, the slider will display ticks for minimum and maximum values.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`

@@ -12,14 +12,14 @@ PhysicsTestMotionResult3D
 
 **Inherits:** :ref:`RefCounted<class_RefCounted>` **<** :ref:`Object<class_Object>`
 
-Result from a 3D body motion test.
+Describes the motion and collision result from :ref:`PhysicsServer3D.body_test_motion<class_PhysicsServer3D_method_body_test_motion>`.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-This class contains the motion and collision result from :ref:`PhysicsServer3D.body_test_motion<class_PhysicsServer3D_method_body_test_motion>`.
+Describes the motion and collision result from :ref:`PhysicsServer3D.body_test_motion<class_PhysicsServer3D_method_body_test_motion>`.
 
 .. rst-class:: classref-reftable-group
 
@@ -29,35 +29,35 @@ Methods
 .. table::
    :widths: auto
 
-   +-------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Object<class_Object>`   | :ref:`get_collider<class_PhysicsTestMotionResult3D_method_get_collider>` **(** :ref:`int<class_int>` collision_index=0 **)** |const|                           |
-   +-------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`int<class_int>`         | :ref:`get_collider_id<class_PhysicsTestMotionResult3D_method_get_collider_id>` **(** :ref:`int<class_int>` collision_index=0 **)** |const|                     |
-   +-------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`RID<class_RID>`         | :ref:`get_collider_rid<class_PhysicsTestMotionResult3D_method_get_collider_rid>` **(** :ref:`int<class_int>` collision_index=0 **)** |const|                   |
-   +-------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`int<class_int>`         | :ref:`get_collider_shape<class_PhysicsTestMotionResult3D_method_get_collider_shape>` **(** :ref:`int<class_int>` collision_index=0 **)** |const|               |
-   +-------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Vector3<class_Vector3>` | :ref:`get_collider_velocity<class_PhysicsTestMotionResult3D_method_get_collider_velocity>` **(** :ref:`int<class_int>` collision_index=0 **)** |const|         |
-   +-------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`int<class_int>`         | :ref:`get_collision_count<class_PhysicsTestMotionResult3D_method_get_collision_count>` **(** **)** |const|                                                     |
-   +-------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`float<class_float>`     | :ref:`get_collision_depth<class_PhysicsTestMotionResult3D_method_get_collision_depth>` **(** :ref:`int<class_int>` collision_index=0 **)** |const|             |
-   +-------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`int<class_int>`         | :ref:`get_collision_local_shape<class_PhysicsTestMotionResult3D_method_get_collision_local_shape>` **(** :ref:`int<class_int>` collision_index=0 **)** |const| |
-   +-------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Vector3<class_Vector3>` | :ref:`get_collision_normal<class_PhysicsTestMotionResult3D_method_get_collision_normal>` **(** :ref:`int<class_int>` collision_index=0 **)** |const|           |
-   +-------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Vector3<class_Vector3>` | :ref:`get_collision_point<class_PhysicsTestMotionResult3D_method_get_collision_point>` **(** :ref:`int<class_int>` collision_index=0 **)** |const|             |
-   +-------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`float<class_float>`     | :ref:`get_collision_safe_fraction<class_PhysicsTestMotionResult3D_method_get_collision_safe_fraction>` **(** **)** |const|                                     |
-   +-------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`float<class_float>`     | :ref:`get_collision_unsafe_fraction<class_PhysicsTestMotionResult3D_method_get_collision_unsafe_fraction>` **(** **)** |const|                                 |
-   +-------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Vector3<class_Vector3>` | :ref:`get_remainder<class_PhysicsTestMotionResult3D_method_get_remainder>` **(** **)** |const|                                                                 |
-   +-------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Vector3<class_Vector3>` | :ref:`get_travel<class_PhysicsTestMotionResult3D_method_get_travel>` **(** **)** |const|                                                                       |
-   +-------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   +-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Object<class_Object>`   | :ref:`get_collider<class_PhysicsTestMotionResult3D_method_get_collider>`\ (\ collision_index\: :ref:`int<class_int>` = 0\ ) |const|                           |
+   +-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`int<class_int>`         | :ref:`get_collider_id<class_PhysicsTestMotionResult3D_method_get_collider_id>`\ (\ collision_index\: :ref:`int<class_int>` = 0\ ) |const|                     |
+   +-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`RID<class_RID>`         | :ref:`get_collider_rid<class_PhysicsTestMotionResult3D_method_get_collider_rid>`\ (\ collision_index\: :ref:`int<class_int>` = 0\ ) |const|                   |
+   +-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`int<class_int>`         | :ref:`get_collider_shape<class_PhysicsTestMotionResult3D_method_get_collider_shape>`\ (\ collision_index\: :ref:`int<class_int>` = 0\ ) |const|               |
+   +-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Vector3<class_Vector3>` | :ref:`get_collider_velocity<class_PhysicsTestMotionResult3D_method_get_collider_velocity>`\ (\ collision_index\: :ref:`int<class_int>` = 0\ ) |const|         |
+   +-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`int<class_int>`         | :ref:`get_collision_count<class_PhysicsTestMotionResult3D_method_get_collision_count>`\ (\ ) |const|                                                          |
+   +-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`float<class_float>`     | :ref:`get_collision_depth<class_PhysicsTestMotionResult3D_method_get_collision_depth>`\ (\ collision_index\: :ref:`int<class_int>` = 0\ ) |const|             |
+   +-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`int<class_int>`         | :ref:`get_collision_local_shape<class_PhysicsTestMotionResult3D_method_get_collision_local_shape>`\ (\ collision_index\: :ref:`int<class_int>` = 0\ ) |const| |
+   +-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Vector3<class_Vector3>` | :ref:`get_collision_normal<class_PhysicsTestMotionResult3D_method_get_collision_normal>`\ (\ collision_index\: :ref:`int<class_int>` = 0\ ) |const|           |
+   +-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Vector3<class_Vector3>` | :ref:`get_collision_point<class_PhysicsTestMotionResult3D_method_get_collision_point>`\ (\ collision_index\: :ref:`int<class_int>` = 0\ ) |const|             |
+   +-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`float<class_float>`     | :ref:`get_collision_safe_fraction<class_PhysicsTestMotionResult3D_method_get_collision_safe_fraction>`\ (\ ) |const|                                          |
+   +-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`float<class_float>`     | :ref:`get_collision_unsafe_fraction<class_PhysicsTestMotionResult3D_method_get_collision_unsafe_fraction>`\ (\ ) |const|                                      |
+   +-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Vector3<class_Vector3>` | :ref:`get_remainder<class_PhysicsTestMotionResult3D_method_get_remainder>`\ (\ ) |const|                                                                      |
+   +-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Vector3<class_Vector3>` | :ref:`get_travel<class_PhysicsTestMotionResult3D_method_get_travel>`\ (\ ) |const|                                                                            |
+   +-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -72,7 +72,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`Object<class_Object>` **get_collider** **(** :ref:`int<class_int>` collision_index=0 **)** |const|
+:ref:`Object<class_Object>` **get_collider**\ (\ collision_index\: :ref:`int<class_int>` = 0\ ) |const|
 
 Returns the colliding body's attached :ref:`Object<class_Object>` given a collision index (the deepest collision by default), if a collision occurred.
 
@@ -84,7 +84,7 @@ Returns the colliding body's attached :ref:`Object<class_Object>` given a collis
 
 .. rst-class:: classref-method
 
-:ref:`int<class_int>` **get_collider_id** **(** :ref:`int<class_int>` collision_index=0 **)** |const|
+:ref:`int<class_int>` **get_collider_id**\ (\ collision_index\: :ref:`int<class_int>` = 0\ ) |const|
 
 Returns the unique instance ID of the colliding body's attached :ref:`Object<class_Object>` given a collision index (the deepest collision by default), if a collision occurred. See :ref:`Object.get_instance_id<class_Object_method_get_instance_id>`.
 
@@ -96,7 +96,7 @@ Returns the unique instance ID of the colliding body's attached :ref:`Object<cla
 
 .. rst-class:: classref-method
 
-:ref:`RID<class_RID>` **get_collider_rid** **(** :ref:`int<class_int>` collision_index=0 **)** |const|
+:ref:`RID<class_RID>` **get_collider_rid**\ (\ collision_index\: :ref:`int<class_int>` = 0\ ) |const|
 
 Returns the colliding body's :ref:`RID<class_RID>` used by the :ref:`PhysicsServer3D<class_PhysicsServer3D>` given a collision index (the deepest collision by default), if a collision occurred.
 
@@ -108,7 +108,7 @@ Returns the colliding body's :ref:`RID<class_RID>` used by the :ref:`PhysicsServ
 
 .. rst-class:: classref-method
 
-:ref:`int<class_int>` **get_collider_shape** **(** :ref:`int<class_int>` collision_index=0 **)** |const|
+:ref:`int<class_int>` **get_collider_shape**\ (\ collision_index\: :ref:`int<class_int>` = 0\ ) |const|
 
 Returns the colliding body's shape index given a collision index (the deepest collision by default), if a collision occurred. See :ref:`CollisionObject3D<class_CollisionObject3D>`.
 
@@ -120,7 +120,7 @@ Returns the colliding body's shape index given a collision index (the deepest co
 
 .. rst-class:: classref-method
 
-:ref:`Vector3<class_Vector3>` **get_collider_velocity** **(** :ref:`int<class_int>` collision_index=0 **)** |const|
+:ref:`Vector3<class_Vector3>` **get_collider_velocity**\ (\ collision_index\: :ref:`int<class_int>` = 0\ ) |const|
 
 Returns the colliding body's velocity given a collision index (the deepest collision by default), if a collision occurred.
 
@@ -132,7 +132,7 @@ Returns the colliding body's velocity given a collision index (the deepest colli
 
 .. rst-class:: classref-method
 
-:ref:`int<class_int>` **get_collision_count** **(** **)** |const|
+:ref:`int<class_int>` **get_collision_count**\ (\ ) |const|
 
 Returns the number of detected collisions.
 
@@ -144,7 +144,7 @@ Returns the number of detected collisions.
 
 .. rst-class:: classref-method
 
-:ref:`float<class_float>` **get_collision_depth** **(** :ref:`int<class_int>` collision_index=0 **)** |const|
+:ref:`float<class_float>` **get_collision_depth**\ (\ collision_index\: :ref:`int<class_int>` = 0\ ) |const|
 
 Returns the length of overlap along the collision normal given a collision index (the deepest collision by default), if a collision occurred.
 
@@ -156,7 +156,7 @@ Returns the length of overlap along the collision normal given a collision index
 
 .. rst-class:: classref-method
 
-:ref:`int<class_int>` **get_collision_local_shape** **(** :ref:`int<class_int>` collision_index=0 **)** |const|
+:ref:`int<class_int>` **get_collision_local_shape**\ (\ collision_index\: :ref:`int<class_int>` = 0\ ) |const|
 
 Returns the moving object's colliding shape given a collision index (the deepest collision by default), if a collision occurred.
 
@@ -168,7 +168,7 @@ Returns the moving object's colliding shape given a collision index (the deepest
 
 .. rst-class:: classref-method
 
-:ref:`Vector3<class_Vector3>` **get_collision_normal** **(** :ref:`int<class_int>` collision_index=0 **)** |const|
+:ref:`Vector3<class_Vector3>` **get_collision_normal**\ (\ collision_index\: :ref:`int<class_int>` = 0\ ) |const|
 
 Returns the colliding body's shape's normal at the point of collision given a collision index (the deepest collision by default), if a collision occurred.
 
@@ -180,7 +180,7 @@ Returns the colliding body's shape's normal at the point of collision given a co
 
 .. rst-class:: classref-method
 
-:ref:`Vector3<class_Vector3>` **get_collision_point** **(** :ref:`int<class_int>` collision_index=0 **)** |const|
+:ref:`Vector3<class_Vector3>` **get_collision_point**\ (\ collision_index\: :ref:`int<class_int>` = 0\ ) |const|
 
 Returns the point of collision in global coordinates given a collision index (the deepest collision by default), if a collision occurred.
 
@@ -192,7 +192,7 @@ Returns the point of collision in global coordinates given a collision index (th
 
 .. rst-class:: classref-method
 
-:ref:`float<class_float>` **get_collision_safe_fraction** **(** **)** |const|
+:ref:`float<class_float>` **get_collision_safe_fraction**\ (\ ) |const|
 
 Returns the maximum fraction of the motion that can occur without a collision, between ``0`` and ``1``.
 
@@ -204,7 +204,7 @@ Returns the maximum fraction of the motion that can occur without a collision, b
 
 .. rst-class:: classref-method
 
-:ref:`float<class_float>` **get_collision_unsafe_fraction** **(** **)** |const|
+:ref:`float<class_float>` **get_collision_unsafe_fraction**\ (\ ) |const|
 
 Returns the minimum fraction of the motion needed to collide, if a collision occurred, between ``0`` and ``1``.
 
@@ -216,7 +216,7 @@ Returns the minimum fraction of the motion needed to collide, if a collision occ
 
 .. rst-class:: classref-method
 
-:ref:`Vector3<class_Vector3>` **get_remainder** **(** **)** |const|
+:ref:`Vector3<class_Vector3>` **get_remainder**\ (\ ) |const|
 
 Returns the moving object's remaining movement vector.
 
@@ -228,7 +228,7 @@ Returns the moving object's remaining movement vector.
 
 .. rst-class:: classref-method
 
-:ref:`Vector3<class_Vector3>` **get_travel** **(** **)** |const|
+:ref:`Vector3<class_Vector3>` **get_travel**\ (\ ) |const|
 
 Returns the moving object's travel before collision.
 
@@ -238,3 +238,5 @@ Returns the moving object's travel before collision.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`

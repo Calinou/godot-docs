@@ -23,6 +23,13 @@ The CryptoKey class represents a cryptographic key. Keys can be loaded and saved
 
 They can be used to generate a self-signed :ref:`X509Certificate<class_X509Certificate>` via :ref:`Crypto.generate_self_signed_certificate<class_Crypto_method_generate_self_signed_certificate>` and as private key in :ref:`StreamPeerTLS.accept_stream<class_StreamPeerTLS_method_accept_stream>` along with the appropriate certificate.
 
+.. rst-class:: classref-introduction-group
+
+Tutorials
+---------
+
+- :doc:`SSL certificates <../tutorials/networking/ssl_certificates>`
+
 .. rst-class:: classref-reftable-group
 
 Methods
@@ -31,17 +38,17 @@ Methods
 .. table::
    :widths: auto
 
-   +---------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`               | :ref:`is_public_only<class_CryptoKey_method_is_public_only>` **(** **)** |const|                                                                               |
-   +---------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Error<enum_@GlobalScope_Error>` | :ref:`load<class_CryptoKey_method_load>` **(** :ref:`String<class_String>` path, :ref:`bool<class_bool>` public_only=false **)**                               |
-   +---------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Error<enum_@GlobalScope_Error>` | :ref:`load_from_string<class_CryptoKey_method_load_from_string>` **(** :ref:`String<class_String>` string_key, :ref:`bool<class_bool>` public_only=false **)** |
-   +---------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Error<enum_@GlobalScope_Error>` | :ref:`save<class_CryptoKey_method_save>` **(** :ref:`String<class_String>` path, :ref:`bool<class_bool>` public_only=false **)**                               |
-   +---------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`String<class_String>`           | :ref:`save_to_string<class_CryptoKey_method_save_to_string>` **(** :ref:`bool<class_bool>` public_only=false **)**                                             |
-   +---------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   +---------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`               | :ref:`is_public_only<class_CryptoKey_method_is_public_only>`\ (\ ) |const|                                                                                      |
+   +---------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Error<enum_@GlobalScope_Error>` | :ref:`load<class_CryptoKey_method_load>`\ (\ path\: :ref:`String<class_String>`, public_only\: :ref:`bool<class_bool>` = false\ )                               |
+   +---------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Error<enum_@GlobalScope_Error>` | :ref:`load_from_string<class_CryptoKey_method_load_from_string>`\ (\ string_key\: :ref:`String<class_String>`, public_only\: :ref:`bool<class_bool>` = false\ ) |
+   +---------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Error<enum_@GlobalScope_Error>` | :ref:`save<class_CryptoKey_method_save>`\ (\ path\: :ref:`String<class_String>`, public_only\: :ref:`bool<class_bool>` = false\ )                               |
+   +---------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`String<class_String>`           | :ref:`save_to_string<class_CryptoKey_method_save_to_string>`\ (\ public_only\: :ref:`bool<class_bool>` = false\ )                                               |
+   +---------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -56,7 +63,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **is_public_only** **(** **)** |const|
+:ref:`bool<class_bool>` **is_public_only**\ (\ ) |const|
 
 Returns ``true`` if this CryptoKey only has the public part, and not the private one.
 
@@ -68,7 +75,7 @@ Returns ``true`` if this CryptoKey only has the public part, and not the private
 
 .. rst-class:: classref-method
 
-:ref:`Error<enum_@GlobalScope_Error>` **load** **(** :ref:`String<class_String>` path, :ref:`bool<class_bool>` public_only=false **)**
+:ref:`Error<enum_@GlobalScope_Error>` **load**\ (\ path\: :ref:`String<class_String>`, public_only\: :ref:`bool<class_bool>` = false\ )
 
 Loads a key from ``path``. If ``public_only`` is ``true``, only the public key will be loaded.
 
@@ -82,7 +89,7 @@ Loads a key from ``path``. If ``public_only`` is ``true``, only the public key w
 
 .. rst-class:: classref-method
 
-:ref:`Error<enum_@GlobalScope_Error>` **load_from_string** **(** :ref:`String<class_String>` string_key, :ref:`bool<class_bool>` public_only=false **)**
+:ref:`Error<enum_@GlobalScope_Error>` **load_from_string**\ (\ string_key\: :ref:`String<class_String>`, public_only\: :ref:`bool<class_bool>` = false\ )
 
 Loads a key from the given ``string_key``. If ``public_only`` is ``true``, only the public key will be loaded.
 
@@ -94,7 +101,7 @@ Loads a key from the given ``string_key``. If ``public_only`` is ``true``, only 
 
 .. rst-class:: classref-method
 
-:ref:`Error<enum_@GlobalScope_Error>` **save** **(** :ref:`String<class_String>` path, :ref:`bool<class_bool>` public_only=false **)**
+:ref:`Error<enum_@GlobalScope_Error>` **save**\ (\ path\: :ref:`String<class_String>`, public_only\: :ref:`bool<class_bool>` = false\ )
 
 Saves a key to the given ``path``. If ``public_only`` is ``true``, only the public key will be saved.
 
@@ -108,7 +115,7 @@ Saves a key to the given ``path``. If ``public_only`` is ``true``, only the publ
 
 .. rst-class:: classref-method
 
-:ref:`String<class_String>` **save_to_string** **(** :ref:`bool<class_bool>` public_only=false **)**
+:ref:`String<class_String>` **save_to_string**\ (\ public_only\: :ref:`bool<class_bool>` = false\ )
 
 Returns a string containing the key in PEM format. If ``public_only`` is ``true``, only the public key will be included.
 
@@ -118,3 +125,5 @@ Returns a string containing the key in PEM format. If ``public_only`` is ``true`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`

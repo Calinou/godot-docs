@@ -14,7 +14,7 @@ GPUParticlesAttractor3D
 
 **Inherited By:** :ref:`GPUParticlesAttractorBox3D<class_GPUParticlesAttractorBox3D>`, :ref:`GPUParticlesAttractorSphere3D<class_GPUParticlesAttractorSphere3D>`, :ref:`GPUParticlesAttractorVectorField3D<class_GPUParticlesAttractorVectorField3D>`
 
-Abstract class for 3D particle attractors affecting :ref:`GPUParticles3D<class_GPUParticles3D>` nodes.
+Abstract base class for 3D particle attractors.
 
 .. rst-class:: classref-introduction-group
 
@@ -64,8 +64,8 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_attenuation** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_attenuation** **(** **)**
+- |void| **set_attenuation**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_attenuation**\ (\ )
 
 The particle attractor's attenuation. Higher values result in more gradual pushing of particles as they come closer to the attractor's origin. Zero or negative values will cause particles to be pushed very fast as soon as the touch the attractor's edges.
 
@@ -81,8 +81,8 @@ The particle attractor's attenuation. Higher values result in more gradual pushi
 
 .. rst-class:: classref-property-setget
 
-- void **set_cull_mask** **(** :ref:`int<class_int>` value **)**
-- :ref:`int<class_int>` **get_cull_mask** **(** **)**
+- |void| **set_cull_mask**\ (\ value\: :ref:`int<class_int>`\ )
+- :ref:`int<class_int>` **get_cull_mask**\ (\ )
 
 The particle rendering layers (:ref:`VisualInstance3D.layers<class_VisualInstance3D_property_layers>`) that will be affected by the attractor. By default, all particles are affected by an attractor.
 
@@ -102,8 +102,8 @@ Particle attraction can also be disabled on a per-process material basis by sett
 
 .. rst-class:: classref-property-setget
 
-- void **set_directionality** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_directionality** **(** **)**
+- |void| **set_directionality**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_directionality**\ (\ )
 
 Adjusts how directional the attractor is. At ``0.0``, the attractor is not directional at all: it will attract particles towards its center. At ``1.0``, the attractor is fully directional: particles will always be pushed towards local -Z (or +Z if :ref:`strength<class_GPUParticlesAttractor3D_property_strength>` is negative).
 
@@ -121,10 +121,10 @@ Adjusts how directional the attractor is. At ``0.0``, the attractor is not direc
 
 .. rst-class:: classref-property-setget
 
-- void **set_strength** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_strength** **(** **)**
+- |void| **set_strength**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_strength**\ (\ )
 
-If :ref:`strength<class_GPUParticlesAttractor3D_property_strength>` is negative, particles will be pushed in the reverse direction. Particles will be pushed *away* from the attractor's  origin if :ref:`directionality<class_GPUParticlesAttractor3D_property_directionality>` is ``0.0``, or towards local +Z if :ref:`directionality<class_GPUParticlesAttractor3D_property_directionality>` is greater than ``0.0``.
+Adjusts the strength of the attractor. If :ref:`strength<class_GPUParticlesAttractor3D_property_strength>` is negative, particles will be pushed in the opposite direction. Particles will be pushed *away* from the attractor's origin if :ref:`directionality<class_GPUParticlesAttractor3D_property_directionality>` is ``0.0``, or towards local +Z if :ref:`directionality<class_GPUParticlesAttractor3D_property_directionality>` is greater than ``0.0``.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
@@ -132,3 +132,5 @@ If :ref:`strength<class_GPUParticlesAttractor3D_property_strength>` is negative,
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`
