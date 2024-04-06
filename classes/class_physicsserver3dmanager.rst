@@ -12,14 +12,14 @@ PhysicsServer3DManager
 
 **Inherits:** :ref:`Object<class_Object>`
 
-Manager for 3D physics server implementations.
+A singleton for managing :ref:`PhysicsServer3D<class_PhysicsServer3D>` implementations.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-**PhysicsServer3DManager** is the API for registering :ref:`PhysicsServer3D<class_PhysicsServer3D>` implementations, and for setting the default implementation.
+**PhysicsServer3DManager** is the API for registering :ref:`PhysicsServer3D<class_PhysicsServer3D>` implementations and for setting the default implementation.
 
 \ **Note:** It is not possible to switch physics servers at runtime. This class is only used on startup at the server initialization level, by Godot itself and possibly by GDExtensions.
 
@@ -31,11 +31,11 @@ Methods
 .. table::
    :widths: auto
 
-   +------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void | :ref:`register_server<class_PhysicsServer3DManager_method_register_server>` **(** :ref:`String<class_String>` name, :ref:`Callable<class_Callable>` create_callback **)** |
-   +------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void | :ref:`set_default_server<class_PhysicsServer3DManager_method_set_default_server>` **(** :ref:`String<class_String>` name, :ref:`int<class_int>` priority **)**            |
-   +------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   +--------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void| | :ref:`register_server<class_PhysicsServer3DManager_method_register_server>`\ (\ name\: :ref:`String<class_String>`, create_callback\: :ref:`Callable<class_Callable>`\ ) |
+   +--------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void| | :ref:`set_default_server<class_PhysicsServer3DManager_method_set_default_server>`\ (\ name\: :ref:`String<class_String>`, priority\: :ref:`int<class_int>`\ )            |
+   +--------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -50,7 +50,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-void **register_server** **(** :ref:`String<class_String>` name, :ref:`Callable<class_Callable>` create_callback **)**
+|void| **register_server**\ (\ name\: :ref:`String<class_String>`, create_callback\: :ref:`Callable<class_Callable>`\ )
 
 Register a :ref:`PhysicsServer3D<class_PhysicsServer3D>` implementation by passing a ``name`` and a :ref:`Callable<class_Callable>` that returns a :ref:`PhysicsServer3D<class_PhysicsServer3D>` object.
 
@@ -62,7 +62,7 @@ Register a :ref:`PhysicsServer3D<class_PhysicsServer3D>` implementation by passi
 
 .. rst-class:: classref-method
 
-void **set_default_server** **(** :ref:`String<class_String>` name, :ref:`int<class_int>` priority **)**
+|void| **set_default_server**\ (\ name\: :ref:`String<class_String>`, priority\: :ref:`int<class_int>`\ )
 
 Set the default :ref:`PhysicsServer3D<class_PhysicsServer3D>` implementation to the one identified by ``name``, if ``priority`` is greater than the priority of the current default implementation.
 
@@ -72,3 +72,5 @@ Set the default :ref:`PhysicsServer3D<class_PhysicsServer3D>` implementation to 
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`

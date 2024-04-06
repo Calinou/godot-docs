@@ -12,18 +12,18 @@ GPUParticlesCollisionHeightField3D
 
 **Inherits:** :ref:`GPUParticlesCollision3D<class_GPUParticlesCollision3D>` **<** :ref:`VisualInstance3D<class_VisualInstance3D>` **<** :ref:`Node3D<class_Node3D>` **<** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
 
-Real-time heightmap-shaped 3D particle attractor affecting :ref:`GPUParticles3D<class_GPUParticles3D>` nodes.
+A real-time heightmap-shaped 3D particle collision shape affecting :ref:`GPUParticles3D<class_GPUParticles3D>` nodes.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-Real-time heightmap-shaped 3D particle attractor affecting :ref:`GPUParticles3D<class_GPUParticles3D>` nodes.
+A real-time heightmap-shaped 3D particle collision shape affecting :ref:`GPUParticles3D<class_GPUParticles3D>` nodes.
 
 Heightmap shapes allow for efficiently representing collisions for convex and concave objects with a single "floor" (such as terrain). This is less flexible than :ref:`GPUParticlesCollisionSDF3D<class_GPUParticlesCollisionSDF3D>`, but it doesn't require a baking step.
 
-\ **GPUParticlesCollisionHeightField3D** can also be regenerated in real-time when it is moved, when the camera moves, or even continuously. This makes **GPUParticlesCollisionHeightField3D** a good choice for weather effects such as rain and snow and games with highly dynamic geometry. However, since heightmaps cannot represent overhangs, **GPUParticlesCollisionHeightField3D** is not suited for indoor particle collision.
+\ **GPUParticlesCollisionHeightField3D** can also be regenerated in real-time when it is moved, when the camera moves, or even continuously. This makes **GPUParticlesCollisionHeightField3D** a good choice for weather effects such as rain and snow and games with highly dynamic geometry. However, this class is limited since heightmaps cannot represent overhangs (e.g. indoors or caves).
 
 \ **Note:** :ref:`ParticleProcessMaterial.collision_mode<class_ParticleProcessMaterial_property_collision_mode>` must be ``true`` on the :ref:`GPUParticles3D<class_GPUParticles3D>`'s process material for collision to work.
 
@@ -134,7 +134,7 @@ enum **UpdateMode**:
 
 :ref:`UpdateMode<enum_GPUParticlesCollisionHeightField3D_UpdateMode>` **UPDATE_MODE_WHEN_MOVED** = ``0``
 
-Only update the heightmap when the **GPUParticlesCollisionHeightField3D** node is moved, or when the camera moves if :ref:`follow_camera_enabled<class_GPUParticlesCollisionHeightField3D_property_follow_camera_enabled>` is ``true``. An update can be forced by slightly moving the **GPUParticlesCollisionHeightField3D** in any direction.
+Only update the heightmap when the **GPUParticlesCollisionHeightField3D** node is moved, or when the camera moves if :ref:`follow_camera_enabled<class_GPUParticlesCollisionHeightField3D_property_follow_camera_enabled>` is ``true``. An update can be forced by slightly moving the **GPUParticlesCollisionHeightField3D** in any direction, or by calling :ref:`RenderingServer.particles_collision_height_field_update<class_RenderingServer_method_particles_collision_height_field_update>`.
 
 .. _class_GPUParticlesCollisionHeightField3D_constant_UPDATE_MODE_ALWAYS:
 
@@ -161,8 +161,8 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_follow_camera_enabled** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **is_follow_camera_enabled** **(** **)**
+- |void| **set_follow_camera_enabled**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **is_follow_camera_enabled**\ (\ )
 
 If ``true``, the **GPUParticlesCollisionHeightField3D** will follow the current camera in global space. The **GPUParticlesCollisionHeightField3D** does not need to be a child of the :ref:`Camera3D<class_Camera3D>` node for this to work.
 
@@ -180,8 +180,8 @@ Following the camera has a performance cost, as it will force the heightmap to u
 
 .. rst-class:: classref-property-setget
 
-- void **set_resolution** **(** :ref:`Resolution<enum_GPUParticlesCollisionHeightField3D_Resolution>` value **)**
-- :ref:`Resolution<enum_GPUParticlesCollisionHeightField3D_Resolution>` **get_resolution** **(** **)**
+- |void| **set_resolution**\ (\ value\: :ref:`Resolution<enum_GPUParticlesCollisionHeightField3D_Resolution>`\ )
+- :ref:`Resolution<enum_GPUParticlesCollisionHeightField3D_Resolution>` **get_resolution**\ (\ )
 
 Higher resolutions can represent small details more accurately in large scenes, at the cost of lower performance. If :ref:`update_mode<class_GPUParticlesCollisionHeightField3D_property_update_mode>` is :ref:`UPDATE_MODE_ALWAYS<class_GPUParticlesCollisionHeightField3D_constant_UPDATE_MODE_ALWAYS>`, consider using the lowest resolution possible.
 
@@ -197,8 +197,8 @@ Higher resolutions can represent small details more accurately in large scenes, 
 
 .. rst-class:: classref-property-setget
 
-- void **set_size** **(** :ref:`Vector3<class_Vector3>` value **)**
-- :ref:`Vector3<class_Vector3>` **get_size** **(** **)**
+- |void| **set_size**\ (\ value\: :ref:`Vector3<class_Vector3>`\ )
+- :ref:`Vector3<class_Vector3>` **get_size**\ (\ )
 
 The collision heightmap's size in 3D units. To improve heightmap quality, :ref:`size<class_GPUParticlesCollisionHeightField3D_property_size>` should be set as small as possible while covering the parts of the scene you need.
 
@@ -214,8 +214,8 @@ The collision heightmap's size in 3D units. To improve heightmap quality, :ref:`
 
 .. rst-class:: classref-property-setget
 
-- void **set_update_mode** **(** :ref:`UpdateMode<enum_GPUParticlesCollisionHeightField3D_UpdateMode>` value **)**
-- :ref:`UpdateMode<enum_GPUParticlesCollisionHeightField3D_UpdateMode>` **get_update_mode** **(** **)**
+- |void| **set_update_mode**\ (\ value\: :ref:`UpdateMode<enum_GPUParticlesCollisionHeightField3D_UpdateMode>`\ )
+- :ref:`UpdateMode<enum_GPUParticlesCollisionHeightField3D_UpdateMode>` **get_update_mode**\ (\ )
 
 The update policy to use for the generated heightmap.
 
@@ -225,3 +225,5 @@ The update policy to use for the generated heightmap.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`
