@@ -12,9 +12,81 @@ RDPipelineColorBlendStateAttachment
 
 **Inherits:** :ref:`RefCounted<class_RefCounted>` **<** :ref:`Object<class_Object>`
 
-.. container:: contribute
+Pipeline color blend state attachment (used by :ref:`RenderingDevice<class_RenderingDevice>`).
 
-	There is currently no description for this class. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+.. rst-class:: classref-introduction-group
+
+Description
+-----------
+
+Controls how blending between source and destination fragments is performed when using :ref:`RenderingDevice<class_RenderingDevice>`.
+
+For reference, this is how common user-facing blend modes are implemented in Godot's 2D renderer:
+
+\ **Mix:**\ 
+
+::
+
+    var attachment = RDPipelineColorBlendStateAttachment.new()
+    attachment.enable_blend = true
+    attachment.color_blend_op = RenderingDevice.BLEND_OP_ADD
+    attachment.src_color_blend_factor = RenderingDevice.BLEND_FACTOR_SRC_ALPHA
+    attachment.dst_color_blend_factor = RenderingDevice.BLEND_FACTOR_ONE_MINUS_SRC_ALPHA
+    attachment.alpha_blend_op = RenderingDevice.BLEND_OP_ADD
+    attachment.src_alpha_blend_factor = RenderingDevice.BLEND_FACTOR_ONE
+    attachment.dst_alpha_blend_factor = RenderingDevice.BLEND_FACTOR_ONE_MINUS_SRC_ALPHA
+
+\ **Add:**\ 
+
+::
+
+    var attachment = RDPipelineColorBlendStateAttachment.new()
+    attachment.enable_blend = true
+    attachment.alpha_blend_op = RenderingDevice.BLEND_OP_ADD
+    attachment.color_blend_op = RenderingDevice.BLEND_OP_ADD
+    attachment.src_color_blend_factor = RenderingDevice.BLEND_FACTOR_SRC_ALPHA
+    attachment.dst_color_blend_factor = RenderingDevice.BLEND_FACTOR_ONE
+    attachment.src_alpha_blend_factor = RenderingDevice.BLEND_FACTOR_SRC_ALPHA
+    attachment.dst_alpha_blend_factor = RenderingDevice.BLEND_FACTOR_ONE
+
+\ **Subtract:**\ 
+
+::
+
+    var attachment = RDPipelineColorBlendStateAttachment.new()
+    attachment.enable_blend = true
+    attachment.alpha_blend_op = RenderingDevice.BLEND_OP_REVERSE_SUBTRACT
+    attachment.color_blend_op = RenderingDevice.BLEND_OP_REVERSE_SUBTRACT
+    attachment.src_color_blend_factor = RenderingDevice.BLEND_FACTOR_SRC_ALPHA
+    attachment.dst_color_blend_factor = RenderingDevice.BLEND_FACTOR_ONE
+    attachment.src_alpha_blend_factor = RenderingDevice.BLEND_FACTOR_SRC_ALPHA
+    attachment.dst_alpha_blend_factor = RenderingDevice.BLEND_FACTOR_ONE
+
+\ **Multiply:**\ 
+
+::
+
+    var attachment = RDPipelineColorBlendStateAttachment.new()
+    attachment.enable_blend = true
+    attachment.alpha_blend_op = RenderingDevice.BLEND_OP_ADD
+    attachment.color_blend_op = RenderingDevice.BLEND_OP_ADD
+    attachment.src_color_blend_factor = RenderingDevice.BLEND_FACTOR_DST_COLOR
+    attachment.dst_color_blend_factor = RenderingDevice.BLEND_FACTOR_ZERO
+    attachment.src_alpha_blend_factor = RenderingDevice.BLEND_FACTOR_DST_ALPHA
+    attachment.dst_alpha_blend_factor = RenderingDevice.BLEND_FACTOR_ZERO
+
+\ **Pre-multiplied alpha:**\ 
+
+::
+
+    var attachment = RDPipelineColorBlendStateAttachment.new()
+    attachment.enable_blend = true
+    attachment.alpha_blend_op = RenderingDevice.BLEND_OP_ADD
+    attachment.color_blend_op = RenderingDevice.BLEND_OP_ADD
+    attachment.src_color_blend_factor = RenderingDevice.BLEND_FACTOR_ONE
+    attachment.dst_color_blend_factor = RenderingDevice.BLEND_FACTOR_ONE_MINUS_SRC_ALPHA
+    attachment.src_alpha_blend_factor = RenderingDevice.BLEND_FACTOR_ONE
+    attachment.dst_alpha_blend_factor = RenderingDevice.BLEND_FACTOR_ONE_MINUS_SRC_ALPHA
 
 .. rst-class:: classref-reftable-group
 
@@ -56,9 +128,9 @@ Methods
 .. table::
    :widths: auto
 
-   +------+--------------------------------------------------------------------------------------------+
-   | void | :ref:`set_as_mix<class_RDPipelineColorBlendStateAttachment_method_set_as_mix>` **(** **)** |
-   +------+--------------------------------------------------------------------------------------------+
+   +--------+--------------------------------------------------------------------------------------+
+   | |void| | :ref:`set_as_mix<class_RDPipelineColorBlendStateAttachment_method_set_as_mix>`\ (\ ) |
+   +--------+--------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -77,12 +149,10 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_alpha_blend_op** **(** :ref:`BlendOperation<enum_RenderingDevice_BlendOperation>` value **)**
-- :ref:`BlendOperation<enum_RenderingDevice_BlendOperation>` **get_alpha_blend_op** **(** **)**
+- |void| **set_alpha_blend_op**\ (\ value\: :ref:`BlendOperation<enum_RenderingDevice_BlendOperation>`\ )
+- :ref:`BlendOperation<enum_RenderingDevice_BlendOperation>` **get_alpha_blend_op**\ (\ )
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+The blend mode to use for the alpha channel.
 
 .. rst-class:: classref-item-separator
 
@@ -96,12 +166,10 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_color_blend_op** **(** :ref:`BlendOperation<enum_RenderingDevice_BlendOperation>` value **)**
-- :ref:`BlendOperation<enum_RenderingDevice_BlendOperation>` **get_color_blend_op** **(** **)**
+- |void| **set_color_blend_op**\ (\ value\: :ref:`BlendOperation<enum_RenderingDevice_BlendOperation>`\ )
+- :ref:`BlendOperation<enum_RenderingDevice_BlendOperation>` **get_color_blend_op**\ (\ )
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+The blend mode to use for the red/green/blue color channels.
 
 .. rst-class:: classref-item-separator
 
@@ -115,12 +183,10 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_dst_alpha_blend_factor** **(** :ref:`BlendFactor<enum_RenderingDevice_BlendFactor>` value **)**
-- :ref:`BlendFactor<enum_RenderingDevice_BlendFactor>` **get_dst_alpha_blend_factor** **(** **)**
+- |void| **set_dst_alpha_blend_factor**\ (\ value\: :ref:`BlendFactor<enum_RenderingDevice_BlendFactor>`\ )
+- :ref:`BlendFactor<enum_RenderingDevice_BlendFactor>` **get_dst_alpha_blend_factor**\ (\ )
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+Controls how the blend factor for the alpha channel is determined based on the destination's fragments.
 
 .. rst-class:: classref-item-separator
 
@@ -134,12 +200,10 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_dst_color_blend_factor** **(** :ref:`BlendFactor<enum_RenderingDevice_BlendFactor>` value **)**
-- :ref:`BlendFactor<enum_RenderingDevice_BlendFactor>` **get_dst_color_blend_factor** **(** **)**
+- |void| **set_dst_color_blend_factor**\ (\ value\: :ref:`BlendFactor<enum_RenderingDevice_BlendFactor>`\ )
+- :ref:`BlendFactor<enum_RenderingDevice_BlendFactor>` **get_dst_color_blend_factor**\ (\ )
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+Controls how the blend factor for the color channels is determined based on the destination's fragments.
 
 .. rst-class:: classref-item-separator
 
@@ -153,12 +217,10 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_enable_blend** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **get_enable_blend** **(** **)**
+- |void| **set_enable_blend**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **get_enable_blend**\ (\ )
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+If ``true``, performs blending between the source and destination according to the factors defined in :ref:`src_color_blend_factor<class_RDPipelineColorBlendStateAttachment_property_src_color_blend_factor>`, :ref:`dst_color_blend_factor<class_RDPipelineColorBlendStateAttachment_property_dst_color_blend_factor>`, :ref:`src_alpha_blend_factor<class_RDPipelineColorBlendStateAttachment_property_src_alpha_blend_factor>` and :ref:`dst_alpha_blend_factor<class_RDPipelineColorBlendStateAttachment_property_dst_alpha_blend_factor>`. The blend modes :ref:`color_blend_op<class_RDPipelineColorBlendStateAttachment_property_color_blend_op>` and :ref:`alpha_blend_op<class_RDPipelineColorBlendStateAttachment_property_alpha_blend_op>` are also taken into account, with :ref:`write_r<class_RDPipelineColorBlendStateAttachment_property_write_r>`, :ref:`write_g<class_RDPipelineColorBlendStateAttachment_property_write_g>`, :ref:`write_b<class_RDPipelineColorBlendStateAttachment_property_write_b>` and :ref:`write_a<class_RDPipelineColorBlendStateAttachment_property_write_a>` controlling the output.
 
 .. rst-class:: classref-item-separator
 
@@ -172,12 +234,10 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_src_alpha_blend_factor** **(** :ref:`BlendFactor<enum_RenderingDevice_BlendFactor>` value **)**
-- :ref:`BlendFactor<enum_RenderingDevice_BlendFactor>` **get_src_alpha_blend_factor** **(** **)**
+- |void| **set_src_alpha_blend_factor**\ (\ value\: :ref:`BlendFactor<enum_RenderingDevice_BlendFactor>`\ )
+- :ref:`BlendFactor<enum_RenderingDevice_BlendFactor>` **get_src_alpha_blend_factor**\ (\ )
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+Controls how the blend factor for the alpha channel is determined based on the source's fragments.
 
 .. rst-class:: classref-item-separator
 
@@ -191,12 +251,10 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_src_color_blend_factor** **(** :ref:`BlendFactor<enum_RenderingDevice_BlendFactor>` value **)**
-- :ref:`BlendFactor<enum_RenderingDevice_BlendFactor>` **get_src_color_blend_factor** **(** **)**
+- |void| **set_src_color_blend_factor**\ (\ value\: :ref:`BlendFactor<enum_RenderingDevice_BlendFactor>`\ )
+- :ref:`BlendFactor<enum_RenderingDevice_BlendFactor>` **get_src_color_blend_factor**\ (\ )
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+Controls how the blend factor for the color channels is determined based on the source's fragments.
 
 .. rst-class:: classref-item-separator
 
@@ -210,12 +268,10 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_write_a** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **get_write_a** **(** **)**
+- |void| **set_write_a**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **get_write_a**\ (\ )
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+If ``true``, writes the new alpha channel to the final result.
 
 .. rst-class:: classref-item-separator
 
@@ -229,12 +285,10 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_write_b** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **get_write_b** **(** **)**
+- |void| **set_write_b**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **get_write_b**\ (\ )
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+If ``true``, writes the new blue color channel to the final result.
 
 .. rst-class:: classref-item-separator
 
@@ -248,12 +302,10 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_write_g** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **get_write_g** **(** **)**
+- |void| **set_write_g**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **get_write_g**\ (\ )
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+If ``true``, writes the new green color channel to the final result.
 
 .. rst-class:: classref-item-separator
 
@@ -267,12 +319,10 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_write_r** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **get_write_r** **(** **)**
+- |void| **set_write_r**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **get_write_r**\ (\ )
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+If ``true``, writes the new red color channel to the final result.
 
 .. rst-class:: classref-section-separator
 
@@ -287,11 +337,9 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-void **set_as_mix** **(** **)**
+|void| **set_as_mix**\ (\ )
 
-.. container:: contribute
-
-	There is currently no description for this method. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+Convenience method to perform standard mix blending with straight (non-premultiplied) alpha. This sets :ref:`enable_blend<class_RDPipelineColorBlendStateAttachment_property_enable_blend>` to ``true``, :ref:`src_color_blend_factor<class_RDPipelineColorBlendStateAttachment_property_src_color_blend_factor>` to :ref:`RenderingDevice.BLEND_FACTOR_SRC_ALPHA<class_RenderingDevice_constant_BLEND_FACTOR_SRC_ALPHA>`, :ref:`dst_color_blend_factor<class_RDPipelineColorBlendStateAttachment_property_dst_color_blend_factor>` to :ref:`RenderingDevice.BLEND_FACTOR_ONE_MINUS_SRC_ALPHA<class_RenderingDevice_constant_BLEND_FACTOR_ONE_MINUS_SRC_ALPHA>`, :ref:`src_alpha_blend_factor<class_RDPipelineColorBlendStateAttachment_property_src_alpha_blend_factor>` to :ref:`RenderingDevice.BLEND_FACTOR_SRC_ALPHA<class_RenderingDevice_constant_BLEND_FACTOR_SRC_ALPHA>` and :ref:`dst_alpha_blend_factor<class_RDPipelineColorBlendStateAttachment_property_dst_alpha_blend_factor>` to :ref:`RenderingDevice.BLEND_FACTOR_ONE_MINUS_SRC_ALPHA<class_RenderingDevice_constant_BLEND_FACTOR_ONE_MINUS_SRC_ALPHA>`.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
@@ -299,3 +347,5 @@ void **set_as_mix** **(** **)**
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`

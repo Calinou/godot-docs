@@ -21,19 +21,7 @@ Base class for texture arrays that can optionally be compressed.
 Description
 -----------
 
-A texture array that is loaded from a ``.ctexarray`` file. This file format is internal to Godot; it is created by importing other image formats with the import system. :ref:`CompressedTexture2D<class_CompressedTexture2D>` can use one of 4 compresson methods:
-
-- Uncompressed (uncompressed on the GPU)
-
-- Lossless (WebP or PNG, uncompressed on the GPU)
-
-- Lossy (WebP, uncompressed on the GPU)
-
-- VRAM Compressed (compressed on the GPU)
-
-Only **VRAM Compressed** actually reduces the memory usage on the GPU. The **Lossless** and **Lossy** compression methods will reduce the required storage on disk, but they will not reduce memory usage on the GPU as the texture is sent to the GPU uncompressed.
-
-Using **VRAM Compressed** also improves loading times, as VRAM-compressed textures are faster to load compared to textures using lossless or lossy compression. VRAM compression can exhibit noticeable artifacts and is intended to be used for 3D rendering, not 2D.
+Base class for :ref:`CompressedTexture2DArray<class_CompressedTexture2DArray>` and :ref:`CompressedTexture3D<class_CompressedTexture3D>`. Cannot be used directly, but contains all the functions necessary for accessing the derived resource types. See also :ref:`TextureLayered<class_TextureLayered>`.
 
 .. rst-class:: classref-reftable-group
 
@@ -55,9 +43,9 @@ Methods
 .. table::
    :widths: auto
 
-   +---------------------------------------+------------------------------------------------------------------------------------------------------+
-   | :ref:`Error<enum_@GlobalScope_Error>` | :ref:`load<class_CompressedTextureLayered_method_load>` **(** :ref:`String<class_String>` path **)** |
-   +---------------------------------------+------------------------------------------------------------------------------------------------------+
+   +---------------------------------------+---------------------------------------------------------------------------------------------------+
+   | :ref:`Error<enum_@GlobalScope_Error>` | :ref:`load<class_CompressedTextureLayered_method_load>`\ (\ path\: :ref:`String<class_String>`\ ) |
+   +---------------------------------------+---------------------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -76,8 +64,8 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- :ref:`Error<enum_@GlobalScope_Error>` **load** **(** :ref:`String<class_String>` path **)**
-- :ref:`String<class_String>` **get_load_path** **(** **)**
+- :ref:`Error<enum_@GlobalScope_Error>` **load**\ (\ path\: :ref:`String<class_String>`\ )
+- :ref:`String<class_String>` **get_load_path**\ (\ )
 
 The path the texture should be loaded from.
 
@@ -94,7 +82,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`Error<enum_@GlobalScope_Error>` **load** **(** :ref:`String<class_String>` path **)**
+:ref:`Error<enum_@GlobalScope_Error>` **load**\ (\ path\: :ref:`String<class_String>`\ )
 
 Loads the texture at ``path``.
 
@@ -104,3 +92,5 @@ Loads the texture at ``path``.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`

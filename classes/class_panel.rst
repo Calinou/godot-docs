@@ -12,25 +12,23 @@ Panel
 
 **Inherits:** :ref:`Control<class_Control>` **<** :ref:`CanvasItem<class_CanvasItem>` **<** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
 
-Provides an opaque background for :ref:`Control<class_Control>` children.
+A GUI control that displays a :ref:`StyleBox<class_StyleBox>`.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-Panel is a :ref:`Control<class_Control>` that displays an opaque background. It's commonly used as a parent and container for other types of :ref:`Control<class_Control>` nodes.
+**Panel** is a GUI control that displays a :ref:`StyleBox<class_StyleBox>`. See also :ref:`PanelContainer<class_PanelContainer>`.
 
 .. rst-class:: classref-introduction-group
 
 Tutorials
 ---------
 
-- `2D Role Playing Game Demo <https://godotengine.org/asset-library/asset/520>`__
+- `2D Role Playing Game (RPG) Demo <https://godotengine.org/asset-library/asset/2729>`__
 
-- `2D Finite State Machine Demo <https://godotengine.org/asset-library/asset/516>`__
-
-- `3D Inverse Kinematics Demo <https://godotengine.org/asset-library/asset/523>`__
+- `Hierarchical Finite State Machine Demo <https://godotengine.org/asset-library/asset/2714>`__
 
 .. rst-class:: classref-reftable-group
 
@@ -59,7 +57,7 @@ Theme Property Descriptions
 
 :ref:`StyleBox<class_StyleBox>` **panel**
 
-The style of this **Panel**.
+The :ref:`StyleBox<class_StyleBox>` of this control.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
@@ -67,3 +65,5 @@ The style of this **Panel**.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`

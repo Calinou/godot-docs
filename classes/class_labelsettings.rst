@@ -12,14 +12,14 @@ LabelSettings
 
 **Inherits:** :ref:`Resource<class_Resource>` **<** :ref:`RefCounted<class_RefCounted>` **<** :ref:`Object<class_Object>`
 
-Collection of common settings to customize label text.
+Provides common settings to customize the text in a :ref:`Label<class_Label>`.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-**LabelSettings** is a resource that can be assigned to a :ref:`Label<class_Label>` node to customize it. It will take priority over the properties defined in theme. The resource can be shared between multiple labels and swapped on the fly, so it's convenient and flexible way to setup text style.
+**LabelSettings** is a resource that provides common settings to customize the text in a :ref:`Label<class_Label>`. It will take priority over the properties defined in :ref:`Control.theme<class_Control_property_theme>`. The resource can be shared between multiple labels and changed on the fly, so it's convenient and flexible way to setup text style.
 
 .. rst-class:: classref-reftable-group
 
@@ -66,8 +66,8 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_font** **(** :ref:`Font<class_Font>` value **)**
-- :ref:`Font<class_Font>` **get_font** **(** **)**
+- |void| **set_font**\ (\ value\: :ref:`Font<class_Font>`\ )
+- :ref:`Font<class_Font>` **get_font**\ (\ )
 
 :ref:`Font<class_Font>` used for the text.
 
@@ -83,8 +83,8 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_font_color** **(** :ref:`Color<class_Color>` value **)**
-- :ref:`Color<class_Color>` **get_font_color** **(** **)**
+- |void| **set_font_color**\ (\ value\: :ref:`Color<class_Color>`\ )
+- :ref:`Color<class_Color>` **get_font_color**\ (\ )
 
 Color of the text.
 
@@ -100,8 +100,8 @@ Color of the text.
 
 .. rst-class:: classref-property-setget
 
-- void **set_font_size** **(** :ref:`int<class_int>` value **)**
-- :ref:`int<class_int>` **get_font_size** **(** **)**
+- |void| **set_font_size**\ (\ value\: :ref:`int<class_int>`\ )
+- :ref:`int<class_int>` **get_font_size**\ (\ )
 
 Size of the text.
 
@@ -117,8 +117,8 @@ Size of the text.
 
 .. rst-class:: classref-property-setget
 
-- void **set_line_spacing** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_line_spacing** **(** **)**
+- |void| **set_line_spacing**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_line_spacing**\ (\ )
 
 Vertical space between lines when the text is multiline.
 
@@ -134,8 +134,8 @@ Vertical space between lines when the text is multiline.
 
 .. rst-class:: classref-property-setget
 
-- void **set_outline_color** **(** :ref:`Color<class_Color>` value **)**
-- :ref:`Color<class_Color>` **get_outline_color** **(** **)**
+- |void| **set_outline_color**\ (\ value\: :ref:`Color<class_Color>`\ )
+- :ref:`Color<class_Color>` **get_outline_color**\ (\ )
 
 The color of the outline.
 
@@ -151,8 +151,8 @@ The color of the outline.
 
 .. rst-class:: classref-property-setget
 
-- void **set_outline_size** **(** :ref:`int<class_int>` value **)**
-- :ref:`int<class_int>` **get_outline_size** **(** **)**
+- |void| **set_outline_size**\ (\ value\: :ref:`int<class_int>`\ )
+- :ref:`int<class_int>` **get_outline_size**\ (\ )
 
 Text outline size.
 
@@ -168,8 +168,8 @@ Text outline size.
 
 .. rst-class:: classref-property-setget
 
-- void **set_shadow_color** **(** :ref:`Color<class_Color>` value **)**
-- :ref:`Color<class_Color>` **get_shadow_color** **(** **)**
+- |void| **set_shadow_color**\ (\ value\: :ref:`Color<class_Color>`\ )
+- :ref:`Color<class_Color>` **get_shadow_color**\ (\ )
 
 Color of the shadow effect. If alpha is ``0``, no shadow will be drawn.
 
@@ -185,8 +185,8 @@ Color of the shadow effect. If alpha is ``0``, no shadow will be drawn.
 
 .. rst-class:: classref-property-setget
 
-- void **set_shadow_offset** **(** :ref:`Vector2<class_Vector2>` value **)**
-- :ref:`Vector2<class_Vector2>` **get_shadow_offset** **(** **)**
+- |void| **set_shadow_offset**\ (\ value\: :ref:`Vector2<class_Vector2>`\ )
+- :ref:`Vector2<class_Vector2>` **get_shadow_offset**\ (\ )
 
 Offset of the shadow effect, in pixels.
 
@@ -202,8 +202,8 @@ Offset of the shadow effect, in pixels.
 
 .. rst-class:: classref-property-setget
 
-- void **set_shadow_size** **(** :ref:`int<class_int>` value **)**
-- :ref:`int<class_int>` **get_shadow_size** **(** **)**
+- |void| **set_shadow_size**\ (\ value\: :ref:`int<class_int>`\ )
+- :ref:`int<class_int>` **get_shadow_size**\ (\ )
 
 Size of the shadow effect.
 
@@ -213,3 +213,5 @@ Size of the shadow effect.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`
