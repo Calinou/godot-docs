@@ -12,7 +12,7 @@ AnimationNodeStateMachineTransition
 
 **Inherits:** :ref:`Resource<class_Resource>` **<** :ref:`RefCounted<class_RefCounted>` **<** :ref:`Object<class_Object>`
 
-A resource to connect each node to make a path for :ref:`AnimationNodeStateMachine<class_AnimationNodeStateMachine>`.
+A transition within an :ref:`AnimationNodeStateMachine<class_AnimationNodeStateMachine>` connecting two :ref:`AnimationRootNode<class_AnimationRootNode>`\ s.
 
 .. rst-class:: classref-introduction-group
 
@@ -28,7 +28,7 @@ You can set the timing and conditions of the transition in detail.
 Tutorials
 ---------
 
-- :doc:`AnimationTree <../tutorials/animation/animation_tree>`
+- :doc:`Using AnimationTree <../tutorials/animation/animation_tree>`
 
 .. rst-class:: classref-reftable-group
 
@@ -38,23 +38,25 @@ Properties
 .. table::
    :widths: auto
 
-   +--------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+----------+
-   | :ref:`StringName<class_StringName>`                                      | :ref:`advance_condition<class_AnimationNodeStateMachineTransition_property_advance_condition>`   | ``&""``  |
-   +--------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+----------+
-   | :ref:`String<class_String>`                                              | :ref:`advance_expression<class_AnimationNodeStateMachineTransition_property_advance_expression>` | ``""``   |
-   +--------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+----------+
-   | :ref:`AdvanceMode<enum_AnimationNodeStateMachineTransition_AdvanceMode>` | :ref:`advance_mode<class_AnimationNodeStateMachineTransition_property_advance_mode>`             | ``1``    |
-   +--------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+----------+
-   | :ref:`int<class_int>`                                                    | :ref:`priority<class_AnimationNodeStateMachineTransition_property_priority>`                     | ``1``    |
-   +--------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+----------+
-   | :ref:`bool<class_bool>`                                                  | :ref:`reset<class_AnimationNodeStateMachineTransition_property_reset>`                           | ``true`` |
-   +--------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+----------+
-   | :ref:`SwitchMode<enum_AnimationNodeStateMachineTransition_SwitchMode>`   | :ref:`switch_mode<class_AnimationNodeStateMachineTransition_property_switch_mode>`               | ``0``    |
-   +--------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+----------+
-   | :ref:`Curve<class_Curve>`                                                | :ref:`xfade_curve<class_AnimationNodeStateMachineTransition_property_xfade_curve>`               |          |
-   +--------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+----------+
-   | :ref:`float<class_float>`                                                | :ref:`xfade_time<class_AnimationNodeStateMachineTransition_property_xfade_time>`                 | ``0.0``  |
-   +--------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+----------+
+   +--------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+-----------+
+   | :ref:`StringName<class_StringName>`                                      | :ref:`advance_condition<class_AnimationNodeStateMachineTransition_property_advance_condition>`   | ``&""``   |
+   +--------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+-----------+
+   | :ref:`String<class_String>`                                              | :ref:`advance_expression<class_AnimationNodeStateMachineTransition_property_advance_expression>` | ``""``    |
+   +--------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+-----------+
+   | :ref:`AdvanceMode<enum_AnimationNodeStateMachineTransition_AdvanceMode>` | :ref:`advance_mode<class_AnimationNodeStateMachineTransition_property_advance_mode>`             | ``1``     |
+   +--------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+-----------+
+   | :ref:`bool<class_bool>`                                                  | :ref:`break_loop_at_end<class_AnimationNodeStateMachineTransition_property_break_loop_at_end>`   | ``false`` |
+   +--------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+-----------+
+   | :ref:`int<class_int>`                                                    | :ref:`priority<class_AnimationNodeStateMachineTransition_property_priority>`                     | ``1``     |
+   +--------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+-----------+
+   | :ref:`bool<class_bool>`                                                  | :ref:`reset<class_AnimationNodeStateMachineTransition_property_reset>`                           | ``true``  |
+   +--------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+-----------+
+   | :ref:`SwitchMode<enum_AnimationNodeStateMachineTransition_SwitchMode>`   | :ref:`switch_mode<class_AnimationNodeStateMachineTransition_property_switch_mode>`               | ``0``     |
+   +--------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+-----------+
+   | :ref:`Curve<class_Curve>`                                                | :ref:`xfade_curve<class_AnimationNodeStateMachineTransition_property_xfade_curve>`               |           |
+   +--------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+-----------+
+   | :ref:`float<class_float>`                                                | :ref:`xfade_time<class_AnimationNodeStateMachineTransition_property_xfade_time>`                 | ``0.0``   |
+   +--------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+-----------+
 
 .. rst-class:: classref-section-separator
 
@@ -69,7 +71,7 @@ Signals
 
 .. rst-class:: classref-signal
 
-**advance_condition_changed** **(** **)**
+**advance_condition_changed**\ (\ )
 
 Emitted when :ref:`advance_condition<class_AnimationNodeStateMachineTransition_property_advance_condition>` is changed.
 
@@ -163,8 +165,8 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_advance_condition** **(** :ref:`StringName<class_StringName>` value **)**
-- :ref:`StringName<class_StringName>` **get_advance_condition** **(** **)**
+- |void| **set_advance_condition**\ (\ value\: :ref:`StringName<class_StringName>`\ )
+- :ref:`StringName<class_StringName>` **get_advance_condition**\ (\ )
 
 Turn on auto advance when this condition is set. The provided name will become a boolean parameter on the :ref:`AnimationTree<class_AnimationTree>` that can be controlled from code (see `Using AnimationTree <../tutorials/animation/animation_tree.html#controlling-from-code>`__). For example, if :ref:`AnimationTree.tree_root<class_AnimationTree_property_tree_root>` is an :ref:`AnimationNodeStateMachine<class_AnimationNodeStateMachine>` and :ref:`advance_condition<class_AnimationNodeStateMachineTransition_property_advance_condition>` is set to ``"idle"``:
 
@@ -193,8 +195,8 @@ Turn on auto advance when this condition is set. The provided name will become a
 
 .. rst-class:: classref-property-setget
 
-- void **set_advance_expression** **(** :ref:`String<class_String>` value **)**
-- :ref:`String<class_String>` **get_advance_expression** **(** **)**
+- |void| **set_advance_expression**\ (\ value\: :ref:`String<class_String>`\ )
+- :ref:`String<class_String>` **get_advance_expression**\ (\ )
 
 Use an expression as a condition for state machine transitions. It is possible to create complex animation advance conditions for switching between states and gives much greater flexibility for creating complex state machines by directly interfacing with the script code.
 
@@ -210,10 +212,27 @@ Use an expression as a condition for state machine transitions. It is possible t
 
 .. rst-class:: classref-property-setget
 
-- void **set_advance_mode** **(** :ref:`AdvanceMode<enum_AnimationNodeStateMachineTransition_AdvanceMode>` value **)**
-- :ref:`AdvanceMode<enum_AnimationNodeStateMachineTransition_AdvanceMode>` **get_advance_mode** **(** **)**
+- |void| **set_advance_mode**\ (\ value\: :ref:`AdvanceMode<enum_AnimationNodeStateMachineTransition_AdvanceMode>`\ )
+- :ref:`AdvanceMode<enum_AnimationNodeStateMachineTransition_AdvanceMode>` **get_advance_mode**\ (\ )
 
 Determines whether the transition should disabled, enabled when using :ref:`AnimationNodeStateMachinePlayback.travel<class_AnimationNodeStateMachinePlayback_method_travel>`, or traversed automatically if the :ref:`advance_condition<class_AnimationNodeStateMachineTransition_property_advance_condition>` and :ref:`advance_expression<class_AnimationNodeStateMachineTransition_property_advance_expression>` checks are true (if assigned).
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_AnimationNodeStateMachineTransition_property_break_loop_at_end:
+
+.. rst-class:: classref-property
+
+:ref:`bool<class_bool>` **break_loop_at_end** = ``false``
+
+.. rst-class:: classref-property-setget
+
+- |void| **set_break_loop_at_end**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **is_loop_broken_at_end**\ (\ )
+
+If ``true``, breaks the loop at the end of the loop cycle for transition, even if the animation is looping.
 
 .. rst-class:: classref-item-separator
 
@@ -227,8 +246,8 @@ Determines whether the transition should disabled, enabled when using :ref:`Anim
 
 .. rst-class:: classref-property-setget
 
-- void **set_priority** **(** :ref:`int<class_int>` value **)**
-- :ref:`int<class_int>` **get_priority** **(** **)**
+- |void| **set_priority**\ (\ value\: :ref:`int<class_int>`\ )
+- :ref:`int<class_int>` **get_priority**\ (\ )
 
 Lower priority transitions are preferred when travelling through the tree via :ref:`AnimationNodeStateMachinePlayback.travel<class_AnimationNodeStateMachinePlayback_method_travel>` or :ref:`advance_mode<class_AnimationNodeStateMachineTransition_property_advance_mode>` is set to :ref:`ADVANCE_MODE_AUTO<class_AnimationNodeStateMachineTransition_constant_ADVANCE_MODE_AUTO>`.
 
@@ -244,8 +263,8 @@ Lower priority transitions are preferred when travelling through the tree via :r
 
 .. rst-class:: classref-property-setget
 
-- void **set_reset** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **is_reset** **(** **)**
+- |void| **set_reset**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **is_reset**\ (\ )
 
 If ``true``, the destination animation is played back from the beginning when switched.
 
@@ -261,8 +280,8 @@ If ``true``, the destination animation is played back from the beginning when sw
 
 .. rst-class:: classref-property-setget
 
-- void **set_switch_mode** **(** :ref:`SwitchMode<enum_AnimationNodeStateMachineTransition_SwitchMode>` value **)**
-- :ref:`SwitchMode<enum_AnimationNodeStateMachineTransition_SwitchMode>` **get_switch_mode** **(** **)**
+- |void| **set_switch_mode**\ (\ value\: :ref:`SwitchMode<enum_AnimationNodeStateMachineTransition_SwitchMode>`\ )
+- :ref:`SwitchMode<enum_AnimationNodeStateMachineTransition_SwitchMode>` **get_switch_mode**\ (\ )
 
 The transition type.
 
@@ -278,8 +297,8 @@ The transition type.
 
 .. rst-class:: classref-property-setget
 
-- void **set_xfade_curve** **(** :ref:`Curve<class_Curve>` value **)**
-- :ref:`Curve<class_Curve>` **get_xfade_curve** **(** **)**
+- |void| **set_xfade_curve**\ (\ value\: :ref:`Curve<class_Curve>`\ )
+- :ref:`Curve<class_Curve>` **get_xfade_curve**\ (\ )
 
 Ease curve for better control over cross-fade between this state and the next.
 
@@ -295,10 +314,12 @@ Ease curve for better control over cross-fade between this state and the next.
 
 .. rst-class:: classref-property-setget
 
-- void **set_xfade_time** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_xfade_time** **(** **)**
+- |void| **set_xfade_time**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_xfade_time**\ (\ )
 
 The time to cross-fade between this state and the next.
+
+\ **Note:** :ref:`AnimationNodeStateMachine<class_AnimationNodeStateMachine>` transitions the current state immediately after the start of the fading. The precise remaining time can only be inferred from the main animation. When :ref:`AnimationNodeOutput<class_AnimationNodeOutput>` is considered as the most upstream, so the :ref:`xfade_time<class_AnimationNodeStateMachineTransition_property_xfade_time>` is not scaled depending on the downstream delta. See also :ref:`AnimationNodeOneShot.fadeout_time<class_AnimationNodeOneShot_property_fadeout_time>`.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
@@ -306,3 +327,5 @@ The time to cross-fade between this state and the next.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`
