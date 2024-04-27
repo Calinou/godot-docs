@@ -21,6 +21,8 @@ Description
 
 **CallbackTweener** is used to call a method in a tweening sequence. See :ref:`Tween.tween_callback<class_Tween_method_tween_callback>` for more usage information.
 
+The tweener will finish automatically if the callback's target object is freed.
+
 \ **Note:** :ref:`Tween.tween_callback<class_Tween_method_tween_callback>` is the only correct way to create **CallbackTweener**. Any **CallbackTweener** created manually will not function correctly.
 
 .. rst-class:: classref-reftable-group
@@ -31,9 +33,9 @@ Methods
 .. table::
    :widths: auto
 
-   +-----------------------------------------------+------------------------------------------------------------------------------------------------------+
-   | :ref:`CallbackTweener<class_CallbackTweener>` | :ref:`set_delay<class_CallbackTweener_method_set_delay>` **(** :ref:`float<class_float>` delay **)** |
-   +-----------------------------------------------+------------------------------------------------------------------------------------------------------+
+   +-----------------------------------------------+---------------------------------------------------------------------------------------------------+
+   | :ref:`CallbackTweener<class_CallbackTweener>` | :ref:`set_delay<class_CallbackTweener_method_set_delay>`\ (\ delay\: :ref:`float<class_float>`\ ) |
+   +-----------------------------------------------+---------------------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -48,7 +50,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`CallbackTweener<class_CallbackTweener>` **set_delay** **(** :ref:`float<class_float>` delay **)**
+:ref:`CallbackTweener<class_CallbackTweener>` **set_delay**\ (\ delay\: :ref:`float<class_float>`\ )
 
 Makes the callback call delayed by given time in seconds.
 
@@ -65,3 +67,5 @@ Makes the callback call delayed by given time in seconds.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`

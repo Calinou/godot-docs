@@ -12,7 +12,7 @@ FogVolume
 
 **Inherits:** :ref:`VisualInstance3D<class_VisualInstance3D>` **<** :ref:`Node3D<class_Node3D>` **<** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
 
-A node used to add local fog with the volumetric fog effect.
+A region that contributes to the default volumetric fog from the world environment.
 
 .. rst-class:: classref-introduction-group
 
@@ -24,6 +24,13 @@ Description
 Performance of **FogVolume**\ s is directly related to their relative size on the screen and the complexity of their attached :ref:`FogMaterial<class_FogMaterial>`. It is best to keep **FogVolume**\ s relatively small and simple where possible.
 
 \ **Note:** **FogVolume**\ s only have a visible effect if :ref:`Environment.volumetric_fog_enabled<class_Environment_property_volumetric_fog_enabled>` is ``true``. If you don't want fog to be globally visible (but only within **FogVolume** nodes), set :ref:`Environment.volumetric_fog_density<class_Environment_property_volumetric_fog_density>` to ``0.0``.
+
+.. rst-class:: classref-introduction-group
+
+Tutorials
+---------
+
+- :doc:`Volumetric fog and fog volumes <../tutorials/3d/volumetric_fog>`
 
 .. rst-class:: classref-reftable-group
 
@@ -58,8 +65,8 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_material** **(** :ref:`Material<class_Material>` value **)**
-- :ref:`Material<class_Material>` **get_material** **(** **)**
+- |void| **set_material**\ (\ value\: :ref:`Material<class_Material>`\ )
+- :ref:`Material<class_Material>` **get_material**\ (\ )
 
 The :ref:`Material<class_Material>` used by the **FogVolume**. Can be either a built-in :ref:`FogMaterial<class_FogMaterial>` or a custom :ref:`ShaderMaterial<class_ShaderMaterial>`.
 
@@ -75,8 +82,8 @@ The :ref:`Material<class_Material>` used by the **FogVolume**. Can be either a b
 
 .. rst-class:: classref-property-setget
 
-- void **set_shape** **(** :ref:`FogVolumeShape<enum_RenderingServer_FogVolumeShape>` value **)**
-- :ref:`FogVolumeShape<enum_RenderingServer_FogVolumeShape>` **get_shape** **(** **)**
+- |void| **set_shape**\ (\ value\: :ref:`FogVolumeShape<enum_RenderingServer_FogVolumeShape>`\ )
+- :ref:`FogVolumeShape<enum_RenderingServer_FogVolumeShape>` **get_shape**\ (\ )
 
 The shape of the **FogVolume**. This can be set to either :ref:`RenderingServer.FOG_VOLUME_SHAPE_ELLIPSOID<class_RenderingServer_constant_FOG_VOLUME_SHAPE_ELLIPSOID>`, :ref:`RenderingServer.FOG_VOLUME_SHAPE_CONE<class_RenderingServer_constant_FOG_VOLUME_SHAPE_CONE>`, :ref:`RenderingServer.FOG_VOLUME_SHAPE_CYLINDER<class_RenderingServer_constant_FOG_VOLUME_SHAPE_CYLINDER>`, :ref:`RenderingServer.FOG_VOLUME_SHAPE_BOX<class_RenderingServer_constant_FOG_VOLUME_SHAPE_BOX>` or :ref:`RenderingServer.FOG_VOLUME_SHAPE_WORLD<class_RenderingServer_constant_FOG_VOLUME_SHAPE_WORLD>`.
 
@@ -92,8 +99,8 @@ The shape of the **FogVolume**. This can be set to either :ref:`RenderingServer.
 
 .. rst-class:: classref-property-setget
 
-- void **set_size** **(** :ref:`Vector3<class_Vector3>` value **)**
-- :ref:`Vector3<class_Vector3>` **get_size** **(** **)**
+- |void| **set_size**\ (\ value\: :ref:`Vector3<class_Vector3>`\ )
+- :ref:`Vector3<class_Vector3>` **get_size**\ (\ )
 
 The size of the **FogVolume** when :ref:`shape<class_FogVolume_property_shape>` is :ref:`RenderingServer.FOG_VOLUME_SHAPE_ELLIPSOID<class_RenderingServer_constant_FOG_VOLUME_SHAPE_ELLIPSOID>`, :ref:`RenderingServer.FOG_VOLUME_SHAPE_CONE<class_RenderingServer_constant_FOG_VOLUME_SHAPE_CONE>`, :ref:`RenderingServer.FOG_VOLUME_SHAPE_CYLINDER<class_RenderingServer_constant_FOG_VOLUME_SHAPE_CYLINDER>` or :ref:`RenderingServer.FOG_VOLUME_SHAPE_BOX<class_RenderingServer_constant_FOG_VOLUME_SHAPE_BOX>`.
 
@@ -107,3 +114,5 @@ The size of the **FogVolume** when :ref:`shape<class_FogVolume_property_shape>` 
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`

@@ -23,6 +23,13 @@ Description
 
 This node can be bound to a specific pose of a :ref:`XRPositionalTracker<class_XRPositionalTracker>` and will automatically have its :ref:`Node3D.transform<class_Node3D_property_transform>` updated by the :ref:`XRServer<class_XRServer>`. Nodes of this type must be added as children of the :ref:`XROrigin3D<class_XROrigin3D>` node.
 
+.. rst-class:: classref-introduction-group
+
+Tutorials
+---------
+
+- :doc:`XR documentation index <../tutorials/xr/index>`
+
 .. rst-class:: classref-reftable-group
 
 Properties
@@ -31,11 +38,13 @@ Properties
 .. table::
    :widths: auto
 
-   +-------------------------------------+-------------------------------------------------+----------------+
-   | :ref:`StringName<class_StringName>` | :ref:`pose<class_XRNode3D_property_pose>`       | ``&"default"`` |
-   +-------------------------------------+-------------------------------------------------+----------------+
-   | :ref:`StringName<class_StringName>` | :ref:`tracker<class_XRNode3D_property_tracker>` | ``&""``        |
-   +-------------------------------------+-------------------------------------------------+----------------+
+   +-------------------------------------+---------------------------------------------------------------------+----------------+
+   | :ref:`StringName<class_StringName>` | :ref:`pose<class_XRNode3D_property_pose>`                           | ``&"default"`` |
+   +-------------------------------------+---------------------------------------------------------------------+----------------+
+   | :ref:`bool<class_bool>`             | :ref:`show_when_tracked<class_XRNode3D_property_show_when_tracked>` | ``false``      |
+   +-------------------------------------+---------------------------------------------------------------------+----------------+
+   | :ref:`StringName<class_StringName>` | :ref:`tracker<class_XRNode3D_property_tracker>`                     | ``&""``        |
+   +-------------------------------------+---------------------------------------------------------------------+----------------+
 
 .. rst-class:: classref-reftable-group
 
@@ -45,15 +54,32 @@ Methods
 .. table::
    :widths: auto
 
-   +-----------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`     | :ref:`get_has_tracking_data<class_XRNode3D_method_get_has_tracking_data>` **(** **)** |const|                                                                                                                                                                                      |
-   +-----------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`     | :ref:`get_is_active<class_XRNode3D_method_get_is_active>` **(** **)** |const|                                                                                                                                                                                                      |
-   +-----------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`XRPose<class_XRPose>` | :ref:`get_pose<class_XRNode3D_method_get_pose>` **(** **)**                                                                                                                                                                                                                        |
-   +-----------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                        | :ref:`trigger_haptic_pulse<class_XRNode3D_method_trigger_haptic_pulse>` **(** :ref:`String<class_String>` action_name, :ref:`float<class_float>` frequency, :ref:`float<class_float>` amplitude, :ref:`float<class_float>` duration_sec, :ref:`float<class_float>` delay_sec **)** |
-   +-----------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`     | :ref:`get_has_tracking_data<class_XRNode3D_method_get_has_tracking_data>`\ (\ ) |const|                                                                                                                                                                                                 |
+   +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`     | :ref:`get_is_active<class_XRNode3D_method_get_is_active>`\ (\ ) |const|                                                                                                                                                                                                                 |
+   +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`XRPose<class_XRPose>` | :ref:`get_pose<class_XRNode3D_method_get_pose>`\ (\ )                                                                                                                                                                                                                                   |
+   +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                      | :ref:`trigger_haptic_pulse<class_XRNode3D_method_trigger_haptic_pulse>`\ (\ action_name\: :ref:`String<class_String>`, frequency\: :ref:`float<class_float>`, amplitude\: :ref:`float<class_float>`, duration_sec\: :ref:`float<class_float>`, delay_sec\: :ref:`float<class_float>`\ ) |
+   +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+.. rst-class:: classref-section-separator
+
+----
+
+.. rst-class:: classref-descriptions-group
+
+Signals
+-------
+
+.. _class_XRNode3D_signal_tracking_changed:
+
+.. rst-class:: classref-signal
+
+**tracking_changed**\ (\ tracking\: :ref:`bool<class_bool>`\ )
+
+Emitted when the :ref:`tracker<class_XRNode3D_property_tracker>` starts or stops receiving updated tracking data for the :ref:`pose<class_XRNode3D_property_pose>` being tracked. The ``tracking`` argument indicates whether the tracker is getting updated tracking data.
 
 .. rst-class:: classref-section-separator
 
@@ -72,12 +98,29 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_pose_name** **(** :ref:`StringName<class_StringName>` value **)**
-- :ref:`StringName<class_StringName>` **get_pose_name** **(** **)**
+- |void| **set_pose_name**\ (\ value\: :ref:`StringName<class_StringName>`\ )
+- :ref:`StringName<class_StringName>` **get_pose_name**\ (\ )
 
 The name of the pose we're bound to. Which poses a tracker supports is not known during design time.
 
 Godot defines number of standard pose names such as ``aim`` and ``grip`` but other may be configured within a given :ref:`XRInterface<class_XRInterface>`.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_XRNode3D_property_show_when_tracked:
+
+.. rst-class:: classref-property
+
+:ref:`bool<class_bool>` **show_when_tracked** = ``false``
+
+.. rst-class:: classref-property-setget
+
+- |void| **set_show_when_tracked**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **get_show_when_tracked**\ (\ )
+
+Enables showing the node when tracking starts, and hiding the node when tracking is lost.
 
 .. rst-class:: classref-item-separator
 
@@ -91,8 +134,8 @@ Godot defines number of standard pose names such as ``aim`` and ``grip`` but oth
 
 .. rst-class:: classref-property-setget
 
-- void **set_tracker** **(** :ref:`StringName<class_StringName>` value **)**
-- :ref:`StringName<class_StringName>` **get_tracker** **(** **)**
+- |void| **set_tracker**\ (\ value\: :ref:`StringName<class_StringName>`\ )
+- :ref:`StringName<class_StringName>` **get_tracker**\ (\ )
 
 The name of the tracker we're bound to. Which trackers are available is not known during design time.
 
@@ -111,7 +154,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **get_has_tracking_data** **(** **)** |const|
+:ref:`bool<class_bool>` **get_has_tracking_data**\ (\ ) |const|
 
 Returns ``true`` if the :ref:`tracker<class_XRNode3D_property_tracker>` has current tracking data for the :ref:`pose<class_XRNode3D_property_pose>` being tracked.
 
@@ -123,7 +166,7 @@ Returns ``true`` if the :ref:`tracker<class_XRNode3D_property_tracker>` has curr
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **get_is_active** **(** **)** |const|
+:ref:`bool<class_bool>` **get_is_active**\ (\ ) |const|
 
 Returns ``true`` if the :ref:`tracker<class_XRNode3D_property_tracker>` has been registered and the :ref:`pose<class_XRNode3D_property_pose>` is being tracked.
 
@@ -135,7 +178,7 @@ Returns ``true`` if the :ref:`tracker<class_XRNode3D_property_tracker>` has been
 
 .. rst-class:: classref-method
 
-:ref:`XRPose<class_XRPose>` **get_pose** **(** **)**
+:ref:`XRPose<class_XRPose>` **get_pose**\ (\ )
 
 Returns the :ref:`XRPose<class_XRPose>` containing the current state of the pose being tracked. This gives access to additional properties of this pose.
 
@@ -147,7 +190,7 @@ Returns the :ref:`XRPose<class_XRPose>` containing the current state of the pose
 
 .. rst-class:: classref-method
 
-void **trigger_haptic_pulse** **(** :ref:`String<class_String>` action_name, :ref:`float<class_float>` frequency, :ref:`float<class_float>` amplitude, :ref:`float<class_float>` duration_sec, :ref:`float<class_float>` delay_sec **)**
+|void| **trigger_haptic_pulse**\ (\ action_name\: :ref:`String<class_String>`, frequency\: :ref:`float<class_float>`, amplitude\: :ref:`float<class_float>`, duration_sec\: :ref:`float<class_float>`, delay_sec\: :ref:`float<class_float>`\ )
 
 Triggers a haptic pulse on a device associated with this interface.
 
@@ -159,3 +202,5 @@ Triggers a haptic pulse on a device associated with this interface.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`

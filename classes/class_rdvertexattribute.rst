@@ -12,9 +12,14 @@ RDVertexAttribute
 
 **Inherits:** :ref:`RefCounted<class_RefCounted>` **<** :ref:`Object<class_Object>`
 
-.. container:: contribute
+Vertex attribute (used by :ref:`RenderingDevice<class_RenderingDevice>`).
 
-	There is currently no description for this class. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+.. rst-class:: classref-introduction-group
+
+Description
+-----------
+
+This object is used by :ref:`RenderingDevice<class_RenderingDevice>`.
 
 .. rst-class:: classref-reftable-group
 
@@ -53,8 +58,8 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_format** **(** :ref:`DataFormat<enum_RenderingDevice_DataFormat>` value **)**
-- :ref:`DataFormat<enum_RenderingDevice_DataFormat>` **get_format** **(** **)**
+- |void| **set_format**\ (\ value\: :ref:`DataFormat<enum_RenderingDevice_DataFormat>`\ )
+- :ref:`DataFormat<enum_RenderingDevice_DataFormat>` **get_format**\ (\ )
 
 .. container:: contribute
 
@@ -72,8 +77,8 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_frequency** **(** :ref:`VertexFrequency<enum_RenderingDevice_VertexFrequency>` value **)**
-- :ref:`VertexFrequency<enum_RenderingDevice_VertexFrequency>` **get_frequency** **(** **)**
+- |void| **set_frequency**\ (\ value\: :ref:`VertexFrequency<enum_RenderingDevice_VertexFrequency>`\ )
+- :ref:`VertexFrequency<enum_RenderingDevice_VertexFrequency>` **get_frequency**\ (\ )
 
 .. container:: contribute
 
@@ -91,8 +96,8 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_location** **(** :ref:`int<class_int>` value **)**
-- :ref:`int<class_int>` **get_location** **(** **)**
+- |void| **set_location**\ (\ value\: :ref:`int<class_int>`\ )
+- :ref:`int<class_int>` **get_location**\ (\ )
 
 .. container:: contribute
 
@@ -110,8 +115,8 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_offset** **(** :ref:`int<class_int>` value **)**
-- :ref:`int<class_int>` **get_offset** **(** **)**
+- |void| **set_offset**\ (\ value\: :ref:`int<class_int>`\ )
+- :ref:`int<class_int>` **get_offset**\ (\ )
 
 .. container:: contribute
 
@@ -129,8 +134,8 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_stride** **(** :ref:`int<class_int>` value **)**
-- :ref:`int<class_int>` **get_stride** **(** **)**
+- |void| **set_stride**\ (\ value\: :ref:`int<class_int>`\ )
+- :ref:`int<class_int>` **get_stride**\ (\ )
 
 .. container:: contribute
 
@@ -142,3 +147,5 @@ Property Descriptions
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`

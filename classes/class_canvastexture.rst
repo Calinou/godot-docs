@@ -21,7 +21,14 @@ Description
 
 **CanvasTexture** is an alternative to :ref:`ImageTexture<class_ImageTexture>` for 2D rendering. It allows using normal maps and specular maps in any node that inherits from :ref:`CanvasItem<class_CanvasItem>`. **CanvasTexture** also allows overriding the texture's filter and repeat mode independently of the node's properties (or the project settings).
 
-\ **Note:** **CanvasTexture** cannot be used in 3D rendering. For physically-based materials in 3D, use :ref:`BaseMaterial3D<class_BaseMaterial3D>` instead.
+\ **Note:** **CanvasTexture** cannot be used in 3D. It will not display correctly when applied to any :ref:`VisualInstance3D<class_VisualInstance3D>`, such as :ref:`Sprite3D<class_Sprite3D>` or :ref:`Decal<class_Decal>`. For physically-based materials in 3D, use :ref:`BaseMaterial3D<class_BaseMaterial3D>` instead.
+
+.. rst-class:: classref-introduction-group
+
+Tutorials
+---------
+
+- :doc:`2D Lights and Shadows <../tutorials/2d/2d_lights_and_shadows>`
 
 .. rst-class:: classref-reftable-group
 
@@ -66,8 +73,8 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_diffuse_texture** **(** :ref:`Texture2D<class_Texture2D>` value **)**
-- :ref:`Texture2D<class_Texture2D>` **get_diffuse_texture** **(** **)**
+- |void| **set_diffuse_texture**\ (\ value\: :ref:`Texture2D<class_Texture2D>`\ )
+- :ref:`Texture2D<class_Texture2D>` **get_diffuse_texture**\ (\ )
 
 The diffuse (color) texture to use. This is the main texture you want to set in most cases.
 
@@ -83,8 +90,8 @@ The diffuse (color) texture to use. This is the main texture you want to set in 
 
 .. rst-class:: classref-property-setget
 
-- void **set_normal_texture** **(** :ref:`Texture2D<class_Texture2D>` value **)**
-- :ref:`Texture2D<class_Texture2D>` **get_normal_texture** **(** **)**
+- |void| **set_normal_texture**\ (\ value\: :ref:`Texture2D<class_Texture2D>`\ )
+- :ref:`Texture2D<class_Texture2D>` **get_normal_texture**\ (\ )
 
 The normal map texture to use. Only has a visible effect if :ref:`Light2D<class_Light2D>`\ s are affecting this **CanvasTexture**.
 
@@ -102,8 +109,8 @@ The normal map texture to use. Only has a visible effect if :ref:`Light2D<class_
 
 .. rst-class:: classref-property-setget
 
-- void **set_specular_color** **(** :ref:`Color<class_Color>` value **)**
-- :ref:`Color<class_Color>` **get_specular_color** **(** **)**
+- |void| **set_specular_color**\ (\ value\: :ref:`Color<class_Color>`\ )
+- :ref:`Color<class_Color>` **get_specular_color**\ (\ )
 
 The multiplier for specular reflection colors. The :ref:`Light2D<class_Light2D>`'s color is also taken into account when determining the reflection color. Only has a visible effect if :ref:`Light2D<class_Light2D>`\ s are affecting this **CanvasTexture**.
 
@@ -119,8 +126,8 @@ The multiplier for specular reflection colors. The :ref:`Light2D<class_Light2D>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_specular_shininess** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_specular_shininess** **(** **)**
+- |void| **set_specular_shininess**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_specular_shininess**\ (\ )
 
 The specular exponent for :ref:`Light2D<class_Light2D>` specular reflections. Higher values result in a more glossy/"wet" look, with reflections becoming more localized and less visible overall. The default value of ``1.0`` disables specular reflections entirely. Only has a visible effect if :ref:`Light2D<class_Light2D>`\ s are affecting this **CanvasTexture**.
 
@@ -136,8 +143,8 @@ The specular exponent for :ref:`Light2D<class_Light2D>` specular reflections. Hi
 
 .. rst-class:: classref-property-setget
 
-- void **set_specular_texture** **(** :ref:`Texture2D<class_Texture2D>` value **)**
-- :ref:`Texture2D<class_Texture2D>` **get_specular_texture** **(** **)**
+- |void| **set_specular_texture**\ (\ value\: :ref:`Texture2D<class_Texture2D>`\ )
+- :ref:`Texture2D<class_Texture2D>` **get_specular_texture**\ (\ )
 
 The specular map to use for :ref:`Light2D<class_Light2D>` specular reflections. This should be a grayscale or colored texture, with brighter areas resulting in a higher :ref:`specular_shininess<class_CanvasTexture_property_specular_shininess>` value. Using a colored :ref:`specular_texture<class_CanvasTexture_property_specular_texture>` allows controlling specular shininess on a per-channel basis. Only has a visible effect if :ref:`Light2D<class_Light2D>`\ s are affecting this **CanvasTexture**.
 
@@ -153,8 +160,8 @@ The specular map to use for :ref:`Light2D<class_Light2D>` specular reflections. 
 
 .. rst-class:: classref-property-setget
 
-- void **set_texture_filter** **(** :ref:`TextureFilter<enum_CanvasItem_TextureFilter>` value **)**
-- :ref:`TextureFilter<enum_CanvasItem_TextureFilter>` **get_texture_filter** **(** **)**
+- |void| **set_texture_filter**\ (\ value\: :ref:`TextureFilter<enum_CanvasItem_TextureFilter>`\ )
+- :ref:`TextureFilter<enum_CanvasItem_TextureFilter>` **get_texture_filter**\ (\ )
 
 The texture filtering mode to use when drawing this **CanvasTexture**.
 
@@ -170,8 +177,8 @@ The texture filtering mode to use when drawing this **CanvasTexture**.
 
 .. rst-class:: classref-property-setget
 
-- void **set_texture_repeat** **(** :ref:`TextureRepeat<enum_CanvasItem_TextureRepeat>` value **)**
-- :ref:`TextureRepeat<enum_CanvasItem_TextureRepeat>` **get_texture_repeat** **(** **)**
+- |void| **set_texture_repeat**\ (\ value\: :ref:`TextureRepeat<enum_CanvasItem_TextureRepeat>`\ )
+- :ref:`TextureRepeat<enum_CanvasItem_TextureRepeat>` **get_texture_repeat**\ (\ )
 
 The texture repeat mode to use when drawing this **CanvasTexture**.
 
@@ -181,3 +188,5 @@ The texture repeat mode to use when drawing this **CanvasTexture**.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`
