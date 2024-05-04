@@ -12,14 +12,14 @@ SliderJoint3D
 
 **Inherits:** :ref:`Joint3D<class_Joint3D>` **<** :ref:`Node3D<class_Node3D>` **<** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
 
-Slider between two PhysicsBodies in 3D.
+A physics joint that restricts the movement of a 3D physics body along an axis relative to another physics body.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-Slides across the X axis of the pivot object. See also :ref:`Generic6DOFJoint3D<class_Generic6DOFJoint3D>`.
+A physics joint that restricts the movement of a 3D physics body along an axis relative to another physics body. For example, Body A could be a :ref:`StaticBody3D<class_StaticBody3D>` representing a piston base, while Body B could be a :ref:`RigidBody3D<class_RigidBody3D>` representing the piston head, moving up and down.
 
 .. rst-class:: classref-reftable-group
 
@@ -83,11 +83,11 @@ Methods
 .. table::
    :widths: auto
 
-   +---------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`float<class_float>` | :ref:`get_param<class_SliderJoint3D_method_get_param>` **(** :ref:`Param<enum_SliderJoint3D_Param>` param **)** |const|                          |
-   +---------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                      | :ref:`set_param<class_SliderJoint3D_method_set_param>` **(** :ref:`Param<enum_SliderJoint3D_Param>` param, :ref:`float<class_float>` value **)** |
-   +---------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+   +---------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`float<class_float>` | :ref:`get_param<class_SliderJoint3D_method_get_param>`\ (\ param\: :ref:`Param<enum_SliderJoint3D_Param>`\ ) |const|                            |
+   +---------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                    | :ref:`set_param<class_SliderJoint3D_method_set_param>`\ (\ param\: :ref:`Param<enum_SliderJoint3D_Param>`, value\: :ref:`float<class_float>`\ ) |
+   +---------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -110,7 +110,7 @@ enum **Param**:
 
 :ref:`Param<enum_SliderJoint3D_Param>` **PARAM_LINEAR_LIMIT_UPPER** = ``0``
 
-The maximum difference between the pivot points on their X axis before damping happens.
+Constant for accessing :ref:`linear_limit/upper_distance<class_SliderJoint3D_property_linear_limit/upper_distance>`. The maximum difference between the pivot points on their X axis before damping happens.
 
 .. _class_SliderJoint3D_constant_PARAM_LINEAR_LIMIT_LOWER:
 
@@ -118,7 +118,7 @@ The maximum difference between the pivot points on their X axis before damping h
 
 :ref:`Param<enum_SliderJoint3D_Param>` **PARAM_LINEAR_LIMIT_LOWER** = ``1``
 
-The minimum difference between the pivot points on their X axis before damping happens.
+Constant for accessing :ref:`linear_limit/lower_distance<class_SliderJoint3D_property_linear_limit/lower_distance>`. The minimum difference between the pivot points on their X axis before damping happens.
 
 .. _class_SliderJoint3D_constant_PARAM_LINEAR_LIMIT_SOFTNESS:
 
@@ -126,7 +126,7 @@ The minimum difference between the pivot points on their X axis before damping h
 
 :ref:`Param<enum_SliderJoint3D_Param>` **PARAM_LINEAR_LIMIT_SOFTNESS** = ``2``
 
-A factor applied to the movement across the slider axis once the limits get surpassed. The lower, the slower the movement.
+Constant for accessing :ref:`linear_limit/softness<class_SliderJoint3D_property_linear_limit/softness>`. A factor applied to the movement across the slider axis once the limits get surpassed. The lower, the slower the movement.
 
 .. _class_SliderJoint3D_constant_PARAM_LINEAR_LIMIT_RESTITUTION:
 
@@ -134,7 +134,7 @@ A factor applied to the movement across the slider axis once the limits get surp
 
 :ref:`Param<enum_SliderJoint3D_Param>` **PARAM_LINEAR_LIMIT_RESTITUTION** = ``3``
 
-The amount of restitution once the limits are surpassed. The lower, the more velocityenergy gets lost.
+Constant for accessing :ref:`linear_limit/restitution<class_SliderJoint3D_property_linear_limit/restitution>`. The amount of restitution once the limits are surpassed. The lower, the more velocity-energy gets lost.
 
 .. _class_SliderJoint3D_constant_PARAM_LINEAR_LIMIT_DAMPING:
 
@@ -142,7 +142,7 @@ The amount of restitution once the limits are surpassed. The lower, the more vel
 
 :ref:`Param<enum_SliderJoint3D_Param>` **PARAM_LINEAR_LIMIT_DAMPING** = ``4``
 
-The amount of damping once the slider limits are surpassed.
+Constant for accessing :ref:`linear_limit/damping<class_SliderJoint3D_property_linear_limit/damping>`. The amount of damping once the slider limits are surpassed.
 
 .. _class_SliderJoint3D_constant_PARAM_LINEAR_MOTION_SOFTNESS:
 
@@ -150,7 +150,7 @@ The amount of damping once the slider limits are surpassed.
 
 :ref:`Param<enum_SliderJoint3D_Param>` **PARAM_LINEAR_MOTION_SOFTNESS** = ``5``
 
-A factor applied to the movement across the slider axis as long as the slider is in the limits. The lower, the slower the movement.
+Constant for accessing :ref:`linear_motion/softness<class_SliderJoint3D_property_linear_motion/softness>`. A factor applied to the movement across the slider axis as long as the slider is in the limits. The lower, the slower the movement.
 
 .. _class_SliderJoint3D_constant_PARAM_LINEAR_MOTION_RESTITUTION:
 
@@ -158,7 +158,7 @@ A factor applied to the movement across the slider axis as long as the slider is
 
 :ref:`Param<enum_SliderJoint3D_Param>` **PARAM_LINEAR_MOTION_RESTITUTION** = ``6``
 
-The amount of restitution inside the slider limits.
+Constant for accessing :ref:`linear_motion/restitution<class_SliderJoint3D_property_linear_motion/restitution>`. The amount of restitution inside the slider limits.
 
 .. _class_SliderJoint3D_constant_PARAM_LINEAR_MOTION_DAMPING:
 
@@ -166,7 +166,7 @@ The amount of restitution inside the slider limits.
 
 :ref:`Param<enum_SliderJoint3D_Param>` **PARAM_LINEAR_MOTION_DAMPING** = ``7``
 
-The amount of damping inside the slider limits.
+Constant for accessing :ref:`linear_motion/damping<class_SliderJoint3D_property_linear_motion/damping>`. The amount of damping inside the slider limits.
 
 .. _class_SliderJoint3D_constant_PARAM_LINEAR_ORTHOGONAL_SOFTNESS:
 
@@ -174,7 +174,7 @@ The amount of damping inside the slider limits.
 
 :ref:`Param<enum_SliderJoint3D_Param>` **PARAM_LINEAR_ORTHOGONAL_SOFTNESS** = ``8``
 
-A factor applied to the movement across axes orthogonal to the slider.
+Constant for accessing :ref:`linear_ortho/softness<class_SliderJoint3D_property_linear_ortho/softness>`. A factor applied to the movement across axes orthogonal to the slider.
 
 .. _class_SliderJoint3D_constant_PARAM_LINEAR_ORTHOGONAL_RESTITUTION:
 
@@ -182,7 +182,7 @@ A factor applied to the movement across axes orthogonal to the slider.
 
 :ref:`Param<enum_SliderJoint3D_Param>` **PARAM_LINEAR_ORTHOGONAL_RESTITUTION** = ``9``
 
-The amount of restitution when movement is across axes orthogonal to the slider.
+Constant for accessing :ref:`linear_motion/restitution<class_SliderJoint3D_property_linear_motion/restitution>`. The amount of restitution when movement is across axes orthogonal to the slider.
 
 .. _class_SliderJoint3D_constant_PARAM_LINEAR_ORTHOGONAL_DAMPING:
 
@@ -190,7 +190,7 @@ The amount of restitution when movement is across axes orthogonal to the slider.
 
 :ref:`Param<enum_SliderJoint3D_Param>` **PARAM_LINEAR_ORTHOGONAL_DAMPING** = ``10``
 
-The amount of damping when movement is across axes orthogonal to the slider.
+Constant for accessing :ref:`linear_motion/damping<class_SliderJoint3D_property_linear_motion/damping>`. The amount of damping when movement is across axes orthogonal to the slider.
 
 .. _class_SliderJoint3D_constant_PARAM_ANGULAR_LIMIT_UPPER:
 
@@ -198,7 +198,7 @@ The amount of damping when movement is across axes orthogonal to the slider.
 
 :ref:`Param<enum_SliderJoint3D_Param>` **PARAM_ANGULAR_LIMIT_UPPER** = ``11``
 
-The upper limit of rotation in the slider.
+Constant for accessing :ref:`angular_limit/upper_angle<class_SliderJoint3D_property_angular_limit/upper_angle>`. The upper limit of rotation in the slider.
 
 .. _class_SliderJoint3D_constant_PARAM_ANGULAR_LIMIT_LOWER:
 
@@ -206,7 +206,7 @@ The upper limit of rotation in the slider.
 
 :ref:`Param<enum_SliderJoint3D_Param>` **PARAM_ANGULAR_LIMIT_LOWER** = ``12``
 
-The lower limit of rotation in the slider.
+Constant for accessing :ref:`angular_limit/lower_angle<class_SliderJoint3D_property_angular_limit/lower_angle>`. The lower limit of rotation in the slider.
 
 .. _class_SliderJoint3D_constant_PARAM_ANGULAR_LIMIT_SOFTNESS:
 
@@ -214,7 +214,7 @@ The lower limit of rotation in the slider.
 
 :ref:`Param<enum_SliderJoint3D_Param>` **PARAM_ANGULAR_LIMIT_SOFTNESS** = ``13``
 
-A factor applied to the all rotation once the limit is surpassed.
+Constant for accessing :ref:`angular_limit/softness<class_SliderJoint3D_property_angular_limit/softness>`. A factor applied to the all rotation once the limit is surpassed.
 
 .. _class_SliderJoint3D_constant_PARAM_ANGULAR_LIMIT_RESTITUTION:
 
@@ -222,7 +222,7 @@ A factor applied to the all rotation once the limit is surpassed.
 
 :ref:`Param<enum_SliderJoint3D_Param>` **PARAM_ANGULAR_LIMIT_RESTITUTION** = ``14``
 
-The amount of restitution of the rotation when the limit is surpassed.
+Constant for accessing :ref:`angular_limit/restitution<class_SliderJoint3D_property_angular_limit/restitution>`. The amount of restitution of the rotation when the limit is surpassed.
 
 .. _class_SliderJoint3D_constant_PARAM_ANGULAR_LIMIT_DAMPING:
 
@@ -230,7 +230,7 @@ The amount of restitution of the rotation when the limit is surpassed.
 
 :ref:`Param<enum_SliderJoint3D_Param>` **PARAM_ANGULAR_LIMIT_DAMPING** = ``15``
 
-The amount of damping of the rotation when the limit is surpassed.
+Constant for accessing :ref:`angular_limit/damping<class_SliderJoint3D_property_angular_limit/damping>`. The amount of damping of the rotation when the limit is surpassed.
 
 .. _class_SliderJoint3D_constant_PARAM_ANGULAR_MOTION_SOFTNESS:
 
@@ -238,7 +238,7 @@ The amount of damping of the rotation when the limit is surpassed.
 
 :ref:`Param<enum_SliderJoint3D_Param>` **PARAM_ANGULAR_MOTION_SOFTNESS** = ``16``
 
-A factor applied to the all rotation in the limits.
+Constant for accessing :ref:`angular_motion/softness<class_SliderJoint3D_property_angular_motion/softness>`. A factor applied to the all rotation in the limits.
 
 .. _class_SliderJoint3D_constant_PARAM_ANGULAR_MOTION_RESTITUTION:
 
@@ -246,7 +246,7 @@ A factor applied to the all rotation in the limits.
 
 :ref:`Param<enum_SliderJoint3D_Param>` **PARAM_ANGULAR_MOTION_RESTITUTION** = ``17``
 
-The amount of restitution of the rotation in the limits.
+Constant for accessing :ref:`angular_motion/restitution<class_SliderJoint3D_property_angular_motion/restitution>`. The amount of restitution of the rotation in the limits.
 
 .. _class_SliderJoint3D_constant_PARAM_ANGULAR_MOTION_DAMPING:
 
@@ -254,7 +254,7 @@ The amount of restitution of the rotation in the limits.
 
 :ref:`Param<enum_SliderJoint3D_Param>` **PARAM_ANGULAR_MOTION_DAMPING** = ``18``
 
-The amount of damping of the rotation in the limits.
+Constant for accessing :ref:`angular_motion/damping<class_SliderJoint3D_property_angular_motion/damping>`. The amount of damping of the rotation in the limits.
 
 .. _class_SliderJoint3D_constant_PARAM_ANGULAR_ORTHOGONAL_SOFTNESS:
 
@@ -262,7 +262,7 @@ The amount of damping of the rotation in the limits.
 
 :ref:`Param<enum_SliderJoint3D_Param>` **PARAM_ANGULAR_ORTHOGONAL_SOFTNESS** = ``19``
 
-A factor applied to the all rotation across axes orthogonal to the slider.
+Constant for accessing :ref:`angular_ortho/softness<class_SliderJoint3D_property_angular_ortho/softness>`. A factor applied to the all rotation across axes orthogonal to the slider.
 
 .. _class_SliderJoint3D_constant_PARAM_ANGULAR_ORTHOGONAL_RESTITUTION:
 
@@ -270,7 +270,7 @@ A factor applied to the all rotation across axes orthogonal to the slider.
 
 :ref:`Param<enum_SliderJoint3D_Param>` **PARAM_ANGULAR_ORTHOGONAL_RESTITUTION** = ``20``
 
-The amount of restitution of the rotation across axes orthogonal to the slider.
+Constant for accessing :ref:`angular_ortho/restitution<class_SliderJoint3D_property_angular_ortho/restitution>`. The amount of restitution of the rotation across axes orthogonal to the slider.
 
 .. _class_SliderJoint3D_constant_PARAM_ANGULAR_ORTHOGONAL_DAMPING:
 
@@ -278,7 +278,7 @@ The amount of restitution of the rotation across axes orthogonal to the slider.
 
 :ref:`Param<enum_SliderJoint3D_Param>` **PARAM_ANGULAR_ORTHOGONAL_DAMPING** = ``21``
 
-The amount of damping of the rotation across axes orthogonal to the slider.
+Constant for accessing :ref:`angular_ortho/damping<class_SliderJoint3D_property_angular_ortho/damping>`. The amount of damping of the rotation across axes orthogonal to the slider.
 
 .. _class_SliderJoint3D_constant_PARAM_MAX:
 
@@ -305,8 +305,8 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_param** **(** :ref:`Param<enum_SliderJoint3D_Param>` param, :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_param** **(** :ref:`Param<enum_SliderJoint3D_Param>` param **)** |const|
+- |void| **set_param**\ (\ param\: :ref:`Param<enum_SliderJoint3D_Param>`, value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_param**\ (\ param\: :ref:`Param<enum_SliderJoint3D_Param>`\ ) |const|
 
 The amount of damping of the rotation when the limit is surpassed.
 
@@ -324,8 +324,8 @@ A lower damping value allows a rotation initiated by body A to travel to body B 
 
 .. rst-class:: classref-property-setget
 
-- void **set_param** **(** :ref:`Param<enum_SliderJoint3D_Param>` param, :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_param** **(** :ref:`Param<enum_SliderJoint3D_Param>` param **)** |const|
+- |void| **set_param**\ (\ param\: :ref:`Param<enum_SliderJoint3D_Param>`, value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_param**\ (\ param\: :ref:`Param<enum_SliderJoint3D_Param>`\ ) |const|
 
 The lower limit of rotation in the slider.
 
@@ -341,8 +341,8 @@ The lower limit of rotation in the slider.
 
 .. rst-class:: classref-property-setget
 
-- void **set_param** **(** :ref:`Param<enum_SliderJoint3D_Param>` param, :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_param** **(** :ref:`Param<enum_SliderJoint3D_Param>` param **)** |const|
+- |void| **set_param**\ (\ param\: :ref:`Param<enum_SliderJoint3D_Param>`, value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_param**\ (\ param\: :ref:`Param<enum_SliderJoint3D_Param>`\ ) |const|
 
 The amount of restitution of the rotation when the limit is surpassed.
 
@@ -360,8 +360,8 @@ Does not affect damping.
 
 .. rst-class:: classref-property-setget
 
-- void **set_param** **(** :ref:`Param<enum_SliderJoint3D_Param>` param, :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_param** **(** :ref:`Param<enum_SliderJoint3D_Param>` param **)** |const|
+- |void| **set_param**\ (\ param\: :ref:`Param<enum_SliderJoint3D_Param>`, value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_param**\ (\ param\: :ref:`Param<enum_SliderJoint3D_Param>`\ ) |const|
 
 A factor applied to the all rotation once the limit is surpassed.
 
@@ -379,8 +379,8 @@ Makes all rotation slower when between 0 and 1.
 
 .. rst-class:: classref-property-setget
 
-- void **set_param** **(** :ref:`Param<enum_SliderJoint3D_Param>` param, :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_param** **(** :ref:`Param<enum_SliderJoint3D_Param>` param **)** |const|
+- |void| **set_param**\ (\ param\: :ref:`Param<enum_SliderJoint3D_Param>`, value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_param**\ (\ param\: :ref:`Param<enum_SliderJoint3D_Param>`\ ) |const|
 
 The upper limit of rotation in the slider.
 
@@ -396,8 +396,8 @@ The upper limit of rotation in the slider.
 
 .. rst-class:: classref-property-setget
 
-- void **set_param** **(** :ref:`Param<enum_SliderJoint3D_Param>` param, :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_param** **(** :ref:`Param<enum_SliderJoint3D_Param>` param **)** |const|
+- |void| **set_param**\ (\ param\: :ref:`Param<enum_SliderJoint3D_Param>`, value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_param**\ (\ param\: :ref:`Param<enum_SliderJoint3D_Param>`\ ) |const|
 
 The amount of damping of the rotation in the limits.
 
@@ -413,8 +413,8 @@ The amount of damping of the rotation in the limits.
 
 .. rst-class:: classref-property-setget
 
-- void **set_param** **(** :ref:`Param<enum_SliderJoint3D_Param>` param, :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_param** **(** :ref:`Param<enum_SliderJoint3D_Param>` param **)** |const|
+- |void| **set_param**\ (\ param\: :ref:`Param<enum_SliderJoint3D_Param>`, value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_param**\ (\ param\: :ref:`Param<enum_SliderJoint3D_Param>`\ ) |const|
 
 The amount of restitution of the rotation in the limits.
 
@@ -430,8 +430,8 @@ The amount of restitution of the rotation in the limits.
 
 .. rst-class:: classref-property-setget
 
-- void **set_param** **(** :ref:`Param<enum_SliderJoint3D_Param>` param, :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_param** **(** :ref:`Param<enum_SliderJoint3D_Param>` param **)** |const|
+- |void| **set_param**\ (\ param\: :ref:`Param<enum_SliderJoint3D_Param>`, value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_param**\ (\ param\: :ref:`Param<enum_SliderJoint3D_Param>`\ ) |const|
 
 A factor applied to the all rotation in the limits.
 
@@ -447,8 +447,8 @@ A factor applied to the all rotation in the limits.
 
 .. rst-class:: classref-property-setget
 
-- void **set_param** **(** :ref:`Param<enum_SliderJoint3D_Param>` param, :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_param** **(** :ref:`Param<enum_SliderJoint3D_Param>` param **)** |const|
+- |void| **set_param**\ (\ param\: :ref:`Param<enum_SliderJoint3D_Param>`, value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_param**\ (\ param\: :ref:`Param<enum_SliderJoint3D_Param>`\ ) |const|
 
 The amount of damping of the rotation across axes orthogonal to the slider.
 
@@ -464,8 +464,8 @@ The amount of damping of the rotation across axes orthogonal to the slider.
 
 .. rst-class:: classref-property-setget
 
-- void **set_param** **(** :ref:`Param<enum_SliderJoint3D_Param>` param, :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_param** **(** :ref:`Param<enum_SliderJoint3D_Param>` param **)** |const|
+- |void| **set_param**\ (\ param\: :ref:`Param<enum_SliderJoint3D_Param>`, value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_param**\ (\ param\: :ref:`Param<enum_SliderJoint3D_Param>`\ ) |const|
 
 The amount of restitution of the rotation across axes orthogonal to the slider.
 
@@ -481,8 +481,8 @@ The amount of restitution of the rotation across axes orthogonal to the slider.
 
 .. rst-class:: classref-property-setget
 
-- void **set_param** **(** :ref:`Param<enum_SliderJoint3D_Param>` param, :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_param** **(** :ref:`Param<enum_SliderJoint3D_Param>` param **)** |const|
+- |void| **set_param**\ (\ param\: :ref:`Param<enum_SliderJoint3D_Param>`, value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_param**\ (\ param\: :ref:`Param<enum_SliderJoint3D_Param>`\ ) |const|
 
 A factor applied to the all rotation across axes orthogonal to the slider.
 
@@ -498,8 +498,8 @@ A factor applied to the all rotation across axes orthogonal to the slider.
 
 .. rst-class:: classref-property-setget
 
-- void **set_param** **(** :ref:`Param<enum_SliderJoint3D_Param>` param, :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_param** **(** :ref:`Param<enum_SliderJoint3D_Param>` param **)** |const|
+- |void| **set_param**\ (\ param\: :ref:`Param<enum_SliderJoint3D_Param>`, value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_param**\ (\ param\: :ref:`Param<enum_SliderJoint3D_Param>`\ ) |const|
 
 The amount of damping that happens once the limit defined by :ref:`linear_limit/lower_distance<class_SliderJoint3D_property_linear_limit/lower_distance>` and :ref:`linear_limit/upper_distance<class_SliderJoint3D_property_linear_limit/upper_distance>` is surpassed.
 
@@ -515,8 +515,8 @@ The amount of damping that happens once the limit defined by :ref:`linear_limit/
 
 .. rst-class:: classref-property-setget
 
-- void **set_param** **(** :ref:`Param<enum_SliderJoint3D_Param>` param, :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_param** **(** :ref:`Param<enum_SliderJoint3D_Param>` param **)** |const|
+- |void| **set_param**\ (\ param\: :ref:`Param<enum_SliderJoint3D_Param>`, value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_param**\ (\ param\: :ref:`Param<enum_SliderJoint3D_Param>`\ ) |const|
 
 The minimum difference between the pivot points on their X axis before damping happens.
 
@@ -532,8 +532,8 @@ The minimum difference between the pivot points on their X axis before damping h
 
 .. rst-class:: classref-property-setget
 
-- void **set_param** **(** :ref:`Param<enum_SliderJoint3D_Param>` param, :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_param** **(** :ref:`Param<enum_SliderJoint3D_Param>` param **)** |const|
+- |void| **set_param**\ (\ param\: :ref:`Param<enum_SliderJoint3D_Param>`, value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_param**\ (\ param\: :ref:`Param<enum_SliderJoint3D_Param>`\ ) |const|
 
 The amount of restitution once the limits are surpassed. The lower, the more velocity-energy gets lost.
 
@@ -549,8 +549,8 @@ The amount of restitution once the limits are surpassed. The lower, the more vel
 
 .. rst-class:: classref-property-setget
 
-- void **set_param** **(** :ref:`Param<enum_SliderJoint3D_Param>` param, :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_param** **(** :ref:`Param<enum_SliderJoint3D_Param>` param **)** |const|
+- |void| **set_param**\ (\ param\: :ref:`Param<enum_SliderJoint3D_Param>`, value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_param**\ (\ param\: :ref:`Param<enum_SliderJoint3D_Param>`\ ) |const|
 
 A factor applied to the movement across the slider axis once the limits get surpassed. The lower, the slower the movement.
 
@@ -566,8 +566,8 @@ A factor applied to the movement across the slider axis once the limits get surp
 
 .. rst-class:: classref-property-setget
 
-- void **set_param** **(** :ref:`Param<enum_SliderJoint3D_Param>` param, :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_param** **(** :ref:`Param<enum_SliderJoint3D_Param>` param **)** |const|
+- |void| **set_param**\ (\ param\: :ref:`Param<enum_SliderJoint3D_Param>`, value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_param**\ (\ param\: :ref:`Param<enum_SliderJoint3D_Param>`\ ) |const|
 
 The maximum difference between the pivot points on their X axis before damping happens.
 
@@ -583,8 +583,8 @@ The maximum difference between the pivot points on their X axis before damping h
 
 .. rst-class:: classref-property-setget
 
-- void **set_param** **(** :ref:`Param<enum_SliderJoint3D_Param>` param, :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_param** **(** :ref:`Param<enum_SliderJoint3D_Param>` param **)** |const|
+- |void| **set_param**\ (\ param\: :ref:`Param<enum_SliderJoint3D_Param>`, value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_param**\ (\ param\: :ref:`Param<enum_SliderJoint3D_Param>`\ ) |const|
 
 The amount of damping inside the slider limits.
 
@@ -600,8 +600,8 @@ The amount of damping inside the slider limits.
 
 .. rst-class:: classref-property-setget
 
-- void **set_param** **(** :ref:`Param<enum_SliderJoint3D_Param>` param, :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_param** **(** :ref:`Param<enum_SliderJoint3D_Param>` param **)** |const|
+- |void| **set_param**\ (\ param\: :ref:`Param<enum_SliderJoint3D_Param>`, value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_param**\ (\ param\: :ref:`Param<enum_SliderJoint3D_Param>`\ ) |const|
 
 The amount of restitution inside the slider limits.
 
@@ -617,8 +617,8 @@ The amount of restitution inside the slider limits.
 
 .. rst-class:: classref-property-setget
 
-- void **set_param** **(** :ref:`Param<enum_SliderJoint3D_Param>` param, :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_param** **(** :ref:`Param<enum_SliderJoint3D_Param>` param **)** |const|
+- |void| **set_param**\ (\ param\: :ref:`Param<enum_SliderJoint3D_Param>`, value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_param**\ (\ param\: :ref:`Param<enum_SliderJoint3D_Param>`\ ) |const|
 
 A factor applied to the movement across the slider axis as long as the slider is in the limits. The lower, the slower the movement.
 
@@ -634,8 +634,8 @@ A factor applied to the movement across the slider axis as long as the slider is
 
 .. rst-class:: classref-property-setget
 
-- void **set_param** **(** :ref:`Param<enum_SliderJoint3D_Param>` param, :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_param** **(** :ref:`Param<enum_SliderJoint3D_Param>` param **)** |const|
+- |void| **set_param**\ (\ param\: :ref:`Param<enum_SliderJoint3D_Param>`, value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_param**\ (\ param\: :ref:`Param<enum_SliderJoint3D_Param>`\ ) |const|
 
 The amount of damping when movement is across axes orthogonal to the slider.
 
@@ -651,8 +651,8 @@ The amount of damping when movement is across axes orthogonal to the slider.
 
 .. rst-class:: classref-property-setget
 
-- void **set_param** **(** :ref:`Param<enum_SliderJoint3D_Param>` param, :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_param** **(** :ref:`Param<enum_SliderJoint3D_Param>` param **)** |const|
+- |void| **set_param**\ (\ param\: :ref:`Param<enum_SliderJoint3D_Param>`, value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_param**\ (\ param\: :ref:`Param<enum_SliderJoint3D_Param>`\ ) |const|
 
 The amount of restitution when movement is across axes orthogonal to the slider.
 
@@ -668,8 +668,8 @@ The amount of restitution when movement is across axes orthogonal to the slider.
 
 .. rst-class:: classref-property-setget
 
-- void **set_param** **(** :ref:`Param<enum_SliderJoint3D_Param>` param, :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_param** **(** :ref:`Param<enum_SliderJoint3D_Param>` param **)** |const|
+- |void| **set_param**\ (\ param\: :ref:`Param<enum_SliderJoint3D_Param>`, value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_param**\ (\ param\: :ref:`Param<enum_SliderJoint3D_Param>`\ ) |const|
 
 A factor applied to the movement across axes orthogonal to the slider.
 
@@ -686,11 +686,9 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`float<class_float>` **get_param** **(** :ref:`Param<enum_SliderJoint3D_Param>` param **)** |const|
+:ref:`float<class_float>` **get_param**\ (\ param\: :ref:`Param<enum_SliderJoint3D_Param>`\ ) |const|
 
-.. container:: contribute
-
-	There is currently no description for this method. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+Returns the value of the given parameter (see :ref:`Param<enum_SliderJoint3D_Param>` constants).
 
 .. rst-class:: classref-item-separator
 
@@ -700,11 +698,9 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-void **set_param** **(** :ref:`Param<enum_SliderJoint3D_Param>` param, :ref:`float<class_float>` value **)**
+|void| **set_param**\ (\ param\: :ref:`Param<enum_SliderJoint3D_Param>`, value\: :ref:`float<class_float>`\ )
 
-.. container:: contribute
-
-	There is currently no description for this method. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+Assigns ``value`` to the given parameter (see :ref:`Param<enum_SliderJoint3D_Param>` constants).
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
@@ -712,3 +708,5 @@ void **set_param** **(** :ref:`Param<enum_SliderJoint3D_Param>` param, :ref:`flo
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`

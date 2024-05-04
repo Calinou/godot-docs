@@ -36,41 +36,43 @@ Methods
 .. table::
    :widths: auto
 
-   +-----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                          | :ref:`bandwidth_limit<class_ENetConnection_method_bandwidth_limit>` **(** :ref:`int<class_int>` in_bandwidth=0, :ref:`int<class_int>` out_bandwidth=0 **)**                                                                                                                                                          |
-   +-----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                          | :ref:`broadcast<class_ENetConnection_method_broadcast>` **(** :ref:`int<class_int>` channel, :ref:`PackedByteArray<class_PackedByteArray>` packet, :ref:`int<class_int>` flags **)**                                                                                                                                 |
-   +-----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                          | :ref:`channel_limit<class_ENetConnection_method_channel_limit>` **(** :ref:`int<class_int>` limit **)**                                                                                                                                                                                                              |
-   +-----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                          | :ref:`compress<class_ENetConnection_method_compress>` **(** :ref:`CompressionMode<enum_ENetConnection_CompressionMode>` mode **)**                                                                                                                                                                                   |
-   +-----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`ENetPacketPeer<class_ENetPacketPeer>`   | :ref:`connect_to_host<class_ENetConnection_method_connect_to_host>` **(** :ref:`String<class_String>` address, :ref:`int<class_int>` port, :ref:`int<class_int>` channels=0, :ref:`int<class_int>` data=0 **)**                                                                                                      |
-   +-----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Error<enum_@GlobalScope_Error>`         | :ref:`create_host<class_ENetConnection_method_create_host>` **(** :ref:`int<class_int>` max_peers=32, :ref:`int<class_int>` max_channels=0, :ref:`int<class_int>` in_bandwidth=0, :ref:`int<class_int>` out_bandwidth=0 **)**                                                                                        |
-   +-----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Error<enum_@GlobalScope_Error>`         | :ref:`create_host_bound<class_ENetConnection_method_create_host_bound>` **(** :ref:`String<class_String>` bind_address, :ref:`int<class_int>` bind_port, :ref:`int<class_int>` max_peers=32, :ref:`int<class_int>` max_channels=0, :ref:`int<class_int>` in_bandwidth=0, :ref:`int<class_int>` out_bandwidth=0 **)** |
-   +-----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                          | :ref:`destroy<class_ENetConnection_method_destroy>` **(** **)**                                                                                                                                                                                                                                                      |
-   +-----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Error<enum_@GlobalScope_Error>`         | :ref:`dtls_client_setup<class_ENetConnection_method_dtls_client_setup>` **(** :ref:`String<class_String>` hostname, :ref:`TLSOptions<class_TLSOptions>` client_options=null **)**                                                                                                                                    |
-   +-----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Error<enum_@GlobalScope_Error>`         | :ref:`dtls_server_setup<class_ENetConnection_method_dtls_server_setup>` **(** :ref:`TLSOptions<class_TLSOptions>` server_options **)**                                                                                                                                                                               |
-   +-----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                          | :ref:`flush<class_ENetConnection_method_flush>` **(** **)**                                                                                                                                                                                                                                                          |
-   +-----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`int<class_int>`                         | :ref:`get_local_port<class_ENetConnection_method_get_local_port>` **(** **)** |const|                                                                                                                                                                                                                                |
-   +-----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`int<class_int>`                         | :ref:`get_max_channels<class_ENetConnection_method_get_max_channels>` **(** **)** |const|                                                                                                                                                                                                                            |
-   +-----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`ENetPacketPeer[]<class_ENetPacketPeer>` | :ref:`get_peers<class_ENetConnection_method_get_peers>` **(** **)**                                                                                                                                                                                                                                                  |
-   +-----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`float<class_float>`                     | :ref:`pop_statistic<class_ENetConnection_method_pop_statistic>` **(** :ref:`HostStatistic<enum_ENetConnection_HostStatistic>` statistic **)**                                                                                                                                                                        |
-   +-----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                          | :ref:`refuse_new_connections<class_ENetConnection_method_refuse_new_connections>` **(** :ref:`bool<class_bool>` refuse **)**                                                                                                                                                                                         |
-   +-----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Array<class_Array>`                     | :ref:`service<class_ENetConnection_method_service>` **(** :ref:`int<class_int>` timeout=0 **)**                                                                                                                                                                                                                      |
-   +-----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   +--------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                                                   | :ref:`bandwidth_limit<class_ENetConnection_method_bandwidth_limit>`\ (\ in_bandwidth\: :ref:`int<class_int>` = 0, out_bandwidth\: :ref:`int<class_int>` = 0\ )                                                                                                                                                                      |
+   +--------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                                                   | :ref:`broadcast<class_ENetConnection_method_broadcast>`\ (\ channel\: :ref:`int<class_int>`, packet\: :ref:`PackedByteArray<class_PackedByteArray>`, flags\: :ref:`int<class_int>`\ )                                                                                                                                               |
+   +--------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                                                   | :ref:`channel_limit<class_ENetConnection_method_channel_limit>`\ (\ limit\: :ref:`int<class_int>`\ )                                                                                                                                                                                                                                |
+   +--------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                                                   | :ref:`compress<class_ENetConnection_method_compress>`\ (\ mode\: :ref:`CompressionMode<enum_ENetConnection_CompressionMode>`\ )                                                                                                                                                                                                     |
+   +--------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`ENetPacketPeer<class_ENetPacketPeer>`                              | :ref:`connect_to_host<class_ENetConnection_method_connect_to_host>`\ (\ address\: :ref:`String<class_String>`, port\: :ref:`int<class_int>`, channels\: :ref:`int<class_int>` = 0, data\: :ref:`int<class_int>` = 0\ )                                                                                                              |
+   +--------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Error<enum_@GlobalScope_Error>`                                    | :ref:`create_host<class_ENetConnection_method_create_host>`\ (\ max_peers\: :ref:`int<class_int>` = 32, max_channels\: :ref:`int<class_int>` = 0, in_bandwidth\: :ref:`int<class_int>` = 0, out_bandwidth\: :ref:`int<class_int>` = 0\ )                                                                                            |
+   +--------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Error<enum_@GlobalScope_Error>`                                    | :ref:`create_host_bound<class_ENetConnection_method_create_host_bound>`\ (\ bind_address\: :ref:`String<class_String>`, bind_port\: :ref:`int<class_int>`, max_peers\: :ref:`int<class_int>` = 32, max_channels\: :ref:`int<class_int>` = 0, in_bandwidth\: :ref:`int<class_int>` = 0, out_bandwidth\: :ref:`int<class_int>` = 0\ ) |
+   +--------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                                                   | :ref:`destroy<class_ENetConnection_method_destroy>`\ (\ )                                                                                                                                                                                                                                                                           |
+   +--------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Error<enum_@GlobalScope_Error>`                                    | :ref:`dtls_client_setup<class_ENetConnection_method_dtls_client_setup>`\ (\ hostname\: :ref:`String<class_String>`, client_options\: :ref:`TLSOptions<class_TLSOptions>` = null\ )                                                                                                                                                  |
+   +--------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Error<enum_@GlobalScope_Error>`                                    | :ref:`dtls_server_setup<class_ENetConnection_method_dtls_server_setup>`\ (\ server_options\: :ref:`TLSOptions<class_TLSOptions>`\ )                                                                                                                                                                                                 |
+   +--------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                                                   | :ref:`flush<class_ENetConnection_method_flush>`\ (\ )                                                                                                                                                                                                                                                                               |
+   +--------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`int<class_int>`                                                    | :ref:`get_local_port<class_ENetConnection_method_get_local_port>`\ (\ ) |const|                                                                                                                                                                                                                                                     |
+   +--------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`int<class_int>`                                                    | :ref:`get_max_channels<class_ENetConnection_method_get_max_channels>`\ (\ ) |const|                                                                                                                                                                                                                                                 |
+   +--------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Array<class_Array>`\[:ref:`ENetPacketPeer<class_ENetPacketPeer>`\] | :ref:`get_peers<class_ENetConnection_method_get_peers>`\ (\ )                                                                                                                                                                                                                                                                       |
+   +--------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`float<class_float>`                                                | :ref:`pop_statistic<class_ENetConnection_method_pop_statistic>`\ (\ statistic\: :ref:`HostStatistic<enum_ENetConnection_HostStatistic>`\ )                                                                                                                                                                                          |
+   +--------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                                                   | :ref:`refuse_new_connections<class_ENetConnection_method_refuse_new_connections>`\ (\ refuse\: :ref:`bool<class_bool>`\ )                                                                                                                                                                                                           |
+   +--------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Array<class_Array>`                                                | :ref:`service<class_ENetConnection_method_service>`\ (\ timeout\: :ref:`int<class_int>` = 0\ )                                                                                                                                                                                                                                      |
+   +--------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                                                   | :ref:`socket_send<class_ENetConnection_method_socket_send>`\ (\ destination_address\: :ref:`String<class_String>`, destination_port\: :ref:`int<class_int>`, packet\: :ref:`PackedByteArray<class_PackedByteArray>`\ )                                                                                                              |
+   +--------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -175,7 +177,7 @@ A peer has disconnected. This event is generated on a successful completion of a
 
 :ref:`EventType<enum_ENetConnection_EventType>` **EVENT_RECEIVE** = ``3``
 
-A packet has been received from a peer. The array will contain the peer which sent the packet, the channel number upon which the packet was received, and the received packet.
+A packet has been received from a peer. The array will contain the peer which sent the packet and the channel number upon which the packet was received. The received packet will be queued to the associated :ref:`ENetPacketPeer<class_ENetPacketPeer>`.
 
 .. rst-class:: classref-item-separator
 
@@ -232,7 +234,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-void **bandwidth_limit** **(** :ref:`int<class_int>` in_bandwidth=0, :ref:`int<class_int>` out_bandwidth=0 **)**
+|void| **bandwidth_limit**\ (\ in_bandwidth\: :ref:`int<class_int>` = 0, out_bandwidth\: :ref:`int<class_int>` = 0\ )
 
 Adjusts the bandwidth limits of a host.
 
@@ -244,7 +246,7 @@ Adjusts the bandwidth limits of a host.
 
 .. rst-class:: classref-method
 
-void **broadcast** **(** :ref:`int<class_int>` channel, :ref:`PackedByteArray<class_PackedByteArray>` packet, :ref:`int<class_int>` flags **)**
+|void| **broadcast**\ (\ channel\: :ref:`int<class_int>`, packet\: :ref:`PackedByteArray<class_PackedByteArray>`, flags\: :ref:`int<class_int>`\ )
 
 Queues a ``packet`` to be sent to all peers associated with the host over the specified ``channel``. See :ref:`ENetPacketPeer<class_ENetPacketPeer>` ``FLAG_*`` constants for available packet flags.
 
@@ -256,7 +258,7 @@ Queues a ``packet`` to be sent to all peers associated with the host over the sp
 
 .. rst-class:: classref-method
 
-void **channel_limit** **(** :ref:`int<class_int>` limit **)**
+|void| **channel_limit**\ (\ limit\: :ref:`int<class_int>`\ )
 
 Limits the maximum allowed channels of future incoming connections.
 
@@ -268,7 +270,7 @@ Limits the maximum allowed channels of future incoming connections.
 
 .. rst-class:: classref-method
 
-void **compress** **(** :ref:`CompressionMode<enum_ENetConnection_CompressionMode>` mode **)**
+|void| **compress**\ (\ mode\: :ref:`CompressionMode<enum_ENetConnection_CompressionMode>`\ )
 
 Sets the compression method used for network packets. These have different tradeoffs of compression speed versus bandwidth, you may need to test which one works best for your use case if you use compression at all.
 
@@ -284,7 +286,7 @@ Sets the compression method used for network packets. These have different trade
 
 .. rst-class:: classref-method
 
-:ref:`ENetPacketPeer<class_ENetPacketPeer>` **connect_to_host** **(** :ref:`String<class_String>` address, :ref:`int<class_int>` port, :ref:`int<class_int>` channels=0, :ref:`int<class_int>` data=0 **)**
+:ref:`ENetPacketPeer<class_ENetPacketPeer>` **connect_to_host**\ (\ address\: :ref:`String<class_String>`, port\: :ref:`int<class_int>`, channels\: :ref:`int<class_int>` = 0, data\: :ref:`int<class_int>` = 0\ )
 
 Initiates a connection to a foreign ``address`` using the specified ``port`` and allocating the requested ``channels``. Optional ``data`` can be passed during connection in the form of a 32 bit integer.
 
@@ -298,7 +300,7 @@ Initiates a connection to a foreign ``address`` using the specified ``port`` and
 
 .. rst-class:: classref-method
 
-:ref:`Error<enum_@GlobalScope_Error>` **create_host** **(** :ref:`int<class_int>` max_peers=32, :ref:`int<class_int>` max_channels=0, :ref:`int<class_int>` in_bandwidth=0, :ref:`int<class_int>` out_bandwidth=0 **)**
+:ref:`Error<enum_@GlobalScope_Error>` **create_host**\ (\ max_peers\: :ref:`int<class_int>` = 32, max_channels\: :ref:`int<class_int>` = 0, in_bandwidth\: :ref:`int<class_int>` = 0, out_bandwidth\: :ref:`int<class_int>` = 0\ )
 
 Create an ENetHost that will allow up to ``max_peers`` connected peers, each allocating up to ``max_channels`` channels, optionally limiting bandwidth to ``in_bandwidth`` and ``out_bandwidth``.
 
@@ -310,7 +312,7 @@ Create an ENetHost that will allow up to ``max_peers`` connected peers, each all
 
 .. rst-class:: classref-method
 
-:ref:`Error<enum_@GlobalScope_Error>` **create_host_bound** **(** :ref:`String<class_String>` bind_address, :ref:`int<class_int>` bind_port, :ref:`int<class_int>` max_peers=32, :ref:`int<class_int>` max_channels=0, :ref:`int<class_int>` in_bandwidth=0, :ref:`int<class_int>` out_bandwidth=0 **)**
+:ref:`Error<enum_@GlobalScope_Error>` **create_host_bound**\ (\ bind_address\: :ref:`String<class_String>`, bind_port\: :ref:`int<class_int>`, max_peers\: :ref:`int<class_int>` = 32, max_channels\: :ref:`int<class_int>` = 0, in_bandwidth\: :ref:`int<class_int>` = 0, out_bandwidth\: :ref:`int<class_int>` = 0\ )
 
 Create an ENetHost like :ref:`create_host<class_ENetConnection_method_create_host>` which is also bound to the given ``bind_address`` and ``bind_port``.
 
@@ -322,7 +324,7 @@ Create an ENetHost like :ref:`create_host<class_ENetConnection_method_create_hos
 
 .. rst-class:: classref-method
 
-void **destroy** **(** **)**
+|void| **destroy**\ (\ )
 
 Destroys the host and all resources associated with it.
 
@@ -334,7 +336,7 @@ Destroys the host and all resources associated with it.
 
 .. rst-class:: classref-method
 
-:ref:`Error<enum_@GlobalScope_Error>` **dtls_client_setup** **(** :ref:`String<class_String>` hostname, :ref:`TLSOptions<class_TLSOptions>` client_options=null **)**
+:ref:`Error<enum_@GlobalScope_Error>` **dtls_client_setup**\ (\ hostname\: :ref:`String<class_String>`, client_options\: :ref:`TLSOptions<class_TLSOptions>` = null\ )
 
 Configure this ENetHost to use the custom Godot extension allowing DTLS encryption for ENet clients. Call this before :ref:`connect_to_host<class_ENetConnection_method_connect_to_host>` to have ENet connect using DTLS validating the server certificate against ``hostname``. You can pass the optional ``client_options`` parameter to customize the trusted certification authorities, or disable the common name verification. See :ref:`TLSOptions.client<class_TLSOptions_method_client>` and :ref:`TLSOptions.client_unsafe<class_TLSOptions_method_client_unsafe>`.
 
@@ -346,7 +348,7 @@ Configure this ENetHost to use the custom Godot extension allowing DTLS encrypti
 
 .. rst-class:: classref-method
 
-:ref:`Error<enum_@GlobalScope_Error>` **dtls_server_setup** **(** :ref:`TLSOptions<class_TLSOptions>` server_options **)**
+:ref:`Error<enum_@GlobalScope_Error>` **dtls_server_setup**\ (\ server_options\: :ref:`TLSOptions<class_TLSOptions>`\ )
 
 Configure this ENetHost to use the custom Godot extension allowing DTLS encryption for ENet servers. Call this right after :ref:`create_host_bound<class_ENetConnection_method_create_host_bound>` to have ENet expect peers to connect using DTLS. See :ref:`TLSOptions.server<class_TLSOptions_method_server>`.
 
@@ -358,7 +360,7 @@ Configure this ENetHost to use the custom Godot extension allowing DTLS encrypti
 
 .. rst-class:: classref-method
 
-void **flush** **(** **)**
+|void| **flush**\ (\ )
 
 Sends any queued packets on the host specified to its designated peers.
 
@@ -370,7 +372,7 @@ Sends any queued packets on the host specified to its designated peers.
 
 .. rst-class:: classref-method
 
-:ref:`int<class_int>` **get_local_port** **(** **)** |const|
+:ref:`int<class_int>` **get_local_port**\ (\ ) |const|
 
 Returns the local port to which this peer is bound.
 
@@ -382,7 +384,7 @@ Returns the local port to which this peer is bound.
 
 .. rst-class:: classref-method
 
-:ref:`int<class_int>` **get_max_channels** **(** **)** |const|
+:ref:`int<class_int>` **get_max_channels**\ (\ ) |const|
 
 Returns the maximum number of channels allowed for connected peers.
 
@@ -394,7 +396,7 @@ Returns the maximum number of channels allowed for connected peers.
 
 .. rst-class:: classref-method
 
-:ref:`ENetPacketPeer[]<class_ENetPacketPeer>` **get_peers** **(** **)**
+:ref:`Array<class_Array>`\[:ref:`ENetPacketPeer<class_ENetPacketPeer>`\] **get_peers**\ (\ )
 
 Returns the list of peers associated with this host.
 
@@ -408,7 +410,7 @@ Returns the list of peers associated with this host.
 
 .. rst-class:: classref-method
 
-:ref:`float<class_float>` **pop_statistic** **(** :ref:`HostStatistic<enum_ENetConnection_HostStatistic>` statistic **)**
+:ref:`float<class_float>` **pop_statistic**\ (\ statistic\: :ref:`HostStatistic<enum_ENetConnection_HostStatistic>`\ )
 
 Returns and resets host statistics. See :ref:`HostStatistic<enum_ENetConnection_HostStatistic>` for more info.
 
@@ -420,7 +422,7 @@ Returns and resets host statistics. See :ref:`HostStatistic<enum_ENetConnection_
 
 .. rst-class:: classref-method
 
-void **refuse_new_connections** **(** :ref:`bool<class_bool>` refuse **)**
+|void| **refuse_new_connections**\ (\ refuse\: :ref:`bool<class_bool>`\ )
 
 Configures the DTLS server to automatically drop new connections.
 
@@ -434,11 +436,27 @@ Configures the DTLS server to automatically drop new connections.
 
 .. rst-class:: classref-method
 
-:ref:`Array<class_Array>` **service** **(** :ref:`int<class_int>` timeout=0 **)**
+:ref:`Array<class_Array>` **service**\ (\ timeout\: :ref:`int<class_int>` = 0\ )
 
 Waits for events on the host specified and shuttles packets between the host and its peers. The returned :ref:`Array<class_Array>` will have 4 elements. An :ref:`EventType<enum_ENetConnection_EventType>`, the :ref:`ENetPacketPeer<class_ENetPacketPeer>` which generated the event, the event associated data (if any), the event associated channel (if any). If the generated event is :ref:`EVENT_RECEIVE<class_ENetConnection_constant_EVENT_RECEIVE>`, the received packet will be queued to the associated :ref:`ENetPacketPeer<class_ENetPacketPeer>`.
 
 Call this function regularly to handle connections, disconnections, and to receive new packets.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_ENetConnection_method_socket_send:
+
+.. rst-class:: classref-method
+
+|void| **socket_send**\ (\ destination_address\: :ref:`String<class_String>`, destination_port\: :ref:`int<class_int>`, packet\: :ref:`PackedByteArray<class_PackedByteArray>`\ )
+
+Sends a ``packet`` toward a destination from the address and port currently bound by this ENetConnection instance. 
+
+This is useful as it serves to establish entries in NAT routing tables on all devices between this bound instance and the public facing internet, allowing a prospective client's connection packets to be routed backward through the NAT device(s) between the public internet and this host.
+
+This requires forward knowledge of a prospective client's address and communication port as seen by the public internet - after any NAT devices have handled their connection request. This information can be obtained by a `STUN <https://en.wikipedia.org/wiki/STUN>`__ service, and must be handed off to your host by an entity that is not the prospective client. This will never work for a client behind a Symmetric NAT due to the nature of the Symmetric NAT routing algorithm, as their IP and Port cannot be known beforehand.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
@@ -446,3 +464,5 @@ Call this function regularly to handle connections, disconnections, and to recei
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`

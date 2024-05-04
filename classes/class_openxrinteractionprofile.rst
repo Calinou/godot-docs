@@ -19,7 +19,7 @@ Suggested bindings object for OpenXR.
 Description
 -----------
 
-This object stores suggested bindings for an interaction profile. Interaction profiles define the meta data for a tracked XR device such as an XR controller.
+This object stores suggested bindings for an interaction profile. Interaction profiles define the metadata for a tracked XR device such as an XR controller.
 
 For more information see the `interaction profiles info in the OpenXR specification <https://www.khronos.org/registry/OpenXR/specs/1.0/html/xrspec.html#semantic-path-interaction-profiles>`__.
 
@@ -45,11 +45,11 @@ Methods
 .. table::
    :widths: auto
 
-   +-----------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+
-   | :ref:`OpenXRIPBinding<class_OpenXRIPBinding>` | :ref:`get_binding<class_OpenXRInteractionProfile_method_get_binding>` **(** :ref:`int<class_int>` index **)** |const| |
-   +-----------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+
-   | :ref:`int<class_int>`                         | :ref:`get_binding_count<class_OpenXRInteractionProfile_method_get_binding_count>` **(** **)** |const|                 |
-   +-----------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+
+   +-----------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
+   | :ref:`OpenXRIPBinding<class_OpenXRIPBinding>` | :ref:`get_binding<class_OpenXRInteractionProfile_method_get_binding>`\ (\ index\: :ref:`int<class_int>`\ ) |const| |
+   +-----------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
+   | :ref:`int<class_int>`                         | :ref:`get_binding_count<class_OpenXRInteractionProfile_method_get_binding_count>`\ (\ ) |const|                    |
+   +-----------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -68,8 +68,8 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_bindings** **(** :ref:`Array<class_Array>` value **)**
-- :ref:`Array<class_Array>` **get_bindings** **(** **)**
+- |void| **set_bindings**\ (\ value\: :ref:`Array<class_Array>`\ )
+- :ref:`Array<class_Array>` **get_bindings**\ (\ )
 
 Action bindings for this interaction profile.
 
@@ -85,8 +85,8 @@ Action bindings for this interaction profile.
 
 .. rst-class:: classref-property-setget
 
-- void **set_interaction_profile_path** **(** :ref:`String<class_String>` value **)**
-- :ref:`String<class_String>` **get_interaction_profile_path** **(** **)**
+- |void| **set_interaction_profile_path**\ (\ value\: :ref:`String<class_String>`\ )
+- :ref:`String<class_String>` **get_interaction_profile_path**\ (\ )
 
 The interaction profile path identifying the XR device.
 
@@ -103,7 +103,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`OpenXRIPBinding<class_OpenXRIPBinding>` **get_binding** **(** :ref:`int<class_int>` index **)** |const|
+:ref:`OpenXRIPBinding<class_OpenXRIPBinding>` **get_binding**\ (\ index\: :ref:`int<class_int>`\ ) |const|
 
 Retrieve the binding at this index.
 
@@ -115,7 +115,7 @@ Retrieve the binding at this index.
 
 .. rst-class:: classref-method
 
-:ref:`int<class_int>` **get_binding_count** **(** **)** |const|
+:ref:`int<class_int>` **get_binding_count**\ (\ ) |const|
 
 Get the number of bindings in this interaction profile.
 
@@ -125,3 +125,5 @@ Get the number of bindings in this interaction profile.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`

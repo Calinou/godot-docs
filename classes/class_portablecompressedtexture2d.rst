@@ -55,17 +55,17 @@ Methods
 .. table::
    :widths: auto
 
-   +--------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                                                     | :ref:`create_from_image<class_PortableCompressedTexture2D_method_create_from_image>` **(** :ref:`Image<class_Image>` image, :ref:`CompressionMode<enum_PortableCompressedTexture2D_CompressionMode>` compression_mode, :ref:`bool<class_bool>` normal_map=false, :ref:`float<class_float>` lossy_quality=0.8 **)** |
-   +--------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`CompressionMode<enum_PortableCompressedTexture2D_CompressionMode>` | :ref:`get_compression_mode<class_PortableCompressedTexture2D_method_get_compression_mode>` **(** **)** |const|                                                                                                                                                                                                     |
-   +--------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Format<enum_Image_Format>`                                         | :ref:`get_format<class_PortableCompressedTexture2D_method_get_format>` **(** **)** |const|                                                                                                                                                                                                                         |
-   +--------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`                                                  | :ref:`is_keeping_all_compressed_buffers<class_PortableCompressedTexture2D_method_is_keeping_all_compressed_buffers>` **(** **)** |static|                                                                                                                                                                          |
-   +--------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                                                     | :ref:`set_keep_all_compressed_buffers<class_PortableCompressedTexture2D_method_set_keep_all_compressed_buffers>` **(** :ref:`bool<class_bool>` keep **)** |static|                                                                                                                                                 |
-   +--------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   +--------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                                                   | :ref:`create_from_image<class_PortableCompressedTexture2D_method_create_from_image>`\ (\ image\: :ref:`Image<class_Image>`, compression_mode\: :ref:`CompressionMode<enum_PortableCompressedTexture2D_CompressionMode>`, normal_map\: :ref:`bool<class_bool>` = false, lossy_quality\: :ref:`float<class_float>` = 0.8\ ) |
+   +--------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`CompressionMode<enum_PortableCompressedTexture2D_CompressionMode>` | :ref:`get_compression_mode<class_PortableCompressedTexture2D_method_get_compression_mode>`\ (\ ) |const|                                                                                                                                                                                                                  |
+   +--------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Format<enum_Image_Format>`                                         | :ref:`get_format<class_PortableCompressedTexture2D_method_get_format>`\ (\ ) |const|                                                                                                                                                                                                                                      |
+   +--------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                                                  | :ref:`is_keeping_all_compressed_buffers<class_PortableCompressedTexture2D_method_is_keeping_all_compressed_buffers>`\ (\ ) |static|                                                                                                                                                                                       |
+   +--------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                                                   | :ref:`set_keep_all_compressed_buffers<class_PortableCompressedTexture2D_method_set_keep_all_compressed_buffers>`\ (\ keep\: :ref:`bool<class_bool>`\ ) |static|                                                                                                                                                           |
+   +--------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -88,6 +88,10 @@ enum **CompressionMode**:
 
 :ref:`CompressionMode<enum_PortableCompressedTexture2D_CompressionMode>` **COMPRESSION_MODE_LOSSLESS** = ``0``
 
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+
 
 
 .. _class_PortableCompressedTexture2D_constant_COMPRESSION_MODE_LOSSY:
@@ -95,6 +99,10 @@ enum **CompressionMode**:
 .. rst-class:: classref-enumeration-constant
 
 :ref:`CompressionMode<enum_PortableCompressedTexture2D_CompressionMode>` **COMPRESSION_MODE_LOSSY** = ``1``
+
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
 
 
 
@@ -104,6 +112,10 @@ enum **CompressionMode**:
 
 :ref:`CompressionMode<enum_PortableCompressedTexture2D_CompressionMode>` **COMPRESSION_MODE_BASIS_UNIVERSAL** = ``2``
 
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+
 
 
 .. _class_PortableCompressedTexture2D_constant_COMPRESSION_MODE_S3TC:
@@ -111,6 +123,10 @@ enum **CompressionMode**:
 .. rst-class:: classref-enumeration-constant
 
 :ref:`CompressionMode<enum_PortableCompressedTexture2D_CompressionMode>` **COMPRESSION_MODE_S3TC** = ``3``
+
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
 
 
 
@@ -120,6 +136,10 @@ enum **CompressionMode**:
 
 :ref:`CompressionMode<enum_PortableCompressedTexture2D_CompressionMode>` **COMPRESSION_MODE_ETC2** = ``4``
 
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+
 
 
 .. _class_PortableCompressedTexture2D_constant_COMPRESSION_MODE_BPTC:
@@ -127,6 +147,10 @@ enum **CompressionMode**:
 .. rst-class:: classref-enumeration-constant
 
 :ref:`CompressionMode<enum_PortableCompressedTexture2D_CompressionMode>` **COMPRESSION_MODE_BPTC** = ``5``
+
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
 
 
 
@@ -161,8 +185,8 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_keep_compressed_buffer** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **is_keeping_compressed_buffer** **(** **)**
+- |void| **set_keep_compressed_buffer**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **is_keeping_compressed_buffer**\ (\ )
 
 When running on the editor, this class will keep the source compressed data in memory. Otherwise, the source compressed data is lost after loading and the resource can't be re saved.
 
@@ -180,8 +204,8 @@ This flag allows to keep the compressed data in memory if you intend it to persi
 
 .. rst-class:: classref-property-setget
 
-- void **set_size_override** **(** :ref:`Vector2<class_Vector2>` value **)**
-- :ref:`Vector2<class_Vector2>` **get_size_override** **(** **)**
+- |void| **set_size_override**\ (\ value\: :ref:`Vector2<class_Vector2>`\ )
+- :ref:`Vector2<class_Vector2>` **get_size_override**\ (\ )
 
 Allow overriding the texture size (for 2D only).
 
@@ -198,7 +222,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-void **create_from_image** **(** :ref:`Image<class_Image>` image, :ref:`CompressionMode<enum_PortableCompressedTexture2D_CompressionMode>` compression_mode, :ref:`bool<class_bool>` normal_map=false, :ref:`float<class_float>` lossy_quality=0.8 **)**
+|void| **create_from_image**\ (\ image\: :ref:`Image<class_Image>`, compression_mode\: :ref:`CompressionMode<enum_PortableCompressedTexture2D_CompressionMode>`, normal_map\: :ref:`bool<class_bool>` = false, lossy_quality\: :ref:`float<class_float>` = 0.8\ )
 
 Initializes the compressed texture from a base image. The compression mode must be provided.
 
@@ -214,7 +238,7 @@ If lossy compression is requested, the quality setting can optionally be provide
 
 .. rst-class:: classref-method
 
-:ref:`CompressionMode<enum_PortableCompressedTexture2D_CompressionMode>` **get_compression_mode** **(** **)** |const|
+:ref:`CompressionMode<enum_PortableCompressedTexture2D_CompressionMode>` **get_compression_mode**\ (\ ) |const|
 
 Return the compression mode used (valid after initialized).
 
@@ -226,7 +250,7 @@ Return the compression mode used (valid after initialized).
 
 .. rst-class:: classref-method
 
-:ref:`Format<enum_Image_Format>` **get_format** **(** **)** |const|
+:ref:`Format<enum_Image_Format>` **get_format**\ (\ ) |const|
 
 Return the image format used (valid after initialized).
 
@@ -238,7 +262,7 @@ Return the image format used (valid after initialized).
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **is_keeping_all_compressed_buffers** **(** **)** |static|
+:ref:`bool<class_bool>` **is_keeping_all_compressed_buffers**\ (\ ) |static|
 
 Return whether the flag is overridden for all textures of this type.
 
@@ -250,7 +274,7 @@ Return whether the flag is overridden for all textures of this type.
 
 .. rst-class:: classref-method
 
-void **set_keep_all_compressed_buffers** **(** :ref:`bool<class_bool>` keep **)** |static|
+|void| **set_keep_all_compressed_buffers**\ (\ keep\: :ref:`bool<class_bool>`\ ) |static|
 
 Overrides the flag globally for all textures of this type. This is used primarily by the editor.
 
@@ -260,3 +284,5 @@ Overrides the flag globally for all textures of this type. This is used primaril
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`

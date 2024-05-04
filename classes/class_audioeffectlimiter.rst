@@ -10,6 +10,8 @@
 AudioEffectLimiter
 ==================
 
+**Deprecated:** Use :ref:`AudioEffectHardLimiter<class_AudioEffectHardLimiter>` instead.
+
 **Inherits:** :ref:`AudioEffect<class_AudioEffect>` **<** :ref:`Resource<class_Resource>` **<** :ref:`RefCounted<class_RefCounted>` **<** :ref:`Object<class_Object>`
 
 Adds a soft-clip limiter audio effect to an Audio bus.
@@ -65,8 +67,8 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_ceiling_db** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_ceiling_db** **(** **)**
+- |void| **set_ceiling_db**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_ceiling_db**\ (\ )
 
 The waveform's maximum allowed value, in decibels. Value can range from -20 to -0.1.
 
@@ -82,8 +84,8 @@ The waveform's maximum allowed value, in decibels. Value can range from -20 to -
 
 .. rst-class:: classref-property-setget
 
-- void **set_soft_clip_db** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_soft_clip_db** **(** **)**
+- |void| **set_soft_clip_db**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_soft_clip_db**\ (\ )
 
 Applies a gain to the limited waves, in decibels. Value can range from 0 to 6.
 
@@ -99,8 +101,8 @@ Applies a gain to the limited waves, in decibels. Value can range from 0 to 6.
 
 .. rst-class:: classref-property-setget
 
-- void **set_soft_clip_ratio** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_soft_clip_ratio** **(** **)**
+- |void| **set_soft_clip_ratio**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_soft_clip_ratio**\ (\ )
 
 .. container:: contribute
 
@@ -118,8 +120,8 @@ Applies a gain to the limited waves, in decibels. Value can range from 0 to 6.
 
 .. rst-class:: classref-property-setget
 
-- void **set_threshold_db** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_threshold_db** **(** **)**
+- |void| **set_threshold_db**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_threshold_db**\ (\ )
 
 Threshold from which the limiter begins to be active, in decibels. Value can range from -30 to 0.
 
@@ -129,3 +131,5 @@ Threshold from which the limiter begins to be active, in decibels. Value can ran
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`
