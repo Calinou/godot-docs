@@ -14,14 +14,14 @@ ConfirmationDialog
 
 **Inherited By:** :ref:`EditorCommandPalette<class_EditorCommandPalette>`, :ref:`EditorFileDialog<class_EditorFileDialog>`, :ref:`FileDialog<class_FileDialog>`, :ref:`ScriptCreateDialog<class_ScriptCreateDialog>`
 
-Dialog for confirmation of actions.
+A dialog used for confirmation of actions.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-Dialog for confirmation of actions. This dialog inherits from :ref:`AcceptDialog<class_AcceptDialog>`, but has by default an OK and Cancel button (in host OS order).
+A dialog used for confirmation of actions. This window is similar to :ref:`AcceptDialog<class_AcceptDialog>`, but pressing its Cancel button can have a different outcome from pressing the OK button. The order of the two buttons varies depending on the host OS.
 
 To get cancel action, you can use:
 
@@ -64,9 +64,9 @@ Methods
 .. table::
    :widths: auto
 
-   +-----------------------------+-----------------------------------------------------------------------------------------+
-   | :ref:`Button<class_Button>` | :ref:`get_cancel_button<class_ConfirmationDialog_method_get_cancel_button>` **(** **)** |
-   +-----------------------------+-----------------------------------------------------------------------------------------+
+   +-----------------------------+-----------------------------------------------------------------------------------+
+   | :ref:`Button<class_Button>` | :ref:`get_cancel_button<class_ConfirmationDialog_method_get_cancel_button>`\ (\ ) |
+   +-----------------------------+-----------------------------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -85,8 +85,8 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_cancel_button_text** **(** :ref:`String<class_String>` value **)**
-- :ref:`String<class_String>` **get_cancel_button_text** **(** **)**
+- |void| **set_cancel_button_text**\ (\ value\: :ref:`String<class_String>`\ )
+- :ref:`String<class_String>` **get_cancel_button_text**\ (\ )
 
 The text displayed by the cancel button (see :ref:`get_cancel_button<class_ConfirmationDialog_method_get_cancel_button>`).
 
@@ -103,7 +103,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`Button<class_Button>` **get_cancel_button** **(** **)**
+:ref:`Button<class_Button>` **get_cancel_button**\ (\ )
 
 Returns the cancel button.
 
@@ -115,3 +115,5 @@ Returns the cancel button.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`

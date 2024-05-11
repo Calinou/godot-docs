@@ -23,7 +23,7 @@ Description
 
 **MainLoop** is the abstract base class for a Godot project's game loop. It is inherited by :ref:`SceneTree<class_SceneTree>`, which is the default game loop implementation used in Godot projects, though it is also possible to write and use one's own **MainLoop** subclass instead of the scene tree.
 
-Upon the application start, a **MainLoop** implementation must be provided to the OS; otherwise, the application will exit. This happens automatically (and a :ref:`SceneTree<class_SceneTree>` is created) unless a **MainLoop** :ref:`Script<class_Script>` is provided from the command line (with e.g. ``godot -s my_loop.gd`` or the "Main Loop Type" project setting is overwritten.
+Upon the application start, a **MainLoop** implementation must be provided to the OS; otherwise, the application will exit. This happens automatically (and a :ref:`SceneTree<class_SceneTree>` is created) unless a **MainLoop** :ref:`Script<class_Script>` is provided from the command line (with e.g. ``godot -s my_loop.gd``) or the "Main Loop Type" project setting is overwritten.
 
 Here is an example script implementing a simple **MainLoop**:
 
@@ -54,6 +54,7 @@ Here is an example script implementing a simple **MainLoop**:
 
     using Godot;
     
+    [GlobalClass]
     public partial class CustomMainLoop : MainLoop
     {
         private double _timeElapsed = 0;
@@ -88,15 +89,15 @@ Methods
 .. table::
    :widths: auto
 
-   +-------------------------+-----------------------------------------------------------------------------------------------------------------------+
-   | void                    | :ref:`_finalize<class_MainLoop_method__finalize>` **(** **)** |virtual|                                               |
-   +-------------------------+-----------------------------------------------------------------------------------------------------------------------+
-   | void                    | :ref:`_initialize<class_MainLoop_method__initialize>` **(** **)** |virtual|                                           |
-   +-------------------------+-----------------------------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>` | :ref:`_physics_process<class_MainLoop_method__physics_process>` **(** :ref:`float<class_float>` delta **)** |virtual| |
-   +-------------------------+-----------------------------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>` | :ref:`_process<class_MainLoop_method__process>` **(** :ref:`float<class_float>` delta **)** |virtual|                 |
-   +-------------------------+-----------------------------------------------------------------------------------------------------------------------+
+   +-------------------------+----------------------------------------------------------------------------------------------------------------------------+
+   | |void|                  | :ref:`_finalize<class_MainLoop_private_method__finalize>`\ (\ ) |virtual|                                                  |
+   +-------------------------+----------------------------------------------------------------------------------------------------------------------------+
+   | |void|                  | :ref:`_initialize<class_MainLoop_private_method__initialize>`\ (\ ) |virtual|                                              |
+   +-------------------------+----------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>` | :ref:`_physics_process<class_MainLoop_private_method__physics_process>`\ (\ delta\: :ref:`float<class_float>`\ ) |virtual| |
+   +-------------------------+----------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>` | :ref:`_process<class_MainLoop_private_method__process>`\ (\ delta\: :ref:`float<class_float>`\ ) |virtual|                 |
+   +-------------------------+----------------------------------------------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -111,7 +112,7 @@ Signals
 
 .. rst-class:: classref-signal
 
-**on_request_permissions_result** **(** :ref:`String<class_String>` permission, :ref:`bool<class_bool>` granted **)**
+**on_request_permissions_result**\ (\ permission\: :ref:`String<class_String>`, granted\: :ref:`bool<class_bool>`\ )
 
 Emitted when a user responds to a permission request.
 
@@ -180,7 +181,7 @@ Specific to the macOS platform.
 
 Notification received from the OS when the application is resumed.
 
-Specific to the Android platform.
+Specific to the Android and iOS platforms.
 
 .. _class_MainLoop_constant_NOTIFICATION_APPLICATION_PAUSED:
 
@@ -190,7 +191,9 @@ Specific to the Android platform.
 
 Notification received from the OS when the application is paused.
 
-Specific to the Android platform.
+Specific to the Android and iOS platforms.
+
+\ **Note:** On iOS, you only have approximately 5 seconds to finish a task started by this signal. If you go over this allotment, iOS will kill the app instead of pausing it.
 
 .. _class_MainLoop_constant_NOTIFICATION_APPLICATION_FOCUS_IN:
 
@@ -200,7 +203,7 @@ Specific to the Android platform.
 
 Notification received from the OS when the application is focused, i.e. when changing the focus from the OS desktop or a thirdparty application to any open window of the Godot instance.
 
-Implemented on desktop platforms.
+Implemented on desktop and mobile platforms.
 
 .. _class_MainLoop_constant_NOTIFICATION_APPLICATION_FOCUS_OUT:
 
@@ -210,7 +213,7 @@ Implemented on desktop platforms.
 
 Notification received from the OS when the application is defocused, i.e. when changing the focus from any open window of the Godot instance to the OS desktop or a thirdparty application.
 
-Implemented on desktop platforms.
+Implemented on desktop and mobile platforms.
 
 .. _class_MainLoop_constant_NOTIFICATION_TEXT_SERVER_CHANGED:
 
@@ -229,11 +232,11 @@ Notification received when text server is changed.
 Method Descriptions
 -------------------
 
-.. _class_MainLoop_method__finalize:
+.. _class_MainLoop_private_method__finalize:
 
 .. rst-class:: classref-method
 
-void **_finalize** **(** **)** |virtual|
+|void| **_finalize**\ (\ ) |virtual|
 
 Called before the program exits.
 
@@ -241,11 +244,11 @@ Called before the program exits.
 
 ----
 
-.. _class_MainLoop_method__initialize:
+.. _class_MainLoop_private_method__initialize:
 
 .. rst-class:: classref-method
 
-void **_initialize** **(** **)** |virtual|
+|void| **_initialize**\ (\ ) |virtual|
 
 Called once during initialization.
 
@@ -253,13 +256,13 @@ Called once during initialization.
 
 ----
 
-.. _class_MainLoop_method__physics_process:
+.. _class_MainLoop_private_method__physics_process:
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **_physics_process** **(** :ref:`float<class_float>` delta **)** |virtual|
+:ref:`bool<class_bool>` **_physics_process**\ (\ delta\: :ref:`float<class_float>`\ ) |virtual|
 
-Called each physics frame with the time since the last physics frame as argument (``delta``, in seconds). Equivalent to :ref:`Node._physics_process<class_Node_method__physics_process>`.
+Called each physics frame with the time since the last physics frame as argument (``delta``, in seconds). Equivalent to :ref:`Node._physics_process<class_Node_private_method__physics_process>`.
 
 If implemented, the method must return a boolean value. ``true`` ends the main loop, while ``false`` lets it proceed to the next frame.
 
@@ -267,13 +270,13 @@ If implemented, the method must return a boolean value. ``true`` ends the main l
 
 ----
 
-.. _class_MainLoop_method__process:
+.. _class_MainLoop_private_method__process:
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **_process** **(** :ref:`float<class_float>` delta **)** |virtual|
+:ref:`bool<class_bool>` **_process**\ (\ delta\: :ref:`float<class_float>`\ ) |virtual|
 
-Called each process (idle) frame with the time since the last process frame as argument (in seconds). Equivalent to :ref:`Node._process<class_Node_method__process>`.
+Called each process (idle) frame with the time since the last process frame as argument (in seconds). Equivalent to :ref:`Node._process<class_Node_private_method__process>`.
 
 If implemented, the method must return a boolean value. ``true`` ends the main loop, while ``false`` lets it proceed to the next frame.
 
@@ -283,3 +286,5 @@ If implemented, the method must return a boolean value. ``true`` ends the main l
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`

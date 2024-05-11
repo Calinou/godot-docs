@@ -19,9 +19,11 @@ A script implemented in the GDScript programming language.
 Description
 -----------
 
-A script implemented in the GDScript programming language. The script extends the functionality of all objects that instantiate it.
+A script implemented in the GDScript programming language, saved with the ``.gd`` extension. The script extends the functionality of all objects that instantiate it.
 
-\ :ref:`new<class_GDScript_method_new>` creates a new instance of the script. :ref:`Object.set_script<class_Object_method_set_script>` extends an existing object, if that object's class matches one of the script's base classes.
+Calling :ref:`new<class_GDScript_method_new>` creates a new instance of the script. :ref:`Object.set_script<class_Object_method_set_script>` extends an existing object, if that object's class matches one of the script's base classes.
+
+If you are looking for GDScript's built-in functions, see :ref:`@GDScript<class_@GDScript>` instead.
 
 .. rst-class:: classref-introduction-group
 
@@ -38,9 +40,9 @@ Methods
 .. table::
    :widths: auto
 
-   +-------------------------------+----------------------------------------------------------------+
-   | :ref:`Variant<class_Variant>` | :ref:`new<class_GDScript_method_new>` **(** ... **)** |vararg| |
-   +-------------------------------+----------------------------------------------------------------+
+   +-------------------------------+-----------------------------------------------------------+
+   | :ref:`Variant<class_Variant>` | :ref:`new<class_GDScript_method_new>`\ (\ ...\ ) |vararg| |
+   +-------------------------------+-----------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -55,7 +57,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`Variant<class_Variant>` **new** **(** ... **)** |vararg|
+:ref:`Variant<class_Variant>` **new**\ (\ ...\ ) |vararg|
 
 Returns a new instance of the script.
 
@@ -73,3 +75,5 @@ For example:
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`

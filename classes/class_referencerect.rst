@@ -12,14 +12,14 @@ ReferenceRect
 
 **Inherits:** :ref:`Control<class_Control>` **<** :ref:`CanvasItem<class_CanvasItem>` **<** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
 
-Reference frame for GUI.
+A rectangle hint for designing UIs.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-A rectangle box that displays only a :ref:`border_color<class_ReferenceRect_property_border_color>` border color around its rectangle. **ReferenceRect** has no fill :ref:`Color<class_Color>`. If you need to display a rectangle filled with a solid color, consider using :ref:`ColorRect<class_ColorRect>` instead.
+A rectangle box that displays only a colored border around its rectangle. It is used to visualize the extents of a :ref:`Control<class_Control>`.
 
 .. rst-class:: classref-reftable-group
 
@@ -54,10 +54,10 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_border_color** **(** :ref:`Color<class_Color>` value **)**
-- :ref:`Color<class_Color>` **get_border_color** **(** **)**
+- |void| **set_border_color**\ (\ value\: :ref:`Color<class_Color>`\ )
+- :ref:`Color<class_Color>` **get_border_color**\ (\ )
 
-Sets the border :ref:`Color<class_Color>` of the **ReferenceRect**.
+Sets the border color of the **ReferenceRect**.
 
 .. rst-class:: classref-item-separator
 
@@ -71,8 +71,8 @@ Sets the border :ref:`Color<class_Color>` of the **ReferenceRect**.
 
 .. rst-class:: classref-property-setget
 
-- void **set_border_width** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_border_width** **(** **)**
+- |void| **set_border_width**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_border_width**\ (\ )
 
 Sets the border width of the **ReferenceRect**. The border grows both inwards and outwards with respect to the rectangle box.
 
@@ -88,8 +88,8 @@ Sets the border width of the **ReferenceRect**. The border grows both inwards an
 
 .. rst-class:: classref-property-setget
 
-- void **set_editor_only** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **get_editor_only** **(** **)**
+- |void| **set_editor_only**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **get_editor_only**\ (\ )
 
 If ``true``, the **ReferenceRect** will only be visible while in editor. Otherwise, **ReferenceRect** will be visible in the running project.
 
@@ -99,3 +99,5 @@ If ``true``, the **ReferenceRect** will only be visible while in editor. Otherwi
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`

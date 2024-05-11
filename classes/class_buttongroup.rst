@@ -12,16 +12,16 @@ ButtonGroup
 
 **Inherits:** :ref:`Resource<class_Resource>` **<** :ref:`RefCounted<class_RefCounted>` **<** :ref:`Object<class_Object>`
 
-Group of Buttons.
+A group of buttons that doesn't allow more than one button to be pressed at a time.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-Group of :ref:`BaseButton<class_BaseButton>`. The members of this group are treated like radio buttons in the sense that only one button can be pressed at the same time.
+A group of :ref:`BaseButton<class_BaseButton>`-derived buttons. The buttons in a **ButtonGroup** are treated like radio buttons: No more than one button can be pressed at a time. Some types of buttons (such as :ref:`CheckBox<class_CheckBox>`) may have a special appearance in this state.
 
-Every member of the ButtonGroup should have :ref:`BaseButton.toggle_mode<class_BaseButton_property_toggle_mode>` set to ``true``.
+Every member of a **ButtonGroup** should have :ref:`BaseButton.toggle_mode<class_BaseButton_property_toggle_mode>` set to ``true``.
 
 .. rst-class:: classref-reftable-group
 
@@ -31,9 +31,11 @@ Properties
 .. table::
    :widths: auto
 
-   +-------------------------+-------------------------+---------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>` | resource_local_to_scene | ``true`` (overrides :ref:`Resource<class_Resource_property_resource_local_to_scene>`) |
-   +-------------------------+-------------------------+---------------------------------------------------------------------------------------+
+   +-------------------------+----------------------------------------------------------------+---------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>` | :ref:`allow_unpress<class_ButtonGroup_property_allow_unpress>` | ``false``                                                                             |
+   +-------------------------+----------------------------------------------------------------+---------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>` | resource_local_to_scene                                        | ``true`` (overrides :ref:`Resource<class_Resource_property_resource_local_to_scene>`) |
+   +-------------------------+----------------------------------------------------------------+---------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-reftable-group
 
@@ -43,11 +45,11 @@ Methods
 .. table::
    :widths: auto
 
-   +---------------------------------------+------------------------------------------------------------------------------------+
-   | :ref:`BaseButton[]<class_BaseButton>` | :ref:`get_buttons<class_ButtonGroup_method_get_buttons>` **(** **)**               |
-   +---------------------------------------+------------------------------------------------------------------------------------+
-   | :ref:`BaseButton<class_BaseButton>`   | :ref:`get_pressed_button<class_ButtonGroup_method_get_pressed_button>` **(** **)** |
-   +---------------------------------------+------------------------------------------------------------------------------------+
+   +------------------------------------------------------------------+------------------------------------------------------------------------------+
+   | :ref:`Array<class_Array>`\[:ref:`BaseButton<class_BaseButton>`\] | :ref:`get_buttons<class_ButtonGroup_method_get_buttons>`\ (\ )               |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------+
+   | :ref:`BaseButton<class_BaseButton>`                              | :ref:`get_pressed_button<class_ButtonGroup_method_get_pressed_button>`\ (\ ) |
+   +------------------------------------------------------------------+------------------------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -62,9 +64,31 @@ Signals
 
 .. rst-class:: classref-signal
 
-**pressed** **(** :ref:`BaseButton<class_BaseButton>` button **)**
+**pressed**\ (\ button\: :ref:`BaseButton<class_BaseButton>`\ )
 
 Emitted when one of the buttons of the group is pressed.
+
+.. rst-class:: classref-section-separator
+
+----
+
+.. rst-class:: classref-descriptions-group
+
+Property Descriptions
+---------------------
+
+.. _class_ButtonGroup_property_allow_unpress:
+
+.. rst-class:: classref-property
+
+:ref:`bool<class_bool>` **allow_unpress** = ``false``
+
+.. rst-class:: classref-property-setget
+
+- |void| **set_allow_unpress**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **is_allow_unpress**\ (\ )
+
+If ``true``, it is possible to unpress all buttons in this **ButtonGroup**.
 
 .. rst-class:: classref-section-separator
 
@@ -79,7 +103,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`BaseButton[]<class_BaseButton>` **get_buttons** **(** **)**
+:ref:`Array<class_Array>`\[:ref:`BaseButton<class_BaseButton>`\] **get_buttons**\ (\ )
 
 Returns an :ref:`Array<class_Array>` of :ref:`Button<class_Button>`\ s who have this as their **ButtonGroup** (see :ref:`BaseButton.button_group<class_BaseButton_property_button_group>`).
 
@@ -91,7 +115,7 @@ Returns an :ref:`Array<class_Array>` of :ref:`Button<class_Button>`\ s who have 
 
 .. rst-class:: classref-method
 
-:ref:`BaseButton<class_BaseButton>` **get_pressed_button** **(** **)**
+:ref:`BaseButton<class_BaseButton>` **get_pressed_button**\ (\ )
 
 Returns the current pressed button.
 
@@ -101,3 +125,5 @@ Returns the current pressed button.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`
