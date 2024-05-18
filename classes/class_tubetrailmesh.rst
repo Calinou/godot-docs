@@ -12,9 +12,25 @@ TubeTrailMesh
 
 **Inherits:** :ref:`PrimitiveMesh<class_PrimitiveMesh>` **<** :ref:`Mesh<class_Mesh>` **<** :ref:`Resource<class_Resource>` **<** :ref:`RefCounted<class_RefCounted>` **<** :ref:`Object<class_Object>`
 
-.. container:: contribute
+Represents a straight tube-shaped :ref:`PrimitiveMesh<class_PrimitiveMesh>` with variable width.
 
-	There is currently no description for this class. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+.. rst-class:: classref-introduction-group
+
+Description
+-----------
+
+**TubeTrailMesh** represents a straight tube-shaped mesh with variable width. The tube is composed of a number of cylindrical sections, each with the same :ref:`section_length<class_TubeTrailMesh_property_section_length>` and number of :ref:`section_rings<class_TubeTrailMesh_property_section_rings>`. A :ref:`curve<class_TubeTrailMesh_property_curve>` is sampled along the total length of the tube, meaning that the curve determines the radius of the tube along its length.
+
+This primitive mesh is usually used for particle trails.
+
+.. rst-class:: classref-introduction-group
+
+Tutorials
+---------
+
+- :doc:`3D Particle trails <../tutorials/3d/particles/trails>`
+
+- :doc:`Particle systems (3D) <../tutorials/3d/particles/index>`
 
 .. rst-class:: classref-reftable-group
 
@@ -59,8 +75,8 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_cap_bottom** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **is_cap_bottom** **(** **)**
+- |void| **set_cap_bottom**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **is_cap_bottom**\ (\ )
 
 If ``true``, generates a cap at the bottom of the tube. This can be set to ``false`` to speed up generation and rendering when the cap is never seen by the camera.
 
@@ -76,8 +92,8 @@ If ``true``, generates a cap at the bottom of the tube. This can be set to ``fal
 
 .. rst-class:: classref-property-setget
 
-- void **set_cap_top** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **is_cap_top** **(** **)**
+- |void| **set_cap_top**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **is_cap_top**\ (\ )
 
 If ``true``, generates a cap at the top of the tube. This can be set to ``false`` to speed up generation and rendering when the cap is never seen by the camera.
 
@@ -93,12 +109,10 @@ If ``true``, generates a cap at the top of the tube. This can be set to ``false`
 
 .. rst-class:: classref-property-setget
 
-- void **set_curve** **(** :ref:`Curve<class_Curve>` value **)**
-- :ref:`Curve<class_Curve>` **get_curve** **(** **)**
+- |void| **set_curve**\ (\ value\: :ref:`Curve<class_Curve>`\ )
+- :ref:`Curve<class_Curve>` **get_curve**\ (\ )
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+Determines the radius of the tube along its length. The radius of a particular section ring is obtained by multiplying the baseline :ref:`radius<class_TubeTrailMesh_property_radius>` by the value of this curve at the given distance. For values smaller than ``0``, the faces will be inverted.
 
 .. rst-class:: classref-item-separator
 
@@ -112,12 +126,10 @@ If ``true``, generates a cap at the top of the tube. This can be set to ``false`
 
 .. rst-class:: classref-property-setget
 
-- void **set_radial_steps** **(** :ref:`int<class_int>` value **)**
-- :ref:`int<class_int>` **get_radial_steps** **(** **)**
+- |void| **set_radial_steps**\ (\ value\: :ref:`int<class_int>`\ )
+- :ref:`int<class_int>` **get_radial_steps**\ (\ )
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+The number of sides on the tube. For example, a value of ``5`` means the tube will be pentagonal. Higher values result in a more detailed tube at the cost of performance.
 
 .. rst-class:: classref-item-separator
 
@@ -131,12 +143,10 @@ If ``true``, generates a cap at the top of the tube. This can be set to ``false`
 
 .. rst-class:: classref-property-setget
 
-- void **set_radius** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_radius** **(** **)**
+- |void| **set_radius**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_radius**\ (\ )
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+The baseline radius of the tube. The radius of a particular section ring is obtained by multiplying this radius by the value of the :ref:`curve<class_TubeTrailMesh_property_curve>` at the given distance.
 
 .. rst-class:: classref-item-separator
 
@@ -150,12 +160,10 @@ If ``true``, generates a cap at the top of the tube. This can be set to ``false`
 
 .. rst-class:: classref-property-setget
 
-- void **set_section_length** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_section_length** **(** **)**
+- |void| **set_section_length**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_section_length**\ (\ )
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+The length of a section of the tube.
 
 .. rst-class:: classref-item-separator
 
@@ -169,12 +177,10 @@ If ``true``, generates a cap at the top of the tube. This can be set to ``false`
 
 .. rst-class:: classref-property-setget
 
-- void **set_section_rings** **(** :ref:`int<class_int>` value **)**
-- :ref:`int<class_int>` **get_section_rings** **(** **)**
+- |void| **set_section_rings**\ (\ value\: :ref:`int<class_int>`\ )
+- :ref:`int<class_int>` **get_section_rings**\ (\ )
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+The number of rings in a section. The :ref:`curve<class_TubeTrailMesh_property_curve>` is sampled on each ring to determine its radius. Higher values result in a more detailed tube at the cost of performance.
 
 .. rst-class:: classref-item-separator
 
@@ -188,12 +194,10 @@ If ``true``, generates a cap at the top of the tube. This can be set to ``false`
 
 .. rst-class:: classref-property-setget
 
-- void **set_sections** **(** :ref:`int<class_int>` value **)**
-- :ref:`int<class_int>` **get_sections** **(** **)**
+- |void| **set_sections**\ (\ value\: :ref:`int<class_int>`\ )
+- :ref:`int<class_int>` **get_sections**\ (\ )
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+The total number of sections on the tube.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
@@ -201,3 +205,5 @@ If ``true``, generates a cap at the top of the tube. This can be set to ``false`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`

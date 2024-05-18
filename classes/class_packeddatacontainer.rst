@@ -12,21 +12,36 @@ PackedDataContainer
 
 **Inherits:** :ref:`Resource<class_Resource>` **<** :ref:`RefCounted<class_RefCounted>` **<** :ref:`Object<class_Object>`
 
-.. container:: contribute
+Efficiently packs and serializes :ref:`Array<class_Array>` or :ref:`Dictionary<class_Dictionary>`.
 
-	There is currently no description for this class. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+.. rst-class:: classref-introduction-group
 
-.. rst-class:: classref-reftable-group
+Description
+-----------
 
-Properties
-----------
+**PackedDataContainer** can be used to efficiently store data from untyped containers. The data is packed into raw bytes and can be saved to file. Only :ref:`Array<class_Array>` and :ref:`Dictionary<class_Dictionary>` can be stored this way.
 
-.. table::
-   :widths: auto
+You can retrieve the data by iterating on the container, which will work as if iterating on the packed data itself. If the packed container is a :ref:`Dictionary<class_Dictionary>`, the data can be retrieved by key names (:ref:`String<class_String>`/:ref:`StringName<class_StringName>` only).
 
-   +-----------------------------------------------+--------------------------------------------------------------+-----------------------+
-   | :ref:`PackedByteArray<class_PackedByteArray>` | :ref:`__data__<class_PackedDataContainer_property___data__>` | ``PackedByteArray()`` |
-   +-----------------------------------------------+--------------------------------------------------------------+-----------------------+
+::
+
+    var data = { "key": "value", "another_key": 123, "lock": Vector2() }
+    var packed = PackedDataContainer.new()
+    packed.pack(data)
+    ResourceSaver.save(packed, "packed_data.res")
+
+::
+
+    var container = load("packed_data.res")
+    for key in container:
+        prints(key, container[key])
+    
+    # Prints:
+    # key value
+    # lock (0, 0)
+    # another_key 123
+
+Nested containers will be packed recursively. While iterating, they will be returned as :ref:`PackedDataContainerRef<class_PackedDataContainerRef>`.
 
 .. rst-class:: classref-reftable-group
 
@@ -36,30 +51,11 @@ Methods
 .. table::
    :widths: auto
 
-   +---------------------------------------+----------------------------------------------------------------------------------------------------+
-   | :ref:`Error<enum_@GlobalScope_Error>` | :ref:`pack<class_PackedDataContainer_method_pack>` **(** :ref:`Variant<class_Variant>` value **)** |
-   +---------------------------------------+----------------------------------------------------------------------------------------------------+
-   | :ref:`int<class_int>`                 | :ref:`size<class_PackedDataContainer_method_size>` **(** **)** |const|                             |
-   +---------------------------------------+----------------------------------------------------------------------------------------------------+
-
-.. rst-class:: classref-section-separator
-
-----
-
-.. rst-class:: classref-descriptions-group
-
-Property Descriptions
----------------------
-
-.. _class_PackedDataContainer_property___data__:
-
-.. rst-class:: classref-property
-
-:ref:`PackedByteArray<class_PackedByteArray>` **__data__** = ``PackedByteArray()``
-
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+   +---------------------------------------+-------------------------------------------------------------------------------------------------+
+   | :ref:`Error<enum_@GlobalScope_Error>` | :ref:`pack<class_PackedDataContainer_method_pack>`\ (\ value\: :ref:`Variant<class_Variant>`\ ) |
+   +---------------------------------------+-------------------------------------------------------------------------------------------------+
+   | :ref:`int<class_int>`                 | :ref:`size<class_PackedDataContainer_method_size>`\ (\ ) |const|                                |
+   +---------------------------------------+-------------------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -74,11 +70,11 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`Error<enum_@GlobalScope_Error>` **pack** **(** :ref:`Variant<class_Variant>` value **)**
+:ref:`Error<enum_@GlobalScope_Error>` **pack**\ (\ value\: :ref:`Variant<class_Variant>`\ )
 
-.. container:: contribute
+Packs the given container into a binary representation. The ``value`` must be either :ref:`Array<class_Array>` or :ref:`Dictionary<class_Dictionary>`, any other type will result in invalid data error.
 
-	There is currently no description for this method. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+\ **Note:** Subsequent calls to this method will overwrite the existing data.
 
 .. rst-class:: classref-item-separator
 
@@ -88,11 +84,9 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`int<class_int>` **size** **(** **)** |const|
+:ref:`int<class_int>` **size**\ (\ ) |const|
 
-.. container:: contribute
-
-	There is currently no description for this method. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+Returns the size of the packed container (see :ref:`Array.size<class_Array_method_size>` and :ref:`Dictionary.size<class_Dictionary_method_size>`).
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
@@ -100,3 +94,5 @@ Method Descriptions
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`

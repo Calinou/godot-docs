@@ -12,14 +12,14 @@ DampedSpringJoint2D
 
 **Inherits:** :ref:`Joint2D<class_Joint2D>` **<** :ref:`Node2D<class_Node2D>` **<** :ref:`CanvasItem<class_CanvasItem>` **<** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
 
-Damped spring constraint for 2D physics.
+A physics joint that connects two 2D physics bodies with a spring-like force.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-Damped spring constraint for 2D physics. This resembles a spring joint that always wants to go back to a given length.
+A physics joint that connects two 2D physics bodies with a spring-like force. This resembles a spring that always wants to stretch to a given length.
 
 .. rst-class:: classref-reftable-group
 
@@ -56,10 +56,10 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_damping** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_damping** **(** **)**
+- |void| **set_damping**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_damping**\ (\ )
 
-The spring joint's damping ratio. A value between ``0`` and ``1``. When the two bodies move into different directions the system tries to align them to the spring axis again. A high ``damping`` value forces the attached bodies to align faster.
+The spring joint's damping ratio. A value between ``0`` and ``1``. When the two bodies move into different directions the system tries to align them to the spring axis again. A high :ref:`damping<class_DampedSpringJoint2D_property_damping>` value forces the attached bodies to align faster.
 
 .. rst-class:: classref-item-separator
 
@@ -73,8 +73,8 @@ The spring joint's damping ratio. A value between ``0`` and ``1``. When the two 
 
 .. rst-class:: classref-property-setget
 
-- void **set_length** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_length** **(** **)**
+- |void| **set_length**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_length**\ (\ )
 
 The spring joint's maximum length. The two attached bodies cannot stretch it past this value.
 
@@ -90,8 +90,8 @@ The spring joint's maximum length. The two attached bodies cannot stretch it pas
 
 .. rst-class:: classref-property-setget
 
-- void **set_rest_length** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_rest_length** **(** **)**
+- |void| **set_rest_length**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_rest_length**\ (\ )
 
 When the bodies attached to the spring joint move they stretch or squash it. The joint always tries to resize towards this length.
 
@@ -107,8 +107,8 @@ When the bodies attached to the spring joint move they stretch or squash it. The
 
 .. rst-class:: classref-property-setget
 
-- void **set_stiffness** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_stiffness** **(** **)**
+- |void| **set_stiffness**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_stiffness**\ (\ )
 
 The higher the value, the less the bodies attached to the joint will deform it. The joint applies an opposing force to the bodies, the product of the stiffness multiplied by the size difference from its resting length.
 
@@ -118,3 +118,5 @@ The higher the value, the less the bodies attached to the joint will deform it. 
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`
