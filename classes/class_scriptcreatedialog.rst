@@ -12,7 +12,7 @@ ScriptCreateDialog
 
 **Inherits:** :ref:`ConfirmationDialog<class_ConfirmationDialog>` **<** :ref:`AcceptDialog<class_AcceptDialog>` **<** :ref:`Window<class_Window>` **<** :ref:`Viewport<class_Viewport>` **<** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
 
-The Editor's popup dialog for creating new :ref:`Script<class_Script>` files.
+Godot editor's popup dialog for creating new :ref:`Script<class_Script>` files.
 
 .. rst-class:: classref-introduction-group
 
@@ -68,9 +68,9 @@ Methods
 .. table::
    :widths: auto
 
-   +------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void | :ref:`config<class_ScriptCreateDialog_method_config>` **(** :ref:`String<class_String>` inherits, :ref:`String<class_String>` path, :ref:`bool<class_bool>` built_in_enabled=true, :ref:`bool<class_bool>` load_enabled=true **)** |
-   +------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   +--------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void| | :ref:`config<class_ScriptCreateDialog_method_config>`\ (\ inherits\: :ref:`String<class_String>`, path\: :ref:`String<class_String>`, built_in_enabled\: :ref:`bool<class_bool>` = true, load_enabled\: :ref:`bool<class_bool>` = true\ ) |
+   +--------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -85,7 +85,7 @@ Signals
 
 .. rst-class:: classref-signal
 
-**script_created** **(** :ref:`Script<class_Script>` script **)**
+**script_created**\ (\ script\: :ref:`Script<class_Script>`\ )
 
 Emitted when the user clicks the OK button.
 
@@ -102,7 +102,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-void **config** **(** :ref:`String<class_String>` inherits, :ref:`String<class_String>` path, :ref:`bool<class_bool>` built_in_enabled=true, :ref:`bool<class_bool>` load_enabled=true **)**
+|void| **config**\ (\ inherits\: :ref:`String<class_String>`, path\: :ref:`String<class_String>`, built_in_enabled\: :ref:`bool<class_bool>` = true, load_enabled\: :ref:`bool<class_bool>` = true\ )
 
 Prefills required fields to configure the ScriptCreateDialog for use.
 
@@ -112,3 +112,5 @@ Prefills required fields to configure the ScriptCreateDialog for use.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`

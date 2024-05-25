@@ -12,18 +12,18 @@ ProceduralSkyMaterial
 
 **Inherits:** :ref:`Material<class_Material>` **<** :ref:`Resource<class_Resource>` **<** :ref:`RefCounted<class_RefCounted>` **<** :ref:`Object<class_Object>`
 
-A :ref:`Material<class_Material>` used with :ref:`Sky<class_Sky>` to generate a background based on user input parameters.
+A material that defines a simple sky for a :ref:`Sky<class_Sky>` resource.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-ProceduralSkyMaterial provides a way to create an effective background quickly by defining procedural parameters for the sun, the sky and the ground. The sky and ground are very similar, they are defined by a color at the horizon, another color, and finally an easing curve to interpolate between these two colors. Similarly, the sun is described by a position in the sky, a color, and an easing curve. However, the sun also defines a minimum and maximum angle, these two values define at what distance the easing curve begins and ends from the sun, and thus end up defining the size of the sun in the sky.
+**ProceduralSkyMaterial** provides a way to create an effective background quickly by defining procedural parameters for the sun, the sky and the ground. The sky and ground are defined by a main color, a color at the horizon, and an easing curve to interpolate between them. Suns are described by a position in the sky, a color, and a max angle from the sun at which the easing curve ends. The max angle therefore defines the size of the sun in the sky.
 
-The **ProceduralSkyMaterial** uses a lightweight shader to draw the sky and is thus suited for real time updates. When you do not need a quick sky that is not realistic, this is a good option. If you need a more realistic option, try using :ref:`PhysicalSkyMaterial<class_PhysicalSkyMaterial>` instead.
+\ **ProceduralSkyMaterial** supports up to 4 suns, using the color, and energy, direction, and angular distance of the first four :ref:`DirectionalLight3D<class_DirectionalLight3D>` nodes in the scene. This means that the suns are defined individually by the properties of their corresponding :ref:`DirectionalLight3D<class_DirectionalLight3D>`\ s and globally by :ref:`sun_angle_max<class_ProceduralSkyMaterial_property_sun_angle_max>` and :ref:`sun_curve<class_ProceduralSkyMaterial_property_sun_curve>`.
 
-The **ProceduralSkyMaterial** supports up to 4 suns. Each sun takes its color, energy, and direction from the corresponding :ref:`DirectionalLight3D<class_DirectionalLight3D>` in the scene.
+\ **ProceduralSkyMaterial** uses a lightweight shader to draw the sky and is therefore suited for real-time updates. This makes it a great option for a sky that is simple and computationally cheap, but unrealistic. If you need a more realistic procedural option, use :ref:`PhysicalSkyMaterial<class_PhysicalSkyMaterial>`.
 
 .. rst-class:: classref-reftable-group
 
@@ -33,6 +33,8 @@ Properties
 .. table::
    :widths: auto
 
+   +-----------------------------------+------------------------------------------------------------------------------------------------+--------------------------------------+
+   | :ref:`float<class_float>`         | :ref:`energy_multiplier<class_ProceduralSkyMaterial_property_energy_multiplier>`               | ``1.0``                              |
    +-----------------------------------+------------------------------------------------------------------------------------------------+--------------------------------------+
    | :ref:`Color<class_Color>`         | :ref:`ground_bottom_color<class_ProceduralSkyMaterial_property_ground_bottom_color>`           | ``Color(0.2, 0.169, 0.133, 1)``      |
    +-----------------------------------+------------------------------------------------------------------------------------------------+--------------------------------------+
@@ -70,6 +72,23 @@ Properties
 Property Descriptions
 ---------------------
 
+.. _class_ProceduralSkyMaterial_property_energy_multiplier:
+
+.. rst-class:: classref-property
+
+:ref:`float<class_float>` **energy_multiplier** = ``1.0``
+
+.. rst-class:: classref-property-setget
+
+- |void| **set_energy_multiplier**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_energy_multiplier**\ (\ )
+
+The sky's overall brightness multiplier. Higher values result in a brighter sky.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_ProceduralSkyMaterial_property_ground_bottom_color:
 
 .. rst-class:: classref-property
@@ -78,8 +97,8 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_ground_bottom_color** **(** :ref:`Color<class_Color>` value **)**
-- :ref:`Color<class_Color>` **get_ground_bottom_color** **(** **)**
+- |void| **set_ground_bottom_color**\ (\ value\: :ref:`Color<class_Color>`\ )
+- :ref:`Color<class_Color>` **get_ground_bottom_color**\ (\ )
 
 Color of the ground at the bottom. Blends with :ref:`ground_horizon_color<class_ProceduralSkyMaterial_property_ground_horizon_color>`.
 
@@ -95,8 +114,8 @@ Color of the ground at the bottom. Blends with :ref:`ground_horizon_color<class_
 
 .. rst-class:: classref-property-setget
 
-- void **set_ground_curve** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_ground_curve** **(** **)**
+- |void| **set_ground_curve**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_ground_curve**\ (\ )
 
 How quickly the :ref:`ground_horizon_color<class_ProceduralSkyMaterial_property_ground_horizon_color>` fades into the :ref:`ground_bottom_color<class_ProceduralSkyMaterial_property_ground_bottom_color>`.
 
@@ -112,8 +131,8 @@ How quickly the :ref:`ground_horizon_color<class_ProceduralSkyMaterial_property_
 
 .. rst-class:: classref-property-setget
 
-- void **set_ground_energy_multiplier** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_ground_energy_multiplier** **(** **)**
+- |void| **set_ground_energy_multiplier**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_ground_energy_multiplier**\ (\ )
 
 Multiplier for ground color. A higher value will make the ground brighter.
 
@@ -129,8 +148,8 @@ Multiplier for ground color. A higher value will make the ground brighter.
 
 .. rst-class:: classref-property-setget
 
-- void **set_ground_horizon_color** **(** :ref:`Color<class_Color>` value **)**
-- :ref:`Color<class_Color>` **get_ground_horizon_color** **(** **)**
+- |void| **set_ground_horizon_color**\ (\ value\: :ref:`Color<class_Color>`\ )
+- :ref:`Color<class_Color>` **get_ground_horizon_color**\ (\ )
 
 Color of the ground at the horizon. Blends with :ref:`ground_bottom_color<class_ProceduralSkyMaterial_property_ground_bottom_color>`.
 
@@ -146,8 +165,8 @@ Color of the ground at the horizon. Blends with :ref:`ground_bottom_color<class_
 
 .. rst-class:: classref-property-setget
 
-- void **set_sky_cover** **(** :ref:`Texture2D<class_Texture2D>` value **)**
-- :ref:`Texture2D<class_Texture2D>` **get_sky_cover** **(** **)**
+- |void| **set_sky_cover**\ (\ value\: :ref:`Texture2D<class_Texture2D>`\ )
+- :ref:`Texture2D<class_Texture2D>` **get_sky_cover**\ (\ )
 
 The sky cover texture to use. This texture must use an equirectangular projection (similar to :ref:`PanoramaSkyMaterial<class_PanoramaSkyMaterial>`). The texture's colors will be *added* to the existing sky color, and will be multiplied by :ref:`sky_energy_multiplier<class_ProceduralSkyMaterial_property_sky_energy_multiplier>` and :ref:`sky_cover_modulate<class_ProceduralSkyMaterial_property_sky_cover_modulate>`. This is mainly suited to displaying stars at night, but it can also be used to display clouds at day or night (with a non-physically-accurate look).
 
@@ -163,8 +182,8 @@ The sky cover texture to use. This texture must use an equirectangular projectio
 
 .. rst-class:: classref-property-setget
 
-- void **set_sky_cover_modulate** **(** :ref:`Color<class_Color>` value **)**
-- :ref:`Color<class_Color>` **get_sky_cover_modulate** **(** **)**
+- |void| **set_sky_cover_modulate**\ (\ value\: :ref:`Color<class_Color>`\ )
+- :ref:`Color<class_Color>` **get_sky_cover_modulate**\ (\ )
 
 The tint to apply to the :ref:`sky_cover<class_ProceduralSkyMaterial_property_sky_cover>` texture. This can be used to change the sky cover's colors or opacity independently of the sky energy, which is useful for day/night or weather transitions. Only effective if a texture is defined in :ref:`sky_cover<class_ProceduralSkyMaterial_property_sky_cover>`.
 
@@ -180,8 +199,8 @@ The tint to apply to the :ref:`sky_cover<class_ProceduralSkyMaterial_property_sk
 
 .. rst-class:: classref-property-setget
 
-- void **set_sky_curve** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_sky_curve** **(** **)**
+- |void| **set_sky_curve**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_sky_curve**\ (\ )
 
 How quickly the :ref:`sky_horizon_color<class_ProceduralSkyMaterial_property_sky_horizon_color>` fades into the :ref:`sky_top_color<class_ProceduralSkyMaterial_property_sky_top_color>`.
 
@@ -197,8 +216,8 @@ How quickly the :ref:`sky_horizon_color<class_ProceduralSkyMaterial_property_sky
 
 .. rst-class:: classref-property-setget
 
-- void **set_sky_energy_multiplier** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_sky_energy_multiplier** **(** **)**
+- |void| **set_sky_energy_multiplier**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_sky_energy_multiplier**\ (\ )
 
 Multiplier for sky color. A higher value will make the sky brighter.
 
@@ -214,8 +233,8 @@ Multiplier for sky color. A higher value will make the sky brighter.
 
 .. rst-class:: classref-property-setget
 
-- void **set_sky_horizon_color** **(** :ref:`Color<class_Color>` value **)**
-- :ref:`Color<class_Color>` **get_sky_horizon_color** **(** **)**
+- |void| **set_sky_horizon_color**\ (\ value\: :ref:`Color<class_Color>`\ )
+- :ref:`Color<class_Color>` **get_sky_horizon_color**\ (\ )
 
 Color of the sky at the horizon. Blends with :ref:`sky_top_color<class_ProceduralSkyMaterial_property_sky_top_color>`.
 
@@ -231,8 +250,8 @@ Color of the sky at the horizon. Blends with :ref:`sky_top_color<class_Procedura
 
 .. rst-class:: classref-property-setget
 
-- void **set_sky_top_color** **(** :ref:`Color<class_Color>` value **)**
-- :ref:`Color<class_Color>` **get_sky_top_color** **(** **)**
+- |void| **set_sky_top_color**\ (\ value\: :ref:`Color<class_Color>`\ )
+- :ref:`Color<class_Color>` **get_sky_top_color**\ (\ )
 
 Color of the sky at the top. Blends with :ref:`sky_horizon_color<class_ProceduralSkyMaterial_property_sky_horizon_color>`.
 
@@ -248,8 +267,8 @@ Color of the sky at the top. Blends with :ref:`sky_horizon_color<class_Procedura
 
 .. rst-class:: classref-property-setget
 
-- void **set_sun_angle_max** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_sun_angle_max** **(** **)**
+- |void| **set_sun_angle_max**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_sun_angle_max**\ (\ )
 
 Distance from center of sun where it fades out completely.
 
@@ -265,8 +284,8 @@ Distance from center of sun where it fades out completely.
 
 .. rst-class:: classref-property-setget
 
-- void **set_sun_curve** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_sun_curve** **(** **)**
+- |void| **set_sun_curve**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_sun_curve**\ (\ )
 
 How quickly the sun fades away between the edge of the sun disk and :ref:`sun_angle_max<class_ProceduralSkyMaterial_property_sun_angle_max>`.
 
@@ -282,8 +301,8 @@ How quickly the sun fades away between the edge of the sun disk and :ref:`sun_an
 
 .. rst-class:: classref-property-setget
 
-- void **set_use_debanding** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **get_use_debanding** **(** **)**
+- |void| **set_use_debanding**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **get_use_debanding**\ (\ )
 
 If ``true``, enables debanding. Debanding adds a small amount of noise which helps reduce banding that appears from the smooth changes in color in the sky.
 
@@ -293,3 +312,5 @@ If ``true``, enables debanding. Debanding adds a small amount of noise which hel
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`

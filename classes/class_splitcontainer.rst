@@ -14,21 +14,21 @@ SplitContainer
 
 **Inherited By:** :ref:`HSplitContainer<class_HSplitContainer>`, :ref:`VSplitContainer<class_VSplitContainer>`
 
-Container for splitting and adjusting.
+A container that splits two child controls horizontally or vertically and provides a grabber for adjusting the split ratio.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-Container for splitting two :ref:`Control<class_Control>`\ s vertically or horizontally, with a grabber that allows adjusting the split offset or ratio.
+A container that accepts only two child controls, then arranges them horizontally or vertically and creates a divisor between them. The divisor can be dragged around to change the size relation between the child controls.
 
 .. rst-class:: classref-introduction-group
 
 Tutorials
 ---------
 
-- :doc:`GUI containers <../tutorials/ui/gui_containers>`
+- :doc:`Using Containers <../tutorials/ui/gui_containers>`
 
 .. rst-class:: classref-reftable-group
 
@@ -56,9 +56,9 @@ Methods
 .. table::
    :widths: auto
 
-   +------+---------------------------------------------------------------------------------------+
-   | void | :ref:`clamp_split_offset<class_SplitContainer_method_clamp_split_offset>` **(** **)** |
-   +------+---------------------------------------------------------------------------------------+
+   +--------+---------------------------------------------------------------------------------+
+   | |void| | :ref:`clamp_split_offset<class_SplitContainer_method_clamp_split_offset>`\ (\ ) |
+   +--------+---------------------------------------------------------------------------------+
 
 .. rst-class:: classref-reftable-group
 
@@ -74,6 +74,8 @@ Theme Properties
    | :ref:`int<class_int>`             | :ref:`minimum_grab_thickness<class_SplitContainer_theme_constant_minimum_grab_thickness>` | ``6``  |
    +-----------------------------------+-------------------------------------------------------------------------------------------+--------+
    | :ref:`int<class_int>`             | :ref:`separation<class_SplitContainer_theme_constant_separation>`                         | ``12`` |
+   +-----------------------------------+-------------------------------------------------------------------------------------------+--------+
+   | :ref:`Texture2D<class_Texture2D>` | :ref:`grabber<class_SplitContainer_theme_icon_grabber>`                                   |        |
    +-----------------------------------+-------------------------------------------------------------------------------------------+--------+
    | :ref:`Texture2D<class_Texture2D>` | :ref:`h_grabber<class_SplitContainer_theme_icon_h_grabber>`                               |        |
    +-----------------------------------+-------------------------------------------------------------------------------------------+--------+
@@ -93,7 +95,7 @@ Signals
 
 .. rst-class:: classref-signal
 
-**dragged** **(** :ref:`int<class_int>` offset **)**
+**dragged**\ (\ offset\: :ref:`int<class_int>`\ )
 
 Emitted when the dragger is dragged by user.
 
@@ -153,8 +155,8 @@ Property Descriptions
 
 .. rst-class:: classref-property-setget
 
-- void **set_collapsed** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **is_collapsed** **(** **)**
+- |void| **set_collapsed**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **is_collapsed**\ (\ )
 
 If ``true``, the area of the first :ref:`Control<class_Control>` will be collapsed and the dragger will be disabled.
 
@@ -170,8 +172,8 @@ If ``true``, the area of the first :ref:`Control<class_Control>` will be collaps
 
 .. rst-class:: classref-property-setget
 
-- void **set_dragger_visibility** **(** :ref:`DraggerVisibility<enum_SplitContainer_DraggerVisibility>` value **)**
-- :ref:`DraggerVisibility<enum_SplitContainer_DraggerVisibility>` **get_dragger_visibility** **(** **)**
+- |void| **set_dragger_visibility**\ (\ value\: :ref:`DraggerVisibility<enum_SplitContainer_DraggerVisibility>`\ )
+- :ref:`DraggerVisibility<enum_SplitContainer_DraggerVisibility>` **get_dragger_visibility**\ (\ )
 
 Determines the dragger's visibility. See :ref:`DraggerVisibility<enum_SplitContainer_DraggerVisibility>` for details.
 
@@ -187,8 +189,8 @@ Determines the dragger's visibility. See :ref:`DraggerVisibility<enum_SplitConta
 
 .. rst-class:: classref-property-setget
 
-- void **set_split_offset** **(** :ref:`int<class_int>` value **)**
-- :ref:`int<class_int>` **get_split_offset** **(** **)**
+- |void| **set_split_offset**\ (\ value\: :ref:`int<class_int>`\ )
+- :ref:`int<class_int>` **get_split_offset**\ (\ )
 
 The initial offset of the splitting between the two :ref:`Control<class_Control>`\ s, with ``0`` being at the end of the first :ref:`Control<class_Control>`.
 
@@ -204,8 +206,8 @@ The initial offset of the splitting between the two :ref:`Control<class_Control>
 
 .. rst-class:: classref-property-setget
 
-- void **set_vertical** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **is_vertical** **(** **)**
+- |void| **set_vertical**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **is_vertical**\ (\ )
 
 If ``true``, the **SplitContainer** will arrange its children vertically, rather than horizontally.
 
@@ -224,7 +226,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-void **clamp_split_offset** **(** **)**
+|void| **clamp_split_offset**\ (\ )
 
 Clamps the :ref:`split_offset<class_SplitContainer_property_split_offset>` value to not go outside the currently possible minimal and maximum values.
 
@@ -273,6 +275,18 @@ The space between sides of the container.
 
 ----
 
+.. _class_SplitContainer_theme_icon_grabber:
+
+.. rst-class:: classref-themeproperty
+
+:ref:`Texture2D<class_Texture2D>` **grabber**
+
+The icon used for the grabber drawn in the middle area.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_SplitContainer_theme_icon_h_grabber:
 
 .. rst-class:: classref-themeproperty
@@ -299,3 +313,5 @@ The icon used for the grabber drawn in the middle area when :ref:`vertical<class
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`
