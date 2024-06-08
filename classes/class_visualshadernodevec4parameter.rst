@@ -48,12 +48,12 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`Vector4<class_Vector4>` **default_value** = ``Vector4(0, 0, 0, 0)``
+:ref:`Vector4<class_Vector4>` **default_value** = ``Vector4(0, 0, 0, 0)`` :ref:`🔗<class_VisualShaderNodeVec4Parameter_property_default_value>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_default_value** **(** :ref:`Vector4<class_Vector4>` value **)**
-- :ref:`Vector4<class_Vector4>` **get_default_value** **(** **)**
+- |void| **set_default_value**\ (\ value\: :ref:`Vector4<class_Vector4>`\ )
+- :ref:`Vector4<class_Vector4>` **get_default_value**\ (\ )
 
 A default value to be assigned within the shader.
 
@@ -65,12 +65,12 @@ A default value to be assigned within the shader.
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **default_value_enabled** = ``false``
+:ref:`bool<class_bool>` **default_value_enabled** = ``false`` :ref:`🔗<class_VisualShaderNodeVec4Parameter_property_default_value_enabled>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_default_value_enabled** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **is_default_value_enabled** **(** **)**
+- |void| **set_default_value_enabled**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **is_default_value_enabled**\ (\ )
 
 Enables usage of the :ref:`default_value<class_VisualShaderNodeVec4Parameter_property_default_value>`.
 
@@ -80,3 +80,5 @@ Enables usage of the :ref:`default_value<class_VisualShaderNodeVec4Parameter_pro
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`
