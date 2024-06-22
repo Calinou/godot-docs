@@ -31,23 +31,25 @@ Properties
 .. table::
    :widths: auto
 
-   +-----------------------------------------------------+-------------------------------------------------------------------+----------+
-   | :ref:`bool<class_bool>`                             | :ref:`cubic_interp<class_PathFollow3D_property_cubic_interp>`     | ``true`` |
-   +-----------------------------------------------------+-------------------------------------------------------------------+----------+
-   | :ref:`float<class_float>`                           | :ref:`h_offset<class_PathFollow3D_property_h_offset>`             | ``0.0``  |
-   +-----------------------------------------------------+-------------------------------------------------------------------+----------+
-   | :ref:`bool<class_bool>`                             | :ref:`loop<class_PathFollow3D_property_loop>`                     | ``true`` |
-   +-----------------------------------------------------+-------------------------------------------------------------------+----------+
-   | :ref:`float<class_float>`                           | :ref:`progress<class_PathFollow3D_property_progress>`             | ``0.0``  |
-   +-----------------------------------------------------+-------------------------------------------------------------------+----------+
-   | :ref:`float<class_float>`                           | :ref:`progress_ratio<class_PathFollow3D_property_progress_ratio>` | ``0.0``  |
-   +-----------------------------------------------------+-------------------------------------------------------------------+----------+
-   | :ref:`RotationMode<enum_PathFollow3D_RotationMode>` | :ref:`rotation_mode<class_PathFollow3D_property_rotation_mode>`   | ``3``    |
-   +-----------------------------------------------------+-------------------------------------------------------------------+----------+
-   | :ref:`bool<class_bool>`                             | :ref:`tilt_enabled<class_PathFollow3D_property_tilt_enabled>`     | ``true`` |
-   +-----------------------------------------------------+-------------------------------------------------------------------+----------+
-   | :ref:`float<class_float>`                           | :ref:`v_offset<class_PathFollow3D_property_v_offset>`             | ``0.0``  |
-   +-----------------------------------------------------+-------------------------------------------------------------------+----------+
+   +-----------------------------------------------------+---------------------------------------------------------------------+-----------+
+   | :ref:`bool<class_bool>`                             | :ref:`cubic_interp<class_PathFollow3D_property_cubic_interp>`       | ``true``  |
+   +-----------------------------------------------------+---------------------------------------------------------------------+-----------+
+   | :ref:`float<class_float>`                           | :ref:`h_offset<class_PathFollow3D_property_h_offset>`               | ``0.0``   |
+   +-----------------------------------------------------+---------------------------------------------------------------------+-----------+
+   | :ref:`bool<class_bool>`                             | :ref:`loop<class_PathFollow3D_property_loop>`                       | ``true``  |
+   +-----------------------------------------------------+---------------------------------------------------------------------+-----------+
+   | :ref:`float<class_float>`                           | :ref:`progress<class_PathFollow3D_property_progress>`               | ``0.0``   |
+   +-----------------------------------------------------+---------------------------------------------------------------------+-----------+
+   | :ref:`float<class_float>`                           | :ref:`progress_ratio<class_PathFollow3D_property_progress_ratio>`   | ``0.0``   |
+   +-----------------------------------------------------+---------------------------------------------------------------------+-----------+
+   | :ref:`RotationMode<enum_PathFollow3D_RotationMode>` | :ref:`rotation_mode<class_PathFollow3D_property_rotation_mode>`     | ``3``     |
+   +-----------------------------------------------------+---------------------------------------------------------------------+-----------+
+   | :ref:`bool<class_bool>`                             | :ref:`tilt_enabled<class_PathFollow3D_property_tilt_enabled>`       | ``true``  |
+   +-----------------------------------------------------+---------------------------------------------------------------------+-----------+
+   | :ref:`bool<class_bool>`                             | :ref:`use_model_front<class_PathFollow3D_property_use_model_front>` | ``false`` |
+   +-----------------------------------------------------+---------------------------------------------------------------------+-----------+
+   | :ref:`float<class_float>`                           | :ref:`v_offset<class_PathFollow3D_property_v_offset>`               | ``0.0``   |
+   +-----------------------------------------------------+---------------------------------------------------------------------+-----------+
 
 .. rst-class:: classref-reftable-group
 
@@ -57,9 +59,9 @@ Methods
 .. table::
    :widths: auto
 
-   +---------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Transform3D<class_Transform3D>` | :ref:`correct_posture<class_PathFollow3D_method_correct_posture>` **(** :ref:`Transform3D<class_Transform3D>` transform, :ref:`RotationMode<enum_PathFollow3D_RotationMode>` rotation_mode **)** |static| |
-   +---------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   +---------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Transform3D<class_Transform3D>` | :ref:`correct_posture<class_PathFollow3D_method_correct_posture>`\ (\ transform\: :ref:`Transform3D<class_Transform3D>`, rotation_mode\: :ref:`RotationMode<enum_PathFollow3D_RotationMode>`\ ) |static| |
+   +---------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -74,7 +76,7 @@ Enumerations
 
 .. rst-class:: classref-enumeration
 
-enum **RotationMode**:
+enum **RotationMode**: :ref:`🔗<enum_PathFollow3D_RotationMode>`
 
 .. _class_PathFollow3D_constant_ROTATION_NONE:
 
@@ -129,12 +131,12 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **cubic_interp** = ``true``
+:ref:`bool<class_bool>` **cubic_interp** = ``true`` :ref:`🔗<class_PathFollow3D_property_cubic_interp>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_cubic_interpolation** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **get_cubic_interpolation** **(** **)**
+- |void| **set_cubic_interpolation**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **get_cubic_interpolation**\ (\ )
 
 If ``true``, the position between two cached points is interpolated cubically, and linearly otherwise.
 
@@ -150,12 +152,12 @@ There are two answers to this problem: either increase the number of cached poin
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **h_offset** = ``0.0``
+:ref:`float<class_float>` **h_offset** = ``0.0`` :ref:`🔗<class_PathFollow3D_property_h_offset>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_h_offset** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_h_offset** **(** **)**
+- |void| **set_h_offset**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_h_offset**\ (\ )
 
 The node's offset along the curve.
 
@@ -167,12 +169,12 @@ The node's offset along the curve.
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **loop** = ``true``
+:ref:`bool<class_bool>` **loop** = ``true`` :ref:`🔗<class_PathFollow3D_property_loop>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_loop** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **has_loop** **(** **)**
+- |void| **set_loop**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **has_loop**\ (\ )
 
 If ``true``, any offset outside the path's length will wrap around, instead of stopping at the ends. Use it for cyclic paths.
 
@@ -184,12 +186,12 @@ If ``true``, any offset outside the path's length will wrap around, instead of s
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **progress** = ``0.0``
+:ref:`float<class_float>` **progress** = ``0.0`` :ref:`🔗<class_PathFollow3D_property_progress>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_progress** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_progress** **(** **)**
+- |void| **set_progress**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_progress**\ (\ )
 
 The distance from the first vertex, measured in 3D units along the path. Changing this value sets this node's position to a point within the path.
 
@@ -201,12 +203,12 @@ The distance from the first vertex, measured in 3D units along the path. Changin
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **progress_ratio** = ``0.0``
+:ref:`float<class_float>` **progress_ratio** = ``0.0`` :ref:`🔗<class_PathFollow3D_property_progress_ratio>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_progress_ratio** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_progress_ratio** **(** **)**
+- |void| **set_progress_ratio**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_progress_ratio**\ (\ )
 
 The distance from the first vertex, considering 0.0 as the first vertex and 1.0 as the last. This is just another way of expressing the progress within the path, as the progress supplied is multiplied internally by the path's length.
 
@@ -218,12 +220,12 @@ The distance from the first vertex, considering 0.0 as the first vertex and 1.0 
 
 .. rst-class:: classref-property
 
-:ref:`RotationMode<enum_PathFollow3D_RotationMode>` **rotation_mode** = ``3``
+:ref:`RotationMode<enum_PathFollow3D_RotationMode>` **rotation_mode** = ``3`` :ref:`🔗<class_PathFollow3D_property_rotation_mode>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_rotation_mode** **(** :ref:`RotationMode<enum_PathFollow3D_RotationMode>` value **)**
-- :ref:`RotationMode<enum_PathFollow3D_RotationMode>` **get_rotation_mode** **(** **)**
+- |void| **set_rotation_mode**\ (\ value\: :ref:`RotationMode<enum_PathFollow3D_RotationMode>`\ )
+- :ref:`RotationMode<enum_PathFollow3D_RotationMode>` **get_rotation_mode**\ (\ )
 
 Allows or forbids rotation on one or more axes, depending on the :ref:`RotationMode<enum_PathFollow3D_RotationMode>` constants being used.
 
@@ -235,14 +237,31 @@ Allows or forbids rotation on one or more axes, depending on the :ref:`RotationM
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **tilt_enabled** = ``true``
+:ref:`bool<class_bool>` **tilt_enabled** = ``true`` :ref:`🔗<class_PathFollow3D_property_tilt_enabled>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_tilt_enabled** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **is_tilt_enabled** **(** **)**
+- |void| **set_tilt_enabled**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **is_tilt_enabled**\ (\ )
 
 If ``true``, the tilt property of :ref:`Curve3D<class_Curve3D>` takes effect.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_PathFollow3D_property_use_model_front:
+
+.. rst-class:: classref-property
+
+:ref:`bool<class_bool>` **use_model_front** = ``false`` :ref:`🔗<class_PathFollow3D_property_use_model_front>`
+
+.. rst-class:: classref-property-setget
+
+- |void| **set_use_model_front**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **is_using_model_front**\ (\ )
+
+If ``true``, the node moves on the travel path with orienting the +Z axis as forward. See also :ref:`Vector3.FORWARD<class_Vector3_constant_FORWARD>` and :ref:`Vector3.MODEL_FRONT<class_Vector3_constant_MODEL_FRONT>`.
 
 .. rst-class:: classref-item-separator
 
@@ -252,12 +271,12 @@ If ``true``, the tilt property of :ref:`Curve3D<class_Curve3D>` takes effect.
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **v_offset** = ``0.0``
+:ref:`float<class_float>` **v_offset** = ``0.0`` :ref:`🔗<class_PathFollow3D_property_v_offset>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_v_offset** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_v_offset** **(** **)**
+- |void| **set_v_offset**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_v_offset**\ (\ )
 
 The node's offset perpendicular to the curve.
 
@@ -274,7 +293,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`Transform3D<class_Transform3D>` **correct_posture** **(** :ref:`Transform3D<class_Transform3D>` transform, :ref:`RotationMode<enum_PathFollow3D_RotationMode>` rotation_mode **)** |static|
+:ref:`Transform3D<class_Transform3D>` **correct_posture**\ (\ transform\: :ref:`Transform3D<class_Transform3D>`, rotation_mode\: :ref:`RotationMode<enum_PathFollow3D_RotationMode>`\ ) |static| :ref:`🔗<class_PathFollow3D_method_correct_posture>`
 
 Correct the ``transform``. ``rotation_mode`` implicitly specifies how posture (forward, up and sideway direction) is calculated.
 
@@ -284,3 +303,5 @@ Correct the ``transform``. ``rotation_mode`` implicitly specifies how posture (f
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`
