@@ -19,11 +19,18 @@ An anchor point in AR space.
 Description
 -----------
 
-The **XRAnchor3D** point is a spatial node that maps a real world location identified by the AR platform to a position within the game world. For example, as long as plane detection in ARKit is on, ARKit will identify and update the position of planes (tables, floors, etc) and create anchors for them.
+The **XRAnchor3D** point is an :ref:`XRNode3D<class_XRNode3D>` that maps a real world location identified by the AR platform to a position within the game world. For example, as long as plane detection in ARKit is on, ARKit will identify and update the position of planes (tables, floors, etc.) and create anchors for them.
 
 This node is mapped to one of the anchors through its unique ID. When you receive a signal that a new anchor is available, you should add this node to your scene for that anchor. You can predefine nodes and set the ID; the nodes will simply remain on 0,0,0 until a plane is recognized.
 
 Keep in mind that, as long as plane detection is enabled, the size, placing and orientation of an anchor will be updated as the detection logic learns more about the real world out there especially if only part of the surface is in view.
+
+.. rst-class:: classref-introduction-group
+
+Tutorials
+---------
+
+- :doc:`XR documentation index <../tutorials/xr/index>`
 
 .. rst-class:: classref-reftable-group
 
@@ -33,11 +40,11 @@ Methods
 .. table::
    :widths: auto
 
-   +-------------------------------+-------------------------------------------------------------------------+
-   | :ref:`Plane<class_Plane>`     | :ref:`get_plane<class_XRAnchor3D_method_get_plane>` **(** **)** |const| |
-   +-------------------------------+-------------------------------------------------------------------------+
-   | :ref:`Vector3<class_Vector3>` | :ref:`get_size<class_XRAnchor3D_method_get_size>` **(** **)** |const|   |
-   +-------------------------------+-------------------------------------------------------------------------+
+   +-------------------------------+-------------------------------------------------------------------+
+   | :ref:`Plane<class_Plane>`     | :ref:`get_plane<class_XRAnchor3D_method_get_plane>`\ (\ ) |const| |
+   +-------------------------------+-------------------------------------------------------------------+
+   | :ref:`Vector3<class_Vector3>` | :ref:`get_size<class_XRAnchor3D_method_get_size>`\ (\ ) |const|   |
+   +-------------------------------+-------------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -52,7 +59,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`Plane<class_Plane>` **get_plane** **(** **)** |const|
+:ref:`Plane<class_Plane>` **get_plane**\ (\ ) |const| :ref:`🔗<class_XRAnchor3D_method_get_plane>`
 
 Returns a plane aligned with our anchor; handy for intersection testing.
 
@@ -64,7 +71,7 @@ Returns a plane aligned with our anchor; handy for intersection testing.
 
 .. rst-class:: classref-method
 
-:ref:`Vector3<class_Vector3>` **get_size** **(** **)** |const|
+:ref:`Vector3<class_Vector3>` **get_size**\ (\ ) |const| :ref:`🔗<class_XRAnchor3D_method_get_size>`
 
 Returns the estimated size of the plane that was detected. Say when the anchor relates to a table in the real world, this is the estimated size of the surface of that table.
 
@@ -74,3 +81,5 @@ Returns the estimated size of the plane that was detected. Say when the anchor r
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`
