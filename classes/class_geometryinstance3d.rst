@@ -23,6 +23,13 @@ Description
 
 Base node for geometry-based visual instances. Shares some common functionality like visibility and custom materials.
 
+.. rst-class:: classref-introduction-group
+
+Tutorials
+---------
+
+- :doc:`Visibility ranges (HLOD) <../tutorials/3d/visibility_ranges>`
+
 .. rst-class:: classref-reftable-group
 
 Properties
@@ -71,11 +78,11 @@ Methods
 .. table::
    :widths: auto
 
-   +-------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Variant<class_Variant>` | :ref:`get_instance_shader_parameter<class_GeometryInstance3D_method_get_instance_shader_parameter>` **(** :ref:`StringName<class_StringName>` name **)** |const|                              |
-   +-------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                          | :ref:`set_instance_shader_parameter<class_GeometryInstance3D_method_set_instance_shader_parameter>` **(** :ref:`StringName<class_StringName>` name, :ref:`Variant<class_Variant>` value **)** |
-   +-------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   +-------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Variant<class_Variant>` | :ref:`get_instance_shader_parameter<class_GeometryInstance3D_method_get_instance_shader_parameter>`\ (\ name\: :ref:`StringName<class_StringName>`\ ) |const|                                |
+   +-------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                        | :ref:`set_instance_shader_parameter<class_GeometryInstance3D_method_set_instance_shader_parameter>`\ (\ name\: :ref:`StringName<class_StringName>`, value\: :ref:`Variant<class_Variant>`\ ) |
+   +-------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -90,7 +97,7 @@ Enumerations
 
 .. rst-class:: classref-enumeration
 
-enum **ShadowCastingSetting**:
+enum **ShadowCastingSetting**: :ref:`🔗<enum_GeometryInstance3D_ShadowCastingSetting>`
 
 .. _class_GeometryInstance3D_constant_SHADOW_CASTING_SETTING_OFF:
 
@@ -138,7 +145,7 @@ In other words, the actual mesh will not be visible, only the shadows casted fro
 
 .. rst-class:: classref-enumeration
 
-enum **GIMode**:
+enum **GIMode**: :ref:`🔗<enum_GeometryInstance3D_GIMode>`
 
 .. _class_GeometryInstance3D_constant_GI_MODE_DISABLED:
 
@@ -146,7 +153,7 @@ enum **GIMode**:
 
 :ref:`GIMode<enum_GeometryInstance3D_GIMode>` **GI_MODE_DISABLED** = ``0``
 
-Disabled global illumination mode. Use for dynamic objects that do not contribute to global illumination (such as characters). When using :ref:`VoxelGI<class_VoxelGI>` and SDFGI, the geometry will *receive* indirect lighting and reflections but the geometry will not be considered in GI baking. When using :ref:`LightmapGI<class_LightmapGI>`, the object will receive indirect lighting using lightmap probes instead of using the baked lightmap texture.
+Disabled global illumination mode. Use for dynamic objects that do not contribute to global illumination (such as characters). When using :ref:`VoxelGI<class_VoxelGI>` and SDFGI, the geometry will *receive* indirect lighting and reflections but the geometry will not be considered in GI baking.
 
 .. _class_GeometryInstance3D_constant_GI_MODE_STATIC:
 
@@ -162,7 +169,7 @@ Baked global illumination mode. Use for static objects that contribute to global
 
 :ref:`GIMode<enum_GeometryInstance3D_GIMode>` **GI_MODE_DYNAMIC** = ``2``
 
-Dynamic global illumination mode. Use for dynamic objects that contribute to global illumination. This GI mode is only effective when using :ref:`VoxelGI<class_VoxelGI>`, but it has a higher performance impact than :ref:`GI_MODE_STATIC<class_GeometryInstance3D_constant_GI_MODE_STATIC>`. When using other GI methods, this will act the same as :ref:`GI_MODE_DISABLED<class_GeometryInstance3D_constant_GI_MODE_DISABLED>`.
+Dynamic global illumination mode. Use for dynamic objects that contribute to global illumination. This GI mode is only effective when using :ref:`VoxelGI<class_VoxelGI>`, but it has a higher performance impact than :ref:`GI_MODE_STATIC<class_GeometryInstance3D_constant_GI_MODE_STATIC>`. When using other GI methods, this will act the same as :ref:`GI_MODE_DISABLED<class_GeometryInstance3D_constant_GI_MODE_DISABLED>`. When using :ref:`LightmapGI<class_LightmapGI>`, the object will receive indirect lighting using lightmap probes instead of using the baked lightmap texture.
 
 .. rst-class:: classref-item-separator
 
@@ -172,7 +179,7 @@ Dynamic global illumination mode. Use for dynamic objects that contribute to glo
 
 .. rst-class:: classref-enumeration
 
-enum **LightmapScale**:
+enum **LightmapScale**: :ref:`🔗<enum_GeometryInstance3D_LightmapScale>`
 
 .. _class_GeometryInstance3D_constant_LIGHTMAP_SCALE_1X:
 
@@ -222,7 +229,7 @@ Represents the size of the :ref:`LightmapScale<enum_GeometryInstance3D_LightmapS
 
 .. rst-class:: classref-enumeration
 
-enum **VisibilityRangeFadeMode**:
+enum **VisibilityRangeFadeMode**: :ref:`🔗<enum_GeometryInstance3D_VisibilityRangeFadeMode>`
 
 .. _class_GeometryInstance3D_constant_VISIBILITY_RANGE_FADE_DISABLED:
 
@@ -240,6 +247,8 @@ Will not fade itself nor its visibility dependencies, hysteresis will be used in
 
 Will fade-out itself when reaching the limits of its own visibility range. This is slower than :ref:`VISIBILITY_RANGE_FADE_DISABLED<class_GeometryInstance3D_constant_VISIBILITY_RANGE_FADE_DISABLED>`, but it can provide smoother transitions. The fading range is determined by :ref:`visibility_range_begin_margin<class_GeometryInstance3D_property_visibility_range_begin_margin>` and :ref:`visibility_range_end_margin<class_GeometryInstance3D_property_visibility_range_end_margin>`.
 
+\ **Note:** Only supported when using the Forward+ rendering method. When using the Mobile or Compatibility rendering method, this mode acts like :ref:`VISIBILITY_RANGE_FADE_DISABLED<class_GeometryInstance3D_constant_VISIBILITY_RANGE_FADE_DISABLED>` but with hysteresis disabled.
+
 .. _class_GeometryInstance3D_constant_VISIBILITY_RANGE_FADE_DEPENDENCIES:
 
 .. rst-class:: classref-enumeration-constant
@@ -247,6 +256,8 @@ Will fade-out itself when reaching the limits of its own visibility range. This 
 :ref:`VisibilityRangeFadeMode<enum_GeometryInstance3D_VisibilityRangeFadeMode>` **VISIBILITY_RANGE_FADE_DEPENDENCIES** = ``2``
 
 Will fade-in its visibility dependencies (see :ref:`Node3D.visibility_parent<class_Node3D_property_visibility_parent>`) when reaching the limits of its own visibility range. This is slower than :ref:`VISIBILITY_RANGE_FADE_DISABLED<class_GeometryInstance3D_constant_VISIBILITY_RANGE_FADE_DISABLED>`, but it can provide smoother transitions. The fading range is determined by :ref:`visibility_range_begin_margin<class_GeometryInstance3D_property_visibility_range_begin_margin>` and :ref:`visibility_range_end_margin<class_GeometryInstance3D_property_visibility_range_end_margin>`.
+
+\ **Note:** Only supported when using the Forward+ rendering method. When using the Mobile or Compatibility rendering method, this mode acts like :ref:`VISIBILITY_RANGE_FADE_DISABLED<class_GeometryInstance3D_constant_VISIBILITY_RANGE_FADE_DISABLED>` but with hysteresis disabled.
 
 .. rst-class:: classref-section-separator
 
@@ -261,12 +272,12 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`ShadowCastingSetting<enum_GeometryInstance3D_ShadowCastingSetting>` **cast_shadow** = ``1``
+:ref:`ShadowCastingSetting<enum_GeometryInstance3D_ShadowCastingSetting>` **cast_shadow** = ``1`` :ref:`🔗<class_GeometryInstance3D_property_cast_shadow>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_cast_shadows_setting** **(** :ref:`ShadowCastingSetting<enum_GeometryInstance3D_ShadowCastingSetting>` value **)**
-- :ref:`ShadowCastingSetting<enum_GeometryInstance3D_ShadowCastingSetting>` **get_cast_shadows_setting** **(** **)**
+- |void| **set_cast_shadows_setting**\ (\ value\: :ref:`ShadowCastingSetting<enum_GeometryInstance3D_ShadowCastingSetting>`\ )
+- :ref:`ShadowCastingSetting<enum_GeometryInstance3D_ShadowCastingSetting>` **get_cast_shadows_setting**\ (\ )
 
 The selected shadow casting flag. See :ref:`ShadowCastingSetting<enum_GeometryInstance3D_ShadowCastingSetting>` for possible values.
 
@@ -278,14 +289,14 @@ The selected shadow casting flag. See :ref:`ShadowCastingSetting<enum_GeometryIn
 
 .. rst-class:: classref-property
 
-:ref:`AABB<class_AABB>` **custom_aabb** = ``AABB(0, 0, 0, 0, 0, 0)``
+:ref:`AABB<class_AABB>` **custom_aabb** = ``AABB(0, 0, 0, 0, 0, 0)`` :ref:`🔗<class_GeometryInstance3D_property_custom_aabb>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_custom_aabb** **(** :ref:`AABB<class_AABB>` value **)**
-- :ref:`AABB<class_AABB>` **get_custom_aabb** **(** **)**
+- |void| **set_custom_aabb**\ (\ value\: :ref:`AABB<class_AABB>`\ )
+- :ref:`AABB<class_AABB>` **get_custom_aabb**\ (\ )
 
-Overrides the bounding box of this node with a custom one. This can be used to avoid the expensive :ref:`AABB<class_AABB>` recalculation that happens when a skeleton is used with a :ref:`MeshInstance3D<class_MeshInstance3D>` or to have fine control over the :ref:`MeshInstance3D<class_MeshInstance3D>`'s bounding box. To remove this, set value to an :ref:`AABB<class_AABB>` with all fields set to zero.
+Overrides the bounding box of this node with a custom one. This can be used to avoid the expensive :ref:`AABB<class_AABB>` recalculation that happens when a skeleton is used with a :ref:`MeshInstance3D<class_MeshInstance3D>` or to have precise control over the :ref:`MeshInstance3D<class_MeshInstance3D>`'s bounding box. To use the default AABB, set value to an :ref:`AABB<class_AABB>` with all fields set to ``0.0``. To avoid frustum culling, set :ref:`custom_aabb<class_GeometryInstance3D_property_custom_aabb>` to a very large AABB that covers your entire game world such as ``AABB(-10000, -10000, -10000, 20000, 20000, 20000)``. To disable all forms of culling (including occlusion culling), call :ref:`RenderingServer.instance_set_ignore_culling<class_RenderingServer_method_instance_set_ignore_culling>` on the **GeometryInstance3D**'s :ref:`RID<class_RID>`.
 
 .. rst-class:: classref-item-separator
 
@@ -295,12 +306,12 @@ Overrides the bounding box of this node with a custom one. This can be used to a
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **extra_cull_margin** = ``0.0``
+:ref:`float<class_float>` **extra_cull_margin** = ``0.0`` :ref:`🔗<class_GeometryInstance3D_property_extra_cull_margin>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_extra_cull_margin** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_extra_cull_margin** **(** **)**
+- |void| **set_extra_cull_margin**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_extra_cull_margin**\ (\ )
 
 The extra distance added to the GeometryInstance3D's bounding box (:ref:`AABB<class_AABB>`) to increase its cull box.
 
@@ -312,12 +323,12 @@ The extra distance added to the GeometryInstance3D's bounding box (:ref:`AABB<cl
 
 .. rst-class:: classref-property
 
-:ref:`LightmapScale<enum_GeometryInstance3D_LightmapScale>` **gi_lightmap_scale** = ``0``
+:ref:`LightmapScale<enum_GeometryInstance3D_LightmapScale>` **gi_lightmap_scale** = ``0`` :ref:`🔗<class_GeometryInstance3D_property_gi_lightmap_scale>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_lightmap_scale** **(** :ref:`LightmapScale<enum_GeometryInstance3D_LightmapScale>` value **)**
-- :ref:`LightmapScale<enum_GeometryInstance3D_LightmapScale>` **get_lightmap_scale** **(** **)**
+- |void| **set_lightmap_scale**\ (\ value\: :ref:`LightmapScale<enum_GeometryInstance3D_LightmapScale>`\ )
+- :ref:`LightmapScale<enum_GeometryInstance3D_LightmapScale>` **get_lightmap_scale**\ (\ )
 
 The texel density to use for lightmapping in :ref:`LightmapGI<class_LightmapGI>`. Greater scale values provide higher resolution in the lightmap, which can result in sharper shadows for lights that have both direct and indirect light baked. However, greater scale values will also increase the space taken by the mesh in the lightmap texture, which increases the memory, storage, and bake time requirements. When using a single mesh at different scales, consider adjusting this value to keep the lightmap texel density consistent across meshes.
 
@@ -329,12 +340,12 @@ The texel density to use for lightmapping in :ref:`LightmapGI<class_LightmapGI>`
 
 .. rst-class:: classref-property
 
-:ref:`GIMode<enum_GeometryInstance3D_GIMode>` **gi_mode** = ``1``
+:ref:`GIMode<enum_GeometryInstance3D_GIMode>` **gi_mode** = ``1`` :ref:`🔗<class_GeometryInstance3D_property_gi_mode>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_gi_mode** **(** :ref:`GIMode<enum_GeometryInstance3D_GIMode>` value **)**
-- :ref:`GIMode<enum_GeometryInstance3D_GIMode>` **get_gi_mode** **(** **)**
+- |void| **set_gi_mode**\ (\ value\: :ref:`GIMode<enum_GeometryInstance3D_GIMode>`\ )
+- :ref:`GIMode<enum_GeometryInstance3D_GIMode>` **get_gi_mode**\ (\ )
 
 The global illumination mode to use for the whole geometry. To avoid inconsistent results, use a mode that matches the purpose of the mesh during gameplay (static/dynamic).
 
@@ -348,14 +359,16 @@ The global illumination mode to use for the whole geometry. To avoid inconsisten
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **ignore_occlusion_culling** = ``false``
+:ref:`bool<class_bool>` **ignore_occlusion_culling** = ``false`` :ref:`🔗<class_GeometryInstance3D_property_ignore_occlusion_culling>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_ignore_occlusion_culling** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **is_ignoring_occlusion_culling** **(** **)**
+- |void| **set_ignore_occlusion_culling**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **is_ignoring_occlusion_culling**\ (\ )
 
 If ``true``, disables occlusion culling for this instance. Useful for gizmos that must be rendered even when occlusion culling is in use.
+
+\ **Note:** :ref:`ignore_occlusion_culling<class_GeometryInstance3D_property_ignore_occlusion_culling>` does not affect frustum culling (which is what happens when an object is not visible given the camera's angle). To avoid frustum culling, set :ref:`custom_aabb<class_GeometryInstance3D_property_custom_aabb>` to a very large AABB that covers your entire game world such as ``AABB(-10000, -10000, -10000, 20000, 20000, 20000)``.
 
 .. rst-class:: classref-item-separator
 
@@ -365,12 +378,12 @@ If ``true``, disables occlusion culling for this instance. Useful for gizmos tha
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **lod_bias** = ``1.0``
+:ref:`float<class_float>` **lod_bias** = ``1.0`` :ref:`🔗<class_GeometryInstance3D_property_lod_bias>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_lod_bias** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_lod_bias** **(** **)**
+- |void| **set_lod_bias**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_lod_bias**\ (\ )
 
 Changes how quickly the mesh transitions to a lower level of detail. A value of 0 will force the mesh to its lowest level of detail, a value of 1 will use the default settings, and larger values will keep the mesh in a higher level of detail at farther distances.
 
@@ -384,12 +397,12 @@ Useful for testing level of detail transitions in the editor.
 
 .. rst-class:: classref-property
 
-:ref:`Material<class_Material>` **material_overlay**
+:ref:`Material<class_Material>` **material_overlay** :ref:`🔗<class_GeometryInstance3D_property_material_overlay>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_material_overlay** **(** :ref:`Material<class_Material>` value **)**
-- :ref:`Material<class_Material>` **get_material_overlay** **(** **)**
+- |void| **set_material_overlay**\ (\ value\: :ref:`Material<class_Material>`\ )
+- :ref:`Material<class_Material>` **get_material_overlay**\ (\ )
 
 The material overlay for the whole geometry.
 
@@ -403,12 +416,12 @@ If a material is assigned to this property, it will be rendered on top of any ot
 
 .. rst-class:: classref-property
 
-:ref:`Material<class_Material>` **material_override**
+:ref:`Material<class_Material>` **material_override** :ref:`🔗<class_GeometryInstance3D_property_material_override>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_material_override** **(** :ref:`Material<class_Material>` value **)**
-- :ref:`Material<class_Material>` **get_material_override** **(** **)**
+- |void| **set_material_override**\ (\ value\: :ref:`Material<class_Material>`\ )
+- :ref:`Material<class_Material>` **get_material_override**\ (\ )
 
 The material override for the whole geometry.
 
@@ -422,18 +435,20 @@ If a material is assigned to this property, it will be used instead of any mater
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **transparency** = ``0.0``
+:ref:`float<class_float>` **transparency** = ``0.0`` :ref:`🔗<class_GeometryInstance3D_property_transparency>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_transparency** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_transparency** **(** **)**
+- |void| **set_transparency**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_transparency**\ (\ )
 
 The transparency applied to the whole geometry (as a multiplier of the materials' existing transparency). ``0.0`` is fully opaque, while ``1.0`` is fully transparent. Values greater than ``0.0`` (exclusive) will force the geometry's materials to go through the transparent pipeline, which is slower to render and can exhibit rendering issues due to incorrect transparency sorting. However, unlike using a transparent material, setting :ref:`transparency<class_GeometryInstance3D_property_transparency>` to a value greater than ``0.0`` (exclusive) will *not* disable shadow rendering.
 
 In spatial shaders, ``1.0 - transparency`` is set as the default value of the ``ALPHA`` built-in.
 
 \ **Note:** :ref:`transparency<class_GeometryInstance3D_property_transparency>` is clamped between ``0.0`` and ``1.0``, so this property cannot be used to make transparent materials more opaque than they originally are.
+
+\ **Note:** Only supported when using the Forward+ rendering method. When using the Mobile or Compatibility rendering method, :ref:`transparency<class_GeometryInstance3D_property_transparency>` is ignored and is considered as always being ``0.0``.
 
 .. rst-class:: classref-item-separator
 
@@ -443,12 +458,12 @@ In spatial shaders, ``1.0 - transparency`` is set as the default value of the ``
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **visibility_range_begin** = ``0.0``
+:ref:`float<class_float>` **visibility_range_begin** = ``0.0`` :ref:`🔗<class_GeometryInstance3D_property_visibility_range_begin>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_visibility_range_begin** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_visibility_range_begin** **(** **)**
+- |void| **set_visibility_range_begin**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_visibility_range_begin**\ (\ )
 
 Starting distance from which the GeometryInstance3D will be visible, taking :ref:`visibility_range_begin_margin<class_GeometryInstance3D_property_visibility_range_begin_margin>` into account as well. The default value of 0 is used to disable the range check.
 
@@ -460,16 +475,16 @@ Starting distance from which the GeometryInstance3D will be visible, taking :ref
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **visibility_range_begin_margin** = ``0.0``
+:ref:`float<class_float>` **visibility_range_begin_margin** = ``0.0`` :ref:`🔗<class_GeometryInstance3D_property_visibility_range_begin_margin>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_visibility_range_begin_margin** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_visibility_range_begin_margin** **(** **)**
+- |void| **set_visibility_range_begin_margin**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_visibility_range_begin_margin**\ (\ )
 
 Margin for the :ref:`visibility_range_begin<class_GeometryInstance3D_property_visibility_range_begin>` threshold. The GeometryInstance3D will only change its visibility state when it goes over or under the :ref:`visibility_range_begin<class_GeometryInstance3D_property_visibility_range_begin>` threshold by this amount.
 
-If :ref:`visibility_range_fade_mode<class_GeometryInstance3D_property_visibility_range_fade_mode>` is :ref:`VISIBILITY_RANGE_FADE_DISABLED<class_GeometryInstance3D_constant_VISIBILITY_RANGE_FADE_DISABLED>`, this acts as an hysteresis distance. If :ref:`visibility_range_fade_mode<class_GeometryInstance3D_property_visibility_range_fade_mode>` is :ref:`VISIBILITY_RANGE_FADE_SELF<class_GeometryInstance3D_constant_VISIBILITY_RANGE_FADE_SELF>` or :ref:`VISIBILITY_RANGE_FADE_DEPENDENCIES<class_GeometryInstance3D_constant_VISIBILITY_RANGE_FADE_DEPENDENCIES>`, this acts as a fade transition distance and must be set to a value greater than ``0.0`` for the effect to be noticeable.
+If :ref:`visibility_range_fade_mode<class_GeometryInstance3D_property_visibility_range_fade_mode>` is :ref:`VISIBILITY_RANGE_FADE_DISABLED<class_GeometryInstance3D_constant_VISIBILITY_RANGE_FADE_DISABLED>`, this acts as a hysteresis distance. If :ref:`visibility_range_fade_mode<class_GeometryInstance3D_property_visibility_range_fade_mode>` is :ref:`VISIBILITY_RANGE_FADE_SELF<class_GeometryInstance3D_constant_VISIBILITY_RANGE_FADE_SELF>` or :ref:`VISIBILITY_RANGE_FADE_DEPENDENCIES<class_GeometryInstance3D_constant_VISIBILITY_RANGE_FADE_DEPENDENCIES>`, this acts as a fade transition distance and must be set to a value greater than ``0.0`` for the effect to be noticeable.
 
 .. rst-class:: classref-item-separator
 
@@ -479,12 +494,12 @@ If :ref:`visibility_range_fade_mode<class_GeometryInstance3D_property_visibility
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **visibility_range_end** = ``0.0``
+:ref:`float<class_float>` **visibility_range_end** = ``0.0`` :ref:`🔗<class_GeometryInstance3D_property_visibility_range_end>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_visibility_range_end** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_visibility_range_end** **(** **)**
+- |void| **set_visibility_range_end**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_visibility_range_end**\ (\ )
 
 Distance from which the GeometryInstance3D will be hidden, taking :ref:`visibility_range_end_margin<class_GeometryInstance3D_property_visibility_range_end_margin>` into account as well. The default value of 0 is used to disable the range check.
 
@@ -496,16 +511,16 @@ Distance from which the GeometryInstance3D will be hidden, taking :ref:`visibili
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **visibility_range_end_margin** = ``0.0``
+:ref:`float<class_float>` **visibility_range_end_margin** = ``0.0`` :ref:`🔗<class_GeometryInstance3D_property_visibility_range_end_margin>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_visibility_range_end_margin** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_visibility_range_end_margin** **(** **)**
+- |void| **set_visibility_range_end_margin**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_visibility_range_end_margin**\ (\ )
 
 Margin for the :ref:`visibility_range_end<class_GeometryInstance3D_property_visibility_range_end>` threshold. The GeometryInstance3D will only change its visibility state when it goes over or under the :ref:`visibility_range_end<class_GeometryInstance3D_property_visibility_range_end>` threshold by this amount.
 
-If :ref:`visibility_range_fade_mode<class_GeometryInstance3D_property_visibility_range_fade_mode>` is :ref:`VISIBILITY_RANGE_FADE_DISABLED<class_GeometryInstance3D_constant_VISIBILITY_RANGE_FADE_DISABLED>`, this acts as an hysteresis distance. If :ref:`visibility_range_fade_mode<class_GeometryInstance3D_property_visibility_range_fade_mode>` is :ref:`VISIBILITY_RANGE_FADE_SELF<class_GeometryInstance3D_constant_VISIBILITY_RANGE_FADE_SELF>` or :ref:`VISIBILITY_RANGE_FADE_DEPENDENCIES<class_GeometryInstance3D_constant_VISIBILITY_RANGE_FADE_DEPENDENCIES>`, this acts as a fade transition distance and must be set to a value greater than ``0.0`` for the effect to be noticeable.
+If :ref:`visibility_range_fade_mode<class_GeometryInstance3D_property_visibility_range_fade_mode>` is :ref:`VISIBILITY_RANGE_FADE_DISABLED<class_GeometryInstance3D_constant_VISIBILITY_RANGE_FADE_DISABLED>`, this acts as a hysteresis distance. If :ref:`visibility_range_fade_mode<class_GeometryInstance3D_property_visibility_range_fade_mode>` is :ref:`VISIBILITY_RANGE_FADE_SELF<class_GeometryInstance3D_constant_VISIBILITY_RANGE_FADE_SELF>` or :ref:`VISIBILITY_RANGE_FADE_DEPENDENCIES<class_GeometryInstance3D_constant_VISIBILITY_RANGE_FADE_DEPENDENCIES>`, this acts as a fade transition distance and must be set to a value greater than ``0.0`` for the effect to be noticeable.
 
 .. rst-class:: classref-item-separator
 
@@ -515,12 +530,12 @@ If :ref:`visibility_range_fade_mode<class_GeometryInstance3D_property_visibility
 
 .. rst-class:: classref-property
 
-:ref:`VisibilityRangeFadeMode<enum_GeometryInstance3D_VisibilityRangeFadeMode>` **visibility_range_fade_mode** = ``0``
+:ref:`VisibilityRangeFadeMode<enum_GeometryInstance3D_VisibilityRangeFadeMode>` **visibility_range_fade_mode** = ``0`` :ref:`🔗<class_GeometryInstance3D_property_visibility_range_fade_mode>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_visibility_range_fade_mode** **(** :ref:`VisibilityRangeFadeMode<enum_GeometryInstance3D_VisibilityRangeFadeMode>` value **)**
-- :ref:`VisibilityRangeFadeMode<enum_GeometryInstance3D_VisibilityRangeFadeMode>` **get_visibility_range_fade_mode** **(** **)**
+- |void| **set_visibility_range_fade_mode**\ (\ value\: :ref:`VisibilityRangeFadeMode<enum_GeometryInstance3D_VisibilityRangeFadeMode>`\ )
+- :ref:`VisibilityRangeFadeMode<enum_GeometryInstance3D_VisibilityRangeFadeMode>` **get_visibility_range_fade_mode**\ (\ )
 
 Controls which instances will be faded when approaching the limits of the visibility range. See :ref:`VisibilityRangeFadeMode<enum_GeometryInstance3D_VisibilityRangeFadeMode>` for possible values.
 
@@ -537,7 +552,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`Variant<class_Variant>` **get_instance_shader_parameter** **(** :ref:`StringName<class_StringName>` name **)** |const|
+:ref:`Variant<class_Variant>` **get_instance_shader_parameter**\ (\ name\: :ref:`StringName<class_StringName>`\ ) |const| :ref:`🔗<class_GeometryInstance3D_method_get_instance_shader_parameter>`
 
 Get the value of a shader parameter as set on this instance.
 
@@ -549,7 +564,7 @@ Get the value of a shader parameter as set on this instance.
 
 .. rst-class:: classref-method
 
-void **set_instance_shader_parameter** **(** :ref:`StringName<class_StringName>` name, :ref:`Variant<class_Variant>` value **)**
+|void| **set_instance_shader_parameter**\ (\ name\: :ref:`StringName<class_StringName>`, value\: :ref:`Variant<class_Variant>`\ ) :ref:`🔗<class_GeometryInstance3D_method_set_instance_shader_parameter>`
 
 Set the value of a shader uniform for this instance only (`per-instance uniform <../tutorials/shaders/shader_reference/shading_language.html#per-instance-uniforms>`__). See also :ref:`ShaderMaterial.set_shader_parameter<class_ShaderMaterial_method_set_shader_parameter>` to assign a uniform on all instances using the same :ref:`ShaderMaterial<class_ShaderMaterial>`.
 
@@ -565,3 +580,5 @@ Set the value of a shader uniform for this instance only (`per-instance uniform 
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`

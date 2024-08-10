@@ -12,16 +12,16 @@ CollisionPolygon2D
 
 **Inherits:** :ref:`Node2D<class_Node2D>` **<** :ref:`CanvasItem<class_CanvasItem>` **<** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
 
-Defines a 2D collision polygon.
+A node that provides a polygon shape to a :ref:`CollisionObject2D<class_CollisionObject2D>` parent.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-Provides a concave or convex 2D collision polygon to a :ref:`CollisionObject2D<class_CollisionObject2D>` parent. Polygons can be drawn in the editor or specified by a list of vertices. See also :ref:`ConvexPolygonShape2D<class_ConvexPolygonShape2D>`.
+A node that provides a polygon shape to a :ref:`CollisionObject2D<class_CollisionObject2D>` parent and allows to edit it. The polygon can be concave or convex. This can give a detection shape to an :ref:`Area2D<class_Area2D>`, turn :ref:`PhysicsBody2D<class_PhysicsBody2D>` into a solid object, or give a hollow shape to a :ref:`StaticBody2D<class_StaticBody2D>`.
 
-In the editor, a **CollisionPolygon2D** can be generated from a :ref:`Sprite2D<class_Sprite2D>`'s outline by selecting a :ref:`Sprite2D<class_Sprite2D>` node, going to the **Sprite2D** menu at the top of the 2D editor viewport then choosing **Create CollisionPolygon2D Sibling**.
+\ **Warning:** A non-uniformly scaled :ref:`CollisionShape2D<class_CollisionShape2D>` will likely not behave as expected. Make sure to keep its scale the same on all axes and adjust its shape resource instead.
 
 .. rst-class:: classref-reftable-group
 
@@ -56,7 +56,7 @@ Enumerations
 
 .. rst-class:: classref-enumeration
 
-enum **BuildMode**:
+enum **BuildMode**: :ref:`🔗<enum_CollisionPolygon2D_BuildMode>`
 
 .. _class_CollisionPolygon2D_constant_BUILD_SOLIDS:
 
@@ -64,7 +64,7 @@ enum **BuildMode**:
 
 :ref:`BuildMode<enum_CollisionPolygon2D_BuildMode>` **BUILD_SOLIDS** = ``0``
 
-Collisions will include the polygon and its contained area.
+Collisions will include the polygon and its contained area. In this mode the node has the same effect as several :ref:`ConvexPolygonShape2D<class_ConvexPolygonShape2D>` nodes, one for each convex shape in the convex decomposition of the polygon (but without the overhead of multiple nodes).
 
 .. _class_CollisionPolygon2D_constant_BUILD_SEGMENTS:
 
@@ -72,7 +72,7 @@ Collisions will include the polygon and its contained area.
 
 :ref:`BuildMode<enum_CollisionPolygon2D_BuildMode>` **BUILD_SEGMENTS** = ``1``
 
-Collisions will only include the polygon edges.
+Collisions will only include the polygon edges. In this mode the node has the same effect as a single :ref:`ConcavePolygonShape2D<class_ConcavePolygonShape2D>` made of segments, with the restriction that each segment (after the first one) starts where the previous one ends, and the last one ends where the first one starts (forming a closed but hollow polygon).
 
 .. rst-class:: classref-section-separator
 
@@ -87,12 +87,12 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`BuildMode<enum_CollisionPolygon2D_BuildMode>` **build_mode** = ``0``
+:ref:`BuildMode<enum_CollisionPolygon2D_BuildMode>` **build_mode** = ``0`` :ref:`🔗<class_CollisionPolygon2D_property_build_mode>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_build_mode** **(** :ref:`BuildMode<enum_CollisionPolygon2D_BuildMode>` value **)**
-- :ref:`BuildMode<enum_CollisionPolygon2D_BuildMode>` **get_build_mode** **(** **)**
+- |void| **set_build_mode**\ (\ value\: :ref:`BuildMode<enum_CollisionPolygon2D_BuildMode>`\ )
+- :ref:`BuildMode<enum_CollisionPolygon2D_BuildMode>` **get_build_mode**\ (\ )
 
 Collision build mode. Use one of the :ref:`BuildMode<enum_CollisionPolygon2D_BuildMode>` constants.
 
@@ -104,12 +104,12 @@ Collision build mode. Use one of the :ref:`BuildMode<enum_CollisionPolygon2D_Bui
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **disabled** = ``false``
+:ref:`bool<class_bool>` **disabled** = ``false`` :ref:`🔗<class_CollisionPolygon2D_property_disabled>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_disabled** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **is_disabled** **(** **)**
+- |void| **set_disabled**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **is_disabled**\ (\ )
 
 If ``true``, no collisions will be detected.
 
@@ -121,12 +121,12 @@ If ``true``, no collisions will be detected.
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **one_way_collision** = ``false``
+:ref:`bool<class_bool>` **one_way_collision** = ``false`` :ref:`🔗<class_CollisionPolygon2D_property_one_way_collision>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_one_way_collision** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **is_one_way_collision_enabled** **(** **)**
+- |void| **set_one_way_collision**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **is_one_way_collision_enabled**\ (\ )
 
 If ``true``, only edges that face up, relative to **CollisionPolygon2D**'s rotation, will collide with other objects.
 
@@ -140,12 +140,12 @@ If ``true``, only edges that face up, relative to **CollisionPolygon2D**'s rotat
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **one_way_collision_margin** = ``1.0``
+:ref:`float<class_float>` **one_way_collision_margin** = ``1.0`` :ref:`🔗<class_CollisionPolygon2D_property_one_way_collision_margin>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_one_way_collision_margin** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_one_way_collision_margin** **(** **)**
+- |void| **set_one_way_collision_margin**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_one_way_collision_margin**\ (\ )
 
 The margin used for one-way collision (in pixels). Higher values will make the shape thicker, and work better for colliders that enter the polygon at a high velocity.
 
@@ -157,14 +157,18 @@ The margin used for one-way collision (in pixels). Higher values will make the s
 
 .. rst-class:: classref-property
 
-:ref:`PackedVector2Array<class_PackedVector2Array>` **polygon** = ``PackedVector2Array()``
+:ref:`PackedVector2Array<class_PackedVector2Array>` **polygon** = ``PackedVector2Array()`` :ref:`🔗<class_CollisionPolygon2D_property_polygon>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_polygon** **(** :ref:`PackedVector2Array<class_PackedVector2Array>` value **)**
-- :ref:`PackedVector2Array<class_PackedVector2Array>` **get_polygon** **(** **)**
+- |void| **set_polygon**\ (\ value\: :ref:`PackedVector2Array<class_PackedVector2Array>`\ )
+- :ref:`PackedVector2Array<class_PackedVector2Array>` **get_polygon**\ (\ )
 
-The polygon's list of vertices. The final point will be connected to the first. The returned value is a clone of the :ref:`PackedVector2Array<class_PackedVector2Array>`, not a reference.
+The polygon's list of vertices. Each point will be connected to the next, and the final point will be connected to the first.
+
+\ **Note:** The returned vertices are in the local coordinate space of the given **CollisionPolygon2D**.
+
+**Note:** The returned array is *copied* and any changes to it will not update the original property value. See :ref:`PackedVector2Array<class_PackedVector2Array>` for more details.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
@@ -172,3 +176,5 @@ The polygon's list of vertices. The final point will be connected to the first. 
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`
