@@ -16,6 +16,13 @@ GLTFSkeleton
 
 	There is currently no description for this class. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
 
+.. rst-class:: classref-introduction-group
+
+Tutorials
+---------
+
+- :doc:`Runtime file loading and saving <../tutorials/io/runtime_file_loading_and_saving>`
+
 .. rst-class:: classref-reftable-group
 
 Properties
@@ -38,21 +45,21 @@ Methods
 .. table::
    :widths: auto
 
-   +-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`BoneAttachment3D<class_BoneAttachment3D>` | :ref:`get_bone_attachment<class_GLTFSkeleton_method_get_bone_attachment>` **(** :ref:`int<class_int>` idx **)**                           |
-   +-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`int<class_int>`                           | :ref:`get_bone_attachment_count<class_GLTFSkeleton_method_get_bone_attachment_count>` **(** **)**                                         |
-   +-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Dictionary<class_Dictionary>`             | :ref:`get_godot_bone_node<class_GLTFSkeleton_method_get_godot_bone_node>` **(** **)**                                                     |
-   +-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Skeleton3D<class_Skeleton3D>`             | :ref:`get_godot_skeleton<class_GLTFSkeleton_method_get_godot_skeleton>` **(** **)**                                                       |
-   +-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`String[]<class_String>`                   | :ref:`get_unique_names<class_GLTFSkeleton_method_get_unique_names>` **(** **)**                                                           |
-   +-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                            | :ref:`set_godot_bone_node<class_GLTFSkeleton_method_set_godot_bone_node>` **(** :ref:`Dictionary<class_Dictionary>` godot_bone_node **)** |
-   +-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                            | :ref:`set_unique_names<class_GLTFSkeleton_method_set_unique_names>` **(** :ref:`String[]<class_String>` unique_names **)**                |
-   +-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+
+   +----------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`BoneAttachment3D<class_BoneAttachment3D>`          | :ref:`get_bone_attachment<class_GLTFSkeleton_method_get_bone_attachment>`\ (\ idx\: :ref:`int<class_int>`\ )                                       |
+   +----------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`int<class_int>`                                    | :ref:`get_bone_attachment_count<class_GLTFSkeleton_method_get_bone_attachment_count>`\ (\ )                                                        |
+   +----------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Dictionary<class_Dictionary>`                      | :ref:`get_godot_bone_node<class_GLTFSkeleton_method_get_godot_bone_node>`\ (\ )                                                                    |
+   +----------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Skeleton3D<class_Skeleton3D>`                      | :ref:`get_godot_skeleton<class_GLTFSkeleton_method_get_godot_skeleton>`\ (\ )                                                                      |
+   +----------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Array<class_Array>`\[:ref:`String<class_String>`\] | :ref:`get_unique_names<class_GLTFSkeleton_method_get_unique_names>`\ (\ )                                                                          |
+   +----------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                                   | :ref:`set_godot_bone_node<class_GLTFSkeleton_method_set_godot_bone_node>`\ (\ godot_bone_node\: :ref:`Dictionary<class_Dictionary>`\ )             |
+   +----------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                                   | :ref:`set_unique_names<class_GLTFSkeleton_method_set_unique_names>`\ (\ unique_names\: :ref:`Array<class_Array>`\[:ref:`String<class_String>`\]\ ) |
+   +----------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -67,16 +74,18 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`PackedInt32Array<class_PackedInt32Array>` **joints** = ``PackedInt32Array()``
+:ref:`PackedInt32Array<class_PackedInt32Array>` **joints** = ``PackedInt32Array()`` :ref:`🔗<class_GLTFSkeleton_property_joints>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_joints** **(** :ref:`PackedInt32Array<class_PackedInt32Array>` value **)**
-- :ref:`PackedInt32Array<class_PackedInt32Array>` **get_joints** **(** **)**
+- |void| **set_joints**\ (\ value\: :ref:`PackedInt32Array<class_PackedInt32Array>`\ )
+- :ref:`PackedInt32Array<class_PackedInt32Array>` **get_joints**\ (\ )
 
 .. container:: contribute
 
 	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+
+**Note:** The returned array is *copied* and any changes to it will not update the original property value. See :ref:`PackedInt32Array<class_PackedInt32Array>` for more details.
 
 .. rst-class:: classref-item-separator
 
@@ -86,16 +95,18 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`PackedInt32Array<class_PackedInt32Array>` **roots** = ``PackedInt32Array()``
+:ref:`PackedInt32Array<class_PackedInt32Array>` **roots** = ``PackedInt32Array()`` :ref:`🔗<class_GLTFSkeleton_property_roots>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_roots** **(** :ref:`PackedInt32Array<class_PackedInt32Array>` value **)**
-- :ref:`PackedInt32Array<class_PackedInt32Array>` **get_roots** **(** **)**
+- |void| **set_roots**\ (\ value\: :ref:`PackedInt32Array<class_PackedInt32Array>`\ )
+- :ref:`PackedInt32Array<class_PackedInt32Array>` **get_roots**\ (\ )
 
 .. container:: contribute
 
 	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+
+**Note:** The returned array is *copied* and any changes to it will not update the original property value. See :ref:`PackedInt32Array<class_PackedInt32Array>` for more details.
 
 .. rst-class:: classref-section-separator
 
@@ -110,7 +121,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`BoneAttachment3D<class_BoneAttachment3D>` **get_bone_attachment** **(** :ref:`int<class_int>` idx **)**
+:ref:`BoneAttachment3D<class_BoneAttachment3D>` **get_bone_attachment**\ (\ idx\: :ref:`int<class_int>`\ ) :ref:`🔗<class_GLTFSkeleton_method_get_bone_attachment>`
 
 .. container:: contribute
 
@@ -124,7 +135,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`int<class_int>` **get_bone_attachment_count** **(** **)**
+:ref:`int<class_int>` **get_bone_attachment_count**\ (\ ) :ref:`🔗<class_GLTFSkeleton_method_get_bone_attachment_count>`
 
 .. container:: contribute
 
@@ -138,11 +149,9 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`Dictionary<class_Dictionary>` **get_godot_bone_node** **(** **)**
+:ref:`Dictionary<class_Dictionary>` **get_godot_bone_node**\ (\ ) :ref:`🔗<class_GLTFSkeleton_method_get_godot_bone_node>`
 
-.. container:: contribute
-
-	There is currently no description for this method. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+Returns a :ref:`Dictionary<class_Dictionary>` that maps skeleton bone indices to the indices of glTF nodes. This property is unused during import, and only set during export. In a glTF file, a bone is a node, so Godot converts skeleton bones to glTF nodes.
 
 .. rst-class:: classref-item-separator
 
@@ -152,7 +161,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`Skeleton3D<class_Skeleton3D>` **get_godot_skeleton** **(** **)**
+:ref:`Skeleton3D<class_Skeleton3D>` **get_godot_skeleton**\ (\ ) :ref:`🔗<class_GLTFSkeleton_method_get_godot_skeleton>`
 
 .. container:: contribute
 
@@ -166,7 +175,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`String[]<class_String>` **get_unique_names** **(** **)**
+:ref:`Array<class_Array>`\[:ref:`String<class_String>`\] **get_unique_names**\ (\ ) :ref:`🔗<class_GLTFSkeleton_method_get_unique_names>`
 
 .. container:: contribute
 
@@ -180,11 +189,9 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-void **set_godot_bone_node** **(** :ref:`Dictionary<class_Dictionary>` godot_bone_node **)**
+|void| **set_godot_bone_node**\ (\ godot_bone_node\: :ref:`Dictionary<class_Dictionary>`\ ) :ref:`🔗<class_GLTFSkeleton_method_set_godot_bone_node>`
 
-.. container:: contribute
-
-	There is currently no description for this method. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+Sets a :ref:`Dictionary<class_Dictionary>` that maps skeleton bone indices to the indices of glTF nodes. This property is unused during import, and only set during export. In a glTF file, a bone is a node, so Godot converts skeleton bones to glTF nodes.
 
 .. rst-class:: classref-item-separator
 
@@ -194,7 +201,7 @@ void **set_godot_bone_node** **(** :ref:`Dictionary<class_Dictionary>` godot_bon
 
 .. rst-class:: classref-method
 
-void **set_unique_names** **(** :ref:`String[]<class_String>` unique_names **)**
+|void| **set_unique_names**\ (\ unique_names\: :ref:`Array<class_Array>`\[:ref:`String<class_String>`\]\ ) :ref:`🔗<class_GLTFSkeleton_method_set_unique_names>`
 
 .. container:: contribute
 
@@ -206,3 +213,5 @@ void **set_unique_names** **(** :ref:`String[]<class_String>` unique_names **)**
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`
