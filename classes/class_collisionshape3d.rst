@@ -12,18 +12,16 @@ CollisionShape3D
 
 **Inherits:** :ref:`Node3D<class_Node3D>` **<** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
 
-Node that represents collision shape data in 3D space.
+A node that provides a :ref:`Shape3D<class_Shape3D>` to a :ref:`CollisionObject3D<class_CollisionObject3D>` parent.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-Editor facility for creating and editing collision shapes in 3D space. Set the :ref:`shape<class_CollisionShape3D_property_shape>` property to configure the shape. **IMPORTANT**: this is an Editor-only helper to create shapes, use :ref:`CollisionObject3D.shape_owner_get_shape<class_CollisionObject3D_method_shape_owner_get_shape>` to get the actual shape.
+A node that provides a :ref:`Shape3D<class_Shape3D>` to a :ref:`CollisionObject3D<class_CollisionObject3D>` parent and allows to edit it. This can give a detection shape to an :ref:`Area3D<class_Area3D>` or turn a :ref:`PhysicsBody3D<class_PhysicsBody3D>` into a solid object.
 
-You can use this node to represent all sorts of collision shapes, for example, add this to an :ref:`Area3D<class_Area3D>` to give it a detection shape, or add it to a :ref:`PhysicsBody3D<class_PhysicsBody3D>` to create a solid object.
-
-\ **Warning:** A non-uniformly scaled CollisionShape3D node will probably not function as expected. Please make sure to keep its scale uniform (i.e. the same on all axes), and change the size of its :ref:`shape<class_CollisionShape3D_property_shape>` resource instead.
+\ **Warning:** A non-uniformly scaled **CollisionShape3D** will likely not behave as expected. Make sure to keep its scale the same on all axes and adjust its :ref:`shape<class_CollisionShape3D_property_shape>` resource instead.
 
 .. rst-class:: classref-introduction-group
 
@@ -32,11 +30,11 @@ Tutorials
 
 - :doc:`Physics introduction <../tutorials/physics/physics_introduction>`
 
-- `3D Kinematic Character Demo <https://godotengine.org/asset-library/asset/126>`__
+- `3D Kinematic Character Demo <https://godotengine.org/asset-library/asset/2739>`__
 
-- `3D Platformer Demo <https://godotengine.org/asset-library/asset/125>`__
+- `3D Platformer Demo <https://godotengine.org/asset-library/asset/2748>`__
 
-- `Third Person Shooter Demo <https://godotengine.org/asset-library/asset/678>`__
+- `Third Person Shooter (TPS) Demo <https://godotengine.org/asset-library/asset/2710>`__
 
 .. rst-class:: classref-reftable-group
 
@@ -46,11 +44,15 @@ Properties
 .. table::
    :widths: auto
 
-   +-------------------------------+-----------------------------------------------------------+-----------+
-   | :ref:`bool<class_bool>`       | :ref:`disabled<class_CollisionShape3D_property_disabled>` | ``false`` |
-   +-------------------------------+-----------------------------------------------------------+-----------+
-   | :ref:`Shape3D<class_Shape3D>` | :ref:`shape<class_CollisionShape3D_property_shape>`       |           |
-   +-------------------------------+-----------------------------------------------------------+-----------+
+   +-------------------------------+-----------------------------------------------------------------+-----------------------+
+   | :ref:`Color<class_Color>`     | :ref:`debug_color<class_CollisionShape3D_property_debug_color>` | ``Color(0, 0, 0, 0)`` |
+   +-------------------------------+-----------------------------------------------------------------+-----------------------+
+   | :ref:`bool<class_bool>`       | :ref:`debug_fill<class_CollisionShape3D_property_debug_fill>`   | ``true``              |
+   +-------------------------------+-----------------------------------------------------------------+-----------------------+
+   | :ref:`bool<class_bool>`       | :ref:`disabled<class_CollisionShape3D_property_disabled>`       | ``false``             |
+   +-------------------------------+-----------------------------------------------------------------+-----------------------+
+   | :ref:`Shape3D<class_Shape3D>` | :ref:`shape<class_CollisionShape3D_property_shape>`             |                       |
+   +-------------------------------+-----------------------------------------------------------------+-----------------------+
 
 .. rst-class:: classref-reftable-group
 
@@ -60,11 +62,11 @@ Methods
 .. table::
    :widths: auto
 
-   +------+------------------------------------------------------------------------------------------------------------------------------+
-   | void | :ref:`make_convex_from_siblings<class_CollisionShape3D_method_make_convex_from_siblings>` **(** **)**                        |
-   +------+------------------------------------------------------------------------------------------------------------------------------+
-   | void | :ref:`resource_changed<class_CollisionShape3D_method_resource_changed>` **(** :ref:`Resource<class_Resource>` resource **)** |
-   +------+------------------------------------------------------------------------------------------------------------------------------+
+   +--------+---------------------------------------------------------------------------------------------------------------------------+
+   | |void| | :ref:`make_convex_from_siblings<class_CollisionShape3D_method_make_convex_from_siblings>`\ (\ )                           |
+   +--------+---------------------------------------------------------------------------------------------------------------------------+
+   | |void| | :ref:`resource_changed<class_CollisionShape3D_method_resource_changed>`\ (\ resource\: :ref:`Resource<class_Resource>`\ ) |
+   +--------+---------------------------------------------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -75,16 +77,52 @@ Methods
 Property Descriptions
 ---------------------
 
+.. _class_CollisionShape3D_property_debug_color:
+
+.. rst-class:: classref-property
+
+:ref:`Color<class_Color>` **debug_color** = ``Color(0, 0, 0, 0)`` :ref:`🔗<class_CollisionShape3D_property_debug_color>`
+
+.. rst-class:: classref-property-setget
+
+- |void| **set_debug_color**\ (\ value\: :ref:`Color<class_Color>`\ )
+- :ref:`Color<class_Color>` **get_debug_color**\ (\ )
+
+The collision shape color that is displayed in the editor, or in the running project if **Debug > Visible Collision Shapes** is checked at the top of the editor.
+
+\ **Note:** The default value is :ref:`ProjectSettings.debug/shapes/collision/shape_color<class_ProjectSettings_property_debug/shapes/collision/shape_color>`. The ``Color(0, 0, 0, 0)`` value documented here is a placeholder, and not the actual default debug color.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_CollisionShape3D_property_debug_fill:
+
+.. rst-class:: classref-property
+
+:ref:`bool<class_bool>` **debug_fill** = ``true`` :ref:`🔗<class_CollisionShape3D_property_debug_fill>`
+
+.. rst-class:: classref-property-setget
+
+- |void| **set_enable_debug_fill**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **get_enable_debug_fill**\ (\ )
+
+If ``true``, when the shape is displayed, it will show a solid fill color in addition to its wireframe.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_CollisionShape3D_property_disabled:
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **disabled** = ``false``
+:ref:`bool<class_bool>` **disabled** = ``false`` :ref:`🔗<class_CollisionShape3D_property_disabled>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_disabled** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **is_disabled** **(** **)**
+- |void| **set_disabled**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **is_disabled**\ (\ )
 
 A disabled collision shape has no effect in the world.
 
@@ -96,12 +134,12 @@ A disabled collision shape has no effect in the world.
 
 .. rst-class:: classref-property
 
-:ref:`Shape3D<class_Shape3D>` **shape**
+:ref:`Shape3D<class_Shape3D>` **shape** :ref:`🔗<class_CollisionShape3D_property_shape>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_shape** **(** :ref:`Shape3D<class_Shape3D>` value **)**
-- :ref:`Shape3D<class_Shape3D>` **get_shape** **(** **)**
+- |void| **set_shape**\ (\ value\: :ref:`Shape3D<class_Shape3D>`\ )
+- :ref:`Shape3D<class_Shape3D>` **get_shape**\ (\ )
 
 The actual shape owned by this collision shape.
 
@@ -118,7 +156,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-void **make_convex_from_siblings** **(** **)**
+|void| **make_convex_from_siblings**\ (\ ) :ref:`🔗<class_CollisionShape3D_method_make_convex_from_siblings>`
 
 Sets the collision shape's shape to the addition of all its convexed :ref:`MeshInstance3D<class_MeshInstance3D>` siblings geometry.
 
@@ -130,9 +168,11 @@ Sets the collision shape's shape to the addition of all its convexed :ref:`MeshI
 
 .. rst-class:: classref-method
 
-void **resource_changed** **(** :ref:`Resource<class_Resource>` resource **)**
+|void| **resource_changed**\ (\ resource\: :ref:`Resource<class_Resource>`\ ) :ref:`🔗<class_CollisionShape3D_method_resource_changed>`
 
-If this method exists within a script it will be called whenever the shape resource has been modified.
+**Deprecated:** Use :ref:`Resource.changed<class_Resource_signal_changed>` instead.
+
+This method does nothing.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
@@ -140,3 +180,5 @@ If this method exists within a script it will be called whenever the shape resou
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`
