@@ -12,9 +12,14 @@ RDPipelineRasterizationState
 
 **Inherits:** :ref:`RefCounted<class_RefCounted>` **<** :ref:`Object<class_Object>`
 
-.. container:: contribute
+Pipeline rasterization state (used by :ref:`RenderingDevice<class_RenderingDevice>`).
 
-	There is currently no description for this class. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+.. rst-class:: classref-introduction-group
+
+Description
+-----------
+
+This object is used by :ref:`RenderingDevice<class_RenderingDevice>`.
 
 .. rst-class:: classref-reftable-group
 
@@ -61,16 +66,14 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`PolygonCullMode<enum_RenderingDevice_PolygonCullMode>` **cull_mode** = ``0``
+:ref:`PolygonCullMode<enum_RenderingDevice_PolygonCullMode>` **cull_mode** = ``0`` :ref:`🔗<class_RDPipelineRasterizationState_property_cull_mode>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_cull_mode** **(** :ref:`PolygonCullMode<enum_RenderingDevice_PolygonCullMode>` value **)**
-- :ref:`PolygonCullMode<enum_RenderingDevice_PolygonCullMode>` **get_cull_mode** **(** **)**
+- |void| **set_cull_mode**\ (\ value\: :ref:`PolygonCullMode<enum_RenderingDevice_PolygonCullMode>`\ )
+- :ref:`PolygonCullMode<enum_RenderingDevice_PolygonCullMode>` **get_cull_mode**\ (\ )
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+The cull mode to use when drawing polygons, which determines whether front faces or backfaces are hidden.
 
 .. rst-class:: classref-item-separator
 
@@ -80,16 +83,14 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **depth_bias_clamp** = ``0.0``
+:ref:`float<class_float>` **depth_bias_clamp** = ``0.0`` :ref:`🔗<class_RDPipelineRasterizationState_property_depth_bias_clamp>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_depth_bias_clamp** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_depth_bias_clamp** **(** **)**
+- |void| **set_depth_bias_clamp**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_depth_bias_clamp**\ (\ )
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+A limit for how much each depth value can be offset. If negative, it serves as a minimum value, but if positive, it serves as a maximum value.
 
 .. rst-class:: classref-item-separator
 
@@ -99,16 +100,14 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **depth_bias_constant_factor** = ``0.0``
+:ref:`float<class_float>` **depth_bias_constant_factor** = ``0.0`` :ref:`🔗<class_RDPipelineRasterizationState_property_depth_bias_constant_factor>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_depth_bias_constant_factor** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_depth_bias_constant_factor** **(** **)**
+- |void| **set_depth_bias_constant_factor**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_depth_bias_constant_factor**\ (\ )
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+A constant offset added to each depth value. Applied after :ref:`depth_bias_slope_factor<class_RDPipelineRasterizationState_property_depth_bias_slope_factor>`.
 
 .. rst-class:: classref-item-separator
 
@@ -118,16 +117,14 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **depth_bias_enabled** = ``false``
+:ref:`bool<class_bool>` **depth_bias_enabled** = ``false`` :ref:`🔗<class_RDPipelineRasterizationState_property_depth_bias_enabled>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_depth_bias_enabled** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **get_depth_bias_enabled** **(** **)**
+- |void| **set_depth_bias_enabled**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **get_depth_bias_enabled**\ (\ )
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+If ``true``, each generated depth value will by offset by some amount. The specific amount is generated per polygon based on the values of :ref:`depth_bias_slope_factor<class_RDPipelineRasterizationState_property_depth_bias_slope_factor>` and :ref:`depth_bias_constant_factor<class_RDPipelineRasterizationState_property_depth_bias_constant_factor>`.
 
 .. rst-class:: classref-item-separator
 
@@ -137,16 +134,14 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **depth_bias_slope_factor** = ``0.0``
+:ref:`float<class_float>` **depth_bias_slope_factor** = ``0.0`` :ref:`🔗<class_RDPipelineRasterizationState_property_depth_bias_slope_factor>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_depth_bias_slope_factor** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_depth_bias_slope_factor** **(** **)**
+- |void| **set_depth_bias_slope_factor**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_depth_bias_slope_factor**\ (\ )
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+A constant scale applied to the slope of each polygons' depth. Applied before :ref:`depth_bias_constant_factor<class_RDPipelineRasterizationState_property_depth_bias_constant_factor>`.
 
 .. rst-class:: classref-item-separator
 
@@ -156,16 +151,14 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **discard_primitives** = ``false``
+:ref:`bool<class_bool>` **discard_primitives** = ``false`` :ref:`🔗<class_RDPipelineRasterizationState_property_discard_primitives>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_discard_primitives** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **get_discard_primitives** **(** **)**
+- |void| **set_discard_primitives**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **get_discard_primitives**\ (\ )
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+If ``true``, primitives are discarded immediately before the rasterization stage.
 
 .. rst-class:: classref-item-separator
 
@@ -175,16 +168,14 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **enable_depth_clamp** = ``false``
+:ref:`bool<class_bool>` **enable_depth_clamp** = ``false`` :ref:`🔗<class_RDPipelineRasterizationState_property_enable_depth_clamp>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_enable_depth_clamp** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **get_enable_depth_clamp** **(** **)**
+- |void| **set_enable_depth_clamp**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **get_enable_depth_clamp**\ (\ )
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+If ``true``, clamps depth values according to the minimum and maximum depth of the associated viewport.
 
 .. rst-class:: classref-item-separator
 
@@ -194,16 +185,14 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`PolygonFrontFace<enum_RenderingDevice_PolygonFrontFace>` **front_face** = ``0``
+:ref:`PolygonFrontFace<enum_RenderingDevice_PolygonFrontFace>` **front_face** = ``0`` :ref:`🔗<class_RDPipelineRasterizationState_property_front_face>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_front_face** **(** :ref:`PolygonFrontFace<enum_RenderingDevice_PolygonFrontFace>` value **)**
-- :ref:`PolygonFrontFace<enum_RenderingDevice_PolygonFrontFace>` **get_front_face** **(** **)**
+- |void| **set_front_face**\ (\ value\: :ref:`PolygonFrontFace<enum_RenderingDevice_PolygonFrontFace>`\ )
+- :ref:`PolygonFrontFace<enum_RenderingDevice_PolygonFrontFace>` **get_front_face**\ (\ )
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+The winding order to use to determine which face of a triangle is considered its front face.
 
 .. rst-class:: classref-item-separator
 
@@ -213,16 +202,14 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **line_width** = ``1.0``
+:ref:`float<class_float>` **line_width** = ``1.0`` :ref:`🔗<class_RDPipelineRasterizationState_property_line_width>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_line_width** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_line_width** **(** **)**
+- |void| **set_line_width**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_line_width**\ (\ )
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+The line width to use when drawing lines (in pixels). Thick lines may not be supported on all hardware.
 
 .. rst-class:: classref-item-separator
 
@@ -232,16 +219,14 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **patch_control_points** = ``1``
+:ref:`int<class_int>` **patch_control_points** = ``1`` :ref:`🔗<class_RDPipelineRasterizationState_property_patch_control_points>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_patch_control_points** **(** :ref:`int<class_int>` value **)**
-- :ref:`int<class_int>` **get_patch_control_points** **(** **)**
+- |void| **set_patch_control_points**\ (\ value\: :ref:`int<class_int>`\ )
+- :ref:`int<class_int>` **get_patch_control_points**\ (\ )
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+The number of control points to use when drawing a patch with tessellation enabled. Higher values result in higher quality at the cost of performance.
 
 .. rst-class:: classref-item-separator
 
@@ -251,16 +236,14 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **wireframe** = ``false``
+:ref:`bool<class_bool>` **wireframe** = ``false`` :ref:`🔗<class_RDPipelineRasterizationState_property_wireframe>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_wireframe** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **get_wireframe** **(** **)**
+- |void| **set_wireframe**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **get_wireframe**\ (\ )
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+If ``true``, performs wireframe rendering for triangles instead of flat or textured rendering.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
@@ -268,3 +251,5 @@ Property Descriptions
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`
