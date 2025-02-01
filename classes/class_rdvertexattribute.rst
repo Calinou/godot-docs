@@ -12,9 +12,14 @@ RDVertexAttribute
 
 **Inherits:** :ref:`RefCounted<class_RefCounted>` **<** :ref:`Object<class_Object>`
 
-.. container:: contribute
+Vertex attribute (used by :ref:`RenderingDevice<class_RenderingDevice>`).
 
-	There is currently no description for this class. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+.. rst-class:: classref-introduction-group
+
+Description
+-----------
+
+This object is used by :ref:`RenderingDevice<class_RenderingDevice>`.
 
 .. rst-class:: classref-reftable-group
 
@@ -49,16 +54,14 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`DataFormat<enum_RenderingDevice_DataFormat>` **format** = ``218``
+:ref:`DataFormat<enum_RenderingDevice_DataFormat>` **format** = ``218`` :ref:`🔗<class_RDVertexAttribute_property_format>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_format** **(** :ref:`DataFormat<enum_RenderingDevice_DataFormat>` value **)**
-- :ref:`DataFormat<enum_RenderingDevice_DataFormat>` **get_format** **(** **)**
+- |void| **set_format**\ (\ value\: :ref:`DataFormat<enum_RenderingDevice_DataFormat>`\ )
+- :ref:`DataFormat<enum_RenderingDevice_DataFormat>` **get_format**\ (\ )
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+The way that this attribute's data is interpreted when sent to a shader.
 
 .. rst-class:: classref-item-separator
 
@@ -68,16 +71,14 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`VertexFrequency<enum_RenderingDevice_VertexFrequency>` **frequency** = ``0``
+:ref:`VertexFrequency<enum_RenderingDevice_VertexFrequency>` **frequency** = ``0`` :ref:`🔗<class_RDVertexAttribute_property_frequency>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_frequency** **(** :ref:`VertexFrequency<enum_RenderingDevice_VertexFrequency>` value **)**
-- :ref:`VertexFrequency<enum_RenderingDevice_VertexFrequency>` **get_frequency** **(** **)**
+- |void| **set_frequency**\ (\ value\: :ref:`VertexFrequency<enum_RenderingDevice_VertexFrequency>`\ )
+- :ref:`VertexFrequency<enum_RenderingDevice_VertexFrequency>` **get_frequency**\ (\ )
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+The rate at which this attribute is pulled from its vertex buffer.
 
 .. rst-class:: classref-item-separator
 
@@ -87,16 +88,14 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **location** = ``0``
+:ref:`int<class_int>` **location** = ``0`` :ref:`🔗<class_RDVertexAttribute_property_location>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_location** **(** :ref:`int<class_int>` value **)**
-- :ref:`int<class_int>` **get_location** **(** **)**
+- |void| **set_location**\ (\ value\: :ref:`int<class_int>`\ )
+- :ref:`int<class_int>` **get_location**\ (\ )
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+The location in the shader that this attribute is bound to.
 
 .. rst-class:: classref-item-separator
 
@@ -106,16 +105,14 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **offset** = ``0``
+:ref:`int<class_int>` **offset** = ``0`` :ref:`🔗<class_RDVertexAttribute_property_offset>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_offset** **(** :ref:`int<class_int>` value **)**
-- :ref:`int<class_int>` **get_offset** **(** **)**
+- |void| **set_offset**\ (\ value\: :ref:`int<class_int>`\ )
+- :ref:`int<class_int>` **get_offset**\ (\ )
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+The number of bytes between the start of the vertex buffer and the first instance of this attribute.
 
 .. rst-class:: classref-item-separator
 
@@ -125,16 +122,14 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **stride** = ``0``
+:ref:`int<class_int>` **stride** = ``0`` :ref:`🔗<class_RDVertexAttribute_property_stride>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_stride** **(** :ref:`int<class_int>` value **)**
-- :ref:`int<class_int>` **get_stride** **(** **)**
+- |void| **set_stride**\ (\ value\: :ref:`int<class_int>`\ )
+- :ref:`int<class_int>` **get_stride**\ (\ )
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+The number of bytes between the starts of consecutive instances of this attribute.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
@@ -142,3 +137,5 @@ Property Descriptions
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`
