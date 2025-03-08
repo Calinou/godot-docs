@@ -19,9 +19,9 @@ Creates an idle interval in a :ref:`Tween<class_Tween>` animation.
 Description
 -----------
 
-**IntervalTweener** is used to make delays in a tweening sequence. See :ref:`Tween.tween_interval<class_Tween_method_tween_interval>` for more usage information.
+**IntervalTweener** is used to make delays in a tweening sequence. See :ref:`Tween.tween_interval()<class_Tween_method_tween_interval>` for more usage information.
 
-\ **Note:** :ref:`Tween.tween_interval<class_Tween_method_tween_interval>` is the only correct way to create **IntervalTweener**. Any **IntervalTweener** created manually will not function correctly.
+\ **Note:** :ref:`Tween.tween_interval()<class_Tween_method_tween_interval>` is the only correct way to create **IntervalTweener**. Any **IntervalTweener** created manually will not function correctly.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
@@ -29,3 +29,5 @@ Description
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`
