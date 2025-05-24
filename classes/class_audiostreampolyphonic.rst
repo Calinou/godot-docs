@@ -21,7 +21,7 @@ Description
 
 AudioStream that lets the user play custom streams at any time from code, simultaneously using a single player.
 
-Playback control is done via the :ref:`AudioStreamPlaybackPolyphonic<class_AudioStreamPlaybackPolyphonic>` instance set inside the player, which can be obtained via :ref:`AudioStreamPlayer.get_stream_playback<class_AudioStreamPlayer_method_get_stream_playback>`, :ref:`AudioStreamPlayer2D.get_stream_playback<class_AudioStreamPlayer2D_method_get_stream_playback>` or :ref:`AudioStreamPlayer3D.get_stream_playback<class_AudioStreamPlayer3D_method_get_stream_playback>` methods. Obtaining the playback instance is only valid after the ``stream`` property is set as an **AudioStreamPolyphonic** in those players.
+Playback control is done via the :ref:`AudioStreamPlaybackPolyphonic<class_AudioStreamPlaybackPolyphonic>` instance set inside the player, which can be obtained via :ref:`AudioStreamPlayer.get_stream_playback()<class_AudioStreamPlayer_method_get_stream_playback>`, :ref:`AudioStreamPlayer2D.get_stream_playback()<class_AudioStreamPlayer2D_method_get_stream_playback>` or :ref:`AudioStreamPlayer3D.get_stream_playback()<class_AudioStreamPlayer3D_method_get_stream_playback>` methods. Obtaining the playback instance is only valid after the ``stream`` property is set as an **AudioStreamPolyphonic** in those players.
 
 .. rst-class:: classref-reftable-group
 
@@ -48,12 +48,12 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **polyphony** = ``32``
+:ref:`int<class_int>` **polyphony** = ``32`` :ref:`🔗<class_AudioStreamPolyphonic_property_polyphony>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_polyphony** **(** :ref:`int<class_int>` value **)**
-- :ref:`int<class_int>` **get_polyphony** **(** **)**
+- |void| **set_polyphony**\ (\ value\: :ref:`int<class_int>`\ )
+- :ref:`int<class_int>` **get_polyphony**\ (\ )
 
 Maximum amount of simultaneous streams that can be played.
 
@@ -63,3 +63,5 @@ Maximum amount of simultaneous streams that can be played.
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`
