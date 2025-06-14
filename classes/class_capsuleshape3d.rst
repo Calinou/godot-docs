@@ -12,23 +12,23 @@ CapsuleShape3D
 
 **Inherits:** :ref:`Shape3D<class_Shape3D>` **<** :ref:`Resource<class_Resource>` **<** :ref:`RefCounted<class_RefCounted>` **<** :ref:`Object<class_Object>`
 
-Capsule shape resource for 3D collisions.
+A 3D capsule shape used for physics collision.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-3D capsule shape to be added as a *direct* child of a :ref:`PhysicsBody3D<class_PhysicsBody3D>` or :ref:`Area3D<class_Area3D>` using a :ref:`CollisionShape3D<class_CollisionShape3D>` node. In 3D, a capsule is a cylinder shape with hemispheres at both ends.
+A 3D capsule shape, intended for use in physics. Usually used to provide a shape for a :ref:`CollisionShape3D<class_CollisionShape3D>`.
 
-\ **Performance:** Being a primitive collision shape, **CapsuleShape3D** is fast to check collisions against (though not as fast as :ref:`SphereShape3D<class_SphereShape3D>`). **CapsuleShape3D** is cheaper to check collisions against compared to :ref:`CylinderShape3D<class_CylinderShape3D>`.
+\ **Performance:** **CapsuleShape3D** is fast to check collisions against. It is faster than :ref:`CylinderShape3D<class_CylinderShape3D>`, but slower than :ref:`SphereShape3D<class_SphereShape3D>` and :ref:`BoxShape3D<class_BoxShape3D>`.
 
 .. rst-class:: classref-introduction-group
 
 Tutorials
 ---------
 
-- `3D Physics Tests Demo <https://godotengine.org/asset-library/asset/675>`__
+- `3D Physics Tests Demo <https://godotengine.org/asset-library/asset/2747>`__
 
 .. rst-class:: classref-reftable-group
 
@@ -38,11 +38,13 @@ Properties
 .. table::
    :widths: auto
 
-   +---------------------------+-----------------------------------------------------+---------+
-   | :ref:`float<class_float>` | :ref:`height<class_CapsuleShape3D_property_height>` | ``2.0`` |
-   +---------------------------+-----------------------------------------------------+---------+
-   | :ref:`float<class_float>` | :ref:`radius<class_CapsuleShape3D_property_radius>` | ``0.5`` |
-   +---------------------------+-----------------------------------------------------+---------+
+   +---------------------------+-------------------------------------------------------------+---------+
+   | :ref:`float<class_float>` | :ref:`height<class_CapsuleShape3D_property_height>`         | ``2.0`` |
+   +---------------------------+-------------------------------------------------------------+---------+
+   | :ref:`float<class_float>` | :ref:`mid_height<class_CapsuleShape3D_property_mid_height>` |         |
+   +---------------------------+-------------------------------------------------------------+---------+
+   | :ref:`float<class_float>` | :ref:`radius<class_CapsuleShape3D_property_radius>`         | ``0.5`` |
+   +---------------------------+-------------------------------------------------------------+---------+
 
 .. rst-class:: classref-section-separator
 
@@ -57,14 +59,31 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **height** = ``2.0``
+:ref:`float<class_float>` **height** = ``2.0`` :ref:`🔗<class_CapsuleShape3D_property_height>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_height** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_height** **(** **)**
+- |void| **set_height**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_height**\ (\ )
 
-The capsule's height.
+The capsule's full height, including the hemispheres.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_CapsuleShape3D_property_mid_height:
+
+.. rst-class:: classref-property
+
+:ref:`float<class_float>` **mid_height** :ref:`🔗<class_CapsuleShape3D_property_mid_height>`
+
+.. rst-class:: classref-property-setget
+
+- |void| **set_mid_height**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_mid_height**\ (\ )
+
+The capsule's height, excluding the hemispheres. This is the height of the central cylindrical part in the middle of the capsule, and is the distance between the centers of the two hemispheres. This is a wrapper for :ref:`height<class_CapsuleShape3D_property_height>`.
 
 .. rst-class:: classref-item-separator
 
@@ -74,18 +93,21 @@ The capsule's height.
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **radius** = ``0.5``
+:ref:`float<class_float>` **radius** = ``0.5`` :ref:`🔗<class_CapsuleShape3D_property_radius>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_radius** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_radius** **(** **)**
+- |void| **set_radius**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_radius**\ (\ )
 
 The capsule's radius.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`

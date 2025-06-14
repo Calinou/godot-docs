@@ -23,11 +23,11 @@ Hyper-text transfer protocol client (sometimes called "User Agent"). Used to mak
 
 See the :ref:`HTTPRequest<class_HTTPRequest>` node for a higher-level alternative.
 
-\ **Note:** This client only needs to connect to a host once (see :ref:`connect_to_host<class_HTTPClient_method_connect_to_host>`) to send multiple requests. Because of this, methods that take URLs usually take just the part after the host instead of the full URL, as the client is already connected to a host. See :ref:`request<class_HTTPClient_method_request>` for a full example and to get started.
+\ **Note:** This client only needs to connect to a host once (see :ref:`connect_to_host()<class_HTTPClient_method_connect_to_host>`) to send multiple requests. Because of this, methods that take URLs usually take just the part after the host instead of the full URL, as the client is already connected to a host. See :ref:`request()<class_HTTPClient_method_request>` for a full example and to get started.
 
 A **HTTPClient** should be reused between multiple requests or to connect to different hosts instead of creating one client per request. Supports Transport Layer Security (TLS), including server certificate verification. HTTP status codes in the 2xx range indicate success, 3xx redirection (i.e. "try again, but over here"), 4xx something was wrong with the request, and 5xx something went wrong on the server's side.
 
-For more information on HTTP, see https://developer.mozilla.org/en-US/docs/Web/HTTP (or read RFC 2616 to get it straight from the source: https://tools.ietf.org/html/rfc2616).
+For more information on HTTP, see `MDN's documentation on HTTP <https://developer.mozilla.org/en-US/docs/Web/HTTP>`__ (or read `RFC 2616 <https://tools.ietf.org/html/rfc2616>`__ to get it straight from the source).
 
 \ **Note:** When exporting to Android, make sure to enable the ``INTERNET`` permission in the Android export preset before exporting the project or using one-click deploy. Otherwise, network communication of any kind will be blocked by Android.
 
@@ -35,7 +35,7 @@ For more information on HTTP, see https://developer.mozilla.org/en-US/docs/Web/H
 
 \ **Note:** When performing HTTP requests from a project exported to Web, keep in mind the remote server may not allow requests from foreign origins due to `CORS <https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS>`__. If you host the server in question, you should modify its backend to allow requests from foreign origins by adding the ``Access-Control-Allow-Origin: *`` HTTP header.
 
-\ **Note:** TLS support is currently limited to TLS 1.0, TLS 1.1, and TLS 1.2. Attempting to connect to a TLS 1.3-only server will return an error.
+\ **Note:** TLS support is currently limited to TLSv1.2 and TLSv1.3. Attempting to connect to a server that only supports older (insecure) TLS versions will return an error.
 
 \ **Warning:** TLS certificate revocation and certificate pinning are currently not supported. Revoked certificates are accepted as long as they are otherwise valid. If this is a concern, you may want to use automatically managed certificates with a short validity period.
 
@@ -72,39 +72,39 @@ Methods
 .. table::
    :widths: auto
 
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                              | :ref:`close<class_HTTPClient_method_close>` **(** **)**                                                                                                                                                                                                          |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Error<enum_@GlobalScope_Error>`             | :ref:`connect_to_host<class_HTTPClient_method_connect_to_host>` **(** :ref:`String<class_String>` host, :ref:`int<class_int>` port=-1, :ref:`TLSOptions<class_TLSOptions>` tls_options=null **)**                                                                |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`int<class_int>`                             | :ref:`get_response_body_length<class_HTTPClient_method_get_response_body_length>` **(** **)** |const|                                                                                                                                                            |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`int<class_int>`                             | :ref:`get_response_code<class_HTTPClient_method_get_response_code>` **(** **)** |const|                                                                                                                                                                          |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`PackedStringArray<class_PackedStringArray>` | :ref:`get_response_headers<class_HTTPClient_method_get_response_headers>` **(** **)**                                                                                                                                                                            |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Dictionary<class_Dictionary>`               | :ref:`get_response_headers_as_dictionary<class_HTTPClient_method_get_response_headers_as_dictionary>` **(** **)**                                                                                                                                                |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Status<enum_HTTPClient_Status>`             | :ref:`get_status<class_HTTPClient_method_get_status>` **(** **)** |const|                                                                                                                                                                                        |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`                           | :ref:`has_response<class_HTTPClient_method_has_response>` **(** **)** |const|                                                                                                                                                                                    |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`                           | :ref:`is_response_chunked<class_HTTPClient_method_is_response_chunked>` **(** **)** |const|                                                                                                                                                                      |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Error<enum_@GlobalScope_Error>`             | :ref:`poll<class_HTTPClient_method_poll>` **(** **)**                                                                                                                                                                                                            |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`String<class_String>`                       | :ref:`query_string_from_dict<class_HTTPClient_method_query_string_from_dict>` **(** :ref:`Dictionary<class_Dictionary>` fields **)**                                                                                                                             |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`PackedByteArray<class_PackedByteArray>`     | :ref:`read_response_body_chunk<class_HTTPClient_method_read_response_body_chunk>` **(** **)**                                                                                                                                                                    |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Error<enum_@GlobalScope_Error>`             | :ref:`request<class_HTTPClient_method_request>` **(** :ref:`Method<enum_HTTPClient_Method>` method, :ref:`String<class_String>` url, :ref:`PackedStringArray<class_PackedStringArray>` headers, :ref:`String<class_String>` body="" **)**                        |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Error<enum_@GlobalScope_Error>`             | :ref:`request_raw<class_HTTPClient_method_request_raw>` **(** :ref:`Method<enum_HTTPClient_Method>` method, :ref:`String<class_String>` url, :ref:`PackedStringArray<class_PackedStringArray>` headers, :ref:`PackedByteArray<class_PackedByteArray>` body **)** |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                              | :ref:`set_http_proxy<class_HTTPClient_method_set_http_proxy>` **(** :ref:`String<class_String>` host, :ref:`int<class_int>` port **)**                                                                                                                           |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                              | :ref:`set_https_proxy<class_HTTPClient_method_set_https_proxy>` **(** :ref:`String<class_String>` host, :ref:`int<class_int>` port **)**                                                                                                                         |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   +---------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                            | :ref:`close<class_HTTPClient_method_close>`\ (\ )                                                                                                                                                                                                                   |
+   +---------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Error<enum_@GlobalScope_Error>`             | :ref:`connect_to_host<class_HTTPClient_method_connect_to_host>`\ (\ host\: :ref:`String<class_String>`, port\: :ref:`int<class_int>` = -1, tls_options\: :ref:`TLSOptions<class_TLSOptions>` = null\ )                                                              |
+   +---------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`int<class_int>`                             | :ref:`get_response_body_length<class_HTTPClient_method_get_response_body_length>`\ (\ ) |const|                                                                                                                                                                     |
+   +---------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`int<class_int>`                             | :ref:`get_response_code<class_HTTPClient_method_get_response_code>`\ (\ ) |const|                                                                                                                                                                                   |
+   +---------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`PackedStringArray<class_PackedStringArray>` | :ref:`get_response_headers<class_HTTPClient_method_get_response_headers>`\ (\ )                                                                                                                                                                                     |
+   +---------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Dictionary<class_Dictionary>`               | :ref:`get_response_headers_as_dictionary<class_HTTPClient_method_get_response_headers_as_dictionary>`\ (\ )                                                                                                                                                         |
+   +---------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Status<enum_HTTPClient_Status>`             | :ref:`get_status<class_HTTPClient_method_get_status>`\ (\ ) |const|                                                                                                                                                                                                 |
+   +---------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                           | :ref:`has_response<class_HTTPClient_method_has_response>`\ (\ ) |const|                                                                                                                                                                                             |
+   +---------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                           | :ref:`is_response_chunked<class_HTTPClient_method_is_response_chunked>`\ (\ ) |const|                                                                                                                                                                               |
+   +---------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Error<enum_@GlobalScope_Error>`             | :ref:`poll<class_HTTPClient_method_poll>`\ (\ )                                                                                                                                                                                                                     |
+   +---------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`String<class_String>`                       | :ref:`query_string_from_dict<class_HTTPClient_method_query_string_from_dict>`\ (\ fields\: :ref:`Dictionary<class_Dictionary>`\ )                                                                                                                                   |
+   +---------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`PackedByteArray<class_PackedByteArray>`     | :ref:`read_response_body_chunk<class_HTTPClient_method_read_response_body_chunk>`\ (\ )                                                                                                                                                                             |
+   +---------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Error<enum_@GlobalScope_Error>`             | :ref:`request<class_HTTPClient_method_request>`\ (\ method\: :ref:`Method<enum_HTTPClient_Method>`, url\: :ref:`String<class_String>`, headers\: :ref:`PackedStringArray<class_PackedStringArray>`, body\: :ref:`String<class_String>` = ""\ )                      |
+   +---------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Error<enum_@GlobalScope_Error>`             | :ref:`request_raw<class_HTTPClient_method_request_raw>`\ (\ method\: :ref:`Method<enum_HTTPClient_Method>`, url\: :ref:`String<class_String>`, headers\: :ref:`PackedStringArray<class_PackedStringArray>`, body\: :ref:`PackedByteArray<class_PackedByteArray>`\ ) |
+   +---------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                            | :ref:`set_http_proxy<class_HTTPClient_method_set_http_proxy>`\ (\ host\: :ref:`String<class_String>`, port\: :ref:`int<class_int>`\ )                                                                                                                               |
+   +---------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                            | :ref:`set_https_proxy<class_HTTPClient_method_set_https_proxy>`\ (\ host\: :ref:`String<class_String>`, port\: :ref:`int<class_int>`\ )                                                                                                                             |
+   +---------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -119,7 +119,7 @@ Enumerations
 
 .. rst-class:: classref-enumeration
 
-enum **Method**:
+enum **Method**: :ref:`🔗<enum_HTTPClient_Method>`
 
 .. _class_HTTPClient_constant_METHOD_GET:
 
@@ -209,7 +209,7 @@ Represents the size of the :ref:`Method<enum_HTTPClient_Method>` enum.
 
 .. rst-class:: classref-enumeration
 
-enum **Status**:
+enum **Status**: :ref:`🔗<enum_HTTPClient_Status>`
 
 .. _class_HTTPClient_constant_STATUS_DISCONNECTED:
 
@@ -299,7 +299,7 @@ Status: Error in TLS handshake.
 
 .. rst-class:: classref-enumeration
 
-enum **ResponseCode**:
+enum **ResponseCode**: :ref:`🔗<enum_HTTPClient_ResponseCode>`
 
 .. _class_HTTPClient_constant_RESPONSE_CONTINUE:
 
@@ -331,7 +331,15 @@ HTTP status code ``102 Processing`` (WebDAV). Indicates that the server has rece
 
 :ref:`ResponseCode<enum_HTTPClient_ResponseCode>` **RESPONSE_OK** = ``200``
 
-HTTP status code ``200 OK``. The request has succeeded. Default response for successful requests. Meaning varies depending on the request. GET: The resource has been fetched and is transmitted in the message body. HEAD: The entity headers are in the message body. POST: The resource describing the result of the action is transmitted in the message body. TRACE: The message body contains the request message as received by the server.
+HTTP status code ``200 OK``. The request has succeeded. Default response for successful requests. Meaning varies depending on the request:
+
+- :ref:`METHOD_GET<class_HTTPClient_constant_METHOD_GET>`: The resource has been fetched and is transmitted in the message body.
+
+- :ref:`METHOD_HEAD<class_HTTPClient_constant_METHOD_HEAD>`: The entity headers are in the message body.
+
+- :ref:`METHOD_POST<class_HTTPClient_constant_METHOD_POST>`: The resource describing the result of the action is transmitted in the message body.
+
+- :ref:`METHOD_TRACE<class_HTTPClient_constant_METHOD_TRACE>`: The message body contains the request message as received by the server.
 
 .. _class_HTTPClient_constant_RESPONSE_CREATED:
 
@@ -451,7 +459,9 @@ HTTP status code ``304 Not Modified``. A conditional GET or HEAD request has bee
 
 :ref:`ResponseCode<enum_HTTPClient_ResponseCode>` **RESPONSE_USE_PROXY** = ``305``
 
-HTTP status code ``305 Use Proxy``. *Deprecated. Do not use.*
+**Deprecated:** Many clients ignore this response code for security reasons. It is also deprecated by the HTTP standard.
+
+HTTP status code ``305 Use Proxy``.
 
 .. _class_HTTPClient_constant_RESPONSE_SWITCH_PROXY:
 
@@ -459,7 +469,9 @@ HTTP status code ``305 Use Proxy``. *Deprecated. Do not use.*
 
 :ref:`ResponseCode<enum_HTTPClient_ResponseCode>` **RESPONSE_SWITCH_PROXY** = ``306``
 
-HTTP status code ``306 Switch Proxy``. *Deprecated. Do not use.*
+**Deprecated:** Many clients ignore this response code for security reasons. It is also deprecated by the HTTP standard.
+
+HTTP status code ``306 Switch Proxy``.
 
 .. _class_HTTPClient_constant_RESPONSE_TEMPORARY_REDIRECT:
 
@@ -802,12 +814,12 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **blocking_mode_enabled** = ``false``
+:ref:`bool<class_bool>` **blocking_mode_enabled** = ``false`` :ref:`🔗<class_HTTPClient_property_blocking_mode_enabled>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_blocking_mode** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **is_blocking_mode_enabled** **(** **)**
+- |void| **set_blocking_mode**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **is_blocking_mode_enabled**\ (\ )
 
 If ``true``, execution will block until all data is read from the response.
 
@@ -819,12 +831,12 @@ If ``true``, execution will block until all data is read from the response.
 
 .. rst-class:: classref-property
 
-:ref:`StreamPeer<class_StreamPeer>` **connection**
+:ref:`StreamPeer<class_StreamPeer>` **connection** :ref:`🔗<class_HTTPClient_property_connection>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_connection** **(** :ref:`StreamPeer<class_StreamPeer>` value **)**
-- :ref:`StreamPeer<class_StreamPeer>` **get_connection** **(** **)**
+- |void| **set_connection**\ (\ value\: :ref:`StreamPeer<class_StreamPeer>`\ )
+- :ref:`StreamPeer<class_StreamPeer>` **get_connection**\ (\ )
 
 The connection to use for this client.
 
@@ -836,14 +848,14 @@ The connection to use for this client.
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **read_chunk_size** = ``65536``
+:ref:`int<class_int>` **read_chunk_size** = ``65536`` :ref:`🔗<class_HTTPClient_property_read_chunk_size>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_read_chunk_size** **(** :ref:`int<class_int>` value **)**
-- :ref:`int<class_int>` **get_read_chunk_size** **(** **)**
+- |void| **set_read_chunk_size**\ (\ value\: :ref:`int<class_int>`\ )
+- :ref:`int<class_int>` **get_read_chunk_size**\ (\ )
 
-The size of the buffer used and maximum bytes to read per iteration. See :ref:`read_response_body_chunk<class_HTTPClient_method_read_response_body_chunk>`.
+The size of the buffer used and maximum bytes to read per iteration. See :ref:`read_response_body_chunk()<class_HTTPClient_method_read_response_body_chunk>`.
 
 .. rst-class:: classref-section-separator
 
@@ -858,7 +870,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-void **close** **(** **)**
+|void| **close**\ (\ ) :ref:`🔗<class_HTTPClient_method_close>`
 
 Closes the current connection, allowing reuse of this **HTTPClient**.
 
@@ -870,11 +882,11 @@ Closes the current connection, allowing reuse of this **HTTPClient**.
 
 .. rst-class:: classref-method
 
-:ref:`Error<enum_@GlobalScope_Error>` **connect_to_host** **(** :ref:`String<class_String>` host, :ref:`int<class_int>` port=-1, :ref:`TLSOptions<class_TLSOptions>` tls_options=null **)**
+:ref:`Error<enum_@GlobalScope_Error>` **connect_to_host**\ (\ host\: :ref:`String<class_String>`, port\: :ref:`int<class_int>` = -1, tls_options\: :ref:`TLSOptions<class_TLSOptions>` = null\ ) :ref:`🔗<class_HTTPClient_method_connect_to_host>`
 
 Connects to a host. This needs to be done before any requests are sent.
 
-If no ``port`` is specified (or ``-1`` is used), it is automatically set to 80 for HTTP and 443 for HTTPS. You can pass the optional ``tls_options`` parameter to customize the trusted certification authorities, or the common name verification when using HTTPS. See :ref:`TLSOptions.client<class_TLSOptions_method_client>` and :ref:`TLSOptions.client_unsafe<class_TLSOptions_method_client_unsafe>`.
+If no ``port`` is specified (or ``-1`` is used), it is automatically set to 80 for HTTP and 443 for HTTPS. You can pass the optional ``tls_options`` parameter to customize the trusted certification authorities, or the common name verification when using HTTPS. See :ref:`TLSOptions.client()<class_TLSOptions_method_client>` and :ref:`TLSOptions.client_unsafe()<class_TLSOptions_method_client_unsafe>`.
 
 .. rst-class:: classref-item-separator
 
@@ -884,11 +896,13 @@ If no ``port`` is specified (or ``-1`` is used), it is automatically set to 80 f
 
 .. rst-class:: classref-method
 
-:ref:`int<class_int>` **get_response_body_length** **(** **)** |const|
+:ref:`int<class_int>` **get_response_body_length**\ (\ ) |const| :ref:`🔗<class_HTTPClient_method_get_response_body_length>`
 
 Returns the response's body length.
 
 \ **Note:** Some Web servers may not send a body length. In this case, the value returned will be ``-1``. If using chunked transfer encoding, the body length will also be ``-1``.
+
+\ **Note:** This function always returns ``-1`` on the Web platform due to browsers limitations.
 
 .. rst-class:: classref-item-separator
 
@@ -898,7 +912,7 @@ Returns the response's body length.
 
 .. rst-class:: classref-method
 
-:ref:`int<class_int>` **get_response_code** **(** **)** |const|
+:ref:`int<class_int>` **get_response_code**\ (\ ) |const| :ref:`🔗<class_HTTPClient_method_get_response_code>`
 
 Returns the response's HTTP status code.
 
@@ -910,7 +924,7 @@ Returns the response's HTTP status code.
 
 .. rst-class:: classref-method
 
-:ref:`PackedStringArray<class_PackedStringArray>` **get_response_headers** **(** **)**
+:ref:`PackedStringArray<class_PackedStringArray>` **get_response_headers**\ (\ ) :ref:`🔗<class_HTTPClient_method_get_response_headers>`
 
 Returns the response headers.
 
@@ -922,11 +936,9 @@ Returns the response headers.
 
 .. rst-class:: classref-method
 
-:ref:`Dictionary<class_Dictionary>` **get_response_headers_as_dictionary** **(** **)**
+:ref:`Dictionary<class_Dictionary>` **get_response_headers_as_dictionary**\ (\ ) :ref:`🔗<class_HTTPClient_method_get_response_headers_as_dictionary>`
 
-Returns all response headers as a Dictionary of structure ``{ "key": "value1; value2" }`` where the case-sensitivity of the keys and values is kept like the server delivers it. A value is a simple String, this string can have more than one value where "; " is used as separator.
-
-\ **Example:**\ 
+Returns all response headers as a :ref:`Dictionary<class_Dictionary>`. Each entry is composed by the header name, and a :ref:`String<class_String>` containing the values separated by ``"; "``. The casing is kept the same as the headers were received.
 
 ::
 
@@ -943,9 +955,9 @@ Returns all response headers as a Dictionary of structure ``{ "key": "value1; va
 
 .. rst-class:: classref-method
 
-:ref:`Status<enum_HTTPClient_Status>` **get_status** **(** **)** |const|
+:ref:`Status<enum_HTTPClient_Status>` **get_status**\ (\ ) |const| :ref:`🔗<class_HTTPClient_method_get_status>`
 
-Returns a :ref:`Status<enum_HTTPClient_Status>` constant. Need to call :ref:`poll<class_HTTPClient_method_poll>` in order to get status updates.
+Returns a :ref:`Status<enum_HTTPClient_Status>` constant. Need to call :ref:`poll()<class_HTTPClient_method_poll>` in order to get status updates.
 
 .. rst-class:: classref-item-separator
 
@@ -955,7 +967,7 @@ Returns a :ref:`Status<enum_HTTPClient_Status>` constant. Need to call :ref:`pol
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **has_response** **(** **)** |const|
+:ref:`bool<class_bool>` **has_response**\ (\ ) |const| :ref:`🔗<class_HTTPClient_method_has_response>`
 
 If ``true``, this **HTTPClient** has a response available.
 
@@ -967,7 +979,7 @@ If ``true``, this **HTTPClient** has a response available.
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **is_response_chunked** **(** **)** |const|
+:ref:`bool<class_bool>` **is_response_chunked**\ (\ ) |const| :ref:`🔗<class_HTTPClient_method_is_response_chunked>`
 
 If ``true``, this **HTTPClient** has a response that is chunked.
 
@@ -979,9 +991,9 @@ If ``true``, this **HTTPClient** has a response that is chunked.
 
 .. rst-class:: classref-method
 
-:ref:`Error<enum_@GlobalScope_Error>` **poll** **(** **)**
+:ref:`Error<enum_@GlobalScope_Error>` **poll**\ (\ ) :ref:`🔗<class_HTTPClient_method_poll>`
 
-This needs to be called in order to have any request processed. Check results with :ref:`get_status<class_HTTPClient_method_get_status>`.
+This needs to be called in order to have any request processed. Check results with :ref:`get_status()<class_HTTPClient_method_get_status>`.
 
 .. rst-class:: classref-item-separator
 
@@ -991,7 +1003,7 @@ This needs to be called in order to have any request processed. Check results wi
 
 .. rst-class:: classref-method
 
-:ref:`String<class_String>` **query_string_from_dict** **(** :ref:`Dictionary<class_Dictionary>` fields **)**
+:ref:`String<class_String>` **query_string_from_dict**\ (\ fields\: :ref:`Dictionary<class_Dictionary>`\ ) :ref:`🔗<class_HTTPClient_method_query_string_from_dict>`
 
 Generates a GET/POST application/x-www-form-urlencoded style query string from a provided dictionary, e.g.:
 
@@ -1000,7 +1012,7 @@ Generates a GET/POST application/x-www-form-urlencoded style query string from a
 
  .. code-tab:: gdscript
 
-    var fields = {"username": "user", "password": "pass"}
+    var fields = { "username": "user", "password": "pass" }
     var query_string = http_client.query_string_from_dict(fields)
     # Returns "username=user&password=pass"
 
@@ -1019,7 +1031,7 @@ Furthermore, if a key has a ``null`` value, only the key itself is added, withou
 
  .. code-tab:: gdscript
 
-    var fields = {"single": 123, "not_valued": null, "multiple": [22, 33, 44]}
+    var fields = { "single": 123, "not_valued": null, "multiple": [22, 33, 44] }
     var query_string = http_client.query_string_from_dict(fields)
     # Returns "single=123&not_valued&multiple=22&multiple=33&multiple=44"
 
@@ -1044,7 +1056,7 @@ Furthermore, if a key has a ``null`` value, only the key itself is added, withou
 
 .. rst-class:: classref-method
 
-:ref:`PackedByteArray<class_PackedByteArray>` **read_response_body_chunk** **(** **)**
+:ref:`PackedByteArray<class_PackedByteArray>` **read_response_body_chunk**\ (\ ) :ref:`🔗<class_HTTPClient_method_read_response_body_chunk>`
 
 Reads one chunk from the response.
 
@@ -1056,13 +1068,13 @@ Reads one chunk from the response.
 
 .. rst-class:: classref-method
 
-:ref:`Error<enum_@GlobalScope_Error>` **request** **(** :ref:`Method<enum_HTTPClient_Method>` method, :ref:`String<class_String>` url, :ref:`PackedStringArray<class_PackedStringArray>` headers, :ref:`String<class_String>` body="" **)**
+:ref:`Error<enum_@GlobalScope_Error>` **request**\ (\ method\: :ref:`Method<enum_HTTPClient_Method>`, url\: :ref:`String<class_String>`, headers\: :ref:`PackedStringArray<class_PackedStringArray>`, body\: :ref:`String<class_String>` = ""\ ) :ref:`🔗<class_HTTPClient_method_request>`
 
-Sends a request to the connected host.
+Sends an HTTP request to the connected host with the given ``method``.
 
-The URL parameter is usually just the part after the host, so for ``https://somehost.com/index.php``, it is ``/index.php``. When sending requests to an HTTP proxy server, it should be an absolute URL. For :ref:`METHOD_OPTIONS<class_HTTPClient_constant_METHOD_OPTIONS>` requests, ``*`` is also allowed. For :ref:`METHOD_CONNECT<class_HTTPClient_constant_METHOD_CONNECT>` requests, it should be the authority component (``host:port``).
+The URL parameter is usually just the part after the host, so for ``https://example.com/index.php``, it is ``/index.php``. When sending requests to an HTTP proxy server, it should be an absolute URL. For :ref:`METHOD_OPTIONS<class_HTTPClient_constant_METHOD_OPTIONS>` requests, ``*`` is also allowed. For :ref:`METHOD_CONNECT<class_HTTPClient_constant_METHOD_CONNECT>` requests, it should be the authority component (``host:port``).
 
-Headers are HTTP request headers. For available HTTP methods, see :ref:`Method<enum_HTTPClient_Method>`.
+\ ``headers`` are HTTP request headers.
 
 To create a POST request with query strings to push to the server, do:
 
@@ -1071,7 +1083,7 @@ To create a POST request with query strings to push to the server, do:
 
  .. code-tab:: gdscript
 
-    var fields = {"username" : "user", "password" : "pass"}
+    var fields = { "username": "user", "password": "pass" }
     var query_string = http_client.query_string_from_dict(fields)
     var headers = ["Content-Type: application/x-www-form-urlencoded", "Content-Length: " + str(query_string.length())]
     var result = http_client.request(http_client.METHOD_POST, "/index.php", headers, query_string)
@@ -1079,13 +1091,13 @@ To create a POST request with query strings to push to the server, do:
  .. code-tab:: csharp
 
     var fields = new Godot.Collections.Dictionary { { "username", "user" }, { "password", "pass" } };
-    string queryString = new HTTPClient().QueryStringFromDict(fields);
-    string[] headers = { "Content-Type: application/x-www-form-urlencoded", $"Content-Length: {queryString.Length}" };
-    var result = new HTTPClient().Request(HTTPClient.Method.Post, "index.php", headers, queryString);
+    string queryString = new HttpClient().QueryStringFromDict(fields);
+    string[] headers = ["Content-Type: application/x-www-form-urlencoded", $"Content-Length: {queryString.Length}"];
+    var result = new HttpClient().Request(HttpClient.Method.Post, "index.php", headers, queryString);
 
 
 
-\ **Note:** The ``body`` parameter is ignored if ``method`` is :ref:`METHOD_GET<class_HTTPClient_constant_METHOD_GET>`. This is because GET methods can't contain request data. As a workaround, you can pass request data as a query string in the URL. See :ref:`String.uri_encode<class_String_method_uri_encode>` for an example.
+\ **Note:** The ``body`` parameter is ignored if ``method`` is :ref:`METHOD_GET<class_HTTPClient_constant_METHOD_GET>`. This is because GET methods can't contain request data. As a workaround, you can pass request data as a query string in the URL. See :ref:`String.uri_encode()<class_String_method_uri_encode>` for an example.
 
 .. rst-class:: classref-item-separator
 
@@ -1095,13 +1107,13 @@ To create a POST request with query strings to push to the server, do:
 
 .. rst-class:: classref-method
 
-:ref:`Error<enum_@GlobalScope_Error>` **request_raw** **(** :ref:`Method<enum_HTTPClient_Method>` method, :ref:`String<class_String>` url, :ref:`PackedStringArray<class_PackedStringArray>` headers, :ref:`PackedByteArray<class_PackedByteArray>` body **)**
+:ref:`Error<enum_@GlobalScope_Error>` **request_raw**\ (\ method\: :ref:`Method<enum_HTTPClient_Method>`, url\: :ref:`String<class_String>`, headers\: :ref:`PackedStringArray<class_PackedStringArray>`, body\: :ref:`PackedByteArray<class_PackedByteArray>`\ ) :ref:`🔗<class_HTTPClient_method_request_raw>`
 
-Sends a raw request to the connected host.
+Sends a raw HTTP request to the connected host with the given ``method``.
 
-The URL parameter is usually just the part after the host, so for ``https://somehost.com/index.php``, it is ``/index.php``. When sending requests to an HTTP proxy server, it should be an absolute URL. For :ref:`METHOD_OPTIONS<class_HTTPClient_constant_METHOD_OPTIONS>` requests, ``*`` is also allowed. For :ref:`METHOD_CONNECT<class_HTTPClient_constant_METHOD_CONNECT>` requests, it should be the authority component (``host:port``).
+The URL parameter is usually just the part after the host, so for ``https://example.com/index.php``, it is ``/index.php``. When sending requests to an HTTP proxy server, it should be an absolute URL. For :ref:`METHOD_OPTIONS<class_HTTPClient_constant_METHOD_OPTIONS>` requests, ``*`` is also allowed. For :ref:`METHOD_CONNECT<class_HTTPClient_constant_METHOD_CONNECT>` requests, it should be the authority component (``host:port``).
 
-Headers are HTTP request headers. For available HTTP methods, see :ref:`Method<enum_HTTPClient_Method>`.
+\ ``headers`` are HTTP request headers.
 
 Sends the body data raw, as a byte array and does not encode it in any way.
 
@@ -1113,7 +1125,7 @@ Sends the body data raw, as a byte array and does not encode it in any way.
 
 .. rst-class:: classref-method
 
-void **set_http_proxy** **(** :ref:`String<class_String>` host, :ref:`int<class_int>` port **)**
+|void| **set_http_proxy**\ (\ host\: :ref:`String<class_String>`, port\: :ref:`int<class_int>`\ ) :ref:`🔗<class_HTTPClient_method_set_http_proxy>`
 
 Sets the proxy server for HTTP requests.
 
@@ -1127,15 +1139,18 @@ The proxy server is unset if ``host`` is empty or ``port`` is -1.
 
 .. rst-class:: classref-method
 
-void **set_https_proxy** **(** :ref:`String<class_String>` host, :ref:`int<class_int>` port **)**
+|void| **set_https_proxy**\ (\ host\: :ref:`String<class_String>`, port\: :ref:`int<class_int>`\ ) :ref:`🔗<class_HTTPClient_method_set_https_proxy>`
 
 Sets the proxy server for HTTPS requests.
 
 The proxy server is unset if ``host`` is empty or ``port`` is -1.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`
