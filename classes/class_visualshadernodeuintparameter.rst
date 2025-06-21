@@ -48,12 +48,12 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **default_value** = ``0``
+:ref:`int<class_int>` **default_value** = ``0`` :ref:`🔗<class_VisualShaderNodeUIntParameter_property_default_value>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_default_value** **(** :ref:`int<class_int>` value **)**
-- :ref:`int<class_int>` **get_default_value** **(** **)**
+- |void| **set_default_value**\ (\ value\: :ref:`int<class_int>`\ )
+- :ref:`int<class_int>` **get_default_value**\ (\ )
 
 Default value of this parameter, which will be used if not set externally. :ref:`default_value_enabled<class_VisualShaderNodeUIntParameter_property_default_value_enabled>` must be enabled; defaults to ``0`` otherwise.
 
@@ -65,18 +65,21 @@ Default value of this parameter, which will be used if not set externally. :ref:
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **default_value_enabled** = ``false``
+:ref:`bool<class_bool>` **default_value_enabled** = ``false`` :ref:`🔗<class_VisualShaderNodeUIntParameter_property_default_value_enabled>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_default_value_enabled** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **is_default_value_enabled** **(** **)**
+- |void| **set_default_value_enabled**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **is_default_value_enabled**\ (\ )
 
 If ``true``, the node will have a custom default value.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`
