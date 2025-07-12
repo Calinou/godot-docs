@@ -19,9 +19,65 @@ A shortcut for binding input.
 Description
 -----------
 
-Shortcuts are commonly used for interacting with a :ref:`Control<class_Control>` element from an :ref:`InputEvent<class_InputEvent>` (also known as hotkeys).
+Shortcuts (also known as hotkeys) are containers of :ref:`InputEvent<class_InputEvent>` resources. They are commonly used to interact with a :ref:`Control<class_Control>` element from an :ref:`InputEvent<class_InputEvent>`.
 
-One shortcut can contain multiple :ref:`InputEvent<class_InputEvent>`'s, allowing the possibility of triggering one action with multiple different inputs.
+One shortcut can contain multiple :ref:`InputEvent<class_InputEvent>` resources, making it possible to trigger one action with multiple different inputs.
+
+\ **Example:** Capture the :kbd:`Ctrl + S` shortcut using a **Shortcut** resource:
+
+
+.. tabs::
+
+ .. code-tab:: gdscript
+
+    extends Node
+
+    var save_shortcut = Shortcut.new()
+    func _ready():
+        var key_event = InputEventKey.new()
+        key_event.keycode = KEY_S
+        key_event.ctrl_pressed = true
+        key_event.command_or_control_autoremap = true # Swaps Ctrl for Command on Mac.
+        save_shortcut.events = [key_event]
+
+    func _input(event):
+        if save_shortcut.matches_event(event) and event.is_pressed() and not event.is_echo():
+            print("Save shortcut pressed!")
+            get_viewport().set_input_as_handled()
+
+ .. code-tab:: csharp
+
+    using Godot;
+
+    public partial class MyNode : Node
+    {
+        private readonly Shortcut _saveShortcut = new Shortcut();
+
+        public override void _Ready()
+        {
+            InputEventKey keyEvent = new InputEventKey
+            {
+                Keycode = Key.S,
+                CtrlPressed = true,
+                CommandOrControlAutoremap = true, // Swaps Ctrl for Command on Mac.
+            };
+
+            _saveShortcut.Events = [keyEvent];
+        }
+
+        public override void _Input(InputEvent @event)
+        {
+            if (@event is InputEventKey keyEvent &&
+                _saveShortcut.MatchesEvent(@event) &&
+                keyEvent.Pressed && !keyEvent.Echo)
+            {
+                GD.Print("Save shortcut pressed!");
+                GetViewport().SetInputAsHandled();
+            }
+        }
+    }
+
+
 
 .. rst-class:: classref-reftable-group
 
@@ -43,13 +99,13 @@ Methods
 .. table::
    :widths: auto
 
-   +-----------------------------+-------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`String<class_String>` | :ref:`get_as_text<class_Shortcut_method_get_as_text>` **(** **)** |const|                                               |
-   +-----------------------------+-------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`     | :ref:`has_valid_event<class_Shortcut_method_has_valid_event>` **(** **)** |const|                                       |
-   +-----------------------------+-------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`     | :ref:`matches_event<class_Shortcut_method_matches_event>` **(** :ref:`InputEvent<class_InputEvent>` event **)** |const| |
-   +-----------------------------+-------------------------------------------------------------------------------------------------------------------------+
+   +-----------------------------+----------------------------------------------------------------------------------------------------------------------+
+   | :ref:`String<class_String>` | :ref:`get_as_text<class_Shortcut_method_get_as_text>`\ (\ ) |const|                                                  |
+   +-----------------------------+----------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`     | :ref:`has_valid_event<class_Shortcut_method_has_valid_event>`\ (\ ) |const|                                          |
+   +-----------------------------+----------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`     | :ref:`matches_event<class_Shortcut_method_matches_event>`\ (\ event\: :ref:`InputEvent<class_InputEvent>`\ ) |const| |
+   +-----------------------------+----------------------------------------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -64,12 +120,12 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`Array<class_Array>` **events** = ``[]``
+:ref:`Array<class_Array>` **events** = ``[]`` :ref:`🔗<class_Shortcut_property_events>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_events** **(** :ref:`Array<class_Array>` value **)**
-- :ref:`Array<class_Array>` **get_events** **(** **)**
+- |void| **set_events**\ (\ value\: :ref:`Array<class_Array>`\ )
+- :ref:`Array<class_Array>` **get_events**\ (\ )
 
 The shortcut's :ref:`InputEvent<class_InputEvent>` array.
 
@@ -88,7 +144,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`String<class_String>` **get_as_text** **(** **)** |const|
+:ref:`String<class_String>` **get_as_text**\ (\ ) |const| :ref:`🔗<class_Shortcut_method_get_as_text>`
 
 Returns the shortcut's first valid :ref:`InputEvent<class_InputEvent>` as a :ref:`String<class_String>`.
 
@@ -100,7 +156,7 @@ Returns the shortcut's first valid :ref:`InputEvent<class_InputEvent>` as a :ref
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **has_valid_event** **(** **)** |const|
+:ref:`bool<class_bool>` **has_valid_event**\ (\ ) |const| :ref:`🔗<class_Shortcut_method_has_valid_event>`
 
 Returns whether :ref:`events<class_Shortcut_property_events>` contains an :ref:`InputEvent<class_InputEvent>` which is valid.
 
@@ -112,13 +168,16 @@ Returns whether :ref:`events<class_Shortcut_property_events>` contains an :ref:`
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **matches_event** **(** :ref:`InputEvent<class_InputEvent>` event **)** |const|
+:ref:`bool<class_bool>` **matches_event**\ (\ event\: :ref:`InputEvent<class_InputEvent>`\ ) |const| :ref:`🔗<class_Shortcut_method_matches_event>`
 
-Returns whether any :ref:`InputEvent<class_InputEvent>` in :ref:`events<class_Shortcut_property_events>` equals ``event``.
+Returns whether any :ref:`InputEvent<class_InputEvent>` in :ref:`events<class_Shortcut_property_events>` equals ``event``. This uses :ref:`InputEvent.is_match()<class_InputEvent_method_is_match>` to compare events.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`
