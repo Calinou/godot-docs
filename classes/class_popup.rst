@@ -14,14 +14,14 @@ Popup
 
 **Inherited By:** :ref:`PopupMenu<class_PopupMenu>`, :ref:`PopupPanel<class_PopupPanel>`
 
-Popup is a base window container for popup-like subwindows.
+Base class for contextual windows and panels with fixed position.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-Popup is a base window container for popup-like subwindows. It's a modal by default (see :ref:`Window.popup_window<class_Window_property_popup_window>`) and has helpers for custom popup behavior.
+**Popup** is a base class for contextual windows and panels with fixed position. It's a modal by default (see :ref:`Window.popup_window<class_Window_property_popup_window>`) and provides methods for implementing custom popup behavior.
 
 .. rst-class:: classref-reftable-group
 
@@ -31,19 +31,25 @@ Properties
 .. table::
    :widths: auto
 
-   +-------------------------+---------------+-------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>` | borderless    | ``true`` (overrides :ref:`Window<class_Window_property_borderless>`)    |
-   +-------------------------+---------------+-------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>` | popup_window  | ``true`` (overrides :ref:`Window<class_Window_property_popup_window>`)  |
-   +-------------------------+---------------+-------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>` | transient     | ``true`` (overrides :ref:`Window<class_Window_property_transient>`)     |
-   +-------------------------+---------------+-------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>` | unresizable   | ``true`` (overrides :ref:`Window<class_Window_property_unresizable>`)   |
-   +-------------------------+---------------+-------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>` | visible       | ``false`` (overrides :ref:`Window<class_Window_property_visible>`)      |
-   +-------------------------+---------------+-------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>` | wrap_controls | ``true`` (overrides :ref:`Window<class_Window_property_wrap_controls>`) |
-   +-------------------------+---------------+-------------------------------------------------------------------------+
+   +-------------------------+-------------------+-----------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>` | borderless        | ``true`` (overrides :ref:`Window<class_Window_property_borderless>`)        |
+   +-------------------------+-------------------+-----------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>` | maximize_disabled | ``true`` (overrides :ref:`Window<class_Window_property_maximize_disabled>`) |
+   +-------------------------+-------------------+-----------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>` | minimize_disabled | ``true`` (overrides :ref:`Window<class_Window_property_minimize_disabled>`) |
+   +-------------------------+-------------------+-----------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>` | popup_window      | ``true`` (overrides :ref:`Window<class_Window_property_popup_window>`)      |
+   +-------------------------+-------------------+-----------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>` | popup_wm_hint     | ``true`` (overrides :ref:`Window<class_Window_property_popup_wm_hint>`)     |
+   +-------------------------+-------------------+-----------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>` | transient         | ``true`` (overrides :ref:`Window<class_Window_property_transient>`)         |
+   +-------------------------+-------------------+-----------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>` | unresizable       | ``true`` (overrides :ref:`Window<class_Window_property_unresizable>`)       |
+   +-------------------------+-------------------+-----------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>` | visible           | ``false`` (overrides :ref:`Window<class_Window_property_visible>`)          |
+   +-------------------------+-------------------+-----------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>` | wrap_controls     | ``true`` (overrides :ref:`Window<class_Window_property_wrap_controls>`)     |
+   +-------------------------+-------------------+-----------------------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -58,13 +64,16 @@ Signals
 
 .. rst-class:: classref-signal
 
-**popup_hide** **(** **)**
+**popup_hide**\ (\ ) :ref:`🔗<class_Popup_signal_popup_hide>`
 
 Emitted when the popup is hidden.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`
