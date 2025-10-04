@@ -30,7 +30,7 @@ Properties
    :widths: auto
 
    +--------------------------------------------------------------+--------------------------------------------------------------------------+-------+
-   | :ref:`Cubemap<class_Cubemap>`                                | :ref:`cube_map<class_VisualShaderNodeCubemap_property_cube_map>`         |       |
+   | :ref:`TextureLayered<class_TextureLayered>`                  | :ref:`cube_map<class_VisualShaderNodeCubemap_property_cube_map>`         |       |
    +--------------------------------------------------------------+--------------------------------------------------------------------------+-------+
    | :ref:`Source<enum_VisualShaderNodeCubemap_Source>`           | :ref:`source<class_VisualShaderNodeCubemap_property_source>`             | ``0`` |
    +--------------------------------------------------------------+--------------------------------------------------------------------------+-------+
@@ -50,7 +50,7 @@ Enumerations
 
 .. rst-class:: classref-enumeration
 
-enum **Source**:
+enum **Source**: :ref:`🔗<enum_VisualShaderNodeCubemap_Source>`
 
 .. _class_VisualShaderNodeCubemap_constant_SOURCE_TEXTURE:
 
@@ -84,7 +84,7 @@ Represents the size of the :ref:`Source<enum_VisualShaderNodeCubemap_Source>` en
 
 .. rst-class:: classref-enumeration
 
-enum **TextureType**:
+enum **TextureType**: :ref:`🔗<enum_VisualShaderNodeCubemap_TextureType>`
 
 .. _class_VisualShaderNodeCubemap_constant_TYPE_DATA:
 
@@ -100,7 +100,7 @@ No hints are added to the uniform declaration.
 
 :ref:`TextureType<enum_VisualShaderNodeCubemap_TextureType>` **TYPE_COLOR** = ``1``
 
-Adds ``hint_albedo`` as hint to the uniform declaration for proper sRGB to linear conversion.
+Adds ``source_color`` as hint to the uniform declaration for proper conversion from nonlinear sRGB encoding to linear encoding.
 
 .. _class_VisualShaderNodeCubemap_constant_TYPE_NORMAL_MAP:
 
@@ -131,12 +131,12 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`Cubemap<class_Cubemap>` **cube_map**
+:ref:`TextureLayered<class_TextureLayered>` **cube_map** :ref:`🔗<class_VisualShaderNodeCubemap_property_cube_map>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_cube_map** **(** :ref:`Cubemap<class_Cubemap>` value **)**
-- :ref:`Cubemap<class_Cubemap>` **get_cube_map** **(** **)**
+- |void| **set_cube_map**\ (\ value\: :ref:`TextureLayered<class_TextureLayered>`\ )
+- :ref:`TextureLayered<class_TextureLayered>` **get_cube_map**\ (\ )
 
 The :ref:`Cubemap<class_Cubemap>` texture to sample when using :ref:`SOURCE_TEXTURE<class_VisualShaderNodeCubemap_constant_SOURCE_TEXTURE>` as :ref:`source<class_VisualShaderNodeCubemap_property_source>`.
 
@@ -148,14 +148,14 @@ The :ref:`Cubemap<class_Cubemap>` texture to sample when using :ref:`SOURCE_TEXT
 
 .. rst-class:: classref-property
 
-:ref:`Source<enum_VisualShaderNodeCubemap_Source>` **source** = ``0``
+:ref:`Source<enum_VisualShaderNodeCubemap_Source>` **source** = ``0`` :ref:`🔗<class_VisualShaderNodeCubemap_property_source>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_source** **(** :ref:`Source<enum_VisualShaderNodeCubemap_Source>` value **)**
-- :ref:`Source<enum_VisualShaderNodeCubemap_Source>` **get_source** **(** **)**
+- |void| **set_source**\ (\ value\: :ref:`Source<enum_VisualShaderNodeCubemap_Source>`\ )
+- :ref:`Source<enum_VisualShaderNodeCubemap_Source>` **get_source**\ (\ )
 
-Defines which source should be used for the sampling. See :ref:`Source<enum_VisualShaderNodeCubemap_Source>` for options.
+Defines which source should be used for the sampling.
 
 .. rst-class:: classref-item-separator
 
@@ -165,18 +165,21 @@ Defines which source should be used for the sampling. See :ref:`Source<enum_Visu
 
 .. rst-class:: classref-property
 
-:ref:`TextureType<enum_VisualShaderNodeCubemap_TextureType>` **texture_type** = ``0``
+:ref:`TextureType<enum_VisualShaderNodeCubemap_TextureType>` **texture_type** = ``0`` :ref:`🔗<class_VisualShaderNodeCubemap_property_texture_type>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_texture_type** **(** :ref:`TextureType<enum_VisualShaderNodeCubemap_TextureType>` value **)**
-- :ref:`TextureType<enum_VisualShaderNodeCubemap_TextureType>` **get_texture_type** **(** **)**
+- |void| **set_texture_type**\ (\ value\: :ref:`TextureType<enum_VisualShaderNodeCubemap_TextureType>`\ )
+- :ref:`TextureType<enum_VisualShaderNodeCubemap_TextureType>` **get_texture_type**\ (\ )
 
-Defines the type of data provided by the source texture. See :ref:`TextureType<enum_VisualShaderNodeCubemap_TextureType>` for options.
+Defines the type of data provided by the source texture.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`
