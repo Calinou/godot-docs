@@ -46,7 +46,7 @@ Enumerations
 
 .. rst-class:: classref-enumeration
 
-enum **Function**:
+enum **Function**: :ref:`🔗<enum_VisualShaderNodeVectorFunc_Function>`
 
 .. _class_VisualShaderNodeVectorFunc_constant_FUNC_NORMALIZE:
 
@@ -333,18 +333,21 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`Function<enum_VisualShaderNodeVectorFunc_Function>` **function** = ``0``
+:ref:`Function<enum_VisualShaderNodeVectorFunc_Function>` **function** = ``0`` :ref:`🔗<class_VisualShaderNodeVectorFunc_property_function>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_function** **(** :ref:`Function<enum_VisualShaderNodeVectorFunc_Function>` value **)**
-- :ref:`Function<enum_VisualShaderNodeVectorFunc_Function>` **get_function** **(** **)**
+- |void| **set_function**\ (\ value\: :ref:`Function<enum_VisualShaderNodeVectorFunc_Function>`\ )
+- :ref:`Function<enum_VisualShaderNodeVectorFunc_Function>` **get_function**\ (\ )
 
-The function to be performed. See :ref:`Function<enum_VisualShaderNodeVectorFunc_Function>` for options.
+The function to be performed.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`
