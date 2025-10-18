@@ -50,7 +50,7 @@ Enumerations
 
 .. rst-class:: classref-enumeration
 
-enum **Qualifier**:
+enum **Qualifier**: :ref:`🔗<enum_VisualShaderNodeParameter_Qualifier>`
 
 .. _class_VisualShaderNodeParameter_constant_QUAL_NONE:
 
@@ -97,12 +97,12 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`String<class_String>` **parameter_name** = ``""``
+:ref:`String<class_String>` **parameter_name** = ``""`` :ref:`🔗<class_VisualShaderNodeParameter_property_parameter_name>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_parameter_name** **(** :ref:`String<class_String>` value **)**
-- :ref:`String<class_String>` **get_parameter_name** **(** **)**
+- |void| **set_parameter_name**\ (\ value\: :ref:`String<class_String>`\ )
+- :ref:`String<class_String>` **get_parameter_name**\ (\ )
 
 Name of the parameter, by which it can be accessed through the :ref:`ShaderMaterial<class_ShaderMaterial>` properties.
 
@@ -114,18 +114,21 @@ Name of the parameter, by which it can be accessed through the :ref:`ShaderMater
 
 .. rst-class:: classref-property
 
-:ref:`Qualifier<enum_VisualShaderNodeParameter_Qualifier>` **qualifier** = ``0``
+:ref:`Qualifier<enum_VisualShaderNodeParameter_Qualifier>` **qualifier** = ``0`` :ref:`🔗<class_VisualShaderNodeParameter_property_qualifier>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_qualifier** **(** :ref:`Qualifier<enum_VisualShaderNodeParameter_Qualifier>` value **)**
-- :ref:`Qualifier<enum_VisualShaderNodeParameter_Qualifier>` **get_qualifier** **(** **)**
+- |void| **set_qualifier**\ (\ value\: :ref:`Qualifier<enum_VisualShaderNodeParameter_Qualifier>`\ )
+- :ref:`Qualifier<enum_VisualShaderNodeParameter_Qualifier>` **get_qualifier**\ (\ )
 
 Defines the scope of the parameter.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`
