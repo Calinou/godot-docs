@@ -46,7 +46,7 @@ Enumerations
 
 .. rst-class:: classref-enumeration
 
-enum **Mode**:
+enum **Mode**: :ref:`🔗<enum_VisualShaderNodeParticleAccelerator_Mode>`
 
 .. _class_VisualShaderNodeParticleAccelerator_constant_MODE_LINEAR:
 
@@ -93,18 +93,21 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`Mode<enum_VisualShaderNodeParticleAccelerator_Mode>` **mode** = ``0``
+:ref:`Mode<enum_VisualShaderNodeParticleAccelerator_Mode>` **mode** = ``0`` :ref:`🔗<class_VisualShaderNodeParticleAccelerator_property_mode>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_mode** **(** :ref:`Mode<enum_VisualShaderNodeParticleAccelerator_Mode>` value **)**
-- :ref:`Mode<enum_VisualShaderNodeParticleAccelerator_Mode>` **get_mode** **(** **)**
+- |void| **set_mode**\ (\ value\: :ref:`Mode<enum_VisualShaderNodeParticleAccelerator_Mode>`\ )
+- :ref:`Mode<enum_VisualShaderNodeParticleAccelerator_Mode>` **get_mode**\ (\ )
 
 Defines in what manner the particles will be accelerated.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`
