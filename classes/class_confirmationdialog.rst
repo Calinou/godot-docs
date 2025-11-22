@@ -14,14 +14,14 @@ ConfirmationDialog
 
 **Inherited By:** :ref:`EditorCommandPalette<class_EditorCommandPalette>`, :ref:`EditorFileDialog<class_EditorFileDialog>`, :ref:`FileDialog<class_FileDialog>`, :ref:`ScriptCreateDialog<class_ScriptCreateDialog>`
 
-Dialog for confirmation of actions.
+A dialog used for confirmation of actions.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-Dialog for confirmation of actions. This dialog inherits from :ref:`AcceptDialog<class_AcceptDialog>`, but has by default an OK and Cancel button (in host OS order).
+A dialog used for confirmation of actions. This window is similar to :ref:`AcceptDialog<class_AcceptDialog>`, but pressing its Cancel button can have a different outcome from pressing the OK button. The order of the two buttons varies depending on the host OS.
 
 To get cancel action, you can use:
 
@@ -30,13 +30,15 @@ To get cancel action, you can use:
 
  .. code-tab:: gdscript
 
-    get_cancel_button().pressed.connect(self.canceled)
+    get_cancel_button().pressed.connect(_on_canceled)
 
  .. code-tab:: csharp
 
-    GetCancelButton().Pressed += Canceled;
+    GetCancelButton().Pressed += OnCanceled;
 
 
+
+\ **Note:** :ref:`AcceptDialog<class_AcceptDialog>` is invisible by default. To make it visible, call one of the ``popup_*`` methods from :ref:`Window<class_Window>` on the node, such as :ref:`Window.popup_centered_clamped()<class_Window_method_popup_centered_clamped>`.
 
 .. rst-class:: classref-reftable-group
 
@@ -64,9 +66,9 @@ Methods
 .. table::
    :widths: auto
 
-   +-----------------------------+-----------------------------------------------------------------------------------------+
-   | :ref:`Button<class_Button>` | :ref:`get_cancel_button<class_ConfirmationDialog_method_get_cancel_button>` **(** **)** |
-   +-----------------------------+-----------------------------------------------------------------------------------------+
+   +-----------------------------+-----------------------------------------------------------------------------------+
+   | :ref:`Button<class_Button>` | :ref:`get_cancel_button<class_ConfirmationDialog_method_get_cancel_button>`\ (\ ) |
+   +-----------------------------+-----------------------------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -81,14 +83,14 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`String<class_String>` **cancel_button_text** = ``"Cancel"``
+:ref:`String<class_String>` **cancel_button_text** = ``"Cancel"`` :ref:`🔗<class_ConfirmationDialog_property_cancel_button_text>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_cancel_button_text** **(** :ref:`String<class_String>` value **)**
-- :ref:`String<class_String>` **get_cancel_button_text** **(** **)**
+- |void| **set_cancel_button_text**\ (\ value\: :ref:`String<class_String>`\ )
+- :ref:`String<class_String>` **get_cancel_button_text**\ (\ )
 
-The text displayed by the cancel button (see :ref:`get_cancel_button<class_ConfirmationDialog_method_get_cancel_button>`).
+The text displayed by the cancel button (see :ref:`get_cancel_button()<class_ConfirmationDialog_method_get_cancel_button>`).
 
 .. rst-class:: classref-section-separator
 
@@ -103,15 +105,18 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`Button<class_Button>` **get_cancel_button** **(** **)**
+:ref:`Button<class_Button>` **get_cancel_button**\ (\ ) :ref:`🔗<class_ConfirmationDialog_method_get_cancel_button>`
 
 Returns the cancel button.
 
 \ **Warning:** This is a required internal node, removing and freeing it may cause a crash. If you wish to hide it or any of its children, use their :ref:`CanvasItem.visible<class_CanvasItem_property_visible>` property.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`
