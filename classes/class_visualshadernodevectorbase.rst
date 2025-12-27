@@ -48,7 +48,7 @@ Enumerations
 
 .. rst-class:: classref-enumeration
 
-enum **OpType**:
+enum **OpType**: :ref:`🔗<enum_VisualShaderNodeVectorBase_OpType>`
 
 .. _class_VisualShaderNodeVectorBase_constant_OP_TYPE_VECTOR_2D:
 
@@ -95,18 +95,21 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`OpType<enum_VisualShaderNodeVectorBase_OpType>` **op_type** = ``1``
+:ref:`OpType<enum_VisualShaderNodeVectorBase_OpType>` **op_type** = ``1`` :ref:`🔗<class_VisualShaderNodeVectorBase_property_op_type>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_op_type** **(** :ref:`OpType<enum_VisualShaderNodeVectorBase_OpType>` value **)**
-- :ref:`OpType<enum_VisualShaderNodeVectorBase_OpType>` **get_op_type** **(** **)**
+- |void| **set_op_type**\ (\ value\: :ref:`OpType<enum_VisualShaderNodeVectorBase_OpType>`\ )
+- :ref:`OpType<enum_VisualShaderNodeVectorBase_OpType>` **get_op_type**\ (\ )
 
 A vector type that this operation is performed on.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`
