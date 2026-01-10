@@ -12,16 +12,16 @@ ResourceImporter
 
 **Inherits:** :ref:`RefCounted<class_RefCounted>` **<** :ref:`Object<class_Object>`
 
-**Inherited By:** :ref:`EditorImportPlugin<class_EditorImportPlugin>`
+**Inherited By:** :ref:`EditorImportPlugin<class_EditorImportPlugin>`, :ref:`ResourceImporterBitMap<class_ResourceImporterBitMap>`, :ref:`ResourceImporterBMFont<class_ResourceImporterBMFont>`, :ref:`ResourceImporterCSVTranslation<class_ResourceImporterCSVTranslation>`, :ref:`ResourceImporterDynamicFont<class_ResourceImporterDynamicFont>`, :ref:`ResourceImporterImage<class_ResourceImporterImage>`, :ref:`ResourceImporterImageFont<class_ResourceImporterImageFont>`, :ref:`ResourceImporterLayeredTexture<class_ResourceImporterLayeredTexture>`, :ref:`ResourceImporterMP3<class_ResourceImporterMP3>`, :ref:`ResourceImporterOBJ<class_ResourceImporterOBJ>`, :ref:`ResourceImporterOggVorbis<class_ResourceImporterOggVorbis>`, :ref:`ResourceImporterScene<class_ResourceImporterScene>`, :ref:`ResourceImporterShaderFile<class_ResourceImporterShaderFile>`, :ref:`ResourceImporterSVG<class_ResourceImporterSVG>`, :ref:`ResourceImporterTexture<class_ResourceImporterTexture>`, :ref:`ResourceImporterTextureAtlas<class_ResourceImporterTextureAtlas>`, :ref:`ResourceImporterWAV<class_ResourceImporterWAV>`
 
-Base class for the implementation of core resource importers.
+Base class for resource importers.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-This is the base class for the resource importers implemented in core. To implement your own resource importers using editor plugins, see :ref:`EditorImportPlugin<class_EditorImportPlugin>`.
+This is the base class for Godot's resource importers. To implement your own resource importers using editor plugins, see :ref:`EditorImportPlugin<class_EditorImportPlugin>`.
 
 .. rst-class:: classref-introduction-group
 
@@ -29,6 +29,18 @@ Tutorials
 ---------
 
 - :doc:`Import plugins <../tutorials/plugins/editor/import_plugins>`
+
+.. rst-class:: classref-reftable-group
+
+Methods
+-------
+
+.. table::
+   :widths: auto
+
+   +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`PackedStringArray<class_PackedStringArray>` | :ref:`_get_build_dependencies<class_ResourceImporter_private_method__get_build_dependencies>`\ (\ path\: :ref:`String<class_String>`\ ) |virtual| |const| |
+   +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -43,7 +55,7 @@ Enumerations
 
 .. rst-class:: classref-enumeration
 
-enum **ImportOrder**:
+enum **ImportOrder**: :ref:`🔗<enum_ResourceImporter_ImportOrder>`
 
 .. _class_ResourceImporter_constant_IMPORT_ORDER_DEFAULT:
 
@@ -61,9 +73,40 @@ The default import order.
 
 The import order for scenes, which ensures scenes are imported *after* all other core resources such as textures. Custom importers should generally have an import order lower than ``100`` to avoid issues when importing scenes that rely on custom resources.
 
+.. rst-class:: classref-section-separator
+
+----
+
+.. rst-class:: classref-descriptions-group
+
+Method Descriptions
+-------------------
+
+.. _class_ResourceImporter_private_method__get_build_dependencies:
+
+.. rst-class:: classref-method
+
+:ref:`PackedStringArray<class_PackedStringArray>` **_get_build_dependencies**\ (\ path\: :ref:`String<class_String>`\ ) |virtual| |const| :ref:`🔗<class_ResourceImporter_private_method__get_build_dependencies>`
+
+Called when the engine compilation profile editor wants to check what build options an imported resource needs. For example, :ref:`ResourceImporterDynamicFont<class_ResourceImporterDynamicFont>` has a property called :ref:`ResourceImporterDynamicFont.multichannel_signed_distance_field<class_ResourceImporterDynamicFont_property_multichannel_signed_distance_field>`, that depends on the engine to be build with the "msdfgen" module. If that resource happened to be a custom one, it would be handled like this:
+
+::
+
+    func _get_build_dependencies(path):
+        var resource = load(path)
+        var dependencies = PackedStringArray()
+
+        if resource.multichannel_signed_distance_field:
+            dependencies.push_back("module_msdfgen_enabled")
+
+        return dependencies
+
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`
