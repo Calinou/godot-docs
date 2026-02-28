@@ -12,20 +12,20 @@ XRController3D
 
 **Inherits:** :ref:`XRNode3D<class_XRNode3D>` **<** :ref:`Node3D<class_Node3D>` **<** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
 
-A spatial node representing a spatially-tracked controller.
+A 3D node representing a spatially-tracked controller.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-This is a helper spatial node that is linked to the tracking of controllers. It also offers several handy passthroughs to the state of buttons and such on the controllers.
+This is a helper 3D node that is linked to the tracking of controllers. It also offers several handy passthroughs to the state of buttons and such on the controllers.
 
 Controllers are linked by their ID. You can create controller nodes before the controllers are available. If your game always uses two controllers (one for each hand), you can predefine the controllers with ID 1 and 2; they will become active as soon as the controllers are identified. If you expect additional controllers to be used, you should react to the signals and add XRController3D nodes to your scene.
 
 The position of the controller node is automatically updated by the :ref:`XRServer<class_XRServer>`. This makes this node ideal to add child nodes to visualize the controller.
 
-As many XR runtimes now use a configurable action map all inputs are named.
+The current :ref:`XRInterface<class_XRInterface>` defines the names of inputs. In the case of OpenXR, these are the names of actions in the current action set from the OpenXR action map.
 
 .. rst-class:: classref-introduction-group
 
@@ -42,17 +42,17 @@ Methods
 .. table::
    :widths: auto
 
-   +----------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`float<class_float>`                                | :ref:`get_float<class_XRController3D_method_get_float>` **(** :ref:`StringName<class_StringName>` name **)** |const|                 |
-   +----------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Variant<class_Variant>`                            | :ref:`get_input<class_XRController3D_method_get_input>` **(** :ref:`StringName<class_StringName>` name **)** |const|                 |
-   +----------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`TrackerHand<enum_XRPositionalTracker_TrackerHand>` | :ref:`get_tracker_hand<class_XRController3D_method_get_tracker_hand>` **(** **)** |const|                                            |
-   +----------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Vector2<class_Vector2>`                            | :ref:`get_vector2<class_XRController3D_method_get_vector2>` **(** :ref:`StringName<class_StringName>` name **)** |const|             |
-   +----------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`                                  | :ref:`is_button_pressed<class_XRController3D_method_is_button_pressed>` **(** :ref:`StringName<class_StringName>` name **)** |const| |
-   +----------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
+   +----------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`float<class_float>`                                | :ref:`get_float<class_XRController3D_method_get_float>`\ (\ name\: :ref:`StringName<class_StringName>`\ ) |const|                 |
+   +----------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Variant<class_Variant>`                            | :ref:`get_input<class_XRController3D_method_get_input>`\ (\ name\: :ref:`StringName<class_StringName>`\ ) |const|                 |
+   +----------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`TrackerHand<enum_XRPositionalTracker_TrackerHand>` | :ref:`get_tracker_hand<class_XRController3D_method_get_tracker_hand>`\ (\ ) |const|                                               |
+   +----------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Vector2<class_Vector2>`                            | :ref:`get_vector2<class_XRController3D_method_get_vector2>`\ (\ name\: :ref:`StringName<class_StringName>`\ ) |const|             |
+   +----------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                                  | :ref:`is_button_pressed<class_XRController3D_method_is_button_pressed>`\ (\ name\: :ref:`StringName<class_StringName>`\ ) |const| |
+   +----------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -67,7 +67,7 @@ Signals
 
 .. rst-class:: classref-signal
 
-**button_pressed** **(** :ref:`String<class_String>` name **)**
+**button_pressed**\ (\ name\: :ref:`String<class_String>`\ ) :ref:`🔗<class_XRController3D_signal_button_pressed>`
 
 Emitted when a button on this controller is pressed.
 
@@ -79,7 +79,7 @@ Emitted when a button on this controller is pressed.
 
 .. rst-class:: classref-signal
 
-**button_released** **(** :ref:`String<class_String>` name **)**
+**button_released**\ (\ name\: :ref:`String<class_String>`\ ) :ref:`🔗<class_XRController3D_signal_button_released>`
 
 Emitted when a button on this controller is released.
 
@@ -91,7 +91,7 @@ Emitted when a button on this controller is released.
 
 .. rst-class:: classref-signal
 
-**input_float_changed** **(** :ref:`String<class_String>` name, :ref:`float<class_float>` value **)**
+**input_float_changed**\ (\ name\: :ref:`String<class_String>`, value\: :ref:`float<class_float>`\ ) :ref:`🔗<class_XRController3D_signal_input_float_changed>`
 
 Emitted when a trigger or similar input on this controller changes value.
 
@@ -103,9 +103,21 @@ Emitted when a trigger or similar input on this controller changes value.
 
 .. rst-class:: classref-signal
 
-**input_vector2_changed** **(** :ref:`String<class_String>` name, :ref:`Vector2<class_Vector2>` value **)**
+**input_vector2_changed**\ (\ name\: :ref:`String<class_String>`, value\: :ref:`Vector2<class_Vector2>`\ ) :ref:`🔗<class_XRController3D_signal_input_vector2_changed>`
 
 Emitted when a thumbstick or thumbpad on this controller is moved.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_XRController3D_signal_profile_changed:
+
+.. rst-class:: classref-signal
+
+**profile_changed**\ (\ role\: :ref:`String<class_String>`\ ) :ref:`🔗<class_XRController3D_signal_profile_changed>`
+
+Emitted when the interaction profile on this controller is changed.
 
 .. rst-class:: classref-section-separator
 
@@ -120,9 +132,11 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`float<class_float>` **get_float** **(** :ref:`StringName<class_StringName>` name **)** |const|
+:ref:`float<class_float>` **get_float**\ (\ name\: :ref:`StringName<class_StringName>`\ ) |const| :ref:`🔗<class_XRController3D_method_get_float>`
 
 Returns a numeric value for the input with the given ``name``. This is used for triggers and grip sensors.
+
+\ **Note:** The current :ref:`XRInterface<class_XRInterface>` defines the ``name`` for each input. In the case of OpenXR, these are the names of actions in the current action set.
 
 .. rst-class:: classref-item-separator
 
@@ -132,9 +146,11 @@ Returns a numeric value for the input with the given ``name``. This is used for 
 
 .. rst-class:: classref-method
 
-:ref:`Variant<class_Variant>` **get_input** **(** :ref:`StringName<class_StringName>` name **)** |const|
+:ref:`Variant<class_Variant>` **get_input**\ (\ name\: :ref:`StringName<class_StringName>`\ ) |const| :ref:`🔗<class_XRController3D_method_get_input>`
 
 Returns a :ref:`Variant<class_Variant>` for the input with the given ``name``. This works for any input type, the variant will be typed according to the actions configuration.
+
+\ **Note:** The current :ref:`XRInterface<class_XRInterface>` defines the ``name`` for each input. In the case of OpenXR, these are the names of actions in the current action set.
 
 .. rst-class:: classref-item-separator
 
@@ -144,9 +160,9 @@ Returns a :ref:`Variant<class_Variant>` for the input with the given ``name``. T
 
 .. rst-class:: classref-method
 
-:ref:`TrackerHand<enum_XRPositionalTracker_TrackerHand>` **get_tracker_hand** **(** **)** |const|
+:ref:`TrackerHand<enum_XRPositionalTracker_TrackerHand>` **get_tracker_hand**\ (\ ) |const| :ref:`🔗<class_XRController3D_method_get_tracker_hand>`
 
-Returns the hand holding this controller, if known. See :ref:`TrackerHand<enum_XRPositionalTracker_TrackerHand>`.
+Returns the hand holding this controller, if known.
 
 .. rst-class:: classref-item-separator
 
@@ -156,9 +172,11 @@ Returns the hand holding this controller, if known. See :ref:`TrackerHand<enum_X
 
 .. rst-class:: classref-method
 
-:ref:`Vector2<class_Vector2>` **get_vector2** **(** :ref:`StringName<class_StringName>` name **)** |const|
+:ref:`Vector2<class_Vector2>` **get_vector2**\ (\ name\: :ref:`StringName<class_StringName>`\ ) |const| :ref:`🔗<class_XRController3D_method_get_vector2>`
 
 Returns a :ref:`Vector2<class_Vector2>` for the input with the given ``name``. This is used for thumbsticks and thumbpads found on many controllers.
+
+\ **Note:** The current :ref:`XRInterface<class_XRInterface>` defines the ``name`` for each input. In the case of OpenXR, these are the names of actions in the current action set.
 
 .. rst-class:: classref-item-separator
 
@@ -168,13 +186,18 @@ Returns a :ref:`Vector2<class_Vector2>` for the input with the given ``name``. T
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **is_button_pressed** **(** :ref:`StringName<class_StringName>` name **)** |const|
+:ref:`bool<class_bool>` **is_button_pressed**\ (\ name\: :ref:`StringName<class_StringName>`\ ) |const| :ref:`🔗<class_XRController3D_method_is_button_pressed>`
 
 Returns ``true`` if the button with the given ``name`` is pressed.
 
+\ **Note:** The current :ref:`XRInterface<class_XRInterface>` defines the ``name`` for each input. In the case of OpenXR, these are the names of actions in the current action set.
+
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`
