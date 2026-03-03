@@ -384,7 +384,9 @@ command line utilities respectively to send desktop notifications:
         send_notification("Success", "Operation completed successfully.")
 
 Unfortunately, there is no equivalent that's available out of the box on
-Windows.
+Windows. As a workaround, you could bundle `Snoretoast <https://github.com/KDE/snoretoast>`__
+with the exported project and call it with :ref:`OS.execute() <class_OS_method_execute>`
+to spawn a notification.
 
 Remembering window position and size across sessions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
