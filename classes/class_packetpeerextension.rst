@@ -14,7 +14,7 @@ PacketPeerExtension
 
 .. container:: contribute
 
-	There is currently no description for this class. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+	There is currently no description for this class. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!
 
 .. rst-class:: classref-reftable-group
 
@@ -24,15 +24,15 @@ Methods
 .. table::
    :widths: auto
 
-   +---------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`int<class_int>`                 | :ref:`_get_available_packet_count<class_PacketPeerExtension_method__get_available_packet_count>` **(** **)** |virtual| |const|                      |
-   +---------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`int<class_int>`                 | :ref:`_get_max_packet_size<class_PacketPeerExtension_method__get_max_packet_size>` **(** **)** |virtual| |const|                                    |
-   +---------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Error<enum_@GlobalScope_Error>` | :ref:`_get_packet<class_PacketPeerExtension_method__get_packet>` **(** const uint8_t ** r_buffer, int32_t* r_buffer_size **)** |virtual|            |
-   +---------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Error<enum_@GlobalScope_Error>` | :ref:`_put_packet<class_PacketPeerExtension_method__put_packet>` **(** const uint8_t* p_buffer, :ref:`int<class_int>` p_buffer_size **)** |virtual| |
-   +---------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+   +---------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`int<class_int>`                 | :ref:`_get_available_packet_count<class_PacketPeerExtension_private_method__get_available_packet_count>`\ (\ ) |virtual| |required| |const|                |
+   +---------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`int<class_int>`                 | :ref:`_get_max_packet_size<class_PacketPeerExtension_private_method__get_max_packet_size>`\ (\ ) |virtual| |required| |const|                              |
+   +---------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Error<enum_@GlobalScope_Error>` | :ref:`_get_packet<class_PacketPeerExtension_private_method__get_packet>`\ (\ r_buffer\: ``const uint8_t **``, r_buffer_size\: ``int32_t*``\ ) |virtual|    |
+   +---------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Error<enum_@GlobalScope_Error>` | :ref:`_put_packet<class_PacketPeerExtension_private_method__put_packet>`\ (\ buffer\: ``const uint8_t*``, buffer_size\: :ref:`int<class_int>`\ ) |virtual| |
+   +---------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -43,61 +43,64 @@ Methods
 Method Descriptions
 -------------------
 
-.. _class_PacketPeerExtension_method__get_available_packet_count:
+.. _class_PacketPeerExtension_private_method__get_available_packet_count:
 
 .. rst-class:: classref-method
 
-:ref:`int<class_int>` **_get_available_packet_count** **(** **)** |virtual| |const|
+:ref:`int<class_int>` **_get_available_packet_count**\ (\ ) |virtual| |required| |const| :ref:`🔗<class_PacketPeerExtension_private_method__get_available_packet_count>`
 
 .. container:: contribute
 
-	There is currently no description for this method. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+	There is currently no description for this method. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!
 
 .. rst-class:: classref-item-separator
 
 ----
 
-.. _class_PacketPeerExtension_method__get_max_packet_size:
+.. _class_PacketPeerExtension_private_method__get_max_packet_size:
 
 .. rst-class:: classref-method
 
-:ref:`int<class_int>` **_get_max_packet_size** **(** **)** |virtual| |const|
+:ref:`int<class_int>` **_get_max_packet_size**\ (\ ) |virtual| |required| |const| :ref:`🔗<class_PacketPeerExtension_private_method__get_max_packet_size>`
 
 .. container:: contribute
 
-	There is currently no description for this method. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+	There is currently no description for this method. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!
 
 .. rst-class:: classref-item-separator
 
 ----
 
-.. _class_PacketPeerExtension_method__get_packet:
+.. _class_PacketPeerExtension_private_method__get_packet:
 
 .. rst-class:: classref-method
 
-:ref:`Error<enum_@GlobalScope_Error>` **_get_packet** **(** const uint8_t ** r_buffer, int32_t* r_buffer_size **)** |virtual|
+:ref:`Error<enum_@GlobalScope_Error>` **_get_packet**\ (\ r_buffer\: ``const uint8_t **``, r_buffer_size\: ``int32_t*``\ ) |virtual| :ref:`🔗<class_PacketPeerExtension_private_method__get_packet>`
 
 .. container:: contribute
 
-	There is currently no description for this method. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+	There is currently no description for this method. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!
 
 .. rst-class:: classref-item-separator
 
 ----
 
-.. _class_PacketPeerExtension_method__put_packet:
+.. _class_PacketPeerExtension_private_method__put_packet:
 
 .. rst-class:: classref-method
 
-:ref:`Error<enum_@GlobalScope_Error>` **_put_packet** **(** const uint8_t* p_buffer, :ref:`int<class_int>` p_buffer_size **)** |virtual|
+:ref:`Error<enum_@GlobalScope_Error>` **_put_packet**\ (\ buffer\: ``const uint8_t*``, buffer_size\: :ref:`int<class_int>`\ ) |virtual| :ref:`🔗<class_PacketPeerExtension_private_method__put_packet>`
 
 .. container:: contribute
 
-	There is currently no description for this method. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+	There is currently no description for this method. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`
