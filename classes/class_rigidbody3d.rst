@@ -14,22 +14,24 @@ RigidBody3D
 
 **Inherited By:** :ref:`VehicleBody3D<class_VehicleBody3D>`
 
-Physics Body which is moved by 3D physics simulation. Useful for objects that have gravity and can be pushed by other objects.
+A 3D physics body that is moved by a physics simulation.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-This is the node that implements full 3D physics. This means that you do not control a RigidBody3D directly. Instead, you can apply forces to it (gravity, impulses, etc.), and the physics simulation will calculate the resulting movement, collision, bouncing, rotating, etc.
+**RigidBody3D** implements full 3D physics. It cannot be controlled directly, instead, you must apply forces to it (gravity, impulses, etc.), and the physics simulation will calculate the resulting movement, rotation, react to collisions, and affect other physics bodies in its path.
 
-You can switch the body's behavior using :ref:`lock_rotation<class_RigidBody3D_property_lock_rotation>`, :ref:`freeze<class_RigidBody3D_property_freeze>`, and :ref:`freeze_mode<class_RigidBody3D_property_freeze_mode>`.
+The body's behavior can be adjusted via :ref:`lock_rotation<class_RigidBody3D_property_lock_rotation>`, :ref:`freeze<class_RigidBody3D_property_freeze>`, and :ref:`freeze_mode<class_RigidBody3D_property_freeze_mode>`. By changing various properties of the object, such as :ref:`mass<class_RigidBody3D_property_mass>`, you can control how the physics simulation acts on it.
 
-\ **Note:** Don't change a RigidBody3D's position every frame or very often. Sporadic changes work fine, but physics runs at a different granularity (fixed Hz) than usual rendering (process callback) and maybe even in a separate thread, so changing this from a process loop may result in strange behavior. If you need to directly affect the body's state, use :ref:`_integrate_forces<class_RigidBody3D_method__integrate_forces>`, which allows you to directly access the physics state.
+A rigid body will always maintain its shape and size, even when forces are applied to it. It is useful for objects that can be interacted with in an environment, such as a tree that can be knocked over or a stack of crates that can be pushed around.
+
+If you need to directly affect the body, prefer :ref:`_integrate_forces()<class_RigidBody3D_private_method__integrate_forces>` as it allows you to directly access the physics state.
 
 If you need to override the default physics behavior, you can write a custom force integration function. See :ref:`custom_integrator<class_RigidBody3D_property_custom_integrator>`.
 
-\ **Warning:** With a non-uniform scale this node will probably not function as expected. Please make sure to keep its scale uniform (i.e. the same on all axes), and change the size(s) of its collision shape(s) instead.
+\ **Note:** Changing the 3D transform or :ref:`linear_velocity<class_RigidBody3D_property_linear_velocity>` of a **RigidBody3D** very often may lead to some unpredictable behaviors. This also happens when a **RigidBody3D** is the descendant of a constantly moving node, like another **RigidBody3D**, as that will cause its global transform to be set whenever its ancestor moves.
 
 .. rst-class:: classref-introduction-group
 
@@ -38,9 +40,11 @@ Tutorials
 
 - :doc:`Physics introduction <../tutorials/physics/physics_introduction>`
 
-- `3D Truck Town Demo <https://godotengine.org/asset-library/asset/524>`__
+- :doc:`Troubleshooting physics issues <../tutorials/physics/troubleshooting_physics_issues>`
 
-- `3D Physics Tests Demo <https://godotengine.org/asset-library/asset/675>`__
+- `3D Truck Town Demo <https://godotengine.org/asset-library/asset/2752>`__
+
+- `3D Physics Tests Demo <https://godotengine.org/asset-library/asset/2747>`__
 
 .. rst-class:: classref-reftable-group
 
@@ -106,35 +110,35 @@ Methods
 .. table::
    :widths: auto
 
-   +-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                          | :ref:`_integrate_forces<class_RigidBody3D_method__integrate_forces>` **(** :ref:`PhysicsDirectBodyState3D<class_PhysicsDirectBodyState3D>` state **)** |virtual|                |
-   +-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                          | :ref:`add_constant_central_force<class_RigidBody3D_method_add_constant_central_force>` **(** :ref:`Vector3<class_Vector3>` force **)**                                          |
-   +-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                          | :ref:`add_constant_force<class_RigidBody3D_method_add_constant_force>` **(** :ref:`Vector3<class_Vector3>` force, :ref:`Vector3<class_Vector3>` position=Vector3(0, 0, 0) **)** |
-   +-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                          | :ref:`add_constant_torque<class_RigidBody3D_method_add_constant_torque>` **(** :ref:`Vector3<class_Vector3>` torque **)**                                                       |
-   +-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                          | :ref:`apply_central_force<class_RigidBody3D_method_apply_central_force>` **(** :ref:`Vector3<class_Vector3>` force **)**                                                        |
-   +-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                          | :ref:`apply_central_impulse<class_RigidBody3D_method_apply_central_impulse>` **(** :ref:`Vector3<class_Vector3>` impulse **)**                                                  |
-   +-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                          | :ref:`apply_force<class_RigidBody3D_method_apply_force>` **(** :ref:`Vector3<class_Vector3>` force, :ref:`Vector3<class_Vector3>` position=Vector3(0, 0, 0) **)**               |
-   +-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                          | :ref:`apply_impulse<class_RigidBody3D_method_apply_impulse>` **(** :ref:`Vector3<class_Vector3>` impulse, :ref:`Vector3<class_Vector3>` position=Vector3(0, 0, 0) **)**         |
-   +-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                          | :ref:`apply_torque<class_RigidBody3D_method_apply_torque>` **(** :ref:`Vector3<class_Vector3>` torque **)**                                                                     |
-   +-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                          | :ref:`apply_torque_impulse<class_RigidBody3D_method_apply_torque_impulse>` **(** :ref:`Vector3<class_Vector3>` impulse **)**                                                    |
-   +-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Node3D[]<class_Node3D>` | :ref:`get_colliding_bodies<class_RigidBody3D_method_get_colliding_bodies>` **(** **)** |const|                                                                                  |
-   +-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`int<class_int>`         | :ref:`get_contact_count<class_RigidBody3D_method_get_contact_count>` **(** **)** |const|                                                                                        |
-   +-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Basis<class_Basis>`     | :ref:`get_inverse_inertia_tensor<class_RigidBody3D_method_get_inverse_inertia_tensor>` **(** **)** |const|                                                                      |
-   +-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                          | :ref:`set_axis_velocity<class_RigidBody3D_method_set_axis_velocity>` **(** :ref:`Vector3<class_Vector3>` axis_velocity **)**                                                    |
-   +-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   +----------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                                   | :ref:`_integrate_forces<class_RigidBody3D_private_method__integrate_forces>`\ (\ state\: :ref:`PhysicsDirectBodyState3D<class_PhysicsDirectBodyState3D>`\ ) |virtual|            |
+   +----------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                                   | :ref:`add_constant_central_force<class_RigidBody3D_method_add_constant_central_force>`\ (\ force\: :ref:`Vector3<class_Vector3>`\ )                                              |
+   +----------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                                   | :ref:`add_constant_force<class_RigidBody3D_method_add_constant_force>`\ (\ force\: :ref:`Vector3<class_Vector3>`, position\: :ref:`Vector3<class_Vector3>` = Vector3(0, 0, 0)\ ) |
+   +----------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                                   | :ref:`add_constant_torque<class_RigidBody3D_method_add_constant_torque>`\ (\ torque\: :ref:`Vector3<class_Vector3>`\ )                                                           |
+   +----------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                                   | :ref:`apply_central_force<class_RigidBody3D_method_apply_central_force>`\ (\ force\: :ref:`Vector3<class_Vector3>`\ )                                                            |
+   +----------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                                   | :ref:`apply_central_impulse<class_RigidBody3D_method_apply_central_impulse>`\ (\ impulse\: :ref:`Vector3<class_Vector3>`\ )                                                      |
+   +----------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                                   | :ref:`apply_force<class_RigidBody3D_method_apply_force>`\ (\ force\: :ref:`Vector3<class_Vector3>`, position\: :ref:`Vector3<class_Vector3>` = Vector3(0, 0, 0)\ )               |
+   +----------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                                   | :ref:`apply_impulse<class_RigidBody3D_method_apply_impulse>`\ (\ impulse\: :ref:`Vector3<class_Vector3>`, position\: :ref:`Vector3<class_Vector3>` = Vector3(0, 0, 0)\ )         |
+   +----------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                                   | :ref:`apply_torque<class_RigidBody3D_method_apply_torque>`\ (\ torque\: :ref:`Vector3<class_Vector3>`\ )                                                                         |
+   +----------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                                   | :ref:`apply_torque_impulse<class_RigidBody3D_method_apply_torque_impulse>`\ (\ impulse\: :ref:`Vector3<class_Vector3>`\ )                                                        |
+   +----------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Array<class_Array>`\[:ref:`Node3D<class_Node3D>`\] | :ref:`get_colliding_bodies<class_RigidBody3D_method_get_colliding_bodies>`\ (\ ) |const|                                                                                         |
+   +----------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`int<class_int>`                                    | :ref:`get_contact_count<class_RigidBody3D_method_get_contact_count>`\ (\ ) |const|                                                                                               |
+   +----------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Basis<class_Basis>`                                | :ref:`get_inverse_inertia_tensor<class_RigidBody3D_method_get_inverse_inertia_tensor>`\ (\ ) |const|                                                                             |
+   +----------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                                   | :ref:`set_axis_velocity<class_RigidBody3D_method_set_axis_velocity>`\ (\ axis_velocity\: :ref:`Vector3<class_Vector3>`\ )                                                        |
+   +----------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -149,7 +153,7 @@ Signals
 
 .. rst-class:: classref-signal
 
-**body_entered** **(** :ref:`Node<class_Node>` body **)**
+**body_entered**\ (\ body\: :ref:`Node<class_Node>`\ ) :ref:`🔗<class_RigidBody3D_signal_body_entered>`
 
 Emitted when a collision with another :ref:`PhysicsBody3D<class_PhysicsBody3D>` or :ref:`GridMap<class_GridMap>` occurs. Requires :ref:`contact_monitor<class_RigidBody3D_property_contact_monitor>` to be set to ``true`` and :ref:`max_contacts_reported<class_RigidBody3D_property_max_contacts_reported>` to be set high enough to detect all the collisions. :ref:`GridMap<class_GridMap>`\ s are detected if the :ref:`MeshLibrary<class_MeshLibrary>` has Collision :ref:`Shape3D<class_Shape3D>`\ s.
 
@@ -163,7 +167,7 @@ Emitted when a collision with another :ref:`PhysicsBody3D<class_PhysicsBody3D>` 
 
 .. rst-class:: classref-signal
 
-**body_exited** **(** :ref:`Node<class_Node>` body **)**
+**body_exited**\ (\ body\: :ref:`Node<class_Node>`\ ) :ref:`🔗<class_RigidBody3D_signal_body_exited>`
 
 Emitted when the collision with another :ref:`PhysicsBody3D<class_PhysicsBody3D>` or :ref:`GridMap<class_GridMap>` ends. Requires :ref:`contact_monitor<class_RigidBody3D_property_contact_monitor>` to be set to ``true`` and :ref:`max_contacts_reported<class_RigidBody3D_property_max_contacts_reported>` to be set high enough to detect all the collisions. :ref:`GridMap<class_GridMap>`\ s are detected if the :ref:`MeshLibrary<class_MeshLibrary>` has Collision :ref:`Shape3D<class_Shape3D>`\ s.
 
@@ -177,7 +181,7 @@ Emitted when the collision with another :ref:`PhysicsBody3D<class_PhysicsBody3D>
 
 .. rst-class:: classref-signal
 
-**body_shape_entered** **(** :ref:`RID<class_RID>` body_rid, :ref:`Node<class_Node>` body, :ref:`int<class_int>` body_shape_index, :ref:`int<class_int>` local_shape_index **)**
+**body_shape_entered**\ (\ body_rid\: :ref:`RID<class_RID>`, body\: :ref:`Node<class_Node>`, body_shape_index\: :ref:`int<class_int>`, local_shape_index\: :ref:`int<class_int>`\ ) :ref:`🔗<class_RigidBody3D_signal_body_shape_entered>`
 
 Emitted when one of this RigidBody3D's :ref:`Shape3D<class_Shape3D>`\ s collides with another :ref:`PhysicsBody3D<class_PhysicsBody3D>` or :ref:`GridMap<class_GridMap>`'s :ref:`Shape3D<class_Shape3D>`\ s. Requires :ref:`contact_monitor<class_RigidBody3D_property_contact_monitor>` to be set to ``true`` and :ref:`max_contacts_reported<class_RigidBody3D_property_max_contacts_reported>` to be set high enough to detect all the collisions. :ref:`GridMap<class_GridMap>`\ s are detected if the :ref:`MeshLibrary<class_MeshLibrary>` has Collision :ref:`Shape3D<class_Shape3D>`\ s.
 
@@ -197,7 +201,7 @@ Emitted when one of this RigidBody3D's :ref:`Shape3D<class_Shape3D>`\ s collides
 
 .. rst-class:: classref-signal
 
-**body_shape_exited** **(** :ref:`RID<class_RID>` body_rid, :ref:`Node<class_Node>` body, :ref:`int<class_int>` body_shape_index, :ref:`int<class_int>` local_shape_index **)**
+**body_shape_exited**\ (\ body_rid\: :ref:`RID<class_RID>`, body\: :ref:`Node<class_Node>`, body_shape_index\: :ref:`int<class_int>`, local_shape_index\: :ref:`int<class_int>`\ ) :ref:`🔗<class_RigidBody3D_signal_body_shape_exited>`
 
 Emitted when the collision between one of this RigidBody3D's :ref:`Shape3D<class_Shape3D>`\ s and another :ref:`PhysicsBody3D<class_PhysicsBody3D>` or :ref:`GridMap<class_GridMap>`'s :ref:`Shape3D<class_Shape3D>`\ s ends. Requires :ref:`contact_monitor<class_RigidBody3D_property_contact_monitor>` to be set to ``true`` and :ref:`max_contacts_reported<class_RigidBody3D_property_max_contacts_reported>` to be set high enough to detect all the collisions. :ref:`GridMap<class_GridMap>`\ s are detected if the :ref:`MeshLibrary<class_MeshLibrary>` has Collision :ref:`Shape3D<class_Shape3D>`\ s.
 
@@ -217,7 +221,7 @@ Emitted when the collision between one of this RigidBody3D's :ref:`Shape3D<class
 
 .. rst-class:: classref-signal
 
-**sleeping_state_changed** **(** **)**
+**sleeping_state_changed**\ (\ ) :ref:`🔗<class_RigidBody3D_signal_sleeping_state_changed>`
 
 Emitted when the physics engine changes the body's sleeping state.
 
@@ -236,7 +240,7 @@ Enumerations
 
 .. rst-class:: classref-enumeration
 
-enum **FreezeMode**:
+enum **FreezeMode**: :ref:`🔗<enum_RigidBody3D_FreezeMode>`
 
 .. _class_RigidBody3D_constant_FREEZE_MODE_STATIC:
 
@@ -262,7 +266,7 @@ Kinematic body freeze mode. Similar to :ref:`FREEZE_MODE_STATIC<class_RigidBody3
 
 .. rst-class:: classref-enumeration
 
-enum **CenterOfMassMode**:
+enum **CenterOfMassMode**: :ref:`🔗<enum_RigidBody3D_CenterOfMassMode>`
 
 .. _class_RigidBody3D_constant_CENTER_OF_MASS_MODE_AUTO:
 
@@ -270,7 +274,7 @@ enum **CenterOfMassMode**:
 
 :ref:`CenterOfMassMode<enum_RigidBody3D_CenterOfMassMode>` **CENTER_OF_MASS_MODE_AUTO** = ``0``
 
-In this mode, the body's center of mass is calculated automatically based on its shapes.
+In this mode, the body's center of mass is calculated automatically based on its shapes. This assumes that the shapes' origins are also their center of mass.
 
 .. _class_RigidBody3D_constant_CENTER_OF_MASS_MODE_CUSTOM:
 
@@ -288,7 +292,7 @@ In this mode, the body's center of mass is set through :ref:`center_of_mass<clas
 
 .. rst-class:: classref-enumeration
 
-enum **DampMode**:
+enum **DampMode**: :ref:`🔗<enum_RigidBody3D_DampMode>`
 
 .. _class_RigidBody3D_constant_DAMP_MODE_COMBINE:
 
@@ -319,14 +323,14 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **angular_damp** = ``0.0``
+:ref:`float<class_float>` **angular_damp** = ``0.0`` :ref:`🔗<class_RigidBody3D_property_angular_damp>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_angular_damp** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_angular_damp** **(** **)**
+- |void| **set_angular_damp**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_angular_damp**\ (\ )
 
-Damps the body's rotation. By default, the body will use the **Default Angular Damp** in **Project > Project Settings > Physics > 3d** or any value override set by an :ref:`Area3D<class_Area3D>` the body is in. Depending on :ref:`angular_damp_mode<class_RigidBody3D_property_angular_damp_mode>`, you can set :ref:`angular_damp<class_RigidBody3D_property_angular_damp>` to be added to or to replace the body's damping value.
+Damps the body's rotation. By default, the body will use the :ref:`ProjectSettings.physics/3d/default_angular_damp<class_ProjectSettings_property_physics/3d/default_angular_damp>` project setting or any value override set by an :ref:`Area3D<class_Area3D>` the body is in. Depending on :ref:`angular_damp_mode<class_RigidBody3D_property_angular_damp_mode>`, you can set :ref:`angular_damp<class_RigidBody3D_property_angular_damp>` to be added to or to replace the body's damping value.
 
 See :ref:`ProjectSettings.physics/3d/default_angular_damp<class_ProjectSettings_property_physics/3d/default_angular_damp>` for more details about damping.
 
@@ -338,14 +342,14 @@ See :ref:`ProjectSettings.physics/3d/default_angular_damp<class_ProjectSettings_
 
 .. rst-class:: classref-property
 
-:ref:`DampMode<enum_RigidBody3D_DampMode>` **angular_damp_mode** = ``0``
+:ref:`DampMode<enum_RigidBody3D_DampMode>` **angular_damp_mode** = ``0`` :ref:`🔗<class_RigidBody3D_property_angular_damp_mode>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_angular_damp_mode** **(** :ref:`DampMode<enum_RigidBody3D_DampMode>` value **)**
-- :ref:`DampMode<enum_RigidBody3D_DampMode>` **get_angular_damp_mode** **(** **)**
+- |void| **set_angular_damp_mode**\ (\ value\: :ref:`DampMode<enum_RigidBody3D_DampMode>`\ )
+- :ref:`DampMode<enum_RigidBody3D_DampMode>` **get_angular_damp_mode**\ (\ )
 
-Defines how :ref:`angular_damp<class_RigidBody3D_property_angular_damp>` is applied. See :ref:`DampMode<enum_RigidBody3D_DampMode>` for possible values.
+Defines how :ref:`angular_damp<class_RigidBody3D_property_angular_damp>` is applied.
 
 .. rst-class:: classref-item-separator
 
@@ -355,12 +359,12 @@ Defines how :ref:`angular_damp<class_RigidBody3D_property_angular_damp>` is appl
 
 .. rst-class:: classref-property
 
-:ref:`Vector3<class_Vector3>` **angular_velocity** = ``Vector3(0, 0, 0)``
+:ref:`Vector3<class_Vector3>` **angular_velocity** = ``Vector3(0, 0, 0)`` :ref:`🔗<class_RigidBody3D_property_angular_velocity>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_angular_velocity** **(** :ref:`Vector3<class_Vector3>` value **)**
-- :ref:`Vector3<class_Vector3>` **get_angular_velocity** **(** **)**
+- |void| **set_angular_velocity**\ (\ value\: :ref:`Vector3<class_Vector3>`\ )
+- :ref:`Vector3<class_Vector3>` **get_angular_velocity**\ (\ )
 
 The RigidBody3D's rotational velocity in *radians* per second.
 
@@ -372,12 +376,12 @@ The RigidBody3D's rotational velocity in *radians* per second.
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **can_sleep** = ``true``
+:ref:`bool<class_bool>` **can_sleep** = ``true`` :ref:`🔗<class_RigidBody3D_property_can_sleep>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_can_sleep** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **is_able_to_sleep** **(** **)**
+- |void| **set_can_sleep**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **is_able_to_sleep**\ (\ )
 
 If ``true``, the body can enter sleep mode when there is no movement. See :ref:`sleeping<class_RigidBody3D_property_sleeping>`.
 
@@ -389,16 +393,16 @@ If ``true``, the body can enter sleep mode when there is no movement. See :ref:`
 
 .. rst-class:: classref-property
 
-:ref:`Vector3<class_Vector3>` **center_of_mass** = ``Vector3(0, 0, 0)``
+:ref:`Vector3<class_Vector3>` **center_of_mass** = ``Vector3(0, 0, 0)`` :ref:`🔗<class_RigidBody3D_property_center_of_mass>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_center_of_mass** **(** :ref:`Vector3<class_Vector3>` value **)**
-- :ref:`Vector3<class_Vector3>` **get_center_of_mass** **(** **)**
+- |void| **set_center_of_mass**\ (\ value\: :ref:`Vector3<class_Vector3>`\ )
+- :ref:`Vector3<class_Vector3>` **get_center_of_mass**\ (\ )
 
 The body's custom center of mass, relative to the body's origin position, when :ref:`center_of_mass_mode<class_RigidBody3D_property_center_of_mass_mode>` is set to :ref:`CENTER_OF_MASS_MODE_CUSTOM<class_RigidBody3D_constant_CENTER_OF_MASS_MODE_CUSTOM>`. This is the balanced point of the body, where applied forces only cause linear acceleration. Applying forces outside of the center of mass causes angular acceleration.
 
-When :ref:`center_of_mass_mode<class_RigidBody3D_property_center_of_mass_mode>` is set to :ref:`CENTER_OF_MASS_MODE_AUTO<class_RigidBody3D_constant_CENTER_OF_MASS_MODE_AUTO>` (default value), the center of mass is automatically computed.
+When :ref:`center_of_mass_mode<class_RigidBody3D_property_center_of_mass_mode>` is set to :ref:`CENTER_OF_MASS_MODE_AUTO<class_RigidBody3D_constant_CENTER_OF_MASS_MODE_AUTO>` (default value), the center of mass is automatically determined, but this does not update the value of :ref:`center_of_mass<class_RigidBody3D_property_center_of_mass>`.
 
 .. rst-class:: classref-item-separator
 
@@ -408,14 +412,14 @@ When :ref:`center_of_mass_mode<class_RigidBody3D_property_center_of_mass_mode>` 
 
 .. rst-class:: classref-property
 
-:ref:`CenterOfMassMode<enum_RigidBody3D_CenterOfMassMode>` **center_of_mass_mode** = ``0``
+:ref:`CenterOfMassMode<enum_RigidBody3D_CenterOfMassMode>` **center_of_mass_mode** = ``0`` :ref:`🔗<class_RigidBody3D_property_center_of_mass_mode>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_center_of_mass_mode** **(** :ref:`CenterOfMassMode<enum_RigidBody3D_CenterOfMassMode>` value **)**
-- :ref:`CenterOfMassMode<enum_RigidBody3D_CenterOfMassMode>` **get_center_of_mass_mode** **(** **)**
+- |void| **set_center_of_mass_mode**\ (\ value\: :ref:`CenterOfMassMode<enum_RigidBody3D_CenterOfMassMode>`\ )
+- :ref:`CenterOfMassMode<enum_RigidBody3D_CenterOfMassMode>` **get_center_of_mass_mode**\ (\ )
 
-Defines the way the body's center of mass is set. See :ref:`CenterOfMassMode<enum_RigidBody3D_CenterOfMassMode>` for possible values.
+Defines the way the body's center of mass is set.
 
 .. rst-class:: classref-item-separator
 
@@ -425,16 +429,16 @@ Defines the way the body's center of mass is set. See :ref:`CenterOfMassMode<enu
 
 .. rst-class:: classref-property
 
-:ref:`Vector3<class_Vector3>` **constant_force** = ``Vector3(0, 0, 0)``
+:ref:`Vector3<class_Vector3>` **constant_force** = ``Vector3(0, 0, 0)`` :ref:`🔗<class_RigidBody3D_property_constant_force>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_constant_force** **(** :ref:`Vector3<class_Vector3>` value **)**
-- :ref:`Vector3<class_Vector3>` **get_constant_force** **(** **)**
+- |void| **set_constant_force**\ (\ value\: :ref:`Vector3<class_Vector3>`\ )
+- :ref:`Vector3<class_Vector3>` **get_constant_force**\ (\ )
 
 The body's total constant positional forces applied during each physics update.
 
-See :ref:`add_constant_force<class_RigidBody3D_method_add_constant_force>` and :ref:`add_constant_central_force<class_RigidBody3D_method_add_constant_central_force>`.
+See :ref:`add_constant_force()<class_RigidBody3D_method_add_constant_force>` and :ref:`add_constant_central_force()<class_RigidBody3D_method_add_constant_central_force>`.
 
 .. rst-class:: classref-item-separator
 
@@ -444,16 +448,16 @@ See :ref:`add_constant_force<class_RigidBody3D_method_add_constant_force>` and :
 
 .. rst-class:: classref-property
 
-:ref:`Vector3<class_Vector3>` **constant_torque** = ``Vector3(0, 0, 0)``
+:ref:`Vector3<class_Vector3>` **constant_torque** = ``Vector3(0, 0, 0)`` :ref:`🔗<class_RigidBody3D_property_constant_torque>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_constant_torque** **(** :ref:`Vector3<class_Vector3>` value **)**
-- :ref:`Vector3<class_Vector3>` **get_constant_torque** **(** **)**
+- |void| **set_constant_torque**\ (\ value\: :ref:`Vector3<class_Vector3>`\ )
+- :ref:`Vector3<class_Vector3>` **get_constant_torque**\ (\ )
 
 The body's total constant rotational forces applied during each physics update.
 
-See :ref:`add_constant_torque<class_RigidBody3D_method_add_constant_torque>`.
+See :ref:`add_constant_torque()<class_RigidBody3D_method_add_constant_torque>`.
 
 .. rst-class:: classref-item-separator
 
@@ -463,14 +467,14 @@ See :ref:`add_constant_torque<class_RigidBody3D_method_add_constant_torque>`.
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **contact_monitor** = ``false``
+:ref:`bool<class_bool>` **contact_monitor** = ``false`` :ref:`🔗<class_RigidBody3D_property_contact_monitor>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_contact_monitor** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **is_contact_monitor_enabled** **(** **)**
+- |void| **set_contact_monitor**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **is_contact_monitor_enabled**\ (\ )
 
-If ``true``, the RigidBody3D will emit signals when it collides with another RigidBody3D.
+If ``true``, the RigidBody3D will emit signals when it collides with another body.
 
 \ **Note:** By default the maximum contacts reported is set to 0, meaning nothing will be recorded, see :ref:`max_contacts_reported<class_RigidBody3D_property_max_contacts_reported>`.
 
@@ -482,12 +486,12 @@ If ``true``, the RigidBody3D will emit signals when it collides with another Rig
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **continuous_cd** = ``false``
+:ref:`bool<class_bool>` **continuous_cd** = ``false`` :ref:`🔗<class_RigidBody3D_property_continuous_cd>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_use_continuous_collision_detection** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **is_using_continuous_collision_detection** **(** **)**
+- |void| **set_use_continuous_collision_detection**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **is_using_continuous_collision_detection**\ (\ )
 
 If ``true``, continuous collision detection is used.
 
@@ -501,14 +505,16 @@ Continuous collision detection tries to predict where a moving body will collide
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **custom_integrator** = ``false``
+:ref:`bool<class_bool>` **custom_integrator** = ``false`` :ref:`🔗<class_RigidBody3D_property_custom_integrator>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_use_custom_integrator** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **is_using_custom_integrator** **(** **)**
+- |void| **set_use_custom_integrator**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **is_using_custom_integrator**\ (\ )
 
-If ``true``, internal force integration will be disabled (like gravity or air friction) for this body. Other than collision response, the body will only move as determined by the :ref:`_integrate_forces<class_RigidBody3D_method__integrate_forces>` function, if defined.
+If ``true``, the standard force integration (like gravity or damping) will be disabled for this body. Other than collision response, the body will only move as determined by the :ref:`_integrate_forces()<class_RigidBody3D_private_method__integrate_forces>` method, if that virtual method is overridden.
+
+Setting this property will call the method :ref:`PhysicsServer3D.body_set_omit_force_integration()<class_PhysicsServer3D_method_body_set_omit_force_integration>` internally.
 
 .. rst-class:: classref-item-separator
 
@@ -518,18 +524,18 @@ If ``true``, internal force integration will be disabled (like gravity or air fr
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **freeze** = ``false``
+:ref:`bool<class_bool>` **freeze** = ``false`` :ref:`🔗<class_RigidBody3D_property_freeze>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_freeze_enabled** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **is_freeze_enabled** **(** **)**
+- |void| **set_freeze_enabled**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **is_freeze_enabled**\ (\ )
 
 If ``true``, the body is frozen. Gravity and forces are not applied anymore.
 
 See :ref:`freeze_mode<class_RigidBody3D_property_freeze_mode>` to set the body's behavior when frozen.
 
-For a body that is always frozen, use :ref:`StaticBody3D<class_StaticBody3D>` or :ref:`AnimatableBody3D<class_AnimatableBody3D>` instead.
+\ **Note:** For a body that is always frozen, use :ref:`StaticBody3D<class_StaticBody3D>` or :ref:`AnimatableBody3D<class_AnimatableBody3D>` instead.
 
 .. rst-class:: classref-item-separator
 
@@ -539,16 +545,16 @@ For a body that is always frozen, use :ref:`StaticBody3D<class_StaticBody3D>` or
 
 .. rst-class:: classref-property
 
-:ref:`FreezeMode<enum_RigidBody3D_FreezeMode>` **freeze_mode** = ``0``
+:ref:`FreezeMode<enum_RigidBody3D_FreezeMode>` **freeze_mode** = ``0`` :ref:`🔗<class_RigidBody3D_property_freeze_mode>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_freeze_mode** **(** :ref:`FreezeMode<enum_RigidBody3D_FreezeMode>` value **)**
-- :ref:`FreezeMode<enum_RigidBody3D_FreezeMode>` **get_freeze_mode** **(** **)**
+- |void| **set_freeze_mode**\ (\ value\: :ref:`FreezeMode<enum_RigidBody3D_FreezeMode>`\ )
+- :ref:`FreezeMode<enum_RigidBody3D_FreezeMode>` **get_freeze_mode**\ (\ )
 
-The body's freeze mode. Can be used to set the body's behavior when :ref:`freeze<class_RigidBody3D_property_freeze>` is enabled. See :ref:`FreezeMode<enum_RigidBody3D_FreezeMode>` for possible values.
+The body's freeze mode. Determines the body's behavior when :ref:`freeze<class_RigidBody3D_property_freeze>` is ``true``.
 
-For a body that is always frozen, use :ref:`StaticBody3D<class_StaticBody3D>` or :ref:`AnimatableBody3D<class_AnimatableBody3D>` instead.
+\ **Note:** For a body that is always frozen, use :ref:`StaticBody3D<class_StaticBody3D>` or :ref:`AnimatableBody3D<class_AnimatableBody3D>` instead.
 
 .. rst-class:: classref-item-separator
 
@@ -558,14 +564,14 @@ For a body that is always frozen, use :ref:`StaticBody3D<class_StaticBody3D>` or
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **gravity_scale** = ``1.0``
+:ref:`float<class_float>` **gravity_scale** = ``1.0`` :ref:`🔗<class_RigidBody3D_property_gravity_scale>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_gravity_scale** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_gravity_scale** **(** **)**
+- |void| **set_gravity_scale**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_gravity_scale**\ (\ )
 
-This is multiplied by the global 3D gravity setting found in **Project > Project Settings > Physics > 3d** to produce RigidBody3D's gravity. For example, a value of 1 will be normal gravity, 2 will apply double gravity, and 0.5 will apply half gravity to this object.
+This is multiplied by :ref:`ProjectSettings.physics/3d/default_gravity<class_ProjectSettings_property_physics/3d/default_gravity>` to produce this body's gravity. For example, a value of ``1.0`` will apply normal gravity, ``2.0`` will apply double the gravity, and ``0.5`` will apply half the gravity to this body.
 
 .. rst-class:: classref-item-separator
 
@@ -575,16 +581,16 @@ This is multiplied by the global 3D gravity setting found in **Project > Project
 
 .. rst-class:: classref-property
 
-:ref:`Vector3<class_Vector3>` **inertia** = ``Vector3(0, 0, 0)``
+:ref:`Vector3<class_Vector3>` **inertia** = ``Vector3(0, 0, 0)`` :ref:`🔗<class_RigidBody3D_property_inertia>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_inertia** **(** :ref:`Vector3<class_Vector3>` value **)**
-- :ref:`Vector3<class_Vector3>` **get_inertia** **(** **)**
+- |void| **set_inertia**\ (\ value\: :ref:`Vector3<class_Vector3>`\ )
+- :ref:`Vector3<class_Vector3>` **get_inertia**\ (\ )
 
 The body's moment of inertia. This is like mass, but for rotation: it determines how much torque it takes to rotate the body on each axis. The moment of inertia is usually computed automatically from the mass and the shapes, but this property allows you to set a custom value.
 
-If set to ``Vector3.ZERO``, inertia is automatically computed (default value).
+If set to :ref:`Vector3.ZERO<class_Vector3_constant_ZERO>`, inertia is automatically computed (default value).
 
 \ **Note:** This value does not change when inertia is automatically computed. Use :ref:`PhysicsServer3D<class_PhysicsServer3D>` to get the computed inertia.
 
@@ -594,19 +600,19 @@ If set to ``Vector3.ZERO``, inertia is automatically computed (default value).
  .. code-tab:: gdscript
 
     @onready var ball = $Ball
-    
+
     func get_ball_inertia():
         return PhysicsServer3D.body_get_direct_state(ball.get_rid()).inverse_inertia.inverse()
 
  .. code-tab:: csharp
 
     private RigidBody3D _ball;
-    
+
     public override void _Ready()
     {
         _ball = GetNode<RigidBody3D>("Ball");
     }
-    
+
     private Vector3 GetBallInertia()
     {
         return PhysicsServer3D.BodyGetDirectState(_ball.GetRid()).InverseInertia.Inverse();
@@ -622,14 +628,14 @@ If set to ``Vector3.ZERO``, inertia is automatically computed (default value).
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **linear_damp** = ``0.0``
+:ref:`float<class_float>` **linear_damp** = ``0.0`` :ref:`🔗<class_RigidBody3D_property_linear_damp>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_linear_damp** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_linear_damp** **(** **)**
+- |void| **set_linear_damp**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_linear_damp**\ (\ )
 
-Damps the body's movement. By default, the body will use the **Default Linear Damp** in **Project > Project Settings > Physics > 3d** or any value override set by an :ref:`Area3D<class_Area3D>` the body is in. Depending on :ref:`linear_damp_mode<class_RigidBody3D_property_linear_damp_mode>`, you can set :ref:`linear_damp<class_RigidBody3D_property_linear_damp>` to be added to or to replace the body's damping value.
+Damps the body's movement. By default, the body will use the :ref:`ProjectSettings.physics/3d/default_linear_damp<class_ProjectSettings_property_physics/3d/default_linear_damp>` project setting or any value override set by an :ref:`Area3D<class_Area3D>` the body is in. Depending on :ref:`linear_damp_mode<class_RigidBody3D_property_linear_damp_mode>`, you can set :ref:`linear_damp<class_RigidBody3D_property_linear_damp>` to be added to or to replace the body's damping value.
 
 See :ref:`ProjectSettings.physics/3d/default_linear_damp<class_ProjectSettings_property_physics/3d/default_linear_damp>` for more details about damping.
 
@@ -641,14 +647,14 @@ See :ref:`ProjectSettings.physics/3d/default_linear_damp<class_ProjectSettings_p
 
 .. rst-class:: classref-property
 
-:ref:`DampMode<enum_RigidBody3D_DampMode>` **linear_damp_mode** = ``0``
+:ref:`DampMode<enum_RigidBody3D_DampMode>` **linear_damp_mode** = ``0`` :ref:`🔗<class_RigidBody3D_property_linear_damp_mode>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_linear_damp_mode** **(** :ref:`DampMode<enum_RigidBody3D_DampMode>` value **)**
-- :ref:`DampMode<enum_RigidBody3D_DampMode>` **get_linear_damp_mode** **(** **)**
+- |void| **set_linear_damp_mode**\ (\ value\: :ref:`DampMode<enum_RigidBody3D_DampMode>`\ )
+- :ref:`DampMode<enum_RigidBody3D_DampMode>` **get_linear_damp_mode**\ (\ )
 
-Defines how :ref:`linear_damp<class_RigidBody3D_property_linear_damp>` is applied. See :ref:`DampMode<enum_RigidBody3D_DampMode>` for possible values.
+Defines how :ref:`linear_damp<class_RigidBody3D_property_linear_damp>` is applied.
 
 .. rst-class:: classref-item-separator
 
@@ -658,14 +664,14 @@ Defines how :ref:`linear_damp<class_RigidBody3D_property_linear_damp>` is applie
 
 .. rst-class:: classref-property
 
-:ref:`Vector3<class_Vector3>` **linear_velocity** = ``Vector3(0, 0, 0)``
+:ref:`Vector3<class_Vector3>` **linear_velocity** = ``Vector3(0, 0, 0)`` :ref:`🔗<class_RigidBody3D_property_linear_velocity>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_linear_velocity** **(** :ref:`Vector3<class_Vector3>` value **)**
-- :ref:`Vector3<class_Vector3>` **get_linear_velocity** **(** **)**
+- |void| **set_linear_velocity**\ (\ value\: :ref:`Vector3<class_Vector3>`\ )
+- :ref:`Vector3<class_Vector3>` **get_linear_velocity**\ (\ )
 
-The body's linear velocity in units per second. Can be used sporadically, but **don't set this every frame**, because physics may run in another thread and runs at a different granularity. Use :ref:`_integrate_forces<class_RigidBody3D_method__integrate_forces>` as your process loop for precise control of the body state.
+The body's linear velocity in units per second. Can be used sporadically, but **don't set this every frame**, because physics may run in another thread and runs at a different granularity. Use :ref:`_integrate_forces()<class_RigidBody3D_private_method__integrate_forces>` as your process loop for precise control of the body state.
 
 .. rst-class:: classref-item-separator
 
@@ -675,12 +681,12 @@ The body's linear velocity in units per second. Can be used sporadically, but **
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **lock_rotation** = ``false``
+:ref:`bool<class_bool>` **lock_rotation** = ``false`` :ref:`🔗<class_RigidBody3D_property_lock_rotation>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_lock_rotation_enabled** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **is_lock_rotation_enabled** **(** **)**
+- |void| **set_lock_rotation_enabled**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **is_lock_rotation_enabled**\ (\ )
 
 If ``true``, the body cannot rotate. Gravity and forces only apply linear movement.
 
@@ -692,12 +698,12 @@ If ``true``, the body cannot rotate. Gravity and forces only apply linear moveme
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **mass** = ``1.0``
+:ref:`float<class_float>` **mass** = ``1.0`` :ref:`🔗<class_RigidBody3D_property_mass>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_mass** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_mass** **(** **)**
+- |void| **set_mass**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_mass**\ (\ )
 
 The body's mass.
 
@@ -709,14 +715,14 @@ The body's mass.
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **max_contacts_reported** = ``0``
+:ref:`int<class_int>` **max_contacts_reported** = ``0`` :ref:`🔗<class_RigidBody3D_property_max_contacts_reported>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_max_contacts_reported** **(** :ref:`int<class_int>` value **)**
-- :ref:`int<class_int>` **get_max_contacts_reported** **(** **)**
+- |void| **set_max_contacts_reported**\ (\ value\: :ref:`int<class_int>`\ )
+- :ref:`int<class_int>` **get_max_contacts_reported**\ (\ )
 
-The maximum number of contacts that will be recorded. Requires a value greater than 0 and :ref:`contact_monitor<class_RigidBody3D_property_contact_monitor>` to be set to ``true`` to start to register contacts. Use :ref:`get_contact_count<class_RigidBody3D_method_get_contact_count>` to retrieve the count or :ref:`get_colliding_bodies<class_RigidBody3D_method_get_colliding_bodies>` to retrieve bodies that have been collided with.
+The maximum number of contacts that will be recorded. Requires a value greater than 0 and :ref:`contact_monitor<class_RigidBody3D_property_contact_monitor>` to be set to ``true`` to start to register contacts. Use :ref:`get_contact_count()<class_RigidBody3D_method_get_contact_count>` to retrieve the count or :ref:`get_colliding_bodies()<class_RigidBody3D_method_get_colliding_bodies>` to retrieve bodies that have been collided with.
 
 \ **Note:** The number of contacts is different from the number of collisions. Collisions between parallel edges will result in two contacts (one at each end), and collisions between parallel faces will result in four contacts (one at each corner).
 
@@ -728,12 +734,12 @@ The maximum number of contacts that will be recorded. Requires a value greater t
 
 .. rst-class:: classref-property
 
-:ref:`PhysicsMaterial<class_PhysicsMaterial>` **physics_material_override**
+:ref:`PhysicsMaterial<class_PhysicsMaterial>` **physics_material_override** :ref:`🔗<class_RigidBody3D_property_physics_material_override>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_physics_material_override** **(** :ref:`PhysicsMaterial<class_PhysicsMaterial>` value **)**
-- :ref:`PhysicsMaterial<class_PhysicsMaterial>` **get_physics_material_override** **(** **)**
+- |void| **set_physics_material_override**\ (\ value\: :ref:`PhysicsMaterial<class_PhysicsMaterial>`\ )
+- :ref:`PhysicsMaterial<class_PhysicsMaterial>` **get_physics_material_override**\ (\ )
 
 The physics material override for the body.
 
@@ -747,14 +753,14 @@ If a material is assigned to this property, it will be used instead of any other
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **sleeping** = ``false``
+:ref:`bool<class_bool>` **sleeping** = ``false`` :ref:`🔗<class_RigidBody3D_property_sleeping>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_sleeping** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **is_sleeping** **(** **)**
+- |void| **set_sleeping**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **is_sleeping**\ (\ )
 
-If ``true``, the body will not move and will not calculate forces until woken up by another body through, for example, a collision, or by using the :ref:`apply_impulse<class_RigidBody3D_method_apply_impulse>` or :ref:`apply_force<class_RigidBody3D_method_apply_force>` methods.
+If ``true``, the body will not move and will not calculate forces until woken up by another body through, for example, a collision, or by using the :ref:`apply_impulse()<class_RigidBody3D_method_apply_impulse>` or :ref:`apply_force()<class_RigidBody3D_method_apply_force>` methods.
 
 .. rst-class:: classref-section-separator
 
@@ -765,13 +771,13 @@ If ``true``, the body will not move and will not calculate forces until woken up
 Method Descriptions
 -------------------
 
-.. _class_RigidBody3D_method__integrate_forces:
+.. _class_RigidBody3D_private_method__integrate_forces:
 
 .. rst-class:: classref-method
 
-void **_integrate_forces** **(** :ref:`PhysicsDirectBodyState3D<class_PhysicsDirectBodyState3D>` state **)** |virtual|
+|void| **_integrate_forces**\ (\ state\: :ref:`PhysicsDirectBodyState3D<class_PhysicsDirectBodyState3D>`\ ) |virtual| :ref:`🔗<class_RigidBody3D_private_method__integrate_forces>`
 
-Called during physics processing, allowing you to read and safely modify the simulation state for the object. By default, it works in addition to the usual physics behavior, but the :ref:`custom_integrator<class_RigidBody3D_property_custom_integrator>` property allows you to disable the default behavior and do fully custom force integration for a body.
+Called during physics processing, allowing you to read and safely modify the simulation state for the object. By default, it is called before the standard force integration, but the :ref:`custom_integrator<class_RigidBody3D_property_custom_integrator>` property allows you to disable the standard force integration and do fully custom force integration for a body.
 
 .. rst-class:: classref-item-separator
 
@@ -781,11 +787,11 @@ Called during physics processing, allowing you to read and safely modify the sim
 
 .. rst-class:: classref-method
 
-void **add_constant_central_force** **(** :ref:`Vector3<class_Vector3>` force **)**
+|void| **add_constant_central_force**\ (\ force\: :ref:`Vector3<class_Vector3>`\ ) :ref:`🔗<class_RigidBody3D_method_add_constant_central_force>`
 
 Adds a constant directional force without affecting rotation that keeps being applied over time until cleared with ``constant_force = Vector3(0, 0, 0)``.
 
-This is equivalent to using :ref:`add_constant_force<class_RigidBody3D_method_add_constant_force>` at the body's center of mass.
+This is equivalent to using :ref:`add_constant_force()<class_RigidBody3D_method_add_constant_force>` at the body's center of mass.
 
 .. rst-class:: classref-item-separator
 
@@ -795,7 +801,7 @@ This is equivalent to using :ref:`add_constant_force<class_RigidBody3D_method_ad
 
 .. rst-class:: classref-method
 
-void **add_constant_force** **(** :ref:`Vector3<class_Vector3>` force, :ref:`Vector3<class_Vector3>` position=Vector3(0, 0, 0) **)**
+|void| **add_constant_force**\ (\ force\: :ref:`Vector3<class_Vector3>`, position\: :ref:`Vector3<class_Vector3>` = Vector3(0, 0, 0)\ ) :ref:`🔗<class_RigidBody3D_method_add_constant_force>`
 
 Adds a constant positioned force to the body that keeps being applied over time until cleared with ``constant_force = Vector3(0, 0, 0)``.
 
@@ -809,7 +815,7 @@ Adds a constant positioned force to the body that keeps being applied over time 
 
 .. rst-class:: classref-method
 
-void **add_constant_torque** **(** :ref:`Vector3<class_Vector3>` torque **)**
+|void| **add_constant_torque**\ (\ torque\: :ref:`Vector3<class_Vector3>`\ ) :ref:`🔗<class_RigidBody3D_method_add_constant_torque>`
 
 Adds a constant rotational force without affecting position that keeps being applied over time until cleared with ``constant_torque = Vector3(0, 0, 0)``.
 
@@ -821,11 +827,11 @@ Adds a constant rotational force without affecting position that keeps being app
 
 .. rst-class:: classref-method
 
-void **apply_central_force** **(** :ref:`Vector3<class_Vector3>` force **)**
+|void| **apply_central_force**\ (\ force\: :ref:`Vector3<class_Vector3>`\ ) :ref:`🔗<class_RigidBody3D_method_apply_central_force>`
 
 Applies a directional force without affecting rotation. A force is time dependent and meant to be applied every physics update.
 
-This is equivalent to using :ref:`apply_force<class_RigidBody3D_method_apply_force>` at the body's center of mass.
+This is equivalent to using :ref:`apply_force()<class_RigidBody3D_method_apply_force>` at the body's center of mass.
 
 .. rst-class:: classref-item-separator
 
@@ -835,13 +841,13 @@ This is equivalent to using :ref:`apply_force<class_RigidBody3D_method_apply_for
 
 .. rst-class:: classref-method
 
-void **apply_central_impulse** **(** :ref:`Vector3<class_Vector3>` impulse **)**
+|void| **apply_central_impulse**\ (\ impulse\: :ref:`Vector3<class_Vector3>`\ ) :ref:`🔗<class_RigidBody3D_method_apply_central_impulse>`
 
 Applies a directional impulse without affecting rotation.
 
 An impulse is time-independent! Applying an impulse every frame would result in a framerate-dependent force. For this reason, it should only be used when simulating one-time impacts (use the "_force" functions otherwise).
 
-This is equivalent to using :ref:`apply_impulse<class_RigidBody3D_method_apply_impulse>` at the body's center of mass.
+This is equivalent to using :ref:`apply_impulse()<class_RigidBody3D_method_apply_impulse>` at the body's center of mass.
 
 .. rst-class:: classref-item-separator
 
@@ -851,7 +857,7 @@ This is equivalent to using :ref:`apply_impulse<class_RigidBody3D_method_apply_i
 
 .. rst-class:: classref-method
 
-void **apply_force** **(** :ref:`Vector3<class_Vector3>` force, :ref:`Vector3<class_Vector3>` position=Vector3(0, 0, 0) **)**
+|void| **apply_force**\ (\ force\: :ref:`Vector3<class_Vector3>`, position\: :ref:`Vector3<class_Vector3>` = Vector3(0, 0, 0)\ ) :ref:`🔗<class_RigidBody3D_method_apply_force>`
 
 Applies a positioned force to the body. A force is time dependent and meant to be applied every physics update.
 
@@ -865,7 +871,7 @@ Applies a positioned force to the body. A force is time dependent and meant to b
 
 .. rst-class:: classref-method
 
-void **apply_impulse** **(** :ref:`Vector3<class_Vector3>` impulse, :ref:`Vector3<class_Vector3>` position=Vector3(0, 0, 0) **)**
+|void| **apply_impulse**\ (\ impulse\: :ref:`Vector3<class_Vector3>`, position\: :ref:`Vector3<class_Vector3>` = Vector3(0, 0, 0)\ ) :ref:`🔗<class_RigidBody3D_method_apply_impulse>`
 
 Applies a positioned impulse to the body.
 
@@ -881,7 +887,7 @@ An impulse is time-independent! Applying an impulse every frame would result in 
 
 .. rst-class:: classref-method
 
-void **apply_torque** **(** :ref:`Vector3<class_Vector3>` torque **)**
+|void| **apply_torque**\ (\ torque\: :ref:`Vector3<class_Vector3>`\ ) :ref:`🔗<class_RigidBody3D_method_apply_torque>`
 
 Applies a rotational force without affecting position. A force is time dependent and meant to be applied every physics update.
 
@@ -895,7 +901,7 @@ Applies a rotational force without affecting position. A force is time dependent
 
 .. rst-class:: classref-method
 
-void **apply_torque_impulse** **(** :ref:`Vector3<class_Vector3>` impulse **)**
+|void| **apply_torque_impulse**\ (\ impulse\: :ref:`Vector3<class_Vector3>`\ ) :ref:`🔗<class_RigidBody3D_method_apply_torque_impulse>`
 
 Applies a rotational impulse to the body without affecting the position.
 
@@ -911,7 +917,7 @@ An impulse is time-independent! Applying an impulse every frame would result in 
 
 .. rst-class:: classref-method
 
-:ref:`Node3D[]<class_Node3D>` **get_colliding_bodies** **(** **)** |const|
+:ref:`Array<class_Array>`\[:ref:`Node3D<class_Node3D>`\] **get_colliding_bodies**\ (\ ) |const| :ref:`🔗<class_RigidBody3D_method_get_colliding_bodies>`
 
 Returns a list of the bodies colliding with this one. Requires :ref:`contact_monitor<class_RigidBody3D_property_contact_monitor>` to be set to ``true`` and :ref:`max_contacts_reported<class_RigidBody3D_property_max_contacts_reported>` to be set high enough to detect all the collisions.
 
@@ -925,11 +931,11 @@ Returns a list of the bodies colliding with this one. Requires :ref:`contact_mon
 
 .. rst-class:: classref-method
 
-:ref:`int<class_int>` **get_contact_count** **(** **)** |const|
+:ref:`int<class_int>` **get_contact_count**\ (\ ) |const| :ref:`🔗<class_RigidBody3D_method_get_contact_count>`
 
 Returns the number of contacts this body has with other bodies. By default, this returns 0 unless bodies are configured to monitor contacts (see :ref:`contact_monitor<class_RigidBody3D_property_contact_monitor>`).
 
-\ **Note:** To retrieve the colliding bodies, use :ref:`get_colliding_bodies<class_RigidBody3D_method_get_colliding_bodies>`.
+\ **Note:** To retrieve the colliding bodies, use :ref:`get_colliding_bodies()<class_RigidBody3D_method_get_colliding_bodies>`.
 
 .. rst-class:: classref-item-separator
 
@@ -939,7 +945,7 @@ Returns the number of contacts this body has with other bodies. By default, this
 
 .. rst-class:: classref-method
 
-:ref:`Basis<class_Basis>` **get_inverse_inertia_tensor** **(** **)** |const|
+:ref:`Basis<class_Basis>` **get_inverse_inertia_tensor**\ (\ ) |const| :ref:`🔗<class_RigidBody3D_method_get_inverse_inertia_tensor>`
 
 Returns the inverse inertia tensor basis. This is used to calculate the angular acceleration resulting from a torque applied to the **RigidBody3D**.
 
@@ -951,13 +957,16 @@ Returns the inverse inertia tensor basis. This is used to calculate the angular 
 
 .. rst-class:: classref-method
 
-void **set_axis_velocity** **(** :ref:`Vector3<class_Vector3>` axis_velocity **)**
+|void| **set_axis_velocity**\ (\ axis_velocity\: :ref:`Vector3<class_Vector3>`\ ) :ref:`🔗<class_RigidBody3D_method_set_axis_velocity>`
 
 Sets an axis velocity. The velocity in the given vector axis will be set as the given vector length. This is useful for jumping behavior.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`
