@@ -10,116 +10,68 @@
 bool
 ====
 
-Boolean built-in type.
+A built-in boolean type.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-Boolean is a built-in type. There are two boolean values: ``true`` and ``false``. You can think of it as a switch with on or off (1 or 0) setting. Booleans are used in programming for logic in condition statements, like ``if`` statements.
+The **bool** is a built-in :ref:`Variant<class_Variant>` type that may only store one of two values: ``true`` or ``false``. You can imagine it as a switch that can be either turned on or off, or as a binary digit that can either be 1 or 0.
 
-Booleans can be directly used in ``if`` statements. The code below demonstrates this on the ``if can_shoot:`` line. You don't need to use ``== true``, you only need ``if can_shoot:``. Similarly, use ``if not can_shoot:`` rather than ``== false``.
-
-
-.. tabs::
-
- .. code-tab:: gdscript
-
-    var _can_shoot = true
-    
-    func shoot():
-        if _can_shoot:
-            pass # Perform shooting actions here.
-
- .. code-tab:: csharp
-
-    private bool _canShoot = true;
-    
-    public void Shoot()
-    {
-        if (_canShoot)
-        {
-            // Perform shooting actions here.
-        }
-    }
-
-
-
-The following code will only create a bullet if both conditions are met: action "shoot" is pressed and if ``can_shoot`` is ``true``.
-
-\ **Note:** ``Input.is_action_pressed("shoot")`` is also a boolean that is ``true`` when "shoot" is pressed and ``false`` when "shoot" isn't pressed.
+Booleans can be directly used in ``if``, and other conditional statements:
 
 
 .. tabs::
 
  .. code-tab:: gdscript
 
-    var _can_shoot = true
-    
-    func shoot():
-        if _can_shoot and Input.is_action_pressed("shoot"):
-            create_bullet()
+    var can_shoot = true
+    if can_shoot:
+        launch_bullet()
 
  .. code-tab:: csharp
 
-    private bool _canShoot = true;
-    
-    public void Shoot()
+    bool canShoot = true;
+    if (canShoot)
     {
-        if (_canShoot && Input.IsActionPressed("shoot"))
-        {
-            CreateBullet();
-        }
+        LaunchBullet();
     }
 
 
 
-The following code will set ``can_shoot`` to ``false`` and start a timer. This will prevent player from shooting until the timer runs out. Next ``can_shoot`` will be set to ``true`` again allowing player to shoot once again.
+All comparison operators return booleans (``==``, ``>``, ``<=``, etc.). As such, it is not necessary to compare booleans themselves. You do not need to add ``== true`` or ``== false``.
+
+Booleans can be combined with the logical operators ``and``, ``or``, ``not`` to create complex conditions:
 
 
 .. tabs::
 
  .. code-tab:: gdscript
 
-    var _can_shoot = true
-    @onready var _cool_down = $CoolDownTimer
-    
-    func shoot():
-        if _can_shoot and Input.is_action_pressed("shoot"):
-            create_bullet()
-            _can_shoot = false
-            _cool_down.start()
-    
-    func _on_cool_down_timer_timeout():
-        _can_shoot = true
+    if bullets > 0 and not is_reloading():
+        launch_bullet()
+
+    if bullets == 0 or is_reloading():
+        play_clack_sound()
 
  .. code-tab:: csharp
 
-    private bool _canShoot = true;
-    private Timer _coolDown;
-    
-    public override void _Ready()
+    if (bullets > 0 && !IsReloading())
     {
-        _coolDown = GetNode<Timer>("CoolDownTimer");
+        LaunchBullet();
     }
-    
-    public void Shoot()
+
+    if (bullets == 0 || IsReloading())
     {
-        if (_canShoot && Input.IsActionPressed("shoot"))
-        {
-            CreateBullet();
-            _canShoot = false;
-            _coolDown.Start();
-        }
-    }
-    
-    public void OnCoolDownTimerTimeout()
-    {
-        _canShoot = true;
+        PlayClackSound();
     }
 
 
+
+\ **Note:** In modern programming languages, logical operators are evaluated in order. All remaining conditions are skipped if their result would have no effect on the final value. This concept is known as `short-circuit evaluation <https://en.wikipedia.org/wiki/Short-circuit_evaluation>`__ and can be useful to avoid evaluating expensive conditions in some performance-critical cases.
+
+\ **Note:** By convention, built-in methods and properties that return booleans are usually defined as yes-no questions, single adjectives, or similar (:ref:`String.is_empty()<class_String_method_is_empty>`, :ref:`Node.can_process()<class_Node_method_can_process>`, :ref:`Camera2D.enabled<class_Camera2D_property_enabled>`, etc.).
 
 .. rst-class:: classref-reftable-group
 
@@ -129,15 +81,15 @@ Constructors
 .. table::
    :widths: auto
 
-   +-------------------------+-------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>` | :ref:`bool<class_bool_constructor_bool>` **(** **)**                                |
-   +-------------------------+-------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>` | :ref:`bool<class_bool_constructor_bool>` **(** :ref:`bool<class_bool>` from **)**   |
-   +-------------------------+-------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>` | :ref:`bool<class_bool_constructor_bool>` **(** :ref:`float<class_float>` from **)** |
-   +-------------------------+-------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>` | :ref:`bool<class_bool_constructor_bool>` **(** :ref:`int<class_int>` from **)**     |
-   +-------------------------+-------------------------------------------------------------------------------------+
+   +-------------------------+----------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>` | :ref:`bool<class_bool_constructor_bool>`\ (\ )                                   |
+   +-------------------------+----------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>` | :ref:`bool<class_bool_constructor_bool>`\ (\ from\: :ref:`bool<class_bool>`\ )   |
+   +-------------------------+----------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>` | :ref:`bool<class_bool_constructor_bool>`\ (\ from\: :ref:`float<class_float>`\ ) |
+   +-------------------------+----------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>` | :ref:`bool<class_bool_constructor_bool>`\ (\ from\: :ref:`int<class_int>`\ )     |
+   +-------------------------+----------------------------------------------------------------------------------+
 
 .. rst-class:: classref-reftable-group
 
@@ -147,15 +99,19 @@ Operators
 .. table::
    :widths: auto
 
-   +-------------------------+--------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>` | :ref:`operator !=<class_bool_operator_neq_bool>` **(** :ref:`bool<class_bool>` right **)** |
-   +-------------------------+--------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>` | :ref:`operator \<<class_bool_operator_lt_bool>` **(** :ref:`bool<class_bool>` right **)**  |
-   +-------------------------+--------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>` | :ref:`operator ==<class_bool_operator_eq_bool>` **(** :ref:`bool<class_bool>` right **)**  |
-   +-------------------------+--------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>` | :ref:`operator ><class_bool_operator_gt_bool>` **(** :ref:`bool<class_bool>` right **)**   |
-   +-------------------------+--------------------------------------------------------------------------------------------+
+   +-------------------------+------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>` | :ref:`operator !=<class_bool_operator_neq_bool>`\ (\ right\: :ref:`bool<class_bool>`\ )  |
+   +-------------------------+------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>` | :ref:`operator \<<class_bool_operator_lt_bool>`\ (\ right\: :ref:`bool<class_bool>`\ )   |
+   +-------------------------+------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>` | :ref:`operator \<=<class_bool_operator_lte_bool>`\ (\ right\: :ref:`bool<class_bool>`\ ) |
+   +-------------------------+------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>` | :ref:`operator ==<class_bool_operator_eq_bool>`\ (\ right\: :ref:`bool<class_bool>`\ )   |
+   +-------------------------+------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>` | :ref:`operator ><class_bool_operator_gt_bool>`\ (\ right\: :ref:`bool<class_bool>`\ )    |
+   +-------------------------+------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>` | :ref:`operator >=<class_bool_operator_gte_bool>`\ (\ right\: :ref:`bool<class_bool>`\ )  |
+   +-------------------------+------------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -170,9 +126,9 @@ Constructor Descriptions
 
 .. rst-class:: classref-constructor
 
-:ref:`bool<class_bool>` **bool** **(** **)**
+:ref:`bool<class_bool>` **bool**\ (\ ) :ref:`🔗<class_bool_constructor_bool>`
 
-Constructs a default-initialized **bool** set to ``false``.
+Constructs a **bool** set to ``false``.
 
 .. rst-class:: classref-item-separator
 
@@ -180,7 +136,7 @@ Constructs a default-initialized **bool** set to ``false``.
 
 .. rst-class:: classref-constructor
 
-:ref:`bool<class_bool>` **bool** **(** :ref:`bool<class_bool>` from **)**
+:ref:`bool<class_bool>` **bool**\ (\ from\: :ref:`bool<class_bool>`\ )
 
 Constructs a **bool** as a copy of the given **bool**.
 
@@ -190,9 +146,9 @@ Constructs a **bool** as a copy of the given **bool**.
 
 .. rst-class:: classref-constructor
 
-:ref:`bool<class_bool>` **bool** **(** :ref:`float<class_float>` from **)**
+:ref:`bool<class_bool>` **bool**\ (\ from\: :ref:`float<class_float>`\ )
 
-Cast a :ref:`float<class_float>` value to a boolean value, this method will return ``false`` if ``0.0`` is passed in, and ``true`` for all other floats.
+Casts a :ref:`float<class_float>` value to a **bool**. Returns ``false`` if ``from`` is equal to ``0.0`` (including ``-0.0``), and ``true`` for all other values (including :ref:`@GDScript.INF<class_@GDScript_constant_INF>` and :ref:`@GDScript.NAN<class_@GDScript_constant_NAN>`).
 
 .. rst-class:: classref-item-separator
 
@@ -200,9 +156,9 @@ Cast a :ref:`float<class_float>` value to a boolean value, this method will retu
 
 .. rst-class:: classref-constructor
 
-:ref:`bool<class_bool>` **bool** **(** :ref:`int<class_int>` from **)**
+:ref:`bool<class_bool>` **bool**\ (\ from\: :ref:`int<class_int>`\ )
 
-Cast an :ref:`int<class_int>` value to a boolean value, this method will return ``false`` if ``0`` is passed in, and ``true`` for all other ints.
+Casts an :ref:`int<class_int>` value to a **bool**. Returns ``false`` if ``from`` is equal to ``0``, and ``true`` for all other values.
 
 .. rst-class:: classref-section-separator
 
@@ -217,9 +173,9 @@ Operator Descriptions
 
 .. rst-class:: classref-operator
 
-:ref:`bool<class_bool>` **operator !=** **(** :ref:`bool<class_bool>` right **)**
+:ref:`bool<class_bool>` **operator !=**\ (\ right\: :ref:`bool<class_bool>`\ ) :ref:`🔗<class_bool_operator_neq_bool>`
 
-Returns ``true`` if two bools are different, i.e. one is ``true`` and the other is ``false``.
+Returns ``true`` if one **bool** is ``true`` and the other **bool** is ``false``. Equivalent to logical XOR (NEQ).
 
 .. rst-class:: classref-item-separator
 
@@ -229,9 +185,21 @@ Returns ``true`` if two bools are different, i.e. one is ``true`` and the other 
 
 .. rst-class:: classref-operator
 
-:ref:`bool<class_bool>` **operator <** **(** :ref:`bool<class_bool>` right **)**
+:ref:`bool<class_bool>` **operator <**\ (\ right\: :ref:`bool<class_bool>`\ ) :ref:`🔗<class_bool_operator_lt_bool>`
 
-Returns ``true`` if the left operand is ``false`` and the right operand is ``true``.
+Returns ``true`` if the left **bool** is ``false`` and ``right`` is ``true``.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_bool_operator_lte_bool:
+
+.. rst-class:: classref-operator
+
+:ref:`bool<class_bool>` **operator <=**\ (\ right\: :ref:`bool<class_bool>`\ ) :ref:`🔗<class_bool_operator_lte_bool>`
+
+Returns ``true`` if the left **bool** is ``false``, or if both **bool**\ s are ``true``.
 
 .. rst-class:: classref-item-separator
 
@@ -241,9 +209,9 @@ Returns ``true`` if the left operand is ``false`` and the right operand is ``tru
 
 .. rst-class:: classref-operator
 
-:ref:`bool<class_bool>` **operator ==** **(** :ref:`bool<class_bool>` right **)**
+:ref:`bool<class_bool>` **operator ==**\ (\ right\: :ref:`bool<class_bool>`\ ) :ref:`🔗<class_bool_operator_eq_bool>`
 
-Returns ``true`` if two bools are equal, i.e. both are ``true`` or both are ``false``.
+Returns ``true`` if both **bool**\ s are ``true``, or if both **bool**\ s are ``false``. Equivalent to logical XNOR (EQ).
 
 .. rst-class:: classref-item-separator
 
@@ -253,13 +221,28 @@ Returns ``true`` if two bools are equal, i.e. both are ``true`` or both are ``fa
 
 .. rst-class:: classref-operator
 
-:ref:`bool<class_bool>` **operator >** **(** :ref:`bool<class_bool>` right **)**
+:ref:`bool<class_bool>` **operator >**\ (\ right\: :ref:`bool<class_bool>`\ ) :ref:`🔗<class_bool_operator_gt_bool>`
 
-Returns ``true`` if the left operand is ``true`` and the right operand is ``false``.
+Returns ``true`` if the left **bool** is ``true`` and ``right`` is ``false``.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_bool_operator_gte_bool:
+
+.. rst-class:: classref-operator
+
+:ref:`bool<class_bool>` **operator >=**\ (\ right\: :ref:`bool<class_bool>`\ ) :ref:`🔗<class_bool_operator_gte_bool>`
+
+Returns ``true`` if the left **bool** is ``true``, or if both **bool**\ s are ``false``.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`
