@@ -21,7 +21,7 @@ Description
 
 This helper class can be used to store :ref:`Variant<class_Variant>` values on the filesystem using INI-style formatting. The stored values are identified by a section and a key:
 
-::
+.. code:: text
 
     [section]
     some_key=42
@@ -39,13 +39,13 @@ The following example shows how to create a simple **ConfigFile** and save it on
 
     # Create new ConfigFile object.
     var config = ConfigFile.new()
-    
+
     # Store some values.
     config.set_value("Player1", "player_name", "Steve")
     config.set_value("Player1", "best_score", 10)
     config.set_value("Player2", "player_name", "V3geta")
     config.set_value("Player2", "best_score", 9001)
-    
+
     # Save it to a file (overwrite if already exists).
     config.save("user://scores.cfg")
 
@@ -53,13 +53,13 @@ The following example shows how to create a simple **ConfigFile** and save it on
 
     // Create new ConfigFile object.
     var config = new ConfigFile();
-    
+
     // Store some values.
     config.SetValue("Player1", "player_name", "Steve");
     config.SetValue("Player1", "best_score", 10);
     config.SetValue("Player2", "player_name", "V3geta");
     config.SetValue("Player2", "best_score", 9001);
-    
+
     // Save it to a file (overwrite if already exists).
     config.Save("user://scores.cfg");
 
@@ -74,14 +74,14 @@ This example shows how the above file could be loaded:
 
     var score_data = {}
     var config = ConfigFile.new()
-    
+
     # Load data from a file.
     var err = config.load("user://scores.cfg")
-    
+
     # If the file didn't load, ignore it.
     if err != OK:
         return
-    
+
     # Iterate over all sections.
     for player in config.get_sections():
         # Fetch the data for each section.
@@ -93,16 +93,16 @@ This example shows how the above file could be loaded:
 
     var score_data = new Godot.Collections.Dictionary();
     var config = new ConfigFile();
-    
+
     // Load data from a file.
     Error err = config.Load("user://scores.cfg");
-    
+
     // If the file didn't load, ignore it.
     if (err != Error.Ok)
     {
         return;
     }
-    
+
     // Iterate over all sections.
     foreach (String player in config.GetSections())
     {
@@ -114,11 +114,11 @@ This example shows how the above file could be loaded:
 
 
 
-Any operation that mutates the ConfigFile such as :ref:`set_value<class_ConfigFile_method_set_value>`, :ref:`clear<class_ConfigFile_method_clear>`, or :ref:`erase_section<class_ConfigFile_method_erase_section>`, only changes what is loaded in memory. If you want to write the change to a file, you have to save the changes with :ref:`save<class_ConfigFile_method_save>`, :ref:`save_encrypted<class_ConfigFile_method_save_encrypted>`, or :ref:`save_encrypted_pass<class_ConfigFile_method_save_encrypted_pass>`.
+Any operation that mutates the ConfigFile such as :ref:`set_value()<class_ConfigFile_method_set_value>`, :ref:`clear()<class_ConfigFile_method_clear>`, or :ref:`erase_section()<class_ConfigFile_method_erase_section>`, only changes what is loaded in memory. If you want to write the change to a file, you have to save the changes with :ref:`save()<class_ConfigFile_method_save>`, :ref:`save_encrypted()<class_ConfigFile_method_save_encrypted>`, or :ref:`save_encrypted_pass()<class_ConfigFile_method_save_encrypted_pass>`.
 
 Keep in mind that section and property names can't contain spaces. Anything after a space will be ignored on save and on load.
 
-ConfigFiles can also contain manually written comment lines starting with a semicolon (``;``). Those lines will be ignored when parsing the file. Note that comments will be lost when saving the ConfigFile. This can still be useful for dedicated server configuration files, which are typically never overwritten without explicit user action.
+ConfigFiles can also contain manually written comment lines starting with a semicolon (\ ``;``). Those lines will be ignored when parsing the file. Note that comments will be lost when saving the ConfigFile. This can still be useful for dedicated server configuration files, which are typically never overwritten without explicit user action.
 
 \ **Note:** The file extension given to a ConfigFile does not have any impact on its formatting or behavior. By convention, the ``.cfg`` extension is used here, but any other extension such as ``.ini`` is also valid. Since neither ``.cfg`` nor ``.ini`` are standardized, Godot's ConfigFile formatting may differ from files written by other programs.
 
@@ -130,41 +130,41 @@ Methods
 .. table::
    :widths: auto
 
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                              | :ref:`clear<class_ConfigFile_method_clear>` **(** **)**                                                                                                                                  |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`String<class_String>`                       | :ref:`encode_to_text<class_ConfigFile_method_encode_to_text>` **(** **)** |const|                                                                                                        |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                              | :ref:`erase_section<class_ConfigFile_method_erase_section>` **(** :ref:`String<class_String>` section **)**                                                                              |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                              | :ref:`erase_section_key<class_ConfigFile_method_erase_section_key>` **(** :ref:`String<class_String>` section, :ref:`String<class_String>` key **)**                                     |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`PackedStringArray<class_PackedStringArray>` | :ref:`get_section_keys<class_ConfigFile_method_get_section_keys>` **(** :ref:`String<class_String>` section **)** |const|                                                                |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`PackedStringArray<class_PackedStringArray>` | :ref:`get_sections<class_ConfigFile_method_get_sections>` **(** **)** |const|                                                                                                            |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Variant<class_Variant>`                     | :ref:`get_value<class_ConfigFile_method_get_value>` **(** :ref:`String<class_String>` section, :ref:`String<class_String>` key, :ref:`Variant<class_Variant>` default=null **)** |const| |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`                           | :ref:`has_section<class_ConfigFile_method_has_section>` **(** :ref:`String<class_String>` section **)** |const|                                                                          |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`                           | :ref:`has_section_key<class_ConfigFile_method_has_section_key>` **(** :ref:`String<class_String>` section, :ref:`String<class_String>` key **)** |const|                                 |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Error<enum_@GlobalScope_Error>`             | :ref:`load<class_ConfigFile_method_load>` **(** :ref:`String<class_String>` path **)**                                                                                                   |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Error<enum_@GlobalScope_Error>`             | :ref:`load_encrypted<class_ConfigFile_method_load_encrypted>` **(** :ref:`String<class_String>` path, :ref:`PackedByteArray<class_PackedByteArray>` key **)**                            |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Error<enum_@GlobalScope_Error>`             | :ref:`load_encrypted_pass<class_ConfigFile_method_load_encrypted_pass>` **(** :ref:`String<class_String>` path, :ref:`String<class_String>` password **)**                               |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Error<enum_@GlobalScope_Error>`             | :ref:`parse<class_ConfigFile_method_parse>` **(** :ref:`String<class_String>` data **)**                                                                                                 |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Error<enum_@GlobalScope_Error>`             | :ref:`save<class_ConfigFile_method_save>` **(** :ref:`String<class_String>` path **)**                                                                                                   |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Error<enum_@GlobalScope_Error>`             | :ref:`save_encrypted<class_ConfigFile_method_save_encrypted>` **(** :ref:`String<class_String>` path, :ref:`PackedByteArray<class_PackedByteArray>` key **)**                            |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Error<enum_@GlobalScope_Error>`             | :ref:`save_encrypted_pass<class_ConfigFile_method_save_encrypted_pass>` **(** :ref:`String<class_String>` path, :ref:`String<class_String>` password **)**                               |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | void                                              | :ref:`set_value<class_ConfigFile_method_set_value>` **(** :ref:`String<class_String>` section, :ref:`String<class_String>` key, :ref:`Variant<class_Variant>` value **)**                |
-   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   +---------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                            | :ref:`clear<class_ConfigFile_method_clear>`\ (\ )                                                                                                                                           |
+   +---------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`String<class_String>`                       | :ref:`encode_to_text<class_ConfigFile_method_encode_to_text>`\ (\ ) |const|                                                                                                                 |
+   +---------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                            | :ref:`erase_section<class_ConfigFile_method_erase_section>`\ (\ section\: :ref:`String<class_String>`\ )                                                                                    |
+   +---------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                            | :ref:`erase_section_key<class_ConfigFile_method_erase_section_key>`\ (\ section\: :ref:`String<class_String>`, key\: :ref:`String<class_String>`\ )                                         |
+   +---------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`PackedStringArray<class_PackedStringArray>` | :ref:`get_section_keys<class_ConfigFile_method_get_section_keys>`\ (\ section\: :ref:`String<class_String>`\ ) |const|                                                                      |
+   +---------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`PackedStringArray<class_PackedStringArray>` | :ref:`get_sections<class_ConfigFile_method_get_sections>`\ (\ ) |const|                                                                                                                     |
+   +---------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Variant<class_Variant>`                     | :ref:`get_value<class_ConfigFile_method_get_value>`\ (\ section\: :ref:`String<class_String>`, key\: :ref:`String<class_String>`, default\: :ref:`Variant<class_Variant>` = null\ ) |const| |
+   +---------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                           | :ref:`has_section<class_ConfigFile_method_has_section>`\ (\ section\: :ref:`String<class_String>`\ ) |const|                                                                                |
+   +---------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                           | :ref:`has_section_key<class_ConfigFile_method_has_section_key>`\ (\ section\: :ref:`String<class_String>`, key\: :ref:`String<class_String>`\ ) |const|                                     |
+   +---------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Error<enum_@GlobalScope_Error>`             | :ref:`load<class_ConfigFile_method_load>`\ (\ path\: :ref:`String<class_String>`\ )                                                                                                         |
+   +---------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Error<enum_@GlobalScope_Error>`             | :ref:`load_encrypted<class_ConfigFile_method_load_encrypted>`\ (\ path\: :ref:`String<class_String>`, key\: :ref:`PackedByteArray<class_PackedByteArray>`\ )                                |
+   +---------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Error<enum_@GlobalScope_Error>`             | :ref:`load_encrypted_pass<class_ConfigFile_method_load_encrypted_pass>`\ (\ path\: :ref:`String<class_String>`, password\: :ref:`String<class_String>`\ )                                   |
+   +---------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Error<enum_@GlobalScope_Error>`             | :ref:`parse<class_ConfigFile_method_parse>`\ (\ data\: :ref:`String<class_String>`\ )                                                                                                       |
+   +---------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Error<enum_@GlobalScope_Error>`             | :ref:`save<class_ConfigFile_method_save>`\ (\ path\: :ref:`String<class_String>`\ )                                                                                                         |
+   +---------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Error<enum_@GlobalScope_Error>`             | :ref:`save_encrypted<class_ConfigFile_method_save_encrypted>`\ (\ path\: :ref:`String<class_String>`, key\: :ref:`PackedByteArray<class_PackedByteArray>`\ )                                |
+   +---------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Error<enum_@GlobalScope_Error>`             | :ref:`save_encrypted_pass<class_ConfigFile_method_save_encrypted_pass>`\ (\ path\: :ref:`String<class_String>`, password\: :ref:`String<class_String>`\ )                                   |
+   +---------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                            | :ref:`set_value<class_ConfigFile_method_set_value>`\ (\ section\: :ref:`String<class_String>`, key\: :ref:`String<class_String>`, value\: :ref:`Variant<class_Variant>`\ )                  |
+   +---------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -179,7 +179,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-void **clear** **(** **)**
+|void| **clear**\ (\ ) :ref:`🔗<class_ConfigFile_method_clear>`
 
 Removes the entire contents of the config.
 
@@ -191,7 +191,7 @@ Removes the entire contents of the config.
 
 .. rst-class:: classref-method
 
-:ref:`String<class_String>` **encode_to_text** **(** **)** |const|
+:ref:`String<class_String>` **encode_to_text**\ (\ ) |const| :ref:`🔗<class_ConfigFile_method_encode_to_text>`
 
 Obtain the text version of this config file (the same text that would be written to a file).
 
@@ -203,7 +203,7 @@ Obtain the text version of this config file (the same text that would be written
 
 .. rst-class:: classref-method
 
-void **erase_section** **(** :ref:`String<class_String>` section **)**
+|void| **erase_section**\ (\ section\: :ref:`String<class_String>`\ ) :ref:`🔗<class_ConfigFile_method_erase_section>`
 
 Deletes the specified section along with all the key-value pairs inside. Raises an error if the section does not exist.
 
@@ -215,7 +215,7 @@ Deletes the specified section along with all the key-value pairs inside. Raises 
 
 .. rst-class:: classref-method
 
-void **erase_section_key** **(** :ref:`String<class_String>` section, :ref:`String<class_String>` key **)**
+|void| **erase_section_key**\ (\ section\: :ref:`String<class_String>`, key\: :ref:`String<class_String>`\ ) :ref:`🔗<class_ConfigFile_method_erase_section_key>`
 
 Deletes the specified key in a section. Raises an error if either the section or the key do not exist.
 
@@ -227,7 +227,7 @@ Deletes the specified key in a section. Raises an error if either the section or
 
 .. rst-class:: classref-method
 
-:ref:`PackedStringArray<class_PackedStringArray>` **get_section_keys** **(** :ref:`String<class_String>` section **)** |const|
+:ref:`PackedStringArray<class_PackedStringArray>` **get_section_keys**\ (\ section\: :ref:`String<class_String>`\ ) |const| :ref:`🔗<class_ConfigFile_method_get_section_keys>`
 
 Returns an array of all defined key identifiers in the specified section. Raises an error and returns an empty array if the section does not exist.
 
@@ -239,7 +239,7 @@ Returns an array of all defined key identifiers in the specified section. Raises
 
 .. rst-class:: classref-method
 
-:ref:`PackedStringArray<class_PackedStringArray>` **get_sections** **(** **)** |const|
+:ref:`PackedStringArray<class_PackedStringArray>` **get_sections**\ (\ ) |const| :ref:`🔗<class_ConfigFile_method_get_sections>`
 
 Returns an array of all defined section identifiers.
 
@@ -251,7 +251,7 @@ Returns an array of all defined section identifiers.
 
 .. rst-class:: classref-method
 
-:ref:`Variant<class_Variant>` **get_value** **(** :ref:`String<class_String>` section, :ref:`String<class_String>` key, :ref:`Variant<class_Variant>` default=null **)** |const|
+:ref:`Variant<class_Variant>` **get_value**\ (\ section\: :ref:`String<class_String>`, key\: :ref:`String<class_String>`, default\: :ref:`Variant<class_Variant>` = null\ ) |const| :ref:`🔗<class_ConfigFile_method_get_value>`
 
 Returns the current value for the specified section and key. If either the section or the key do not exist, the method returns the fallback ``default`` value. If ``default`` is not specified or set to ``null``, an error is also raised.
 
@@ -263,7 +263,7 @@ Returns the current value for the specified section and key. If either the secti
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **has_section** **(** :ref:`String<class_String>` section **)** |const|
+:ref:`bool<class_bool>` **has_section**\ (\ section\: :ref:`String<class_String>`\ ) |const| :ref:`🔗<class_ConfigFile_method_has_section>`
 
 Returns ``true`` if the specified section exists.
 
@@ -275,7 +275,7 @@ Returns ``true`` if the specified section exists.
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **has_section_key** **(** :ref:`String<class_String>` section, :ref:`String<class_String>` key **)** |const|
+:ref:`bool<class_bool>` **has_section_key**\ (\ section\: :ref:`String<class_String>`, key\: :ref:`String<class_String>`\ ) |const| :ref:`🔗<class_ConfigFile_method_has_section_key>`
 
 Returns ``true`` if the specified section-key pair exists.
 
@@ -287,11 +287,11 @@ Returns ``true`` if the specified section-key pair exists.
 
 .. rst-class:: classref-method
 
-:ref:`Error<enum_@GlobalScope_Error>` **load** **(** :ref:`String<class_String>` path **)**
+:ref:`Error<enum_@GlobalScope_Error>` **load**\ (\ path\: :ref:`String<class_String>`\ ) :ref:`🔗<class_ConfigFile_method_load>`
 
 Loads the config file specified as a parameter. The file's contents are parsed and loaded in the **ConfigFile** object which the method was called on.
 
-Returns one of the :ref:`Error<enum_@GlobalScope_Error>` code constants (:ref:`@GlobalScope.OK<class_@GlobalScope_constant_OK>` on success).
+Returns :ref:`@GlobalScope.OK<class_@GlobalScope_constant_OK>` on success, or one of the other :ref:`Error<enum_@GlobalScope_Error>` values if the operation failed.
 
 .. rst-class:: classref-item-separator
 
@@ -301,11 +301,11 @@ Returns one of the :ref:`Error<enum_@GlobalScope_Error>` code constants (:ref:`@
 
 .. rst-class:: classref-method
 
-:ref:`Error<enum_@GlobalScope_Error>` **load_encrypted** **(** :ref:`String<class_String>` path, :ref:`PackedByteArray<class_PackedByteArray>` key **)**
+:ref:`Error<enum_@GlobalScope_Error>` **load_encrypted**\ (\ path\: :ref:`String<class_String>`, key\: :ref:`PackedByteArray<class_PackedByteArray>`\ ) :ref:`🔗<class_ConfigFile_method_load_encrypted>`
 
 Loads the encrypted config file specified as a parameter, using the provided ``key`` to decrypt it. The file's contents are parsed and loaded in the **ConfigFile** object which the method was called on.
 
-Returns one of the :ref:`Error<enum_@GlobalScope_Error>` code constants (:ref:`@GlobalScope.OK<class_@GlobalScope_constant_OK>` on success).
+Returns :ref:`@GlobalScope.OK<class_@GlobalScope_constant_OK>` on success, or one of the other :ref:`Error<enum_@GlobalScope_Error>` values if the operation failed.
 
 .. rst-class:: classref-item-separator
 
@@ -315,11 +315,11 @@ Returns one of the :ref:`Error<enum_@GlobalScope_Error>` code constants (:ref:`@
 
 .. rst-class:: classref-method
 
-:ref:`Error<enum_@GlobalScope_Error>` **load_encrypted_pass** **(** :ref:`String<class_String>` path, :ref:`String<class_String>` password **)**
+:ref:`Error<enum_@GlobalScope_Error>` **load_encrypted_pass**\ (\ path\: :ref:`String<class_String>`, password\: :ref:`String<class_String>`\ ) :ref:`🔗<class_ConfigFile_method_load_encrypted_pass>`
 
 Loads the encrypted config file specified as a parameter, using the provided ``password`` to decrypt it. The file's contents are parsed and loaded in the **ConfigFile** object which the method was called on.
 
-Returns one of the :ref:`Error<enum_@GlobalScope_Error>` code constants (:ref:`@GlobalScope.OK<class_@GlobalScope_constant_OK>` on success).
+Returns :ref:`@GlobalScope.OK<class_@GlobalScope_constant_OK>` on success, or one of the other :ref:`Error<enum_@GlobalScope_Error>` values if the operation failed.
 
 .. rst-class:: classref-item-separator
 
@@ -329,11 +329,11 @@ Returns one of the :ref:`Error<enum_@GlobalScope_Error>` code constants (:ref:`@
 
 .. rst-class:: classref-method
 
-:ref:`Error<enum_@GlobalScope_Error>` **parse** **(** :ref:`String<class_String>` data **)**
+:ref:`Error<enum_@GlobalScope_Error>` **parse**\ (\ data\: :ref:`String<class_String>`\ ) :ref:`🔗<class_ConfigFile_method_parse>`
 
 Parses the passed string as the contents of a config file. The string is parsed and loaded in the ConfigFile object which the method was called on.
 
-Returns one of the :ref:`Error<enum_@GlobalScope_Error>` code constants (:ref:`@GlobalScope.OK<class_@GlobalScope_constant_OK>` on success).
+Returns :ref:`@GlobalScope.OK<class_@GlobalScope_constant_OK>` on success, or one of the other :ref:`Error<enum_@GlobalScope_Error>` values if the operation failed.
 
 .. rst-class:: classref-item-separator
 
@@ -343,11 +343,11 @@ Returns one of the :ref:`Error<enum_@GlobalScope_Error>` code constants (:ref:`@
 
 .. rst-class:: classref-method
 
-:ref:`Error<enum_@GlobalScope_Error>` **save** **(** :ref:`String<class_String>` path **)**
+:ref:`Error<enum_@GlobalScope_Error>` **save**\ (\ path\: :ref:`String<class_String>`\ ) :ref:`🔗<class_ConfigFile_method_save>`
 
 Saves the contents of the **ConfigFile** object to the file specified as a parameter. The output file uses an INI-style structure.
 
-Returns one of the :ref:`Error<enum_@GlobalScope_Error>` code constants (:ref:`@GlobalScope.OK<class_@GlobalScope_constant_OK>` on success).
+Returns :ref:`@GlobalScope.OK<class_@GlobalScope_constant_OK>` on success, or one of the other :ref:`Error<enum_@GlobalScope_Error>` values if the operation failed.
 
 .. rst-class:: classref-item-separator
 
@@ -357,11 +357,11 @@ Returns one of the :ref:`Error<enum_@GlobalScope_Error>` code constants (:ref:`@
 
 .. rst-class:: classref-method
 
-:ref:`Error<enum_@GlobalScope_Error>` **save_encrypted** **(** :ref:`String<class_String>` path, :ref:`PackedByteArray<class_PackedByteArray>` key **)**
+:ref:`Error<enum_@GlobalScope_Error>` **save_encrypted**\ (\ path\: :ref:`String<class_String>`, key\: :ref:`PackedByteArray<class_PackedByteArray>`\ ) :ref:`🔗<class_ConfigFile_method_save_encrypted>`
 
 Saves the contents of the **ConfigFile** object to the AES-256 encrypted file specified as a parameter, using the provided ``key`` to encrypt it. The output file uses an INI-style structure.
 
-Returns one of the :ref:`Error<enum_@GlobalScope_Error>` code constants (:ref:`@GlobalScope.OK<class_@GlobalScope_constant_OK>` on success).
+Returns :ref:`@GlobalScope.OK<class_@GlobalScope_constant_OK>` on success, or one of the other :ref:`Error<enum_@GlobalScope_Error>` values if the operation failed.
 
 .. rst-class:: classref-item-separator
 
@@ -371,11 +371,11 @@ Returns one of the :ref:`Error<enum_@GlobalScope_Error>` code constants (:ref:`@
 
 .. rst-class:: classref-method
 
-:ref:`Error<enum_@GlobalScope_Error>` **save_encrypted_pass** **(** :ref:`String<class_String>` path, :ref:`String<class_String>` password **)**
+:ref:`Error<enum_@GlobalScope_Error>` **save_encrypted_pass**\ (\ path\: :ref:`String<class_String>`, password\: :ref:`String<class_String>`\ ) :ref:`🔗<class_ConfigFile_method_save_encrypted_pass>`
 
 Saves the contents of the **ConfigFile** object to the AES-256 encrypted file specified as a parameter, using the provided ``password`` to encrypt it. The output file uses an INI-style structure.
 
-Returns one of the :ref:`Error<enum_@GlobalScope_Error>` code constants (:ref:`@GlobalScope.OK<class_@GlobalScope_constant_OK>` on success).
+Returns :ref:`@GlobalScope.OK<class_@GlobalScope_constant_OK>` on success, or one of the other :ref:`Error<enum_@GlobalScope_Error>` values if the operation failed.
 
 .. rst-class:: classref-item-separator
 
@@ -385,13 +385,16 @@ Returns one of the :ref:`Error<enum_@GlobalScope_Error>` code constants (:ref:`@
 
 .. rst-class:: classref-method
 
-void **set_value** **(** :ref:`String<class_String>` section, :ref:`String<class_String>` key, :ref:`Variant<class_Variant>` value **)**
+|void| **set_value**\ (\ section\: :ref:`String<class_String>`, key\: :ref:`String<class_String>`, value\: :ref:`Variant<class_Variant>`\ ) :ref:`🔗<class_ConfigFile_method_set_value>`
 
 Assigns a value to the specified key of the specified section. If either the section or the key do not exist, they are created. Passing a ``null`` value deletes the specified key if it exists, and deletes the section if it ends up empty once the key has been removed.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`
