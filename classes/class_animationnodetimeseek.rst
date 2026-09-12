@@ -12,14 +12,14 @@ AnimationNodeTimeSeek
 
 **Inherits:** :ref:`AnimationNode<class_AnimationNode>` **<** :ref:`Resource<class_Resource>` **<** :ref:`RefCounted<class_RefCounted>` **<** :ref:`Object<class_Object>`
 
-A time-seeking animation node to be used with :ref:`AnimationTree<class_AnimationTree>`.
+A time-seeking animation node used in :ref:`AnimationTree<class_AnimationTree>`.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-This node can be used to cause a seek command to happen to any sub-children of the animation graph. Use this node type to play an :ref:`Animation<class_Animation>` from the start or a certain playback position inside the :ref:`AnimationNodeBlendTree<class_AnimationNodeBlendTree>`.
+This animation node can be used to cause a seek command to happen to any sub-children of the animation graph. Use to play an :ref:`Animation<class_Animation>` from the start or a certain playback position inside the :ref:`AnimationNodeBlendTree<class_AnimationNodeBlendTree>`.
 
 After setting the time and changing the animation playback, the time seek node automatically goes into sleep mode on the next process frame by setting its ``seek_request`` value to ``-1.0``.
 
@@ -32,7 +32,7 @@ After setting the time and changing the animation playback, the time seek node a
     animation_tree.set("parameters/TimeSeek/seek_request", 0.0)
     # Alternative syntax (same result as above).
     animation_tree["parameters/TimeSeek/seek_request"] = 0.0
-    
+
     # Play child animation from 12 second timestamp.
     animation_tree.set("parameters/TimeSeek/seek_request", 12.0)
     # Alternative syntax (same result as above).
@@ -42,7 +42,7 @@ After setting the time and changing the animation playback, the time seek node a
 
     // Play child animation from the start.
     animationTree.Set("parameters/TimeSeek/seek_request", 0.0);
-    
+
     // Play child animation from 12 second timestamp.
     animationTree.Set("parameters/TimeSeek/seek_request", 12.0);
 
@@ -53,11 +53,48 @@ After setting the time and changing the animation playback, the time seek node a
 Tutorials
 ---------
 
-- :doc:`AnimationTree <../tutorials/animation/animation_tree>`
+- :doc:`Using AnimationTree <../tutorials/animation/animation_tree>`
+
+.. rst-class:: classref-reftable-group
+
+Properties
+----------
+
+.. table::
+   :widths: auto
+
+   +-------------------------+------------------------------------------------------------------------------+----------+
+   | :ref:`bool<class_bool>` | :ref:`explicit_elapse<class_AnimationNodeTimeSeek_property_explicit_elapse>` | ``true`` |
+   +-------------------------+------------------------------------------------------------------------------+----------+
+
+.. rst-class:: classref-section-separator
+
+----
+
+.. rst-class:: classref-descriptions-group
+
+Property Descriptions
+---------------------
+
+.. _class_AnimationNodeTimeSeek_property_explicit_elapse:
+
+.. rst-class:: classref-property
+
+:ref:`bool<class_bool>` **explicit_elapse** = ``true`` :ref:`🔗<class_AnimationNodeTimeSeek_property_explicit_elapse>`
+
+.. rst-class:: classref-property-setget
+
+- |void| **set_explicit_elapse**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **is_explicit_elapse**\ (\ )
+
+If ``true``, some processes are executed to handle keys between seeks, such as calculating root motion and finding the nearest discrete key.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`

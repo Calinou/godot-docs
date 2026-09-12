@@ -12,7 +12,7 @@ AudioEffectAmplify
 
 **Inherits:** :ref:`AudioEffect<class_AudioEffect>` **<** :ref:`Resource<class_Resource>` **<** :ref:`RefCounted<class_RefCounted>` **<** :ref:`Object<class_Object>`
 
-Adds an amplifying audio effect to an audio bus.
+Adds a volume manipulation audio effect to an audio bus.
 
 .. rst-class:: classref-introduction-group
 
@@ -28,6 +28,8 @@ Tutorials
 
 - :doc:`Audio buses <../tutorials/audio/audio_buses>`
 
+- :doc:`Audio effects <../tutorials/audio/audio_effects>`
+
 .. rst-class:: classref-reftable-group
 
 Properties
@@ -36,9 +38,11 @@ Properties
 .. table::
    :widths: auto
 
-   +---------------------------+---------------------------------------------------------------+---------+
-   | :ref:`float<class_float>` | :ref:`volume_db<class_AudioEffectAmplify_property_volume_db>` | ``0.0`` |
-   +---------------------------+---------------------------------------------------------------+---------+
+   +---------------------------+-----------------------------------------------------------------------+---------+
+   | :ref:`float<class_float>` | :ref:`volume_db<class_AudioEffectAmplify_property_volume_db>`         | ``0.0`` |
+   +---------------------------+-----------------------------------------------------------------------+---------+
+   | :ref:`float<class_float>` | :ref:`volume_linear<class_AudioEffectAmplify_property_volume_linear>` |         |
+   +---------------------------+-----------------------------------------------------------------------+---------+
 
 .. rst-class:: classref-section-separator
 
@@ -53,18 +57,40 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **volume_db** = ``0.0``
+:ref:`float<class_float>` **volume_db** = ``0.0`` :ref:`🔗<class_AudioEffectAmplify_property_volume_db>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_volume_db** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_volume_db** **(** **)**
+- |void| **set_volume_db**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_volume_db**\ (\ )
 
-Amount of amplification in decibels. Positive values make the sound louder, negative values make it quieter. Value can range from -80 to 24.
+Amount of amplification in dB. Positive values make the sound louder, negative values make it quieter. Value can range from -80 to 24.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_AudioEffectAmplify_property_volume_linear:
+
+.. rst-class:: classref-property
+
+:ref:`float<class_float>` **volume_linear** :ref:`🔗<class_AudioEffectAmplify_property_volume_linear>`
+
+.. rst-class:: classref-property-setget
+
+- |void| **set_volume_linear**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_volume_linear**\ (\ )
+
+Amount of amplification as a linear value.
+
+\ **Note:** This member modifies :ref:`volume_db<class_AudioEffectAmplify_property_volume_db>` for convenience. The returned value is equivalent to the result of :ref:`@GlobalScope.db_to_linear()<class_@GlobalScope_method_db_to_linear>` on :ref:`volume_db<class_AudioEffectAmplify_property_volume_db>`. Setting this member is equivalent to setting :ref:`volume_db<class_AudioEffectAmplify_property_volume_db>` to the result of :ref:`@GlobalScope.linear_to_db()<class_@GlobalScope_method_linear_to_db>` on a value.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`

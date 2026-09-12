@@ -54,12 +54,12 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **height** = ``1.0``
+:ref:`float<class_float>` **height** = ``1.0`` :ref:`🔗<class_SphereMesh_property_height>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_height** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_height** **(** **)**
+- |void| **set_height**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_height**\ (\ )
 
 Full height of the sphere.
 
@@ -71,12 +71,12 @@ Full height of the sphere.
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **is_hemisphere** = ``false``
+:ref:`bool<class_bool>` **is_hemisphere** = ``false`` :ref:`🔗<class_SphereMesh_property_is_hemisphere>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_is_hemisphere** **(** :ref:`bool<class_bool>` value **)**
-- :ref:`bool<class_bool>` **get_is_hemisphere** **(** **)**
+- |void| **set_is_hemisphere**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **get_is_hemisphere**\ (\ )
 
 If ``true``, a hemisphere is created rather than a full sphere.
 
@@ -90,12 +90,12 @@ If ``true``, a hemisphere is created rather than a full sphere.
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **radial_segments** = ``64``
+:ref:`int<class_int>` **radial_segments** = ``64`` :ref:`🔗<class_SphereMesh_property_radial_segments>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_radial_segments** **(** :ref:`int<class_int>` value **)**
-- :ref:`int<class_int>` **get_radial_segments** **(** **)**
+- |void| **set_radial_segments**\ (\ value\: :ref:`int<class_int>`\ )
+- :ref:`int<class_int>` **get_radial_segments**\ (\ )
 
 Number of radial segments on the sphere.
 
@@ -107,12 +107,12 @@ Number of radial segments on the sphere.
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **radius** = ``0.5``
+:ref:`float<class_float>` **radius** = ``0.5`` :ref:`🔗<class_SphereMesh_property_radius>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_radius** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_radius** **(** **)**
+- |void| **set_radius**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_radius**\ (\ )
 
 Radius of sphere.
 
@@ -124,18 +124,21 @@ Radius of sphere.
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **rings** = ``32``
+:ref:`int<class_int>` **rings** = ``32`` :ref:`🔗<class_SphereMesh_property_rings>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_rings** **(** :ref:`int<class_int>` value **)**
-- :ref:`int<class_int>` **get_rings** **(** **)**
+- |void| **set_rings**\ (\ value\: :ref:`int<class_int>`\ )
+- :ref:`int<class_int>` **get_rings**\ (\ )
 
 Number of segments along the height of the sphere.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`

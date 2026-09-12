@@ -12,14 +12,16 @@ AudioEffectStereoEnhance
 
 **Inherits:** :ref:`AudioEffect<class_AudioEffect>` **<** :ref:`Resource<class_Resource>` **<** :ref:`RefCounted<class_RefCounted>` **<** :ref:`Object<class_Object>`
 
-An audio effect that can be used to adjust the intensity of stereo panning.
+Adds a stereo manipulation audio effect to an audio bus.
+
+Controls gain of the side channels, and widens the stereo image.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-An audio effect that can be used to adjust the intensity of stereo panning.
+Adjusts gain of the left and right channels, and makes mono sounds stereo through phase shifting.
 
 .. rst-class:: classref-introduction-group
 
@@ -27,6 +29,8 @@ Tutorials
 ---------
 
 - :doc:`Audio buses <../tutorials/audio/audio_buses>`
+
+- :doc:`Audio effects <../tutorials/audio/audio_effects>`
 
 .. rst-class:: classref-reftable-group
 
@@ -57,14 +61,14 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **pan_pullout** = ``1.0``
+:ref:`float<class_float>` **pan_pullout** = ``1.0`` :ref:`🔗<class_AudioEffectStereoEnhance_property_pan_pullout>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_pan_pullout** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_pan_pullout** **(** **)**
+- |void| **set_pan_pullout**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_pan_pullout**\ (\ )
 
-Values greater than 1.0 increase intensity of any panning on audio passing through this effect, whereas values less than 1.0 will decrease the panning intensity. A value of 0.0 will downmix audio to mono.
+Gain of the side channels, if they exist. A value of 0 will downmix stereo to mono. Value can range from 0 to 4.
 
 .. rst-class:: classref-item-separator
 
@@ -74,16 +78,14 @@ Values greater than 1.0 increase intensity of any panning on audio passing throu
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **surround** = ``0.0``
+:ref:`float<class_float>` **surround** = ``0.0`` :ref:`🔗<class_AudioEffectStereoEnhance_property_surround>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_surround** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_surround** **(** **)**
+- |void| **set_surround**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_surround**\ (\ )
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+Widens the stereo image through phase shifting in conjunction with :ref:`time_pullout_ms<class_AudioEffectStereoEnhance_property_time_pullout_ms>`. Just pans sound to the left channel if :ref:`time_pullout_ms<class_AudioEffectStereoEnhance_property_time_pullout_ms>` is 0. Value can range from 0 to 1.
 
 .. rst-class:: classref-item-separator
 
@@ -93,20 +95,21 @@ Values greater than 1.0 increase intensity of any panning on audio passing throu
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **time_pullout_ms** = ``0.0``
+:ref:`float<class_float>` **time_pullout_ms** = ``0.0`` :ref:`🔗<class_AudioEffectStereoEnhance_property_time_pullout_ms>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_time_pullout** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_time_pullout** **(** **)**
+- |void| **set_time_pullout**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_time_pullout**\ (\ )
 
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+Widens the stereo image through phase shifting in conjunction with :ref:`surround<class_AudioEffectStereoEnhance_property_surround>`. Just delays the right channel if :ref:`surround<class_AudioEffectStereoEnhance_property_surround>` is 0. Value is in milliseconds, and can range from 0 to 50.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`
