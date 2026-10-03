@@ -14,14 +14,16 @@ PhysicsDirectSpaceState3D
 
 **Inherited By:** :ref:`PhysicsDirectSpaceState3DExtension<class_PhysicsDirectSpaceState3DExtension>`
 
-Direct access object to a space in the :ref:`PhysicsServer3D<class_PhysicsServer3D>`.
+Provides direct access to a physics space in the :ref:`PhysicsServer3D<class_PhysicsServer3D>`.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-Direct access object to a space in the :ref:`PhysicsServer3D<class_PhysicsServer3D>`. It's used mainly to do queries against objects and areas residing in a given space.
+Provides direct access to a physics space in the :ref:`PhysicsServer3D<class_PhysicsServer3D>`. It's used mainly to do queries against objects and areas residing in a given space.
+
+\ **Note:** This class is not meant to be instantiated directly. Use :ref:`World3D.direct_space_state<class_World3D_property_direct_space_state>` to get the world's physics 3D space state.
 
 .. rst-class:: classref-introduction-group
 
@@ -40,19 +42,31 @@ Methods
 .. table::
    :widths: auto
 
-   +-------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`PackedFloat32Array<class_PackedFloat32Array>`   | :ref:`cast_motion<class_PhysicsDirectSpaceState3D_method_cast_motion>` **(** :ref:`PhysicsShapeQueryParameters3D<class_PhysicsShapeQueryParameters3D>` parameters **)**                                               |
-   +-------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`PackedVector3Array[]<class_PackedVector3Array>` | :ref:`collide_shape<class_PhysicsDirectSpaceState3D_method_collide_shape>` **(** :ref:`PhysicsShapeQueryParameters3D<class_PhysicsShapeQueryParameters3D>` parameters, :ref:`int<class_int>` max_results=32 **)**     |
-   +-------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Dictionary<class_Dictionary>`                   | :ref:`get_rest_info<class_PhysicsDirectSpaceState3D_method_get_rest_info>` **(** :ref:`PhysicsShapeQueryParameters3D<class_PhysicsShapeQueryParameters3D>` parameters **)**                                           |
-   +-------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Dictionary[]<class_Dictionary>`                 | :ref:`intersect_point<class_PhysicsDirectSpaceState3D_method_intersect_point>` **(** :ref:`PhysicsPointQueryParameters3D<class_PhysicsPointQueryParameters3D>` parameters, :ref:`int<class_int>` max_results=32 **)** |
-   +-------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Dictionary<class_Dictionary>`                   | :ref:`intersect_ray<class_PhysicsDirectSpaceState3D_method_intersect_ray>` **(** :ref:`PhysicsRayQueryParameters3D<class_PhysicsRayQueryParameters3D>` parameters **)**                                               |
-   +-------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Dictionary[]<class_Dictionary>`                 | :ref:`intersect_shape<class_PhysicsDirectSpaceState3D_method_intersect_shape>` **(** :ref:`PhysicsShapeQueryParameters3D<class_PhysicsShapeQueryParameters3D>` parameters, :ref:`int<class_int>` max_results=32 **)** |
-   +-------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   +------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`PackedFloat32Array<class_PackedFloat32Array>`              | :ref:`cast_motion<class_PhysicsDirectSpaceState3D_method_cast_motion>`\ (\ parameters\: :ref:`PhysicsShapeQueryParameters3D<class_PhysicsShapeQueryParameters3D>`\ )                                                                                                       |
+   +------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                                          | :ref:`cast_motion_into<class_PhysicsDirectSpaceState3D_method_cast_motion_into>`\ (\ parameters\: :ref:`PhysicsShapeQueryParameters3D<class_PhysicsShapeQueryParameters3D>`, result\: :ref:`PhysicsCastMotionResult3D<class_PhysicsCastMotionResult3D>`\ )                 |
+   +------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Array<class_Array>`\[:ref:`Vector3<class_Vector3>`\]       | :ref:`collide_shape<class_PhysicsDirectSpaceState3D_method_collide_shape>`\ (\ parameters\: :ref:`PhysicsShapeQueryParameters3D<class_PhysicsShapeQueryParameters3D>`, max_results\: :ref:`int<class_int>` = 32\ )                                                         |
+   +------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                                          | :ref:`collide_shape_into<class_PhysicsDirectSpaceState3D_method_collide_shape_into>`\ (\ parameters\: :ref:`PhysicsShapeQueryParameters3D<class_PhysicsShapeQueryParameters3D>`, result\: :ref:`PhysicsCollideShapeResult3D<class_PhysicsCollideShapeResult3D>`\ )         |
+   +------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Dictionary<class_Dictionary>`                              | :ref:`get_rest_info<class_PhysicsDirectSpaceState3D_method_get_rest_info>`\ (\ parameters\: :ref:`PhysicsShapeQueryParameters3D<class_PhysicsShapeQueryParameters3D>`\ )                                                                                                   |
+   +------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                                          | :ref:`get_rest_info_into<class_PhysicsDirectSpaceState3D_method_get_rest_info_into>`\ (\ parameters\: :ref:`PhysicsShapeQueryParameters3D<class_PhysicsShapeQueryParameters3D>`, result\: :ref:`PhysicsGetRestInfoResult3D<class_PhysicsGetRestInfoResult3D>`\ )           |
+   +------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Array<class_Array>`\[:ref:`Dictionary<class_Dictionary>`\] | :ref:`intersect_point<class_PhysicsDirectSpaceState3D_method_intersect_point>`\ (\ parameters\: :ref:`PhysicsPointQueryParameters3D<class_PhysicsPointQueryParameters3D>`, max_results\: :ref:`int<class_int>` = 32\ )                                                     |
+   +------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                                          | :ref:`intersect_point_into<class_PhysicsDirectSpaceState3D_method_intersect_point_into>`\ (\ parameters\: :ref:`PhysicsPointQueryParameters3D<class_PhysicsPointQueryParameters3D>`, result\: :ref:`PhysicsIntersectPointResult3D<class_PhysicsIntersectPointResult3D>`\ ) |
+   +------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Dictionary<class_Dictionary>`                              | :ref:`intersect_ray<class_PhysicsDirectSpaceState3D_method_intersect_ray>`\ (\ parameters\: :ref:`PhysicsRayQueryParameters3D<class_PhysicsRayQueryParameters3D>`\ )                                                                                                       |
+   +------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                                          | :ref:`intersect_ray_into<class_PhysicsDirectSpaceState3D_method_intersect_ray_into>`\ (\ parameters\: :ref:`PhysicsRayQueryParameters3D<class_PhysicsRayQueryParameters3D>`, result\: :ref:`PhysicsIntersectRayResult3D<class_PhysicsIntersectRayResult3D>`\ )             |
+   +------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Array<class_Array>`\[:ref:`Dictionary<class_Dictionary>`\] | :ref:`intersect_shape<class_PhysicsDirectSpaceState3D_method_intersect_shape>`\ (\ parameters\: :ref:`PhysicsShapeQueryParameters3D<class_PhysicsShapeQueryParameters3D>`, max_results\: :ref:`int<class_int>` = 32\ )                                                     |
+   +------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                                          | :ref:`intersect_shape_into<class_PhysicsDirectSpaceState3D_method_intersect_shape_into>`\ (\ parameters\: :ref:`PhysicsShapeQueryParameters3D<class_PhysicsShapeQueryParameters3D>`, result\: :ref:`PhysicsIntersectShapeResult3D<class_PhysicsIntersectShapeResult3D>`\ ) |
+   +------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -67,13 +81,29 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`PackedFloat32Array<class_PackedFloat32Array>` **cast_motion** **(** :ref:`PhysicsShapeQueryParameters3D<class_PhysicsShapeQueryParameters3D>` parameters **)**
+:ref:`PackedFloat32Array<class_PackedFloat32Array>` **cast_motion**\ (\ parameters\: :ref:`PhysicsShapeQueryParameters3D<class_PhysicsShapeQueryParameters3D>`\ ) :ref:`🔗<class_PhysicsDirectSpaceState3D_method_cast_motion>`
 
-Checks how far a :ref:`Shape3D<class_Shape3D>` can move without colliding. All the parameters for the query, including the shape, are supplied through a :ref:`PhysicsShapeQueryParameters3D<class_PhysicsShapeQueryParameters3D>` object.
+Checks how far a :ref:`Shape3D<class_Shape3D>` can move without colliding. All the parameters for the query, including the shape and the motion, are supplied through a :ref:`PhysicsShapeQueryParameters3D<class_PhysicsShapeQueryParameters3D>` object.
 
 Returns an array with the safe and unsafe proportions (between 0 and 1) of the motion. The safe proportion is the maximum fraction of the motion that can be made without a collision. The unsafe proportion is the minimum fraction of the distance that must be moved for a collision. If no collision is detected a result of ``[1.0, 1.0]`` will be returned.
 
-\ **Note:** Any :ref:`Shape3D<class_Shape3D>`\ s that the shape is already colliding with e.g. inside of, will be ignored. Use :ref:`collide_shape<class_PhysicsDirectSpaceState3D_method_collide_shape>` to determine the :ref:`Shape3D<class_Shape3D>`\ s that the shape is already colliding with.
+\ **Note:** Any :ref:`Shape3D<class_Shape3D>`\ s that the shape is already colliding with e.g. inside of, will be ignored. Use :ref:`collide_shape()<class_PhysicsDirectSpaceState3D_method_collide_shape>` to determine the :ref:`Shape3D<class_Shape3D>`\ s that the shape is already colliding with.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_PhysicsDirectSpaceState3D_method_cast_motion_into:
+
+.. rst-class:: classref-method
+
+:ref:`bool<class_bool>` **cast_motion_into**\ (\ parameters\: :ref:`PhysicsShapeQueryParameters3D<class_PhysicsShapeQueryParameters3D>`, result\: :ref:`PhysicsCastMotionResult3D<class_PhysicsCastMotionResult3D>`\ ) :ref:`🔗<class_PhysicsDirectSpaceState3D_method_cast_motion_into>`
+
+Checks how far a :ref:`Shape3D<class_Shape3D>` can move without colliding. All the parameters for the query, including the shape and the motion, are supplied through a :ref:`PhysicsShapeQueryParameters3D<class_PhysicsShapeQueryParameters3D>` object.
+
+If the query is successful, this method returns ``true`` and writes the motion results into the :ref:`PhysicsCastMotionResult3D<class_PhysicsCastMotionResult3D>` object passed in ``result``. If no collision occurs, it returns ``false``.
+
+\ **Note:** Any :ref:`Shape3D<class_Shape3D>`\ s that the shape is already colliding with e.g. inside of, will be ignored. Use :ref:`collide_shape_into()<class_PhysicsDirectSpaceState3D_method_collide_shape_into>` to determine the :ref:`Shape3D<class_Shape3D>`\ s that the shape is already colliding with.
 
 .. rst-class:: classref-item-separator
 
@@ -83,11 +113,29 @@ Returns an array with the safe and unsafe proportions (between 0 and 1) of the m
 
 .. rst-class:: classref-method
 
-:ref:`PackedVector3Array[]<class_PackedVector3Array>` **collide_shape** **(** :ref:`PhysicsShapeQueryParameters3D<class_PhysicsShapeQueryParameters3D>` parameters, :ref:`int<class_int>` max_results=32 **)**
+:ref:`Array<class_Array>`\[:ref:`Vector3<class_Vector3>`\] **collide_shape**\ (\ parameters\: :ref:`PhysicsShapeQueryParameters3D<class_PhysicsShapeQueryParameters3D>`, max_results\: :ref:`int<class_int>` = 32\ ) :ref:`🔗<class_PhysicsDirectSpaceState3D_method_collide_shape>`
 
-Checks the intersections of a shape, given through a :ref:`PhysicsShapeQueryParameters3D<class_PhysicsShapeQueryParameters3D>` object, against the space. The resulting array contains a list of points where the shape intersects another. Like with :ref:`intersect_shape<class_PhysicsDirectSpaceState3D_method_intersect_shape>`, the number of returned results can be limited to save processing time.
+Checks the intersections of a shape, given through a :ref:`PhysicsShapeQueryParameters3D<class_PhysicsShapeQueryParameters3D>` object, against the space. The resulting array contains a list of points where the shape intersects another. Like with :ref:`intersect_shape()<class_PhysicsDirectSpaceState3D_method_intersect_shape>`, the number of returned results can be limited to save processing time.
 
 Returned points are a list of pairs of contact points. For each pair the first one is in the shape passed in :ref:`PhysicsShapeQueryParameters3D<class_PhysicsShapeQueryParameters3D>` object, second one is in the collided shape from the physics space.
+
+\ **Note:** This method does not take into account the ``motion`` property of the object.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_PhysicsDirectSpaceState3D_method_collide_shape_into:
+
+.. rst-class:: classref-method
+
+:ref:`bool<class_bool>` **collide_shape_into**\ (\ parameters\: :ref:`PhysicsShapeQueryParameters3D<class_PhysicsShapeQueryParameters3D>`, result\: :ref:`PhysicsCollideShapeResult3D<class_PhysicsCollideShapeResult3D>`\ ) :ref:`🔗<class_PhysicsDirectSpaceState3D_method_collide_shape_into>`
+
+Checks the intersections of a shape, given through a :ref:`PhysicsShapeQueryParameters3D<class_PhysicsShapeQueryParameters3D>` object, against the space.
+
+If intersections are found, this method returns ``true`` and writes the collision points into the :ref:`PhysicsCollideShapeResult3D<class_PhysicsCollideShapeResult3D>` object passed in ``result``. If no intersections are found, it returns ``false``.
+
+The number of returned results can be limited using :ref:`PhysicsCollideShapeResult3D.max_collisions<class_PhysicsCollideShapeResult3D_property_max_collisions>`, to reduce the processing time.
 
 \ **Note:** This method does not take into account the ``motion`` property of the object.
 
@@ -99,7 +147,7 @@ Returned points are a list of pairs of contact points. For each pair the first o
 
 .. rst-class:: classref-method
 
-:ref:`Dictionary<class_Dictionary>` **get_rest_info** **(** :ref:`PhysicsShapeQueryParameters3D<class_PhysicsShapeQueryParameters3D>` parameters **)**
+:ref:`Dictionary<class_Dictionary>` **get_rest_info**\ (\ parameters\: :ref:`PhysicsShapeQueryParameters3D<class_PhysicsShapeQueryParameters3D>`\ ) :ref:`🔗<class_PhysicsDirectSpaceState3D_method_get_rest_info>`
 
 Checks the intersections of a shape, given through a :ref:`PhysicsShapeQueryParameters3D<class_PhysicsShapeQueryParameters3D>` object, against the space. If it collides with more than one shape, the nearest one is selected. The returned object is a dictionary containing the following fields:
 
@@ -107,7 +155,7 @@ Checks the intersections of a shape, given through a :ref:`PhysicsShapeQueryPara
 
 \ ``linear_velocity``: The colliding object's velocity :ref:`Vector3<class_Vector3>`. If the object is an :ref:`Area3D<class_Area3D>`, the result is ``(0, 0, 0)``.
 
-\ ``normal``: The object's surface normal at the intersection point.
+\ ``normal``: The collision normal of the query shape at the intersection point, pointing away from the intersecting object.
 
 \ ``point``: The intersection point.
 
@@ -123,11 +171,27 @@ If the shape did not intersect anything, then an empty dictionary is returned in
 
 ----
 
+.. _class_PhysicsDirectSpaceState3D_method_get_rest_info_into:
+
+.. rst-class:: classref-method
+
+:ref:`bool<class_bool>` **get_rest_info_into**\ (\ parameters\: :ref:`PhysicsShapeQueryParameters3D<class_PhysicsShapeQueryParameters3D>`, result\: :ref:`PhysicsGetRestInfoResult3D<class_PhysicsGetRestInfoResult3D>`\ ) :ref:`🔗<class_PhysicsDirectSpaceState3D_method_get_rest_info_into>`
+
+Checks the intersections of a shape, given through a :ref:`PhysicsShapeQueryParameters3D<class_PhysicsShapeQueryParameters3D>` object, against the space.
+
+If the shape collides with one or more shapes, this method returns ``true`` and writes the nearest collision information into the :ref:`PhysicsGetRestInfoResult3D<class_PhysicsGetRestInfoResult3D>` object passed in ``result``. If no collisions occur, it returns ``false``.
+
+\ **Note:** This method does not take into account the ``motion`` property of the object.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_PhysicsDirectSpaceState3D_method_intersect_point:
 
 .. rst-class:: classref-method
 
-:ref:`Dictionary[]<class_Dictionary>` **intersect_point** **(** :ref:`PhysicsPointQueryParameters3D<class_PhysicsPointQueryParameters3D>` parameters, :ref:`int<class_int>` max_results=32 **)**
+:ref:`Array<class_Array>`\[:ref:`Dictionary<class_Dictionary>`\] **intersect_point**\ (\ parameters\: :ref:`PhysicsPointQueryParameters3D<class_PhysicsPointQueryParameters3D>`, max_results\: :ref:`int<class_int>` = 32\ ) :ref:`🔗<class_PhysicsDirectSpaceState3D_method_intersect_point>`
 
 Checks whether a point is inside any solid shape. Position and other parameters are defined through :ref:`PhysicsPointQueryParameters3D<class_PhysicsPointQueryParameters3D>`. The shapes the point is inside of are returned in an array containing dictionaries with the following fields:
 
@@ -145,11 +209,27 @@ The number of intersections can be limited with the ``max_results`` parameter, t
 
 ----
 
+.. _class_PhysicsDirectSpaceState3D_method_intersect_point_into:
+
+.. rst-class:: classref-method
+
+:ref:`bool<class_bool>` **intersect_point_into**\ (\ parameters\: :ref:`PhysicsPointQueryParameters3D<class_PhysicsPointQueryParameters3D>`, result\: :ref:`PhysicsIntersectPointResult3D<class_PhysicsIntersectPointResult3D>`\ ) :ref:`🔗<class_PhysicsDirectSpaceState3D_method_intersect_point_into>`
+
+Checks whether a point is inside any solid shape. Position and other parameters are defined through :ref:`PhysicsPointQueryParameters3D<class_PhysicsPointQueryParameters3D>`.
+
+If one or more shapes overlap the point, this method returns ``true`` and writes the intersection data into the :ref:`PhysicsIntersectPointResult3D<class_PhysicsIntersectPointResult3D>` object passed in ``result``. If no intersections are found, it returns ``false``.
+
+The number of intersections can be limited using :ref:`PhysicsIntersectPointResult3D.max_intersections<class_PhysicsIntersectPointResult3D_property_max_intersections>`, to reduce the processing time.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_PhysicsDirectSpaceState3D_method_intersect_ray:
 
 .. rst-class:: classref-method
 
-:ref:`Dictionary<class_Dictionary>` **intersect_ray** **(** :ref:`PhysicsRayQueryParameters3D<class_PhysicsRayQueryParameters3D>` parameters **)**
+:ref:`Dictionary<class_Dictionary>` **intersect_ray**\ (\ parameters\: :ref:`PhysicsRayQueryParameters3D<class_PhysicsRayQueryParameters3D>`\ ) :ref:`🔗<class_PhysicsDirectSpaceState3D_method_intersect_ray>`
 
 Intersects a ray in a given space. Ray position and other parameters are defined through :ref:`PhysicsRayQueryParameters3D<class_PhysicsRayQueryParameters3D>`. The returned object is a dictionary with the following fields:
 
@@ -161,6 +241,10 @@ Intersects a ray in a given space. Ray position and other parameters are defined
 
 \ ``position``: The intersection point.
 
+\ ``face_index``: The face index at the intersection point.
+
+\ **Note:** Returns a valid number only if the intersected shape is a :ref:`ConcavePolygonShape3D<class_ConcavePolygonShape3D>`. Otherwise, ``-1`` is returned.
+
 \ ``rid``: The intersecting object's :ref:`RID<class_RID>`.
 
 \ ``shape``: The shape index of the colliding shape.
@@ -171,11 +255,25 @@ If the ray did not intersect anything, then an empty dictionary is returned inst
 
 ----
 
+.. _class_PhysicsDirectSpaceState3D_method_intersect_ray_into:
+
+.. rst-class:: classref-method
+
+:ref:`bool<class_bool>` **intersect_ray_into**\ (\ parameters\: :ref:`PhysicsRayQueryParameters3D<class_PhysicsRayQueryParameters3D>`, result\: :ref:`PhysicsIntersectRayResult3D<class_PhysicsIntersectRayResult3D>`\ ) :ref:`🔗<class_PhysicsDirectSpaceState3D_method_intersect_ray_into>`
+
+Intersects a ray in a given space. Ray position and other parameters are defined through :ref:`PhysicsRayQueryParameters3D<class_PhysicsRayQueryParameters3D>`.
+
+If the ray hits a shape, this method returns ``true`` and writes the intersection information into the :ref:`PhysicsIntersectRayResult3D<class_PhysicsIntersectRayResult3D>` object passed in ``result``. If nothing is hit, it returns ``false``.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_PhysicsDirectSpaceState3D_method_intersect_shape:
 
 .. rst-class:: classref-method
 
-:ref:`Dictionary[]<class_Dictionary>` **intersect_shape** **(** :ref:`PhysicsShapeQueryParameters3D<class_PhysicsShapeQueryParameters3D>` parameters, :ref:`int<class_int>` max_results=32 **)**
+:ref:`Array<class_Array>`\[:ref:`Dictionary<class_Dictionary>`\] **intersect_shape**\ (\ parameters\: :ref:`PhysicsShapeQueryParameters3D<class_PhysicsShapeQueryParameters3D>`, max_results\: :ref:`int<class_int>` = 32\ ) :ref:`🔗<class_PhysicsDirectSpaceState3D_method_intersect_shape>`
 
 Checks the intersections of a shape, given through a :ref:`PhysicsShapeQueryParameters3D<class_PhysicsShapeQueryParameters3D>` object, against the space. The intersected shapes are returned in an array containing dictionaries with the following fields:
 
@@ -191,9 +289,30 @@ The number of intersections can be limited with the ``max_results`` parameter, t
 
 \ **Note:** This method does not take into account the ``motion`` property of the object.
 
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_PhysicsDirectSpaceState3D_method_intersect_shape_into:
+
+.. rst-class:: classref-method
+
+:ref:`bool<class_bool>` **intersect_shape_into**\ (\ parameters\: :ref:`PhysicsShapeQueryParameters3D<class_PhysicsShapeQueryParameters3D>`, result\: :ref:`PhysicsIntersectShapeResult3D<class_PhysicsIntersectShapeResult3D>`\ ) :ref:`🔗<class_PhysicsDirectSpaceState3D_method_intersect_shape_into>`
+
+Checks the intersections of a shape, given through a :ref:`PhysicsShapeQueryParameters3D<class_PhysicsShapeQueryParameters3D>` object, against the space.
+
+If one or more shapes are found to intersect, this method returns ``true`` and writes the intersection data into the :ref:`PhysicsIntersectShapeResult3D<class_PhysicsIntersectShapeResult3D>` object passed in ``result``. If no shapes are found to intersect, it returns ``false``.
+
+The number of intersections can be limited using :ref:`PhysicsIntersectShapeResult3D.max_intersections<class_PhysicsIntersectShapeResult3D_property_max_intersections>`, to reduce the processing time.
+
+\ **Note:** This method does not take into account the ``motion`` property of the object.
+
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`
