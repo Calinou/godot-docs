@@ -52,14 +52,16 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **height** = ``2.0``
+:ref:`float<class_float>` **height** = ``2.0`` :ref:`🔗<class_CapsuleMesh_property_height>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_height** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_height** **(** **)**
+- |void| **set_height**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_height**\ (\ )
 
 Total height of the capsule mesh (including the hemispherical ends).
+
+\ **Note:** The :ref:`height<class_CapsuleMesh_property_height>` of a capsule must be at least twice its :ref:`radius<class_CapsuleMesh_property_radius>`. Otherwise, the capsule becomes a circle. If the :ref:`height<class_CapsuleMesh_property_height>` is less than twice the :ref:`radius<class_CapsuleMesh_property_radius>`, the properties adjust to a valid value.
 
 .. rst-class:: classref-item-separator
 
@@ -69,12 +71,12 @@ Total height of the capsule mesh (including the hemispherical ends).
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **radial_segments** = ``64``
+:ref:`int<class_int>` **radial_segments** = ``64`` :ref:`🔗<class_CapsuleMesh_property_radial_segments>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_radial_segments** **(** :ref:`int<class_int>` value **)**
-- :ref:`int<class_int>` **get_radial_segments** **(** **)**
+- |void| **set_radial_segments**\ (\ value\: :ref:`int<class_int>`\ )
+- :ref:`int<class_int>` **get_radial_segments**\ (\ )
 
 Number of radial segments on the capsule mesh.
 
@@ -86,14 +88,16 @@ Number of radial segments on the capsule mesh.
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **radius** = ``0.5``
+:ref:`float<class_float>` **radius** = ``0.5`` :ref:`🔗<class_CapsuleMesh_property_radius>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_radius** **(** :ref:`float<class_float>` value **)**
-- :ref:`float<class_float>` **get_radius** **(** **)**
+- |void| **set_radius**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_radius**\ (\ )
 
 Radius of the capsule mesh.
+
+\ **Note:** The :ref:`radius<class_CapsuleMesh_property_radius>` of a capsule cannot be greater than half of its :ref:`height<class_CapsuleMesh_property_height>`. Otherwise, the capsule becomes a circle. If the :ref:`radius<class_CapsuleMesh_property_radius>` is greater than half of the :ref:`height<class_CapsuleMesh_property_height>`, the properties adjust to a valid value.
 
 .. rst-class:: classref-item-separator
 
@@ -103,18 +107,21 @@ Radius of the capsule mesh.
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **rings** = ``8``
+:ref:`int<class_int>` **rings** = ``8`` :ref:`🔗<class_CapsuleMesh_property_rings>`
 
 .. rst-class:: classref-property-setget
 
-- void **set_rings** **(** :ref:`int<class_int>` value **)**
-- :ref:`int<class_int>` **get_rings** **(** **)**
+- |void| **set_rings**\ (\ value\: :ref:`int<class_int>`\ )
+- :ref:`int<class_int>` **get_rings**\ (\ )
 
 Number of rings along the height of the capsule.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`
