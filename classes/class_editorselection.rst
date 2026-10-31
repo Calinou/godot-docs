@@ -21,7 +21,7 @@ Description
 
 This object manages the SceneTree selection in the editor.
 
-\ **Note:** This class shouldn't be instantiated directly. Instead, access the singleton using :ref:`EditorInterface.get_selection<class_EditorInterface_method_get_selection>`.
+\ **Note:** This class shouldn't be instantiated directly. Instead, access the singleton using :ref:`EditorInterface.get_selection()<class_EditorInterface_method_get_selection>`.
 
 .. rst-class:: classref-reftable-group
 
@@ -31,17 +31,19 @@ Methods
 .. table::
    :widths: auto
 
-   +---------------------------+--------------------------------------------------------------------------------------------------------------------+
-   | void                      | :ref:`add_node<class_EditorSelection_method_add_node>` **(** :ref:`Node<class_Node>` node **)**                    |
-   +---------------------------+--------------------------------------------------------------------------------------------------------------------+
-   | void                      | :ref:`clear<class_EditorSelection_method_clear>` **(** **)**                                                       |
-   +---------------------------+--------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Node[]<class_Node>` | :ref:`get_selected_nodes<class_EditorSelection_method_get_selected_nodes>` **(** **)**                             |
-   +---------------------------+--------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Node[]<class_Node>` | :ref:`get_transformable_selected_nodes<class_EditorSelection_method_get_transformable_selected_nodes>` **(** **)** |
-   +---------------------------+--------------------------------------------------------------------------------------------------------------------+
-   | void                      | :ref:`remove_node<class_EditorSelection_method_remove_node>` **(** :ref:`Node<class_Node>` node **)**              |
-   +---------------------------+--------------------------------------------------------------------------------------------------------------------+
+   +------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+
+   | |void|                                               | :ref:`add_node<class_EditorSelection_method_add_node>`\ (\ node\: :ref:`Node<class_Node>`\ )                 |
+   +------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+
+   | |void|                                               | :ref:`clear<class_EditorSelection_method_clear>`\ (\ )                                                       |
+   +------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+
+   | :ref:`Array<class_Array>`\[:ref:`Node<class_Node>`\] | :ref:`get_selected_nodes<class_EditorSelection_method_get_selected_nodes>`\ (\ )                             |
+   +------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+
+   | :ref:`Array<class_Array>`\[:ref:`Node<class_Node>`\] | :ref:`get_top_selected_nodes<class_EditorSelection_method_get_top_selected_nodes>`\ (\ )                     |
+   +------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+
+   | :ref:`Array<class_Array>`\[:ref:`Node<class_Node>`\] | :ref:`get_transformable_selected_nodes<class_EditorSelection_method_get_transformable_selected_nodes>`\ (\ ) |
+   +------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+
+   | |void|                                               | :ref:`remove_node<class_EditorSelection_method_remove_node>`\ (\ node\: :ref:`Node<class_Node>`\ )           |
+   +------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -56,7 +58,7 @@ Signals
 
 .. rst-class:: classref-signal
 
-**selection_changed** **(** **)**
+**selection_changed**\ (\ ) :ref:`🔗<class_EditorSelection_signal_selection_changed>`
 
 Emitted when the selection changes.
 
@@ -73,11 +75,11 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-void **add_node** **(** :ref:`Node<class_Node>` node **)**
+|void| **add_node**\ (\ node\: :ref:`Node<class_Node>`\ ) :ref:`🔗<class_EditorSelection_method_add_node>`
 
 Adds a node to the selection.
 
-\ **Note:** The newly selected node will not be automatically edited in the inspector. If you want to edit a node, use :ref:`EditorInterface.edit_node<class_EditorInterface_method_edit_node>`.
+\ **Note:** The newly selected node will not be automatically edited in the inspector. If you want to edit a node, use :ref:`EditorInterface.edit_node()<class_EditorInterface_method_edit_node>`.
 
 .. rst-class:: classref-item-separator
 
@@ -87,7 +89,7 @@ Adds a node to the selection.
 
 .. rst-class:: classref-method
 
-void **clear** **(** **)**
+|void| **clear**\ (\ ) :ref:`🔗<class_EditorSelection_method_clear>`
 
 Clear the selection.
 
@@ -99,9 +101,23 @@ Clear the selection.
 
 .. rst-class:: classref-method
 
-:ref:`Node[]<class_Node>` **get_selected_nodes** **(** **)**
+:ref:`Array<class_Array>`\[:ref:`Node<class_Node>`\] **get_selected_nodes**\ (\ ) :ref:`🔗<class_EditorSelection_method_get_selected_nodes>`
 
-Gets the list of selected nodes.
+Returns the list of selected nodes.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_EditorSelection_method_get_top_selected_nodes:
+
+.. rst-class:: classref-method
+
+:ref:`Array<class_Array>`\[:ref:`Node<class_Node>`\] **get_top_selected_nodes**\ (\ ) :ref:`🔗<class_EditorSelection_method_get_top_selected_nodes>`
+
+Returns the list of top selected nodes only, excluding any children. This is useful for performing transform operations (moving them, rotating, etc.).
+
+For example, if there is a node A with a child B and a sibling C, then selecting all three will cause this method to return only A and C. Changing the global transform of A will affect the global transform of B, so there is no need to change B separately.
 
 .. rst-class:: classref-item-separator
 
@@ -111,9 +127,11 @@ Gets the list of selected nodes.
 
 .. rst-class:: classref-method
 
-:ref:`Node[]<class_Node>` **get_transformable_selected_nodes** **(** **)**
+:ref:`Array<class_Array>`\[:ref:`Node<class_Node>`\] **get_transformable_selected_nodes**\ (\ ) :ref:`🔗<class_EditorSelection_method_get_transformable_selected_nodes>`
 
-Gets the list of selected nodes, optimized for transform operations (i.e. moving them, rotating, etc). This list avoids situations where a node is selected and also child/grandchild.
+**Deprecated:** Use :ref:`get_top_selected_nodes()<class_EditorSelection_method_get_top_selected_nodes>` instead.
+
+Returns the list of top selected nodes only, excluding any children. This is useful for performing transform operations (moving them, rotating, etc.). See :ref:`get_top_selected_nodes()<class_EditorSelection_method_get_top_selected_nodes>`.
 
 .. rst-class:: classref-item-separator
 
@@ -123,13 +141,16 @@ Gets the list of selected nodes, optimized for transform operations (i.e. moving
 
 .. rst-class:: classref-method
 
-void **remove_node** **(** :ref:`Node<class_Node>` node **)**
+|void| **remove_node**\ (\ node\: :ref:`Node<class_Node>`\ ) :ref:`🔗<class_EditorSelection_method_remove_node>`
 
 Removes a node from the selection.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
 .. |static| replace:: :abbr:`static (This method doesn't need an instance to be called, so it can be called directly using the class name.)`
 .. |operator| replace:: :abbr:`operator (This method describes a valid operator to use with this type as left-hand operand.)`
+.. |bitfield| replace:: :abbr:`BitField (This value is an integer composed as a bitmask of the following flags.)`
+.. |void| replace:: :abbr:`void (No return value.)`
